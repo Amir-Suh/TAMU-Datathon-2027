@@ -1,6 +1,7 @@
 """Build a portable entry and matching forecast, using the kit ZIP validator."""
 import argparse
 import hashlib
+import importlib
 import json
 import os
 from pathlib import Path
@@ -34,7 +35,7 @@ def parse_arms(value):
 
 def build_entry(*, arms=None, blend=None, round_name='main', data=None,
                 out='entry', zip_path='entry_main.zip', runs='runs', csv_path=None,
-                pipeline_config=None):
+                pipeline_config=None, allow_dev=False):
     data = data_root(data, round_name)
     metadata = json.loads((data / 'metadata.json').read_text())
     if metadata['round'] != round_name:
@@ -86,18 +87,24 @@ def build_entry(*, arms=None, blend=None, round_name='main', data=None,
                 arm.save(destination)
                 params = {'method': 'pooled_recent'}
                 fit_mode = 'dev'
+            elif getattr(importlib.import_module(f'tdx.arms.{name}'), 'RUNTIME_FIT', False):
+                # Cheap arm refitted on the released train split at inference time; nothing to ship but a stub.
+                destination.mkdir(parents=True)
+                (destination / 'meta.json').write_text('{"runtime_fit": true}\n')
+                params = {}
+                fit_mode = 'runtime'
             else:
                 folder = runs / name / variant
                 meta = json.loads((folder / 'meta.json').read_text())
-                if meta['mode'] != 'final':
-                    raise ValueError(f'{arm_id}: build selected arms from final-mode exports')
+                if meta['mode'] != 'final' and not (allow_dev and meta['mode'] == 'dev'):
+                    raise ValueError(f'{arm_id}: build selected arms from final-mode exports (or pass allow_dev for validated dev-mode models)')
                 if meta['round'] != round_name or Path(meta['data']).resolve() != data:
                     raise ValueError(f'{arm_id}: saved export uses another round/data root')
                 if meta.get('metadata_sha256') != hashlib.sha256((data / 'metadata.json').read_bytes()).hexdigest():
                     raise ValueError(f'{arm_id}: metadata fingerprint differs')
                 shutil.copytree(folder / 'model', destination)
                 params = meta['params']
-                fit_mode = 'final'
+                fit_mode = meta['mode']
             arm = load_arm(name, destination)
             records.append(dict(id=arm_id, arm=name, variant=variant, params=params,
                                 module=type(arm).__module__, **{'class': type(arm).__name__},
@@ -159,9 +166,10 @@ def main(argv=None):
     p.add_argument('--zip', default='entry_main.zip')
     p.add_argument('--csv')
     p.add_argument('--runs', default='runs')
+    p.add_argument('--allow-dev', action='store_true', help='accept dev-mode (validated, no validation targets) exports')
     a = p.parse_args(argv)
     build_entry(arms=a.arms, blend=a.blend, round_name=a.round, data=a.data, out=a.out,
-                zip_path=a.zip, runs=a.runs, csv_path=a.csv)
+                zip_path=a.zip, runs=a.runs, csv_path=a.csv, allow_dev=a.allow_dev)
 
 
 if __name__ == '__main__':

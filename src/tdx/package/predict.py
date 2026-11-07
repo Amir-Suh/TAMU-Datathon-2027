@@ -52,6 +52,10 @@ def run(root, data, out):
             record = records[arm_id]
             cls = getattr(importlib.import_module(record['module']), record['class'])
             arm = cls.load(root / record['model'])
+            if record.get('fit_mode') == 'runtime':
+                train = _read_split(data, 'train')
+                arm.fit(Round(meta['round'], data, {'train': train, 'test': split}, float(meta['max_points'])),
+                        FitSpec(('train',), ('train',), ()))
         value = probabilities(arm.predict(split), shape)
         no_torch()
         loaded[arm_id] = arm
