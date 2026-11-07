@@ -54,12 +54,12 @@ def slow(y, mtype, e, m, t):
 def test_three_episode_scalar_reference():
     s = sample()
     x, names, groups = features(s.y, s.mtype)
-    assert x.shape[-1] == len(names) == len(groups) == 46
+    assert x.shape[-1] == len(names) == len(groups) == 61  # 46 base + 15 pair-rule columns appended last
     # All rows of three episodes, including empty prefix and next tick.
     for e in range(3):
         for m in range(8):
             for t in range(97):
-                np.testing.assert_allclose(x[e, m, t], slow(s.y, s.mtype, e, m, t), atol=1e-6, rtol=1e-6)
+                np.testing.assert_allclose(x[e, m, t, :46], slow(s.y, s.mtype, e, m, t), atol=1e-6, rtol=1e-6)
 
 
 def test_feature_future_perturbation():

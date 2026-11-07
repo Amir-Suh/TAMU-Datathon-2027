@@ -8,6 +8,7 @@ VARIANTS = {
     'last128_64_l15': {'tau': 64, 'last_n': 128},
     'all_64_l7': {'tau': 64, 'leaves': 7},
     'trans_64_l15': {'tau': 64, 'transductive': True},
+    'pair_trans_64_l15': {'tau': 64, 'transductive': True, 'drop_pair': False, 'drop_neighbour': True},
     'trans_24_l7': {'tau': 24, 'leaves': 7, 'transductive': True},
 }
 

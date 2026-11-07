@@ -92,6 +92,25 @@ def features(y, mtype):
     add(np.where(valid_rates[0] & valid_rates[1], rates[0]-rates[1], np.nan), 'self_divergence', 'divergence')
     add(np.where(valid_episode[0] & valid_episode[1], episode_rates[0]-episode_rates[1], np.nan), 'episode_divergence', 'divergence')
     add(np.broadcast_to(np.arange(T+1)/256., count.shape), 'position', 'position')
+    # Pair-rule features: the simulator's win rule looks at whether wins at two earlier lags matched.
+    def shift(a, k):
+        out = np.zeros_like(a)
+        out[..., k:] = a[..., :-k]
+        return out
+    for a_, b_ in ((1, 3), (2, 5), (4, 7)):
+        valid = shift(obs, a_) & shift(obs, b_)
+        match = shift(win, a_) == shift(win, b_)
+        scored = valid & obs
+        hit = scored & (win == match)
+        n_all, h_all = past_sum(scored), past_sum(hit)
+        n_rec, h_rec = past_sum(scored, 40), past_sum(hit, 40)
+        acc_all = np.divide(h_all, n_all, out=np.full(n_all.shape, np.nan), where=n_all > 0)
+        acc_rec = np.divide(h_rec, n_rec, out=np.full(n_rec.shape, np.nan), where=n_rec > 0)
+        add(np.where(valid, match, -1), f'pair{a_}{b_}_match', 'pair')
+        add(acc_all, f'pair{a_}{b_}_acc_all', 'pair')
+        add(acc_rec, f'pair{a_}{b_}_acc_rec', 'pair')
+        add(np.where(valid & (acc_all > .5), match, np.where(valid & (acc_all <= .5), ~match, -1)), f'pair{a_}{b_}_rule_all', 'pair')
+        add(np.where(valid & (acc_rec > .5), match, np.where(valid & (acc_rec <= .5), ~match, -1)), f'pair{a_}{b_}_rule_rec', 'pair')
     return np.concatenate(arrays, axis=-1).astype(np.float32), names, groups
 
 

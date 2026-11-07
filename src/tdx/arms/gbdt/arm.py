@@ -11,10 +11,10 @@ from .features import features, query_features
 
 class GBDTArm(Arm):
     def __init__(self, tau=None, last_n=None, leaves=15, transductive=False,
-                 drop_neighbour=False, drop_divergence=False, w_cut=20.,
+                 drop_neighbour=False, drop_divergence=False, drop_pair=True, w_cut=20.,
                  rounds=400, patience=35, threads=1, smoke=False):
         self.params = dict(tau=tau, last_n=last_n, leaves=leaves, transductive=transductive,
-                           drop_neighbour=drop_neighbour, drop_divergence=drop_divergence,
+                           drop_neighbour=drop_neighbour, drop_divergence=drop_divergence, drop_pair=drop_pair,
                            w_cut=w_cut, rounds=rounds, patience=patience, threads=threads, smoke=smoke)
         if not 1 <= threads <= 8:
             raise ValueError('threads must be in 1..8')
@@ -27,7 +27,7 @@ class GBDTArm(Arm):
             y = np.where(np.arange(s.y.shape[-1])[None, None, :] < s.cutoff[:, None, None], s.y, -1)
             x, names, groups = features(y, s.mtype)
             self.names = names
-            self.keep = np.array([not ((g == 'neighbour' and p['drop_neighbour']) or (g == 'divergence' and p['drop_divergence'])) for g in groups])
+            self.keep = np.array([not ((g == 'neighbour' and p['drop_neighbour']) or (g == 'divergence' and p['drop_divergence']) or (g == 'pair' and p['drop_pair'])) for g in groups])
             e, m, t = tick_rows(s)
             n_before = x[e, m, t, names.index('n_obs_before')]
             end = np.max(np.where(y >= 0, np.arange(y.shape[-1]), -1), axis=2)
@@ -78,7 +78,11 @@ class GBDTArm(Arm):
     def predict(self, split):
         x, names, _ = query_features(split)
         if names != self.names:
-            raise ValueError('Feature schema differs')
+            # Models saved before a feature group was added: align by saved column names.
+            missing = [n for n in self.names if n not in names]
+            if missing:
+                raise ValueError(f'Feature schema differs: {missing[:3]}')
+            x = x[..., [names.index(n) for n in self.names]]
         pred = self.model.predict(x.reshape(-1, x.shape[-1])[:, self.keep], num_threads=self.params['threads'])
         pred = np.clip(np.asarray(pred, dtype=np.float64), 1e-6, 1-1e-6)
         pred /= pred.sum(axis=-1, keepdims=True)
