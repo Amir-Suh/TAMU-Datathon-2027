@@ -1,0 +1,141 @@
+{
+  "run": "2026-11-07_m1_m2",
+  "entries": [
+    {
+      "name": "baseline_pooled",
+      "kind": "kit baseline",
+      "points": 30.0,
+      "mean_loss_ratio": 1.0,
+      "loss_ratio": {
+        "stable": 1.0,
+        "short_history": 1.0,
+        "drift": 1.0,
+        "shared_change": 1.0
+      },
+      "seconds": 4.3,
+      "test_rows_checked": 1536,
+      "mean_error": 0.19224720777560153,
+      "error_by_type": {
+        "steady": 0.24470756415826747,
+        "balanced": 0.22101230285218454,
+        "jackpot": 0.11359487526670504
+      },
+      "error_by_condition": {
+        "stable": 0.1962508028929019,
+        "short_history": 0.17734144798786677,
+        "drift": 0.18983393064179913,
+        "shared_change": 0.20556264957983816
+      },
+      "outcome_logloss": 1.0692407845735483,
+      "payout_order": [
+        0,
+        1,
+        2,
+        5,
+        20
+      ]
+    },
+    {
+      "name": "baseline_pooled_recent",
+      "kind": "kit baseline",
+      "points": 30.82585360572079,
+      "mean_loss_ratio": 0.9464181192654775,
+      "loss_ratio": {
+        "stable": 0.9582270753051094,
+        "short_history": 1.0005611446816898,
+        "drift": 0.9464054530526953,
+        "shared_change": 0.8804788040224153
+      },
+      "seconds": 5.6,
+      "test_rows_checked": 1536,
+      "mean_error": 0.18153680451703846,
+      "error_by_type": {
+        "steady": 0.23963130080082382,
+        "balanced": 0.21300589787754268,
+        "jackpot": 0.09477760698233564
+      },
+      "error_by_condition": {
+        "stable": 0.18805283288234495,
+        "short_history": 0.17744096219824837,
+        "drift": 0.17965986713382584,
+        "shared_change": 0.18099355585373478
+      },
+      "outcome_logloss": 1.052985228673555,
+      "payout_order": [
+        0,
+        1,
+        2,
+        5,
+        20
+      ]
+    },
+    {
+      "name": "m1_hierarchical_frequency",
+      "kind": "model",
+      "points": 31.09180700710742,
+      "mean_loss_ratio": 0.9297688290128753,
+      "loss_ratio": {
+        "stable": 0.9616874869561365,
+        "short_history": 0.9793408286480807,
+        "drift": 0.9332957539796394,
+        "shared_change": 0.8447512464676447
+      },
+      "seconds": 1.0,
+      "test_rows_checked": 1536,
+      "mean_error": 0.17830754199057583,
+      "error_by_type": {
+        "steady": 0.23955228172804127,
+        "balanced": 0.20830110345675612,
+        "jackpot": 0.08965347266052151
+      },
+      "error_by_condition": {
+        "stable": 0.18873194144719893,
+        "short_history": 0.1736777206260879,
+        "drift": 0.1771712014292565,
+        "shared_change": 0.17364930445975993
+      },
+      "outcome_logloss": 1.039210684031865,
+      "payout_order": [
+        0,
+        1,
+        2,
+        5,
+        20
+      ]
+    },
+    {
+      "name": "m2_lag_pair",
+      "kind": "model",
+      "points": 52.59750904940965,
+      "mean_loss_ratio": 0.14073843199754021,
+      "loss_ratio": {
+        "stable": 0.08171195859547306,
+        "short_history": 0.11917046056532778,
+        "drift": 0.21127465635691997,
+        "shared_change": 0.15079665247244006
+      },
+      "seconds": 57.0,
+      "test_rows_checked": 1536,
+      "mean_error": 0.027068789351395922,
+      "error_by_type": {
+        "steady": 0.03323035090443536,
+        "balanced": 0.027043228507909727,
+        "jackpot": 0.02083679380274747
+      },
+      "error_by_condition": {
+        "stable": 0.01603603748031315,
+        "short_history": 0.021133862034036208,
+        "drift": 0.0401070984612295,
+        "shared_change": 0.03099815943000483
+      },
+      "outcome_logloss": 0.7874174153443869,
+      "payout_order": [
+        0,
+        1,
+        2,
+        5,
+        20
+      ]
+    }
+  ]
+}

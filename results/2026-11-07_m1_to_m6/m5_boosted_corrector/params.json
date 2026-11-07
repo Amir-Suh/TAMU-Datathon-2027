@@ -1,0 +1,47 @@
+{
+  "base": "m4_lag_pair_flip_shared",
+  "features": [
+    "logit_p_win",
+    "logit_p_win_independent",
+    "p_shared",
+    "p_null",
+    "max_pair_post",
+    "p_flip",
+    "since_flip",
+    "n_obs",
+    "n_recent",
+    "machine_type",
+    "signal"
+  ],
+  "max_iter": 100,
+  "gbm": {
+    "learning_rate": 0.05,
+    "max_leaf_nodes": 15,
+    "min_samples_leaf": 50,
+    "l2_regularization": 1.0,
+    "early_stopping": false,
+    "random_state": 0
+  },
+  "selection": [
+    {
+      "max_iter": 25,
+      "cv_logloss": 0.36000776221129155
+    },
+    {
+      "max_iter": 50,
+      "cv_logloss": 0.31382204290724447
+    },
+    {
+      "max_iter": 100,
+      "cv_logloss": 0.30817278208964444
+    },
+    {
+      "max_iter": 200,
+      "cv_logloss": 0.3132323317465617
+    }
+  ],
+  "pseudo_query_logloss": {
+    "base_model": 0.30338,
+    "corrector_out_of_fold": 0.30817
+  }
+}

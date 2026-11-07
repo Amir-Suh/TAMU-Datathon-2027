@@ -1,0 +1,5 @@
+numpy==2.1.3
+scipy==1.15.3          # models 3-6 (Beta-binomial likelihoods, ensemble weights)
+scikit-learn==1.7.2    # model 5 (gradient boosting) and model 6 (uses model 5)
+# Only needed for charts (data_vis/, results plots), not for predictions:
+matplotlib==3.10.8

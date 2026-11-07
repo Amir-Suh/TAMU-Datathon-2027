@@ -1,0 +1,210 @@
+{
+  "win_params": {
+    "strength": 5.0,
+    "half_life": 16.0
+  },
+  "size_params": {
+    "strength": 100.0,
+    "half_life": Infinity
+  },
+  "win_prior_by_context": [
+    0.5277,
+    0.5639,
+    0.64,
+    0.3669,
+    0.4006,
+    0.4576,
+    0.171,
+    0.2093,
+    0.2956
+  ],
+  "win_selection": [
+    {
+      "strength": 2.0,
+      "half_life": Infinity,
+      "train_logloss": 0.6351697208681467
+    },
+    {
+      "strength": 2.0,
+      "half_life": 128.0,
+      "train_logloss": 0.6290272687486058
+    },
+    {
+      "strength": 2.0,
+      "half_life": 64.0,
+      "train_logloss": 0.624188909978729
+    },
+    {
+      "strength": 2.0,
+      "half_life": 32.0,
+      "train_logloss": 0.6179133332055903
+    },
+    {
+      "strength": 2.0,
+      "half_life": 16.0,
+      "train_logloss": 0.6131552130225614
+    },
+    {
+      "strength": 5.0,
+      "half_life": Infinity,
+      "train_logloss": 0.634794805211491
+    },
+    {
+      "strength": 5.0,
+      "half_life": 128.0,
+      "train_logloss": 0.6286921249649957
+    },
+    {
+      "strength": 5.0,
+      "half_life": 64.0,
+      "train_logloss": 0.6238886465998106
+    },
+    {
+      "strength": 5.0,
+      "half_life": 32.0,
+      "train_logloss": 0.6176945755118413
+    },
+    {
+      "strength": 5.0,
+      "half_life": 16.0,
+      "train_logloss": 0.6131115089694174
+    },
+    {
+      "strength": 10.0,
+      "half_life": Infinity,
+      "train_logloss": 0.6344149713427938
+    },
+    {
+      "strength": 10.0,
+      "half_life": 128.0,
+      "train_logloss": 0.6284667909379764
+    },
+    {
+      "strength": 10.0,
+      "half_life": 64.0,
+      "train_logloss": 0.6238635474733253
+    },
+    {
+      "strength": 10.0,
+      "half_life": 32.0,
+      "train_logloss": 0.6181749537266434
+    },
+    {
+      "strength": 10.0,
+      "half_life": 16.0,
+      "train_logloss": 0.6146022315727211
+    },
+    {
+      "strength": 20.0,
+      "half_life": Infinity,
+      "train_logloss": 0.634018771913711
+    },
+    {
+      "strength": 20.0,
+      "half_life": 128.0,
+      "train_logloss": 0.6284863242859764
+    },
+    {
+      "strength": 20.0,
+      "half_life": 64.0,
+      "train_logloss": 0.6244162128425159
+    },
+    {
+      "strength": 20.0,
+      "half_life": 32.0,
+      "train_logloss": 0.6199207277512209
+    },
+    {
+      "strength": 20.0,
+      "half_life": 16.0,
+      "train_logloss": 0.6182526977957034
+    },
+    {
+      "strength": 50.0,
+      "half_life": Infinity,
+      "train_logloss": 0.6337212326228783
+    },
+    {
+      "strength": 50.0,
+      "half_life": 128.0,
+      "train_logloss": 0.6293970198288389
+    },
+    {
+      "strength": 50.0,
+      "half_life": 64.0,
+      "train_logloss": 0.6267131551985093
+    },
+    {
+      "strength": 50.0,
+      "half_life": 32.0,
+      "train_logloss": 0.6246849226257275
+    },
+    {
+      "strength": 50.0,
+      "half_life": 16.0,
+      "train_logloss": 0.6255669059697938
+    }
+  ],
+  "size_selection": [
+    {
+      "strength": 5.0,
+      "half_life": Infinity,
+      "train_logloss": 1.0549361368555996
+    },
+    {
+      "strength": 5.0,
+      "half_life": 96.0,
+      "train_logloss": 1.0523027221826804
+    },
+    {
+      "strength": 5.0,
+      "half_life": 48.0,
+      "train_logloss": 1.05373893868028
+    },
+    {
+      "strength": 15.0,
+      "half_life": Infinity,
+      "train_logloss": 1.044458560976165
+    },
+    {
+      "strength": 15.0,
+      "half_life": 96.0,
+      "train_logloss": 1.0416443497032035
+    },
+    {
+      "strength": 15.0,
+      "half_life": 48.0,
+      "train_logloss": 1.0415863016456344
+    },
+    {
+      "strength": 40.0,
+      "half_life": Infinity,
+      "train_logloss": 1.0379498575585644
+    },
+    {
+      "strength": 40.0,
+      "half_life": 96.0,
+      "train_logloss": 1.0364936464584054
+    },
+    {
+      "strength": 40.0,
+      "half_life": 48.0,
+      "train_logloss": 1.0367676143790803
+    },
+    {
+      "strength": 100.0,
+      "half_life": Infinity,
+      "train_logloss": 1.0355888221528828
+    },
+    {
+      "strength": 100.0,
+      "half_life": 96.0,
+      "train_logloss": 1.0358041403810885
+    },
+    {
+      "strength": 100.0,
+      "half_life": 48.0,
+      "train_logloss": 1.0366182023255905
+    }
+  ]
+}
