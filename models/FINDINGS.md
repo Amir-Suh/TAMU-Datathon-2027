@@ -25,7 +25,11 @@ Average match-minus-differ win rate per 32-tick window, signed by each machine's
 - **The pair stays the same and the direction reverses,** for 89% of drift and 94% of shared-change machines.
 - **The flip is mostly sudden:** a step fits best for 65% of drift and 89% of shared-change machines, and a 16-tick ramp for most of the rest.
 - **Timing:** flips happen around tick 140–150 (sd ~35), so at the cutoff the flip is usually 36–216 ticks in the past (median ~70).
-- **Shared-change machines flip only loosely together:** flip times spread by 23 ticks within an episode, against 35 overall. Modeling one shared flip time added almost nothing (model 4).
+- **Shared-change machines flip at essentially the same tick.** Using model 3's posterior flip times, the spread within an episode is 1.2 ticks, against a shuffled-episode range of 17.7–18.8 (permutation p < 0.001).
+- **Drift flips are partly aligned:** 13.7 ticks within an episode, against 20.4–21.6 shuffled (p < 0.001).
+- An earlier crude estimate ("23 ticks within an episode") was wrong. Even so, modeling one shared flip time added nothing (model 4), because each machine already locates its own flip from about 70 post-flip spins.
+
+Checked with permutation tests (2,000 shuffles of machines between episodes): lag pair, direction and payout-size mix are **not** shared within an episode. The p-values are 0.63 for the pair, 0.16 for the direction, and 0.51 and 0.33 for the 1× and 2× size shares.
 
 ## 3. Payout size: no usable signal beyond type × signal (step 1, negative result)
 

@@ -20,9 +20,9 @@ The rules say some relationships "change together across an episode". Model 4 ad
 
 **Why:**
 - After a flip, each machine typically has about 70 ticks of post-flip data, so it can locate its own flip without help.
-- Flip times within a shared-change episode spread by about 23 ticks, so they are only loosely shared ([FINDINGS.md](../FINDINGS.md) §2).
+- Shared-change machines do flip at essentially the same tick (spread within an episode about 1 tick, permutation p < 0.001; [FINDINGS.md](../FINDINGS.md) §2). But since each machine already finds that tick on its own, sharing adds no new information.
 
-Model 4 is kept for comparison, and as a candidate for round two, where shared changes might matter more.
+Model 4 is kept for comparison, and as a candidate for round two. Synchronized flips would matter there if flips come later or histories are shorter, leaving fewer post-flip spins per machine.
 
 ## Run it
 
