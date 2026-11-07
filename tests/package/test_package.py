@@ -180,3 +180,18 @@ def test_reproduction_rejects_nan_duplicate_and_nonidentical(tmp_path):
     other.write_text(clean.read_text() + clean.read_text().splitlines()[1] + '\n')
     with pytest.raises(ValueError, match='Duplicate'):
         compare_csv(clean, other, clean)
+
+
+def test_factored_blend_matches_manual_formula():
+    import numpy as np
+    from types import SimpleNamespace
+    from tdx.package.blend import apply, validate
+    rng = np.random.RandomState(0)
+    a = rng.dirichlet(np.ones(5), size=(3, 8)); b = rng.dirichlet(np.ones(5), size=(3, 8))
+    split = SimpleNamespace(query_ids=np.zeros((3, 8)), ids=list(range(3)))
+    cfg = validate({'kind': 'factored', 'weights': [0.7, 0.3], 'size_weights': [0.0, 1.0]}, ['m', 'g'])
+    got = apply(cfg, [a, b], split)
+    win = 0.7 * (1 - a[..., 0]) + 0.3 * (1 - b[..., 0])
+    mix = b[..., 1:] / (1 - b[..., 0])[..., None]
+    want = np.concatenate([(1 - win)[..., None], win[..., None] * mix], -1)
+    assert np.allclose(got, want, atol=1e-6) and np.allclose(got.sum(-1), 1)
