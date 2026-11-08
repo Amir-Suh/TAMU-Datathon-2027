@@ -58,3 +58,26 @@ Status: DESIGNS ONLY, nothing implemented. Each design is an arm in its own fold
 | 5 | sizeswitch | gate diagnostic | agy runs the gate; Codex only if it passes | 0.5 h + 2-4 h |
 
 Build the shared **inner-holdout helper** once (design 1) and reuse it in 2, 3 and 5. Run the gate for design 5 and the sampler tests for design 4 before any training. Report every pilot as: design | seed | size-part log-loss delta vs incumbent | Brier delta of the deployed blend | paired 95% interval | decision.
+
+---
+## Design 6 — `moegate`: learned soft mixture of experts inside one model (added 2026-11-07 evening)
+**Why:** per-condition separate models are not workable (the condition is unknown at test time except short_history; condition-based gates and weights gave +0.01; only 24 labelled train episodes per condition). A SOFT gate learned inside one model sidesteps the labels: the network decides from the history itself which expert to trust, which is what the data-driven blend (m3 for P(win), GRU for size) already does by hand.
+**Mechanism:** shared trunk = the working sequence encoder (GRU from `seq`, or the conv+ALiBi transformer from `tfm2`); K=3 expert heads, each a small MLP (d -> 64 -> 5 logits, factored win/size output as in `seq`); a gate g = softmax(W_g [pooled trunk state at the last tick, short flag, rule-confidence features]) with rule-confidence features = the pair hit rates from `tdx.arms.gbdt.features` (columns `pair*_acc_all`, `pair*_acc_rec`, 15 per machine, causal). Output = sum_k g_k p_k (a mixture of PROBABILITY vectors, not of logits). Train end to end with next-tick cross-entropy on every observed tick of all histories (train+validation+test, ticks < cutoff), plus: (a) a load-balancing penalty so each expert gets >= 15% of the average gate mass, (b) expert dropout (drop one expert's probability at random with prob 0.1 and renormalise), (c) entropy bonus on the gate early in training.
+**Interface/files:** `src/tdx/arms/moegate/{__init__,arm.py}`, numpy float64 inference (reuse the `seq`/`tfm2` forward and add the gate), torch-vs-numpy parity < 1e-6, exact save/load, torch only imported inside `fit`; a torch-free loader module like `seqens`/`tfmens` for packaging.
+**Test:** K=1 reproduces the base arm; gate rows sum to 1; leak test; parity.
+**Scoring:** `tail_eval` (holds 30/60/90) against the deployed blend of the same base model seeds (the comparison is "one MoE seed vs one base seed", then 3 matched seeds), AND the real `short_backtest`. Report expert usage by condition (validation) and by short flag to see whether the experts specialise.
+**Keep/drop:** keep if, over 3 matched seeds, the deployed blend with the MoE swapped in improves tail Brier with a paired interval excluding zero AND at least one expert's usage differs materially between short_history and the other conditions (otherwise it is just a bigger network). Drop if gate entropy collapses to one expert or experts are interchangeable.
+
+## Design 4 (`shortctx`) — implementation notes added for the hand-off
+- **Sampler first.** Implement `src/tdx/arms/shortctx/sampler.py` with `sample_layout(y_machine, cutoff_prime, rng)` -> (items[64], offsets[64]); tests: exactly 64 observed items, the last 40 are ticks cutoff_prime-40..cutoff_prime-1, the 24 older are distinct and < cutoff_prime-40, nothing at or after cutoff_prime; deterministic given the seed. Pseudo-cutoffs only where the machine has >= 64 observed ticks before them.
+- **Training mix.** 50% exact-layout samples, 50% full-history samples (so the same weights serve long episodes), with a layout-flag embedding; the flag is derived from the observed count == 64, never from `n_obs` fields or condition labels.
+- **Use in the blend.** Only for episodes with `n_obs == 64` for all machines (short_history); for them the blend weights are re-fitted on the real `short_backtest` windows, not on validation. Everything else is unchanged.
+- **Acceptance numbers to beat (real short_history backtest, 96 episodes, 6,144 outcomes, Brier):** m3 0.3645, GBDT 0.3688, GRU 0.3687; size part GRU 1.0166 best, m3 1.0313.
+
+## Which agent runs what
+| Design | Agent | Why |
+|---|---|---|
+| 4 `shortctx` sampler + tests, then training | Codex (`gpt-6-astra`, workspace-write, clone) | largest, needs careful numpy parity |
+| 6 `moegate` | Codex after 4's trunk plumbing exists, or agy if the spec is cut to the GRU trunk only | new architecture; needs parity and leak tests |
+| 1 `sizecal`, 5 gate | agy | mechanical, one-command proof |
+| 2 `sizehead`, 3 `sizeshrink` | Codex or agy after 1's inner-holdout helper exists | small arms |

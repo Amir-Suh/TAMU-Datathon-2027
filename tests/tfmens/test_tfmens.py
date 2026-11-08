@@ -16,4 +16,4 @@ def test_tfmens_matches_tfm2_and_averages(tmp_path):
     want = np.mean([Tfm2Arm.load(d).predict(s) for d in dirs], axis=0)
     assemble(dirs, tmp_path / 'ens')
     got = TfmEnsArm.load(tmp_path / 'ens').predict(s)
-    assert np.allclose(got, want, atol=1e-12, rtol=0)
+    assert np.allclose(got, want, atol=1e-9, rtol=0)

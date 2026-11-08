@@ -105,15 +105,22 @@ class _Member:
         with np.load(d / 'model.npz') as z:
             self.w = {k: z[k] for k in z.files}
 
+    CHUNK = 12   # episodes per forward pass: bounds attention memory (all 1,536 sequences at once peaked near 16 GB)
+
     def predict(self, split):
         y = _masked(split)
         co = split.cutoff.astype(np.int64)
-        lg = forward_np(self.w, y, split.mtype.astype(np.int64), int(co.max()),
-                        self.p['d'], self.p['L'], self.p['heads'], self.p['conv'], self.p['alibi'])
-        sel = lg[np.arange(len(co))[:, None], np.arange(8)[None, :], (co - 1)[:, None]]
-        e = np.exp(sel - sel.max(-1, keepdims=True))
-        pr = (e / e.sum(-1, keepdims=True)).clip(1e-6, None)
-        return pr / pr.sum(-1, keepdims=True)
+        mt = split.mtype.astype(np.int64)
+        out = np.empty((len(co), 8, 5))
+        for a in range(0, len(co), self.CHUNK):
+            b = min(a + self.CHUNK, len(co))
+            lg = forward_np(self.w, y[a:b], mt[a:b], int(co[a:b].max()),
+                            self.p['d'], self.p['L'], self.p['heads'], self.p['conv'], self.p['alibi'])
+            sel = lg[np.arange(b - a)[:, None], np.arange(8)[None, :], (co[a:b] - 1)[:, None]]
+            e = np.exp(sel - sel.max(-1, keepdims=True))
+            pr = (e / e.sum(-1, keepdims=True)).clip(1e-6, None)
+            out[a:b] = pr / pr.sum(-1, keepdims=True)
+        return out
 
 
 class TfmEnsArm(Arm):
