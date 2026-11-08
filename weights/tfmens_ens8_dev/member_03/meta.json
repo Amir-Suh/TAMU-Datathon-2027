@@ -1,0 +1,16 @@
+{
+  "L": 3,
+  "alibi": true,
+  "batch": 32,
+  "conv": 9,
+  "d": 128,
+  "dropout": 0.1,
+  "epochs": 100,
+  "heads": 4,
+  "lr": 0.002,
+  "seed": 24,
+  "transductive": true,
+  "w_cut": 20.0,
+  "warmup": true,
+  "wd": 0.01
+}

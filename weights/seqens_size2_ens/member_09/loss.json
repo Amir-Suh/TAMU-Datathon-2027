@@ -1,0 +1,8 @@
+{
+  "beta": 2.0,
+  "len_pow": 0.0,
+  "loss": "ce",
+  "recency_tau": 0.0,
+  "size_w": 2.0,
+  "val_pow": 0.0
+}

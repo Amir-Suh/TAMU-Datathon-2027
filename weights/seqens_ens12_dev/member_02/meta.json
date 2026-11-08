@@ -1,0 +1,13 @@
+{
+  "aug": 0.0,
+  "batch": 32,
+  "epochs": 100,
+  "factor": true,
+  "h": 128,
+  "lr": 0.002,
+  "msg": false,
+  "seed": 13,
+  "transductive": true,
+  "w_cut": 20.0,
+  "wd": 0.01
+}
