@@ -6,7 +6,8 @@ Each folder holds the exact `entry_main.zip` (code + models, offline-reproducibl
 |---|---|---|---|
 | `candidate1_even_blend` | 50/50 probability average of Bayesian `m3` and a 12-seed GRU ensemble | 56.17 | first GRU+m3 entry |
 | `candidate2_split_duty` | win probability 70% `m3` + 30% GRU ensemble; payout-size mix from the GRU ensemble only | 56.58 | "factored" blend, `src/tdx/package/blend.py` |
-| `candidate3b_with_transformer` | candidate 2 plus an 8-seed conv+ALiBi transformer ensemble (win `[.77,.23,0]`, size `[.08,.60,.32]` over m3 / GRU / transformer) | 56.90 | weights fit on a leak-free held-out tail; transformer inference runs in 12-episode chunks (peak RSS 1.2 GB) |
+| `candidate3b_with_transformer` | candidate 2 plus an 8-seed conv+ALiBi transformer ensemble (win `[.77,.23,0]`, size `[.08,.60,.32]` over m3 / GRU / transformer) | 56.90 | original tail fit carried the later query signal into earlier pseudo-queries |
+| `candidate3b_clean_refit` | M3 with corrected signal timing, 12 GRUs and eight transformers with refitted blend weights | 56.753567 | 56.417694 on 24 reserved validation episodes |
 
 A candidate "3a" (same blend, unchunked transformer inference) was NOT kept: its reproduction peaked at 16.3 GB, over the organizer's 16 GiB limit.
 
@@ -18,4 +19,13 @@ A candidate "3a" (same blend, unchunked transformer inference) was NOT kept: its
    Expected for 3b: `max|run1-run2|=0`, `max|run1-uploaded|=0`, ~225 s per run, peak RSS ~1.2 GB, no torch imported.
 4. By hand: unzip, `python predict.py --data <public dir> --out out.csv` in a Python 3.13 venv with `numpy==2.5.4` and `scipy==1.18.1`, compare `out.csv` with `submission.csv` (about 4 minutes).
 
-Source for everything inside the zips is this branch (`src/tdx/`; the zip's copy matches it byte for byte except `tdx/paths.py` and `tdx/package/__init__.py`, which the builder rewrites). `slot_forecasting/` in the zips is the organizer kit's package.
+Each ZIP contains a snapshot of the inference source and the organizer kit's
+`slot_forecasting/` package. The clean refit uses train-only calibration
+models and 45,616 observed historical outcomes from validation folds 0–2.
+M3's internal historical win and payout tuning and the blend-tuning backtest
+use neutral signal at earlier cutoffs. Real queries use their recorded
+signals. The 24 episodes in fold 3 contribute no outcomes to the blend fit.
+
+The clean-refit CSV has 1,536 forecasts and reproduces byte for byte from a
+fresh extraction on Python 3.13 on macOS, using one CPU inference thread.
+Verify the exact files with the `SHA256SUMS` in the candidate folder.

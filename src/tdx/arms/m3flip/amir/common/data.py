@@ -67,7 +67,7 @@ def truncate(split: Split, shift: int) -> Split:
 
     The observed payout at the new cutoff becomes the label (MISSING when that
     tick was not observed) and every later tick is hidden. Truth columns are
-    dropped because they refer to the real cutoff.
+    dropped because they refer to the real cutoff. Earlier queries use neutral signal.
     """
     X = split.X_with_labels()
     cut = split.cutoff - shift
@@ -75,8 +75,9 @@ def truncate(split: Split, shift: int) -> Split:
     labels = X[rows, cut].copy()
     X = X[:, : int(cut.max()) + 1].copy()
     X[np.arange(X.shape[1])[None, :] >= cut[:, None]] = MISSING
+    signal = np.where(cut == split.cutoff, split.signal, 0)
     return replace(split, name=f"{split.name}-shift{shift}", cutoff=cut, X=X, labels=labels,
-                   targets=None, reference=None)
+                   signal=signal, targets=None, reference=None)
 
 
 def load_split(public_dir: str | Path, name: str) -> Split:

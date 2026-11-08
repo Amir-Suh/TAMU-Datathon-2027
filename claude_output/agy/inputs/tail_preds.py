@@ -3,7 +3,7 @@ usage: tail_preds.py NAME [SEED]   NAME in gru_fac, gru_plain, gbdt, m3, pooled_
 import sys
 import numpy as np
 from dataclasses import replace
-from tdx.backtest import truncate, make_pseudo_split
+from tdx.backtest import TAIL_SIGNAL_POLICY, truncate, make_pseudo_split
 from tdx.data import load_round
 from tdx.fit import dev_spec
 from tdx.run import fit_round, arm_module, build_arm
@@ -64,5 +64,5 @@ for j in range(WIN):
     outs.append(val_f.y[np.arange(Ev)[:, None], np.arange(8)[None, :], tick[:, None]])
 tag = f'{name}_{seed}' if name.startswith(('gru','tfm')) else name
 tag = tag + (f'_h{HOLD}' if HOLD != 30 else '')
-np.savez(f'/tmp/claude-1000/aug/tail_{tag}.npz', preds=np.array(preds), outs=np.array(outs))
+np.savez(f'/tmp/claude-1000/aug/tail_{tag}.npz', preds=np.array(preds), outs=np.array(outs), signal_policy=TAIL_SIGNAL_POLICY)
 print('saved', tag)

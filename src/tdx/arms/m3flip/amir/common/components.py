@@ -101,10 +101,15 @@ class SizeComponent:
         X = train.X_with_labels()
         cat = self._sizes(X)
         mask = scoring_mask(train, self.eval_last) & (X > 0)
-        prior = size_prior[train.context]
+        query_prior = size_prior[train.context]
+        neutral_context = train.machine_type * len(SIGNALS) + SIGNALS.index(0)
+        historical_prior = size_prior[neutral_context]
+        rows = np.arange(train.n)
 
         def score(p):
-            pred = dirichlet_filter(cat, prior, p["strength"], p["half_life"])
+            pred = dirichlet_filter(cat, historical_prior, p["strength"], p["half_life"])
+            query_pred = dirichlet_filter(cat, query_prior, p["strength"], p["half_life"])
+            pred[rows, train.cutoff] = query_pred[rows, train.cutoff]
             return categorical_logloss(pred, cat, mask)
 
         self.params, self.selection = grid_search(self.GRID, score)
