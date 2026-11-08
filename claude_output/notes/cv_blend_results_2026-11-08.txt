@@ -1,0 +1,24 @@
+Out-of-fold validation points, 4-fold grouped CV x 5 repeats (weights never fit on the scored episodes)
+candidate               mean pts   sd rep   members
+F_submitted_recipe        57.106    0.018   m3+gru_ce_11_22+tfm_8
+A_ce12_matched            57.204    0.013   m3+gru_ce_41_52+tfm_8
+B_size2_12_matched        57.283    0.020   m3+gru_s2_41_52+tfm_8
+D_ce_and_size2            57.276    0.024   m3+gru_ce_41_52+gru_s2_41_52+tfm_8
+E_ce24                    57.158    0.017   m3+gru_ce_24+tfm_8
+
+Paired episode bootstrap of the gain over F_submitted_recipe (stratified by condition, 2000 resamples):
+  A_ce12_matched         gain +0.098  95% interval [+0.048, +0.156]  ->  keep F
+  B_size2_12_matched     gain +0.178  95% interval [+0.095, +0.261]  ->  keep F
+  D_ce_and_size2         gain +0.171  95% interval [+0.087, +0.258]  ->  keep F
+  E_ce24                 gain +0.053  95% interval [+0.027, +0.081]  ->  keep F
+
+Matched-seed test of the size x2 loss (B - A, same seeds 41-52): gain +0.079, 95% interval [+0.011, +0.145]
+
+Mean fold weights (win | size) over the members in order:
+  F_submitted_recipe     win [0.61 0.1  0.29] | size [0.02 0.35 0.63]
+  A_ce12_matched         win [0.55 0.25 0.2 ] | size [0.   0.43 0.57]
+  B_size2_12_matched     win [0.56 0.24 0.21] | size [0.   0.56 0.44]
+  D_ce_and_size2         win [0.55 0.09 0.17 0.19] | size [0.   0.   0.57 0.43]
+  E_ce24                 win [0.57 0.19 0.23] | size [0.   0.41 0.59]
+
+Reference, NOT cross-validated: clean-refit weights (Andrew) on recipe F members: 56.754
