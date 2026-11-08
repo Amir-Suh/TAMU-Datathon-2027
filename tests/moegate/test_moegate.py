@@ -2,12 +2,15 @@ import subprocess
 import sys
 from pathlib import Path
 import numpy as np
+import json
 from tdx.arms.moegate import build as build_moe
 from tdx.arms.moegate.arm import MoeGateArm
 from tdx.arms.seq import build as build_seq
 from tdx.data import load_round
 from tdx.fit import dev_spec
 from tdx.run import fit_round
+from tdx.tools.leak_test import assert_step_causality
+from tdx.arms.moegate.arm import forward_np
 
 
 def test_a_k1_equals_seq_factored():
@@ -61,7 +64,7 @@ def test_d_parity_and_roundtrip(tmp_path):
     spec = dev_spec(False)
     arm = build_moe(K=3, d_expert=32, h=16, epochs=1, batch=64, seed=7)
     arm.fit(fit_round(rnd, spec), spec)
-    assert arm.parity < 1e-6
+    assert arm.parity < 1e-9
     s = rnd.splits['validation']
     p = arm.predict(s)
     assert p.shape == (96, 8, 5) and np.allclose(p.sum(-1), 1.0)
@@ -69,8 +72,42 @@ def test_d_parity_and_roundtrip(tmp_path):
     save_dir = tmp_path / 'moe_model'
     arm.save(save_dir)
     loaded = MoeGateArm.load(save_dir)
+    assert json.loads((save_dir / 'meta.json').read_text())['flag'] == 'causal_v1'
     p_loaded = loaded.predict(s)
     assert np.allclose(p, p_loaded, atol=1e-12)
+
+
+def test_f_initialized_weights_are_step_causal_and_float64():
+    rng = np.random.RandomState(101)
+    H, K, D = 16, 3, 8
+    y = np.zeros((1, 8, 128), dtype=np.int64)
+    y[:, :, 64:] = -1
+    mt = np.zeros((1, 8), dtype=np.int64)
+    a = lambda *shape: rng.normal(0, .2, shape)
+    w = dict(tok=a(6, 8), typ=a(4, 4), wih=a(3 * H, 12), whh=a(3 * H, H),
+             bih=a(3 * H), bhh=a(3 * H), gw=a(K, H + 7), gb=a(K))
+    for k in range(K):
+        w.update({f'e{k}_w1': a(D, H), f'e{k}_b1': a(D),
+                  f'e{k}_w2': a(5, D), f'e{k}_b2': a(5)})
+    arm = MoeGateArm(K=K, h=H, d_expert=D)
+    arm.w = w
+    arm.step_outputs(y, mt, 32)
+    deltas = assert_step_causality(arm, y, mt, k=32)
+    print('moegate', ' '.join(f'{key} {value:.9f}' for key, value in deltas.items()))
+    assert all(value == 0.0 for value in deltas.values())
+
+
+def test_g_legacy_export_rejected(tmp_path):
+    arm = MoeGateArm(h=16)
+    arm.w = {'tok': np.zeros((6, 8))}
+    arm.save(tmp_path)
+    meta_path = tmp_path / 'meta.json'
+    meta = json.loads(meta_path.read_text())
+    del meta['flag']
+    meta_path.write_text(json.dumps(meta))
+    import pytest
+    with pytest.raises(ValueError, match='trained with the non-causal flag'):
+        MoeGateArm.load(tmp_path)
 
 
 def test_e_no_torch_in_subprocess(tmp_path):

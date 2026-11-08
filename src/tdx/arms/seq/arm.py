@@ -134,6 +134,11 @@ class SeqArm(Arm):
         if self.parity > 1e-9:
             raise RuntimeError(f'numpy/torch parity failed: {self.parity:.3e}')
 
+    def step_outputs(self, y, mtype, steps):
+        """Unmasked per-input-tick outputs from the float64 NumPy forward pass."""
+        return np.asarray(forward_np(self.w, y, mtype, steps, self.p['h'],
+                                     self.p['msg'], self.p.get('factor', False)), dtype=np.float64)
+
     def predict(self, split):
         y = _masked(split); co = split.cutoff.astype(np.int64)
         lg = forward_np(self.w, y, split.mtype.astype(np.int64), int(co.max()), self.p['h'], self.p['msg'], self.p.get('factor', False))

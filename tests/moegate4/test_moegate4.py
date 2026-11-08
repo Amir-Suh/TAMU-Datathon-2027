@@ -2,15 +2,18 @@
 import subprocess
 import sys
 import tempfile
+from pathlib import Path
 from dataclasses import replace
 import numpy as np
 import pytest
+import json
 
 from tdx.data import load_round
 from tdx.paths import data_root
 from tdx.fit import dev_spec
 from tdx.arms.moegate.arm import MoeGateArm
 from tdx.arms.moegate4.arm import MoeGate4Arm
+from tdx.tools.leak_test import assert_step_causality
 
 
 @pytest.fixture(scope="module")
@@ -71,21 +74,53 @@ def test_c_predictions_ignore_future(rnd):
 def test_d_parity_and_save_load(rnd):
     """(d) parity + save/load round trip."""
     spec = dev_spec(transductive=False)
-    arm = MoeGate4Arm(K=4, lam_cond=0.3, h=16, d_expert=8, epochs=2, batch=16, seed=42, transductive=False, device='cpu', smoke=True)
+    arm = MoeGate4Arm(K=4, lam_cond=0.3, h=16, d_expert=8, epochs=1, batch=16, seed=42, transductive=False, device='cpu')
     arm.fit(rnd, spec)
 
-    assert arm.parity is not None and arm.parity < 1e-6, f"Parity too high: {arm.parity}"
+    assert arm.parity is not None and arm.parity < 1e-9, f"Parity too high: {arm.parity}"
 
     val_s = rnd.splits['validation']
     pred1 = arm.predict(val_s)
 
     with tempfile.TemporaryDirectory() as td:
         arm.save(td)
+        assert json.loads((Path(td) / 'meta.json').read_text())['flag'] == 'causal_v1'
         loaded = MoeGate4Arm.load(td)
         pred2 = loaded.predict(val_s)
 
     diff = float(np.max(np.abs(pred1 - pred2)))
     assert diff == 0.0, f"Save/load mismatch: diff={diff}"
+
+
+def test_g_initialized_weights_are_step_causal_and_float64():
+    rng = np.random.RandomState(101)
+    H, K, D = 16, 4, 8
+    y = np.zeros((1, 8, 128), dtype=np.int64)
+    y[:, :, 64:] = -1
+    mt = np.zeros((1, 8), dtype=np.int64)
+    a = lambda *shape: rng.normal(0, .2, shape)
+    w = dict(tok=a(6, 8), typ=a(4, 4), wih=a(3 * H, 12), whh=a(3 * H, H),
+             bih=a(3 * H), bhh=a(3 * H), gw=a(K, H + 7), gb=a(K))
+    for k in range(K):
+        w.update({f'e{k}_w1': a(D, H), f'e{k}_b1': a(D),
+                  f'e{k}_w2': a(5, D), f'e{k}_b2': a(5)})
+    arm = MoeGate4Arm(K=K, h=H, d_expert=D)
+    arm.w = w
+    deltas = assert_step_causality(arm, y, mt, k=32)
+    print('moegate4', ' '.join(f'{key} {value:.9f}' for key, value in deltas.items()))
+    assert all(value == 0.0 for value in deltas.values())
+
+
+def test_h_legacy_export_rejected(tmp_path):
+    arm = MoeGate4Arm(h=16)
+    arm.w = {'tok': np.zeros((6, 8))}
+    arm.save(tmp_path)
+    meta_path = tmp_path / 'meta.json'
+    meta = json.loads(meta_path.read_text())
+    del meta['flag']
+    meta_path.write_text(json.dumps(meta))
+    with pytest.raises(ValueError, match='trained with the non-causal flag'):
+        MoeGate4Arm.load(tmp_path)
 
 
 def test_e_lam_cond_without_conditions(rnd):

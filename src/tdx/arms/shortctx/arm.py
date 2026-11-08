@@ -7,6 +7,8 @@ import numpy as np
 from tdx.arm import Arm
 from .sampler import BUCKET_LUT, ShortCtxDataset, generate_batches, sample_batch
 
+PAD_TOKEN = 5
+
 
 def _sigmoid(x):
     return 1.0 / (1.0 + np.exp(-x))
@@ -17,7 +19,7 @@ def forward_np(w, tokens, offsets, mtype, flag, H=64):
 
     Args:
         w: Dictionary of model weights.
-        tokens: int array [B, 64] with payout classes in {0..4}.
+        tokens: int array [B, 64] with payout classes in {0..4} or PAD_TOKEN.
         offsets: int array [B, 64] with tick offsets before cutoff.
         mtype: int array [B] with machine types in {0..3}.
         flag: int array [B] with short flags in {0, 1}.
@@ -26,16 +28,24 @@ def forward_np(w, tokens, offsets, mtype, flag, H=64):
     Returns:
         log_p: float64 array [B, 5] of log probabilities.
     """
+    tok_weight = w['tok.weight']
+    if np.any(tokens < 0) or np.any(tokens >= tok_weight.shape[0]):
+        raise ValueError(f"tokens must be in [0, {tok_weight.shape[0]})")
     B = tokens.shape[0]
+    valid = tokens != PAD_TOKEN
     b_idx = BUCKET_LUT[np.clip(offsets - 1, 0, len(BUCKET_LUT) - 1)]
 
-    tok_emb = w['tok.weight'][tokens]
+    tok_emb = tok_weight[tokens]
     off_emb = w['off.weight'][b_idx]
     typ_emb = w['typ.weight'][mtype][:, None, :]
     flg_emb = w['flg.weight'][flag][:, None, :]
     x = tok_emb + off_emb + typ_emb + flg_emb
+    # Padding carries no information, including through its offset/type/flag features.
+    x = np.where(valid[..., None], x, 0.0)
 
-    older = x[:, :24, :].mean(axis=1)
+    old_valid = valid[:, :24]
+    older = (x[:, :24, :] * old_valid[..., None]).sum(axis=1)
+    older /= np.maximum(old_valid.sum(axis=1, keepdims=True), 1)
     recent = x[:, 24:, :]
 
     wih = w['cell.weight_ih']
@@ -51,7 +61,8 @@ def forward_np(w, tokens, offsets, mtype, flag, H=64):
         r = _sigmoid(gi[:, :H] + gh[:, :H])
         z = _sigmoid(gi[:, H:2 * H] + gh[:, H:2 * H])
         n = np.tanh(gi[:, 2 * H:] + r * gh[:, 2 * H:])
-        h = (1.0 - z) * n + z * h
+        candidate = (1.0 - z) * n + z * h
+        h = np.where(valid[:, 24 + t, None], candidate, h)
 
     feat = np.concatenate([h, older], axis=-1)
     h_mlp = np.maximum(0.0, feat @ w['fc1.weight'].T + w['fc1.bias'])
@@ -117,7 +128,7 @@ class ShortCtxArm(Arm):
             def __init__(self):
                 super().__init__()
                 self.H = H
-                self.tok = nn.Embedding(5, d)
+                self.tok = nn.Embedding(6, d)
                 self.off = nn.Embedding(64, d)
                 self.typ = nn.Embedding(4, d)
                 self.flg = nn.Embedding(2, d)
@@ -130,12 +141,16 @@ class ShortCtxArm(Arm):
                 lut_t = torch.tensor(BUCKET_LUT, device=offsets.device)
                 b_idx = lut_t[torch.clamp(offsets - 1, 0, len(BUCKET_LUT) - 1)]
                 x = self.tok(tokens) + self.off(b_idx) + self.typ(mtype)[:, None, :] + self.flg(flag)[:, None, :]
-                older = x[:, :24, :].mean(dim=1)
+                valid = tokens != PAD_TOKEN
+                x = x.masked_fill(~valid[:, :, None], 0.0)
+                old_valid = valid[:, :24]
+                older = x[:, :24, :].sum(dim=1) / old_valid.sum(dim=1, keepdim=True).clamp_min(1)
                 recent = x[:, 24:, :]
                 B = tokens.shape[0]
                 h = torch.zeros(B, self.H, device=tokens.device, dtype=x.dtype)
                 for t in range(40):
-                    h = self.cell(recent[:, t, :], h)
+                    candidate = self.cell(recent[:, t, :], h)
+                    h = torch.where(valid[:, 24 + t, None], candidate, h)
                 feat = torch.cat([h, older], dim=-1)
                 h_mlp = F.relu(self.fc1(feat))
                 o = self.fc2(self.drop(h_mlp))
@@ -182,6 +197,12 @@ class ShortCtxArm(Arm):
         check_tokens, check_offsets, check_mtype, check_target, check_flag = sample_batch(
             dataset, batch_size=64, rng=np.random.RandomState(12345), include_flag=True
         )
+        # Exercise PAD behavior in both implementations without changing any
+        # training samples. Arbitrary offsets on PAD slots must be irrelevant.
+        pad_mask = np.zeros_like(check_tokens, dtype=bool)
+        pad_mask[:8, :3] = True
+        check_tokens[pad_mask] = PAD_TOKEN
+        check_offsets[pad_mask] = 511
         ct_t = torch.tensor(check_tokens, dtype=torch.long, device=dev)
         co_t = torch.tensor(check_offsets, dtype=torch.long, device=dev)
         cm_t = torch.tensor(check_mtype, dtype=torch.long, device=dev)
@@ -189,6 +210,11 @@ class ShortCtxArm(Arm):
 
         with torch.no_grad():
             ref = net(ct_t, co_t, cm_t, cf_t).cpu().numpy()
+            co_changed = co_t.clone()
+            co_changed[torch.tensor(pad_mask, dtype=torch.bool, device=dev)] = 0
+            ref_changed = net(ct_t, co_changed, cm_t, cf_t).cpu().numpy()
+        if not np.array_equal(ref, ref_changed):
+            raise RuntimeError("Torch PAD outputs changed when PAD offsets changed")
 
         self.w = {k: v.detach().cpu().double().numpy() for k, v in net.state_dict().items()}
         got = forward_np(self.w, check_tokens, check_offsets, check_mtype, check_flag, H=H)
@@ -203,8 +229,8 @@ class ShortCtxArm(Arm):
         Builds the layout from split.y and split.cutoff for every machine:
         - If the machine has exactly 64 observed ticks before cutoff, use them as given
           (flag = 1).
-        - Otherwise take the last 40 consecutive ticks + 24 random older observed ticks
-          with a deterministic fixed seed (flag = 0).
+        - Otherwise take the last 40 observed ticks + up to 24 random older
+          observed ticks with true offsets to cutoff; PAD fills any shortfall.
         """
         E, M, T = split.y.shape
         co = split.cutoff.astype(np.int64)
@@ -230,18 +256,26 @@ class ShortCtxArm(Arm):
                     off = (c_e - obs_ticks).astype(np.int16)
                     flg = 1
                 else:
-                    # Long history: take last 40 consecutive ticks + 24 older observed ticks
-                    rec_ticks = np.arange(c_e - 40, c_e, dtype=np.int16)
-                    older_obs = np.where(y_row[:c_e - 40] >= 0)[0]
+                    # Use observed ticks only. Gaps in recent history never become
+                    # missing payout tokens in the input sequence.
+                    observed = np.flatnonzero(y_row[:c_e] >= 0)
+                    rec_ticks = observed[-40:]
+                    older_obs = observed[:-len(rec_ticks)] if len(rec_ticks) else observed
                     # Fixed deterministic seed per machine
                     fixed_rng = np.random.RandomState(42 + m)
-                    if len(older_obs) >= 24:
-                        chosen_older = np.sort(fixed_rng.choice(older_obs, size=24, replace=False))
-                    else:
-                        chosen_older = np.sort(fixed_rng.choice(older_obs, size=24, replace=True))
-                    all_ticks = np.concatenate([chosen_older, rec_ticks])
-                    tok = y_row[all_ticks].astype(np.int8)
-                    off = (c_e - all_ticks).astype(np.int16)
+                    n_old = min(24, len(older_obs))
+                    chosen_older = (np.sort(fixed_rng.choice(older_obs, size=n_old, replace=False))
+                                    if n_old else np.empty(0, dtype=np.int64))
+                    # Right-align each group to preserve its trained role. PAD slots
+                    # are ignored by the recurrent state and older-item pooling.
+                    tok = np.full(64, PAD_TOKEN, dtype=np.int8)
+                    off = np.zeros(64, dtype=np.int16)
+                    old_start = 24 - n_old
+                    tok[old_start:24] = y_row[chosen_older].astype(np.int8)
+                    off[old_start:24] = (c_e - chosen_older).astype(np.int16)
+                    rec_start = 40 - len(rec_ticks)
+                    tok[24 + rec_start:64] = y_row[rec_ticks].astype(np.int8)
+                    off[24 + rec_start:64] = (c_e - rec_ticks).astype(np.int16)
                     flg = 0
 
                 tokens_list.append(tok)
@@ -274,4 +308,9 @@ class ShortCtxArm(Arm):
         arm = cls(**p)
         with np.load(d / 'model.npz') as z:
             arm.w = {k: z[k] for k in z.files}
+        # Older exports have only the five payout embeddings. Add a neutral PAD
+        # row so sparse-history inference remains compatible with those weights.
+        if arm.w['tok.weight'].shape[0] == PAD_TOKEN:
+            pad_row = np.zeros((1, arm.w['tok.weight'].shape[1]), dtype=arm.w['tok.weight'].dtype)
+            arm.w['tok.weight'] = np.concatenate([arm.w['tok.weight'], pad_row], axis=0)
         return arm

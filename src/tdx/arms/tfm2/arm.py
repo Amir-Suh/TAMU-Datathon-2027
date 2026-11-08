@@ -312,6 +312,11 @@ class Tfm2Arm(Arm):
         if self.parity > 1e-6:
             raise RuntimeError(f'numpy/torch parity failed: {self.parity:.3e}')
 
+    def step_outputs(self, y, mtype, steps):
+        """Unmasked per-input-tick logits from the float64 NumPy forward pass."""
+        return np.asarray(forward_np(self.w, y, mtype, steps, self.p['d'], self.p['L'],
+                                     self.p['heads'], self.p['conv'], self.p['alibi']), dtype=np.float64)
+
     def predict(self, split):
         y = _masked(split)
         co = split.cutoff.astype(np.int64)

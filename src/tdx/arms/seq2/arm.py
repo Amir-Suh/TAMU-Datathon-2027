@@ -36,12 +36,11 @@ def forward_np(w, y, mt, steps, H, msg, factor=False, short_flag=False):
     h = np.zeros((E, M, H)); m = np.zeros((E, M, H)); te = w['typ'][mt]; out = []
     wih, whh, bih, bhh = w['wih'], w['whh'], w['bih'], w['bhh']
     if short_flag:
-        flag = ((y >= 0).sum(-1) == 64).astype(np.int64)
-        fe = w['flg'][flag]
+        flag = (np.cumsum(y < 0, axis=-1) > 0).astype(np.int64)
     for t in range(steps):
         parts = [w['tok'][y[:, :, t] + 1], te]
         if short_flag:
-            parts.append(fe)
+            parts.append(w['flg'][flag[:, :, t]])
         if msg:
             parts.append(m)
         x = np.concatenate(parts, -1)
@@ -108,13 +107,13 @@ class Seq2Arm(Arm):
                 h = torch.zeros(B, M, H, device=y.device, dtype=s.head.weight.dtype); m = torch.zeros_like(h)
                 te = s.typ(mt); out = []
                 if p['short_flag']:
-                    if flag is None:
-                        flag = ((y >= 0).sum(-1) == 64).long()
-                    fe = s.flg(flag)
+                    # Causal feature: a missing token has occurred in the
+                    # prefix ending at this input tick.
+                    flag_steps = torch.cumsum((y < 0).long(), dim=-1) > 0
                 for t in range(T):
                     parts = [s.tok(y[:, :, t] + 1), te]
                     if p['short_flag']:
-                        parts.append(fe)
+                        parts.append(s.flg(flag_steps[:, :, t].long()))
                     if p['msg']:
                         parts.append(m)
                     x = torch.cat(parts, -1)
@@ -141,10 +140,7 @@ class Seq2Arm(Arm):
                     b_aug = torch.zeros(len(b), dtype=torch.bool, device=dev)
                     keep = torch.ones_like(orig_y, dtype=torch.bool)
 
-                if p['short_flag']:
-                    flag = ((y_aug >= 0).sum(-1) == 64).long()
-                else:
-                    flag = None
+                flag = None  # Net derives the causal flag from the actual input.
 
                 if p['tokdrop'] > 0:
                     drop_mask = torch.rand_like(y_aug, dtype=torch.float32) < p['tokdrop']
@@ -198,19 +194,30 @@ class Seq2Arm(Arm):
 
     def predict(self, split):
         y = _masked(split); co = split.cutoff.astype(np.int64)
-        lg = forward_np(self.w, y, split.mtype.astype(np.int64), int(co.max()), self.p['h'], self.p['msg'], self.p.get('factor', False), self.p.get('short_flag', False))
+        lg = self.step_outputs(y, split.mtype.astype(np.int64), int(co.max()))
         sel = lg[np.arange(len(co))[:, None], np.arange(8)[None, :], (co - 1)[:, None]]
         e = np.exp(sel - sel.max(-1, keepdims=True)); pr = (e / e.sum(-1, keepdims=True)).clip(1e-6, None)
         return pr / pr.sum(-1, keepdims=True)
 
+    def step_outputs(self, y, mtype, steps):
+        """Return unmasked float64 logits for the first ``steps`` ticks."""
+        out = forward_np(self.w, np.asarray(y), np.asarray(mtype), int(steps),
+                         self.p['h'], self.p['msg'], self.p.get('factor', False),
+                         self.p.get('short_flag', False))
+        return np.asarray(out, dtype=np.float64)
+
     def save(self, directory):
         d = Path(directory); d.mkdir(parents=True, exist_ok=True)
         np.savez(d / 'model.npz', **self.w)
-        (d / 'meta.json').write_text(json.dumps(self.p, indent=2, sort_keys=True))
+        meta = dict(self.p, flag='causal_v1')
+        (d / 'meta.json').write_text(json.dumps(meta, indent=2, sort_keys=True))
 
     @classmethod
     def load(cls, directory):
         d = Path(directory); p = json.loads((d / 'meta.json').read_text())
+        flag = p.pop('flag', None)
+        if flag != 'causal_v1':
+            raise ValueError("seq2 model was trained with the non-causal flag; retrain before loading")
         a = cls(**p)
         with np.load(d / 'model.npz') as z:
             a.w = {k: z[k] for k in z.files}

@@ -76,8 +76,9 @@ def forward_np(w, y, mt, steps, H, K, d_expert, factor=True):
     te = w['typ'][mt]
     wih, whh, bih, bhh = w['wih'], w['whh'], w['bih'], w['bhh']
 
-    # short_flag: 1 if row's observed-tick count is 64 else 0
-    flag = ((y >= 0).sum(axis=-1, keepdims=True) == 64).astype(np.float64)
+    # Once a missing tick has appeared in the observed prefix, mark the
+    # current input tick. This is causal even for historical training rows.
+    flag = (np.cumsum(y < 0, axis=-1) > 0)[..., None].astype(np.float64)
 
     # causal pair statistics
     pair_stats = compute_pair_stats(y)
@@ -131,7 +132,7 @@ def forward_np(w, y, mt, steps, H, K, d_expert, factor=True):
 
             # Gate: g_t = softmax(W [h_t, short_flag, r_t])
             r_t = pair_stats[:, :, t + 1, :]
-            v_t = np.concatenate([h, flag, r_t], axis=-1)
+            v_t = np.concatenate([h, flag[:, :, t, :], r_t], axis=-1)
             g_logits = v_t @ w['gw'].T + w['gb']
             g_shift = g_logits - g_logits.max(axis=-1, keepdims=True)
             eg = np.exp(g_shift)
@@ -218,7 +219,7 @@ class MoeGate4Arm(Arm):
 
         # Precompute causal pair statistics and short_flag
         R_np = compute_pair_stats(Y_np)
-        FLAG_np = ((Y_np >= 0).sum(axis=-1, keepdims=True) == 64).astype(np.float32)
+        FLAG_np = (np.cumsum(Y_np < 0, axis=-1) > 0)[..., None].astype(np.float32)
 
         # Precompute boolean mask for auxiliary condition loss:
         # last 64 observed ticks before cutoff across all 8 machines
@@ -328,8 +329,7 @@ class MoeGate4Arm(Arm):
                     P_exp = torch.stack(p_experts, dim=3)  # [B, M, T, K, 5]
 
                     r_slice = r[:, :, 1:T + 1, :]
-                    flag_exp = flag.unsqueeze(2).expand(-1, -1, T, -1)
-                    v_all = torch.cat([H_seq, flag_exp, r_slice], -1)  # [B, M, T, H + 7]
+                    v_all = torch.cat([H_seq, flag, r_slice], -1)  # [B, M, T, H + 7]
                     g_logits = s.gate(v_all)
                     g_all = F.softmax(g_logits, dim=-1)  # [B, M, T, K]
 
@@ -446,19 +446,22 @@ class MoeGate4Arm(Arm):
         self.w = w
         got, _ = forward_np(self.w, Y_np[:3], MT_np[:3], Y_np.shape[-1], H, K, d_exp, p['factor'])
         self.parity = float(np.abs(got - ref_np).max())
-        if self.parity > 1e-6:
+        if self.parity > 1e-9:
             raise RuntimeError(f'numpy/torch parity failed: {self.parity:.3e}')
 
     def predict(self, split):
         y = _masked(split)
         co = split.cutoff.astype(np.int64)
-        p_all, _ = forward_np(
-            self.w, y, split.mtype.astype(np.int64), int(co.max()),
-            self.p['h'], self.p['K'], self.p['d_expert'], self.p['factor']
-        )
+        p_all = self.step_outputs(y, split.mtype.astype(np.int64), int(co.max()))
         sel = p_all[np.arange(len(co))[:, None], np.arange(8)[None, :], (co - 1)[:, None]]
         pr = sel.clip(1e-6, None)
         return pr / pr.sum(-1, keepdims=True)
+
+    def step_outputs(self, y, mtype, steps):
+        """Return unmasked float64 mixture probabilities for the first ``steps`` ticks."""
+        probs, _ = forward_np(self.w, np.asarray(y), np.asarray(mtype), int(steps),
+                              self.p['h'], self.p['K'], self.p['d_expert'], self.p['factor'])
+        return np.asarray(probs, dtype=np.float64)
 
     def usage(self, split):
         """Mean gate weights per expert for each episode (shape: [E, K])."""
@@ -477,12 +480,15 @@ class MoeGate4Arm(Arm):
         d = Path(directory)
         d.mkdir(parents=True, exist_ok=True)
         np.savez(d / 'model.npz', **self.w)
-        (d / 'meta.json').write_text(json.dumps(self.p, indent=2, sort_keys=True))
+        meta = dict(self.p, flag='causal_v1')
+        (d / 'meta.json').write_text(json.dumps(meta, indent=2, sort_keys=True))
 
     @classmethod
     def load(cls, directory):
         d = Path(directory)
         p = json.loads((d / 'meta.json').read_text())
+        if p.pop('flag', None) != 'causal_v1':
+            raise ValueError("moegate4 model was trained with the non-causal flag; retrain before loading")
         a = cls(**p)
         with np.load(d / 'model.npz') as z:
             a.w = {k: z[k] for k in z.files}

@@ -4,6 +4,8 @@ from dataclasses import replace
 import numpy as np
 
 from tdx.arms.shortctx import build, ShortCtxArm
+from tdx.arms.shortctx import arm as shortctx_arm
+from tdx.arms.shortctx.arm import forward_np
 from tdx.arms.shortctx.sampler import sample_layout
 from tdx.data import load_round
 from tdx.fit import dev_spec
@@ -66,6 +68,69 @@ def test_sampler_layout():
     assert sample_layout(y_missing_older, cutoff_prime, rng=42) is None
 
 
+def test_pad_token_is_masked_and_token_bounds_are_checked():
+    rng = np.random.RandomState(12)
+    H = 4
+    shapes = {
+        'tok.weight': (6, H), 'off.weight': (64, H), 'typ.weight': (4, H),
+        'flg.weight': (2, H), 'cell.weight_ih': (3 * H, H),
+        'cell.weight_hh': (3 * H, H), 'cell.bias_ih': (3 * H,),
+        'cell.bias_hh': (3 * H,), 'fc1.weight': (H, 2 * H),
+        'fc1.bias': (H,), 'fc2.weight': (5, H), 'fc2.bias': (5,),
+    }
+    w = {k: rng.normal(0, .2, shape) for k, shape in shapes.items()}
+    tokens = rng.randint(0, 5, (1, 64))
+    tokens[:, :3] = shortctx_arm.PAD_TOKEN
+    tokens[:, 30] = shortctx_arm.PAD_TOKEN
+    offsets = np.arange(64, 0, -1, dtype=np.int16)[None]
+    mtype = np.array([1])
+    flag = np.array([0])
+
+    expected = forward_np(w, tokens, offsets, mtype, flag, H=H)
+    changed_offsets = offsets.copy()
+    changed_offsets[tokens == shortctx_arm.PAD_TOKEN] = 1000
+    actual = forward_np(w, tokens, changed_offsets, mtype, flag, H=H)
+    assert np.array_equal(expected, actual)
+
+    jackpots = tokens.copy()
+    jackpots[tokens == shortctx_arm.PAD_TOKEN] = 4
+    assert not np.array_equal(expected, forward_np(w, jackpots, offsets, mtype, flag, H=H))
+
+    for bad_token in (-1, 6):
+        invalid = tokens.copy()
+        invalid[0, 0] = bad_token
+        with np.testing.assert_raises(ValueError):
+            forward_np(w, invalid, offsets, mtype, flag, H=H)
+
+
+def test_prediction_uses_observed_ticks_and_pads_short_layout(monkeypatch):
+    from types import SimpleNamespace
+
+    seen = {}
+
+    def capture(_w, tokens, offsets, mtype, flag, H=64):
+        seen['tokens'] = tokens.copy()
+        seen['offsets'] = offsets.copy()
+        return np.zeros((tokens.shape[0], 5), dtype=np.float64)
+
+    monkeypatch.setattr(shortctx_arm, 'forward_np', capture)
+    y = np.full((1, 1, 100), -1, dtype=np.int8)
+    obs_ticks = np.array([10, 20, 30, 40, 50, 60, 61, 63, 64, 66, 69, 72, 75, 78, 81, 84, 87])
+    y[0, 0, obs_ticks] = np.arange(len(obs_ticks)) % 5
+    split = SimpleNamespace(y=y, cutoff=np.array([90]), mtype=np.array([[2]]))
+    arm = ShortCtxArm(h=4)
+    arm.w = {}
+    arm.predict(split)
+
+    tokens = seen['tokens'][0]
+    offsets = seen['offsets'][0]
+    real = tokens != shortctx_arm.PAD_TOKEN
+    assert np.all((tokens[real] >= 0) & (tokens[real] <= 4))
+    assert np.count_nonzero(real) == len(obs_ticks)
+    assert np.array_equal(np.sort(90 - offsets[real]), obs_ticks)
+    assert np.count_nonzero(tokens == shortctx_arm.PAD_TOKEN) == 64 - len(obs_ticks)
+
+
 def test_predictions_ignore_ticks_at_or_after_cutoff():
     # (b) predictions ignore ticks at or after the cutoff
     rnd = load_round('data/main', answers=False)
@@ -101,6 +166,24 @@ def test_parity_and_save_load_roundtrip(tmp_path):
     arm_loaded = ShortCtxArm.load(tmp_path)
     p_loaded = arm_loaded.predict(s)
     assert np.array_equal(p, p_loaded)
+
+    # Legacy exports have only the five payout embeddings. Loading adds the PAD
+    # row so sparse observed histories can still be predicted.
+    with np.load(tmp_path / 'model.npz') as z:
+        legacy_w = {k: z[k] for k in z.files}
+    legacy_w['tok.weight'] = legacy_w['tok.weight'][:5]
+    np.savez(tmp_path / 'model.npz', **legacy_w)
+    arm_legacy = ShortCtxArm.load(tmp_path)
+    assert arm_legacy.w['tok.weight'].shape[0] == 6
+
+    from types import SimpleNamespace
+    sparse_y = np.full((1, 1, 100), -1, dtype=np.int8)
+    sparse_ticks = np.array([10, 20, 30, 40, 50, 60, 70, 80, 85, 89])
+    sparse_y[0, 0, sparse_ticks] = np.arange(len(sparse_ticks)) % 5
+    sparse_split = SimpleNamespace(y=sparse_y, cutoff=np.array([90]), mtype=np.array([[2]]))
+    sparse_p = arm_legacy.predict(sparse_split)
+    assert sparse_p.shape == (1, 1, 5)
+    assert np.allclose(sparse_p.sum(axis=-1), 1.0)
 
 
 def test_no_torch_on_load_and_predict(tmp_path):
