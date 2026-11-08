@@ -1,0 +1,6 @@
+House Edge datathon, repo root = cwd. Read AGENTS.md, claude_output/notes/EVAL_PROTOCOL_FROZEN.md (frozen rules + decision log) and claude_output/notes/session_log.md only; do not re-read old chats.
+State: branch fredy/bakeoff-gbdt-seq, see `git status -sb` for HEAD and unpushed commits. Main closes Sun 10:30 CT, round two 10:30-12:00 (90 min). Submitted: Andrew's clean-refit 3b (submissions/ + andrew-exp). Candidate 4 (recipe D, fold-averaged weights) built in runs/entry_cand4 - check its repro_check result before anything else; NOT submitted.
+Waiting on the user: (1) confirm/override candidate 4 (frozen rule not met, judgment call); (2) launch nothing without a say-so.
+Background jobs may still run: `ps -eo args | awk '$1 ~ /python$/'` and tail /tmp/claude-1000/aug/queue_disent.log (CE-80 epoch test, transductive-off other members, causal-flag MoE). /tmp is wiped by resets.
+Open items: CE-80 vs 100 epoch blend test (cv_blend --spec claude_output/notes/frozen_addendum3_ce80.json); MoE K=3/K=4 test (addendum 2); full-size round-two timing rehearsal (round2.sh) never run; consider training round two on main+new histories (data volume matters: 96->34, 192->51, 288->54, 384->55 points).
+Do not trust older notes that say size x2 helps or that the model relies on each machine's own history; both were corrected (see protocol file).

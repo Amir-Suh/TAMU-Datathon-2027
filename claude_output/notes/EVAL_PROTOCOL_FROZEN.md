@@ -28,3 +28,14 @@ Why: until now most choices (seeds, epochs, blend weights, presets) were judged 
 2. **Epoch rule triggered for CE:** retrain plain CE at 80 epochs on seeds 41-52 (training is deterministic with a constant learning rate, so this equals the epoch-80 checkpoint) and evaluate with the frozen cross-validated blend as candidate A80 vs A (matched seeds); the usual decision rule (gain >= 0.2, interval excluding 0) applies; otherwise 100 epochs stays.
 3. **Same diagnostics for the other members:** transductive-off for the plain transformer (seeds 21-23) and size x2 GRU (41-43).
 4. **MoE arms were refitted-from-scratch required** (causal flag fix, Codex W9): the 8 partial runs from the old non-causal flag are invalid. Retrain moegate4 k3_ref and k4_nocond seeds 41-48 and run the already-frozen addendum 2 test (extra-GRU control) unchanged.
+
+## Result of follow-up 1 (2026-11-08 ~02:00 CT) - CORRECTS the earlier "own-history" reading
+GRU plain CE, seeds 41-43, validation points (measured, `runs/disent`, `runs/transd_off`, `runs/ce_ens`):
+- A train histories only (96 episodes): 34.29 | D train+validation (192): 50.68 | B train+test, validation machines UNSEEN (288): **53.92** | C all (384): 54.65.
+- B - A = +19.63; C - B = +0.73. By the pre-registered reading (B - A >= 10) the gap is **data volume**, not familiarity with each machine's own history. The model learns a rule that transfers to machines it has not seen, as long as it is trained on enough machine histories (learning curve 34.3 -> 50.7 -> 53.9 -> 54.7, saturating).
+- My earlier statements that the model "gets most of its skill from studying each machine's own history" and that unseen-machine performance would be about 34 were wrong; the 34 is a data-starved model. Consequence for round two: train on ALL released histories of the round (train+validation+test), and consider adding the main-round histories ("main data may be reused"), judged on the new validation.
+
+## Decisions log, 2026-11-08 ~02:15 CT
+- (default I picked, needs user confirmation) Build candidate 4 = recipe D (m3 + 12 CE GRUs + 12 size x2 GRUs + 8 transformers) with the fold-averaged weights of the frozen cross-validation, as a hedged "best available" entry. The frozen replacement rule was NOT met by any candidate (D gain +0.171 vs F, below 0.2); choosing D is a judgment call, not a rule outcome. Not submitted.
+- (user, earlier) Transformer size x2 blend test (G/H) skipped: matched-seed single-model result negative.
+- (user) Rules above (frozen candidates, 4-fold grouped CV x5, matched seeds, intervals) apply from now on.
