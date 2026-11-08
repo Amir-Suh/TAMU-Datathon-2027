@@ -1,3 +1,12 @@
+# CORRECTION (23:55 CT): the size x2 claim in section 3 is NOT supported
+
+A same-seed comparison was run after this brief was first pushed: 12-member GRU ensembles on seeds 41-52, plain CE (`runs/ce_ens`) vs size x2 (`weights/seqens_size2_ens`), validation, dev mode.
+- Ensembles: CE 56.294 vs size x2 56.405 (difference +0.11; seed bootstrap 95% interval [-0.15, +0.35]).
+- Single seeds: CE mean 54.608 (sd 0.49) vs size x2 54.612 (sd 0.41); paired per-seed difference +0.005, se 0.19, positive in 6 of 12.
+- The earlier "+0.63" (55.77 vs 56.41) compared DIFFERENT seeds: the baseline ensemble used seeds 11-22 (single-seed mean 53.75), the size x2 ensemble seeds 41-52 (54.61). The plain-CE ensemble on seeds 41-52 alone scores 56.29. Random 12-subsets of the 24 CE members score 56.06 (sd 0.09, range 55.87-56.25), so a 12-member ensemble's validation score moves by about +-0.3 with the seed set.
+- Treat the 4-matched-seed result (+0.60) and the tail log-loss bootstrap (3 seeds, -0.0036) as likely seed luck until reproduced on more seeds; pooled paired difference over all 16 matched pairs is about +0.15 (not significant).
+- Consequence: gains of 0.1-0.3 points reported elsewhere in this brief (transformer, moegate, blend weights) are of the same size as the seed-set noise of a 12-member ensemble. The submitted 3b uses the weaker of the two baseline GRU ensembles (55.77); an ensemble of all 24 CE members scores 56.16.
+
 # Adversarial review brief — state at 2026-11-07 23:05 CT (for the other member of technical staff)
 
 Branch: `fredy/bakeoff-gbdt-seq`. Please try to break the claims below. Everything is reproducible from this branch unless marked "files not in git". Main closes Sun 10:30 CT; round two 10:30–12:00.
