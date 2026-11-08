@@ -1,0 +1,1 @@
+{"permissions":{"deny":["command(rm)","command(git)","command(curl)","command(wget)","command(ssh)","command(scp)","command(sudo)","command(pip)","command(dd)","command(gcloud)"]}}

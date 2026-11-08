@@ -1,2 +1,14 @@
+/data/
+/runs/*/
+.venv/
 __pycache__/
 *.pyc
+*.so
+*.zip
+/entry/
+/outputs/
+/.cache/
+.ipynb_checkpoints/
+.pytest_cache/
+/main-participants-60-40/signal_experiments/next_stage/*/*/*/smoke*/
+/main-participants-60-40/signal_experiments/next_stage/*/*/*/known_law/predictions.npz

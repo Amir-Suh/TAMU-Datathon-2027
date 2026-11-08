@@ -1,0 +1,7 @@
+{
+  "_comment": "Main-chosen variants. Blend weights are refitted on each round's released validation targets. gbdt/trans_64_l15 with neighbour features dropped scored 36.395 on validation (dev mode, pilots 2026-11-07).",
+  "arms": [{"arm": "gbdt", "variant": "trans_64_l15", "params": {"drop_neighbour": true}}],
+  "blend": null,
+  "fallback": ["pooled/pooled_recent"],
+  "seeds": {"global": 7}
+}
