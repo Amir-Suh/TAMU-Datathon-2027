@@ -1,8 +1,14 @@
 import glob, csv, numpy as np
 from scipy.optimize import minimize
+from tdx.backtest import TAIL_SIGNAL_POLICY
 
 A = '/tmp/claude-1000/aug/'
-def L(tag): return np.load(A + f'tail_{tag}.npz')
+def L(tag):
+    filename = A + f'tail_{tag}.npz'
+    with np.load(filename) as artifact:
+        if 'signal_policy' not in artifact or str(artifact['signal_policy']) != TAIL_SIGNAL_POLICY:
+            raise ValueError(f'{filename}: regenerate forecasts with neutral pseudo-cutoff signal')
+        return {name: artifact[name] for name in ('preds', 'outs')}
 
 holds = [h for h in (30, 60, 90) if glob.glob(A + f'tail_m3{"" if h == 30 else f"_h{h}"}.npz')]
 def tg(base, h, s=None):

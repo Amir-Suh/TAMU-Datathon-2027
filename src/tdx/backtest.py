@@ -16,6 +16,8 @@ from .fit import dev_spec
 from .paths import data_root
 from .run import arm_module, build_arm, fit_round, parse_set
 
+TAIL_SIGNAL_POLICY = "neutral-at-pseudo-cutoff-v1"
+
 
 class BacktestResult(float, Mapping):
     def __new__(cls, logloss, n, first, mid, last):
@@ -56,7 +58,7 @@ class BacktestResult(float, Mapping):
 
 def truncate(rnd, hold):
     """Return (rnd_trunc, full_splits) where rnd_trunc has cutoffs reduced by hold
-    and y >= cutoff - hold set to -1, with supervision fields set to None."""
+    and y >= cutoff - hold set to -1. Earlier queries use neutral signal."""
     full_splits = rnd.splits
     trunc_splits = {}
     for name, s in full_splits.items():
@@ -71,6 +73,8 @@ def truncate(rnd, hold):
             s,
             cutoff=new_cutoff,
             y=new_y,
+            signal=np.where(new_cutoff[:, None] == s.cutoff[:, None], s.signal, 0),
+            n_obs=(new_y >= 0).sum(axis=-1).astype(s.n_obs.dtype),
             label=None,
             condition=None,
             target=None,
@@ -108,6 +112,7 @@ def make_pseudo_split(val_trunc, full_val, j, short=False, rng=None):
         val_trunc,
         cutoff=pseudo_cutoff,
         y=y_j,
+        signal=np.where(pseudo_cutoff[:, None] == full_val.cutoff[:, None], full_val.signal, 0),
         n_obs=(y_j >= 0).sum(axis=-1).astype(val_trunc.n_obs.dtype),
     )
 

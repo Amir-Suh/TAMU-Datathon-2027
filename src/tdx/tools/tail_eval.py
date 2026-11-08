@@ -12,7 +12,7 @@ import re
 import sys
 import numpy as np
 
-from tdx.backtest import truncate, make_pseudo_split
+from tdx.backtest import TAIL_SIGNAL_POLICY, truncate, make_pseudo_split
 from tdx.data import load_round, with_answers
 from tdx.fit import dev_spec
 from tdx.paths import data_root
@@ -276,7 +276,7 @@ def run_predict(model_name, seed, hold, out_dir, data=None, round_name='main'):
 
     preds_arr = np.array(preds)
     outs_arr = np.array(outs)
-    np.savez(out_path, preds=preds_arr, outs=outs_arr)
+    np.savez(out_path, preds=preds_arr, outs=outs_arr, signal_policy=TAIL_SIGNAL_POLICY)
     print(f"Saved {out_path} (preds: {preds_arr.shape}, outs: {outs_arr.shape})")
     return out_path
 
@@ -316,10 +316,12 @@ def load_tail_dataset(in_dir, models, holds):
             # Average over all seeds found for this model at hold h
             seed_preds = []
             for f in files:
-                z = np.load(f)
-                seed_preds.append(z['preds'])
-                if h_outs is None:
-                    h_outs = z['outs']
+                with np.load(f) as z:
+                    if 'signal_policy' not in z or str(z['signal_policy']) != TAIL_SIGNAL_POLICY:
+                        raise ValueError(f'{f}: regenerate forecasts with neutral pseudo-cutoff signal')
+                    seed_preds.append(z['preds'])
+                    if h_outs is None:
+                        h_outs = z['outs']
             avg_pred = np.mean(seed_preds, axis=0)
             preds_by_model[m].append(avg_pred)
         outs_by_hold.append(h_outs)
