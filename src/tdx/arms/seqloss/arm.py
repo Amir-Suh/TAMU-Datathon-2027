@@ -15,14 +15,15 @@ from ..seq.arm import SeqArm, forward_np, _masked, _short_history  # noqa: F401
 
 
 class SeqLossArm(SeqArm):
-    def __init__(self, loss='ce', beta=2.0, size_w=1.0, recency_tau=0.0, len_pow=0.0, val_pow=0.0, **kw):
+    def __init__(self, loss='ce', beta=2.0, size_w=1.0, recency_tau=0.0, len_pow=0.0, val_pow=0.0, ckpt_every=0, **kw):
         super().__init__(**kw)
+        self.history, self.checkpoints = [], {}
         if loss not in ('ce', 'brier', 'ce_brier'):
             raise ValueError(f'unknown loss {loss}')
         if size_w != 1.0 and not self.p['factor']:
             raise ValueError('size_w needs factor=True')
         self.p.update(loss=loss, beta=float(beta), size_w=float(size_w), recency_tau=float(recency_tau),
-                      len_pow=float(len_pow), val_pow=float(val_pow))
+                      len_pow=float(len_pow), val_pow=float(val_pow), ckpt_every=int(ckpt_every))
 
     def fit(self, rnd, spec):
         import torch, torch.nn as nn, torch.nn.functional as F
@@ -65,7 +66,7 @@ class SeqLossArm(SeqArm):
         N = Y.shape[0]; T = Y.shape[-1]
         tick = torch.arange(T - 1, device=dev).view(1, 1, -1)                 # position of the input tick t
         for ep in range(p['epochs']):
-            net.train(); perm = torch.randperm(N, device=dev)
+            net.train(); perm = torch.randperm(N, device=dev); ep_sum, ep_n = 0.0, 0
             for i in range(0, N, p['batch']):
                 b = perm[i:i + p['batch']]; y = Y[b]
                 if p['aug'] > 0:
@@ -97,6 +98,12 @@ class SeqLossArm(SeqArm):
                 w = w * msk
                 loss = (per * w).sum() / w.sum().clamp(min=1e-9)
                 opt.zero_grad(); loss.backward(); nn.utils.clip_grad_norm_(net.parameters(), 1.0); opt.step()
+                ep_sum += float(loss.detach()); ep_n += 1
+            self.history.append(ep_sum / max(ep_n, 1))
+            if p['ckpt_every'] and (ep + 1) % p['ckpt_every'] == 0:
+                sd_ = {k: v.detach().cpu().double().numpy() for k, v in net.state_dict().items()}
+                self.checkpoints[ep + 1] = dict(tok=sd_['tok.weight'], typ=sd_['typ.weight'], wih=sd_['cell.weight_ih'], whh=sd_['cell.weight_hh'],
+                                                bih=sd_['cell.bias_ih'], bhh=sd_['cell.bias_hh'], hw=sd_['head.weight'], hb=sd_['head.bias'])
         net.double().eval()
         with torch.no_grad():
             ref = net(Y[:3], MT[:3]).cpu().numpy()
@@ -112,8 +119,11 @@ class SeqLossArm(SeqArm):
         """Write a plain `seq` export (meta.json holds only the keys SeqArm understands) plus loss.json with the loss options."""
         import json
         from pathlib import Path
-        extra = ('loss', 'beta', 'size_w', 'recency_tau', 'len_pow', 'val_pow')
+        extra = ('loss', 'beta', 'size_w', 'recency_tau', 'len_pow', 'val_pow', 'ckpt_every')
         d = Path(directory); d.mkdir(parents=True, exist_ok=True)
         np.savez(d / 'model.npz', **self.w)
         (d / 'meta.json').write_text(json.dumps({k: v for k, v in self.p.items() if k not in extra}, indent=2, sort_keys=True))
         (d / 'loss.json').write_text(json.dumps({k: self.p[k] for k in extra}, indent=2, sort_keys=True))
+        (d / 'history.json').write_text(json.dumps({'train_loss_per_epoch': self.history}))
+        for ep, w in self.checkpoints.items():
+            np.savez(d / f'ckpt_{ep:03d}.npz', **w)

@@ -112,13 +112,14 @@ def main(argv=None):
         gain = res[n].mean() - res[base].mean()
         ok = gain >= 0.2 and lo > 0
         print('  %-22s gain %+6.3f  95%% interval [%+.3f, %+.3f]  ->  %s' % (n, gain, lo, hi, 'REPLACES F (rule met)' if ok else 'keep F'))
-    if 'A_ce12_matched' in names and 'B_size2_12_matched' in names:
-        d = []
-        for _ in range(a.boot):
-            idx = [rng.choice(ix, len(ix)) for ix in idx_by_c]
-            d.append(points_from_errors(errs['B_size2_12_matched'], ref_err, cond, idx) - points_from_errors(errs['A_ce12_matched'], ref_err, cond, idx))
-        print('\nMatched-seed test of the size x2 loss (B - A, same seeds 41-52): gain %+.3f, 95%% interval [%+.3f, %+.3f]' % (
-            res['B_size2_12_matched'].mean() - res['A_ce12_matched'].mean(), *np.percentile(d, [2.5, 97.5])))
+    for treat, ctrl in spec.get('matched_pairs', [['B_size2_12_matched', 'A_ce12_matched']]):
+        if treat in names and ctrl in names:
+            d = []
+            for _ in range(a.boot):
+                idx = [rng.choice(ix, len(ix)) for ix in idx_by_c]
+                d.append(points_from_errors(errs[treat], ref_err, cond, idx) - points_from_errors(errs[ctrl], ref_err, cond, idx))
+            print('\nMatched-seed test (%s - %s): gain %+.3f, 95%% interval [%+.3f, %+.3f]' % (
+                treat, ctrl, res[treat].mean() - res[ctrl].mean(), *np.percentile(d, [2.5, 97.5])))
     print('\nMean fold weights (win | size) over the members in order:')
     for n in names:
         k = len(spec['candidates'][n])

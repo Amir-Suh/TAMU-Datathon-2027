@@ -94,12 +94,13 @@ def forward_np(w, y, mt, steps, d, L, heads, conv_k=0, alibi=False):
 
 class Tfm2Arm(Arm):
     def __init__(self, d=64, L=2, heads=4, nhead=None, epochs=60, lr=2e-3, wd=1e-2, batch=32, seed=7,
-                 transductive=True, w_cut=20., conv=0, alibi=False, warmup=True, dropout=0.1,
+                 transductive=True, w_cut=20., conv=0, alibi=False, warmup=True, dropout=0.1, size_w=1.0,
                  device=None, smoke=False, **kwargs):
         actual_heads = nhead if nhead is not None else heads
         self.p = dict(d=d, L=L, heads=actual_heads, epochs=2 if smoke else epochs, lr=lr, wd=wd, batch=batch,
                       seed=seed, transductive=transductive, w_cut=w_cut, conv=int(conv),
-                      alibi=bool(alibi), warmup=bool(warmup), dropout=float(dropout))
+                      alibi=bool(alibi), warmup=bool(warmup), dropout=float(dropout), size_w=float(size_w))
+        self.history = []
         self.device = device
         self.smoke = smoke
         self.w = None
@@ -259,6 +260,7 @@ class Tfm2Arm(Arm):
         for ep in range(p['epochs']):
             net.train()
             perm = torch.randperm(N, device=dev)
+            ep_sum, ep_n = 0.0, 0
             for i in range(0, N, p['batch']):
                 if warmup_steps > 0 and step < warmup_steps:
                     lr_scale = float(step + 1) / float(warmup_steps)
@@ -274,7 +276,14 @@ class Tfm2Arm(Arm):
                 lg = net(y, MT[b])
                 tgt = y[:, :, 1:]
                 msk = tgt >= 0
-                num = F.cross_entropy(lg[:, :, :-1][msk], tgt[msk], reduction='sum')
+                if p.get('size_w', 1.0) == 1.0:
+                    num = F.cross_entropy(lg[:, :, :-1][msk], tgt[msk], reduction='sum')
+                else:
+                    # win BCE + size_w * size CE on wins, computed from the 5-way log-probabilities
+                    lp = F.log_softmax(lg[:, :, :-1][msk], -1); tg_ = tgt[msk]
+                    lp_y = lp.gather(-1, tg_.unsqueeze(-1)).squeeze(-1)
+                    lse_w = torch.logsumexp(lp[:, 1:], -1)
+                    num = torch.where(tg_ > 0, -lse_w - p['size_w'] * (lp_y - lse_w), -lp_y).sum()
                 den = msk.sum().float()
                 if has_cut:
                     idx = (CO[b] - 1).view(-1, 1, 1, 1).expand(-1, 8, 1, 5)
@@ -288,6 +297,8 @@ class Tfm2Arm(Arm):
                 loss.backward()
                 nn.utils.clip_grad_norm_(net.parameters(), 1.0)
                 opt.step()
+                ep_sum += float(loss.detach()); ep_n += 1
+            self.history.append(ep_sum / max(ep_n, 1))
 
         # Parity check on 3 episodes in float64
         net.double().eval()
@@ -317,6 +328,7 @@ class Tfm2Arm(Arm):
         d.mkdir(parents=True, exist_ok=True)
         np.savez(d / 'model.npz', **self.w)
         (d / 'meta.json').write_text(json.dumps(self.p, indent=2, sort_keys=True))
+        (d / 'history.json').write_text(json.dumps({'train_loss_per_epoch': getattr(self, 'history', [])}))
 
     @classmethod
     def load(cls, directory):
