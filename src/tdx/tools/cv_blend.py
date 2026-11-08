@@ -72,6 +72,8 @@ def main(argv=None):
     ap.add_argument('--spec', default='claude_output/notes/frozen_candidates.json')
     ap.add_argument('--data', default='data/main')
     ap.add_argument('--boot', type=int, default=2000)
+    ap.add_argument('--emit', help='candidate name: write its fold-averaged weights as a factored blend.json (ship the average of the fold weights)')
+    ap.add_argument('--emit-out', default='blend.json')
     a = ap.parse_args(argv)
     spec = json.loads(Path(a.spec).read_text())
     P = {k: np.load(Path(a.preds) / f'{k}.npy') for k in spec['members']}
@@ -124,6 +126,16 @@ def main(argv=None):
     for n in names:
         k = len(spec['candidates'][n])
         print('  %-22s win %s | size %s' % (n, np.round(weights[n][:k], 2), np.round(weights[n][k:], 2)))
+    if a.emit:
+        ids = {'m3': 'm3flip/m3', 'gru_ce_41_52': 'seqens/ce_ens', 'gru_s2_41_52': 'seqens/size2_ens',
+               'gru_ce_11_22': 'seqens/ens12_dev', 'tfm_8': 'tfmens/ens8_dev'}
+        members = spec['candidates'][a.emit]
+        k = len(members)
+        win, size = np.maximum(weights[a.emit][:k], 0), np.maximum(weights[a.emit][k:], 0)
+        cfg = dict(version=1, kind='factored', arms=[ids[m] for m in members],
+                   weights=(win / win.sum()).tolist(), size_weights=(size / size.sum()).tolist())
+        Path(a.emit_out).write_text(json.dumps(cfg, indent=2) + '\n')
+        print('wrote', a.emit_out, cfg)
     # non-CV references (reported for context only)
     S = [split(P[m]) for m in spec['candidates'][base]]
     ref_p = blend(S, [0.9017, 0.0414, 0.0569], [0.2465, 0.4948, 0.2587])
