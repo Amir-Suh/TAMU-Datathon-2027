@@ -1,0 +1,98 @@
+{
+  "actual_cutoff_supervision_weight": 8,
+  "arms": [
+    "factored",
+    "signal_offset",
+    "signal_offset_mask"
+  ],
+  "artifact_sha256": {
+    "format.log": "fd9aa317d3f50c74445a535dea3fe689838003cce401da9e362eb2f5a932aa15",
+    "full/fit_checks.json": "5a2010a1b21d6f89605775961408c755cd16d75169aee6d5fe60c7b49feacfba",
+    "full/folds_and_masks.json": "e0fd63f48963316d46a8970362ea08bbcc63ed64c535bcc2b605529f1c5de127",
+    "full/forecast_freeze.json": "75b934f5f139abbbf08ebcfed8d9ca8526d9b3d6745154ed80552ad78dcb5c00",
+    "full/manifest.json": "c038505796875661abd0abed7f0dff949ce1961fc34da666cbe254f15c6cf3ec",
+    "full_access.jsonl": "a822cd6cc12811f5b14513083e585033accf227e0b2a860cd5382e9bd346b768",
+    "replay_access.jsonl": "bd53e5a36a7acb00a962bb22cd6be380b59a6081778eb5909399663230ba5fa4",
+    "replay_parity.log": "70074c92ea456cfc6afe8c8b12b917149aff3c536b668c8cff25d178cbf7f0e8",
+    "run.py": "ff2747aff033f77dba08729b4678e45787c1cbe6885e2302569e7e919c42271c",
+    "score_access.jsonl": "d91b165119d994698cc6314b70dbfb02863e9f63239be559db634900b9918f53",
+    "score_e6.py": "c85723a7eb35930d441be1137421b01ee1b818709cca2025c96408f460dddaa9",
+    "scores_aug_vs_unaug.json": "2449753eeec065f12b41257c02830f362bb8548baadb027a0d0c90ab81596e18",
+    "scores_mask_vs_matched.json": "850a4f2343733f5bfaac2ac76f8ca5c8a12a6c18c0c94abe056c684a3c79132d",
+    "scores_mask_vs_unmasked.json": "ab1f25338a5c4520c93851bf5410c0cbcd47e5cb7f757af06b1ebe9af37fa749",
+    "scores_paired_seeds.json": "9ac65c903122056e8faca84f7c8c6d2a9e1398103e53e86c93b7333f55996d10",
+    "scores_vs_hybrid.json": "51b158f2db4498902389f66b024245f30354d960eb65fb0928938102f2f7a571",
+    "scores_vs_m3.json": "cece9b1f7fde9af2c1dd65dbf5298077989bd66569d4297340507fe3bd262664",
+    "scores_vs_matched.json": "64f7f3f874890a12677f5085d9c04ef4b08a3cde8c2a9f804290416b65b14379",
+    "scores_vs_structural.json": "3198206424c5bb45cfb88bce8a034dd160b6eaaedd0a92b60ab95d779146aca5",
+    "signal_slopes.json": "be0511279ae86995a7809f8ebff3fd6d2b53334b72bbbdf353615c6d852a2929",
+    "slices.csv": "83dbe74bbd776ce0fbcc5775afd70780bc5e83edd7f62751acdaaa1f23a6de4b",
+    "smoke_access.jsonl": "13455218fc28a5c78c171b0ef4869f82aa327be6aacea78e4a5a46da51a2c05b",
+    "verify_replay.py": "51d0793b43b28deae0833b94bcdb04ca88b1b0c693b135062bc3f1b33e4ef9b7"
+  },
+  "batch_size": 48,
+  "card": "E6",
+  "commands": "REPORT.md#reproduction-commands",
+  "coordinator_manifest_sha256": "148afa154f2112e184b5827380152bd0891271603462d1fd0a08ecca61605411",
+  "decision": "reject for main; adaptation requires E5 released-round offset",
+  "epochs": 8,
+  "external_controls": "Archived factored GRU and hybrid used observed histories across all main splits. Only hybrid swaps inherit this history exposure.",
+  "input_sha256": {
+    "m5_m6_repair/results/repaired-m5-m6/m3/validation_predictions.csv": "36cbb8ddb8f7cc5d1ee4273a2d7fc50b3d976530c1b0f56dc84f4282dab1bd5c",
+    "public/metadata.json": "7979323052df471e6b8b2c985cb48faa89e287ac6b0fd7789f24bccd544ce7bf",
+    "public/test/history.csv": "7f3695122e0f0bf18fe603a6515d190d9c8578a8c702f11881befb40c636cf9e",
+    "public/test/queries.csv": "3d8065626e161fd3e7b988b735583a23d4c989eb64c8ae90f200b726c02e42b9",
+    "public/train/history.csv": "46a1e783a1b222dc2de33bc72259207e3d013135d1229af9669ffcd454116217",
+    "public/train/labels.csv": "f6b3a2ca73888b91bb9a38d0ca52f449062ce70534bef9776ad4f53fc713b46a",
+    "public/train/queries.csv": "96cbf59fe0b340981f3f2958dde3305162215ae911d0559d6f34764e74460846",
+    "public/validation/history.csv": "4b7ef4789750b7459eb085be3449ea8bd9dfd31441a928ad391a1376a44f8fe4",
+    "public/validation/queries.csv": "168b7f6365a4f51084437c0071636b102ca3fb4bf0347b912778c51714fc48f2",
+    "signal_experiments/01_fredy_replay/forecasts/gru128_factor_mean_3.csv": "31234e47b508c9ccf258841e088bf26a06f2100ca65916ecf81040aaf6abbbb2",
+    "signal_experiments/01_fredy_replay/forecasts/pair_l31.csv": "893d24e38a2ea4b1bce8fbeb880fce38e57a5aeef8ef9920fbc9e450eb6fc00d",
+    "signal_experiments/01_fredy_replay/test_forecasts/pair_l31.csv": "7e328fa81589118c5ef1096494881b4f3cca55215607a3fb84077fa787af3cbe",
+    "signal_experiments/combined/m3_match_split_win_pair_l31_factor_gru_size.csv": "ac6fae2e924da0bb5f1b7638480572373a87a192d4891c1315ffc11f714aeea6",
+    "signal_experiments/combined/m3_match_split_win_pair_l31_factor_gru_size_test.csv": "ce389ffa0eaede28f55ad8df70ccbdcec8c251f214416792d6d830130a68c74a"
+  },
+  "network_fit": "main train pre-cutoff observed history outcomes and actual train cutoff labels only",
+  "owner": "neural",
+  "round": "main",
+  "scope": "main development with the N1 proxy lag-structure offset",
+  "score_input_sha256": {
+    "conditions.csv": "ebcca7597bbdfa532c5254b92903e66522a710502a6f70689c3de311f75c29b1",
+    "queries.csv": "168b7f6365a4f51084437c0071636b102ca3fb4bf0347b912778c51714fc48f2",
+    "reference.csv": "bb396d9e4d20bf4004374f9ab781f41aaa8b730e61887c1969be534efeb1e6c6",
+    "targets.csv": "93b6e978f6818d2456dcb677fddb6ba243e864cef56e33a4bf94bde5ba4b51f3"
+  },
+  "season_id": "5fffdc4d0c700bbf61c3f911",
+  "seeds": [
+    101,
+    202,
+    303
+  ],
+  "sources_sha256": {
+    "m5_m6_repair/run_repaired_comparison.py": "9f6ef0a7d6faefc369c5e835db187f7cee852d74963772abc340b0ba34bc4951",
+    "signal_experiments/folds.csv": "df85f54a091a88b1961ed69d29d4884718bf7c2ce809d7793ee80bb529f5bac2",
+    "signal_experiments/next_stage/20261107_dispatch/neural/attempt_01/run.py": "ff2747aff033f77dba08729b4678e45787c1cbe6885e2302569e7e919c42271c",
+    "signal_experiments/research_next/N1/infer.py": "4a53f5beb8f1e45d2431cd052c1499236a7532faee82681011db08f65e426604",
+    "signal_experiments/research_next/N1/structure.py": "f05bded000c422864ab747ed33d5f89e32c02dce28eca8488ca7c5e6fb668927",
+    "signal_experiments/research_next/W1/run.py": "0979b86fe5eca2419ab45da60c12091f23c77a93444b644a6331efdbdb7ac92c",
+    "signal_experiments/research_next/synthetic.py": "aa4caa31f9582106906adea2bdf36da02bd62ce2f7e13ef9f3aa99336863529c"
+  },
+  "threads": 1,
+  "upstream_fit": "N1 priors refit from main train histories only, four grouped cross-fit splits",
+  "verification": {
+    "counterfactual_archive_bitwise_replayed": true,
+    "csvs_bitwise_replayed": 51,
+    "csvs_format_checked": 51,
+    "organizer_package": false
+  },
+  "versions": {
+    "numpy": "1.26.4",
+    "python": "3.9.6",
+    "scipy": "1.13.1",
+    "torch": "2.8.0"
+  },
+  "wall_seconds": 108.140319791,
+  "weights_sha256": "0324ac94caf8d99c6015efc57804e8c7e57282181b5e6388a3b126e2fd7891c4",
+  "win_logit_penalty": 0.01
+}

@@ -1,0 +1,55 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 426B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python:3.13@sha256:ecbe213fb818d557fd19db4078244339e2e2e52874f9c81052d3094ea114d797
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/3] FROM docker.io/library/python:3.13@sha256:ecbe213fb818d557fd19db4078244339e2e2e52874f9c81052d3094ea114d797
+#4 resolve docker.io/library/python:3.13@sha256:ecbe213fb818d557fd19db4078244339e2e2e52874f9c81052d3094ea114d797 done
+#4 DONE 0.0s
+
+#5 [2/3] RUN python -m pip --disable-pip-version-check install --no-cache-dir numpy==2.5.4 scipy==1.18.1 lightgbm==4.7.0 narwhals==2.28.0
+#5 0.807 Collecting numpy==2.5.4
+#5 0.860   Downloading numpy-2.5.4-cp313-cp313-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl.metadata (6.6 kB)
+#5 0.909 Collecting scipy==1.18.1
+#5 0.919   Downloading scipy-1.18.1-cp313-cp313-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl.metadata (62 kB)
+#5 0.944 Collecting lightgbm==4.7.0
+#5 0.954   Downloading lightgbm-4.7.0-py3-none-manylinux2014_aarch64.manylinux_2_17_aarch64.whl.metadata (18 kB)
+#5 0.972 Collecting narwhals==2.28.0
+#5 0.981   Downloading narwhals-2.28.0-py3-none-any.whl.metadata (15 kB)
+#5 0.994 Downloading numpy-2.5.4-cp313-cp313-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl (15.7 MB)
+#5 1.300    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 15.7/15.7 MB 53.0 MB/s  0:00:00
+#5 1.310 Downloading scipy-1.18.1-cp313-cp313-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl (34.0 MB)
+#5 1.931    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 34.0/34.0 MB 54.7 MB/s  0:00:00
+#5 1.940 Downloading lightgbm-4.7.0-py3-none-manylinux2014_aarch64.manylinux_2_17_aarch64.whl (3.3 MB)
+#5 1.996    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.3/3.3 MB 60.3 MB/s  0:00:00
+#5 2.005 Downloading narwhals-2.28.0-py3-none-any.whl (490 kB)
+#5 2.111 Installing collected packages: numpy, narwhals, scipy, lightgbm
+#5 5.159 
+#5 5.160 Successfully installed lightgbm-4.7.0 narwhals-2.28.0 numpy-2.5.4 scipy-1.18.1
+#5 5.160 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+#5 DONE 5.3s
+
+#6 [3/3] RUN python -I -B -c 'import sys, numpy, scipy, lightgbm, narwhals; print(sys.version, numpy.__version__, scipy.__version__, lightgbm.__version__, narwhals.__version__)'
+#6 0.287 3.13.18 (main, Nov  5 2026, 09:50:38) [GCC 14.2.0] 2.5.4 1.18.1 4.7.0 2.28.0
+#6 DONE 0.3s
+
+#7 exporting to image
+#7 exporting layers
+#7 exporting layers 3.5s done
+#7 exporting manifest sha256:73d54dfaef427bdc9b0e17164160b24101788297fb5caf09a2b8fd98d31db32c
+#7 exporting manifest sha256:73d54dfaef427bdc9b0e17164160b24101788297fb5caf09a2b8fd98d31db32c done
+#7 exporting config sha256:4b67de1cf27a788be8d98771a5c5d7dfa3d693a398ffe4063b5b722611ea63c9 done
+#7 exporting attestation manifest sha256:34af6904ed641b61e121bc040834ea46c11e7b8cc68ead99f4da3f9d0328c966 done
+#7 exporting manifest list sha256:0d138ae48a26d71350f6a2561b537c864563ed71469dec1596aabb16f5a265be done
+#7 naming to docker.io/library/house-edge-main-replay:py313 done
+#7 unpacking to docker.io/library/house-edge-main-replay:py313
+#7 unpacking to docker.io/library/house-edge-main-replay:py313 0.7s done
+#7 DONE 4.3s

@@ -1,0 +1,1637 @@
+--- a/models/README.md
++++ b/models/README.md
+@@ -1,77 +1,41 @@
+ # Models
+ 
+-These are forecasting models for the House Edge challenge. Each model lives in its own folder with its code and a `MODEL.md` that explains what it does and how well it scores.
++House Edge forecasting models from `amir_workspace` at `c339b469de33bbc2b2c68ea739eeec835139d42b`, with repaired M5/M6 features and episode cross-validation. Existing local checkpoint folders are preserved alongside this source.
+ 
+-| Model | Idea | Validation points /60 |
+-|---|---|---|
+-| kit `pooled` (reference) | Frequency counts shrunk to type × signal | 30.00 |
+-| kit `pooled_recent` | Same, with recency weighting | 30.83 |
+-| [m1_hierarchical_frequency](m1_hierarchical_frequency/MODEL.md) | Separate win-rate and size parts, tuned shrinkage and recency, no lags | 31.09 |
+-| [m2_lag_pair](m2_lag_pair/MODEL.md) | Bayesian averaging over "lag pair (a,b), match/differ → win" rules per machine | 52.60 |
+-| [m3_lag_pair_flip](m3_lag_pair_flip/MODEL.md) | Model 2 plus an explicit flip time: before the flip the rule is reversed | **55.27** |
+-| [m4_lag_pair_flip_shared](m4_lag_pair_flip_shared/MODEL.md) | Model 3 plus "one flip time for the whole episode" | 55.28 (no real gain) |
+-| [m5_boosted_corrector](m5_boosted_corrector/MODEL.md) | Gradient boosting on model 4's outputs | 54.99 (worse) |
+-| [m6_ensemble](m6_ensemble/MODEL.md) | Weighted blend of models 2–5, weights chosen on train | 55.30 (no real gain) |
++**Recommended: M3.** Repaired M6 adds only 0.014 validation points and does not improve held-episode training diagnostics. M5 remains worse. See the [repair report](../results/repaired-m5-m6/README.md) for uncertainty and provenance.
+ 
+-**Recommended: model 3.** It is the simplest of the top group. Models 4 and 6 are within noise of it (about ±0.5 points).
++| Model | Approach | Validation points / 60 | Evidence |
++|---|---|---:|---|
++| [M1](m1_hierarchical_frequency/MODEL.md) | Hierarchical frequency | 31.092 | Archived branch run |
++| [M2](m2_lag_pair/MODEL.md) | Lag-pair rule mixture | 52.598 | Archived branch run |
++| [M3](m3_lag_pair_flip/MODEL.md) | Explicit flip-time lag pairs | 55.268370 | Fresh fit; unchanged comparator |
++| [M4](m4_lag_pair_flip_shared/MODEL.md) | Shared episode flip time | 55.282990 | Fresh diagnostic fit |
++| [M5](m5_boosted_corrector/MODEL.md) | Boosted win classifier on M4 features | 54.841763 | Repaired and retrained |
++| [M6](m6_ensemble/MODEL.md) | Episode-crossfit blend of M2–M5 | 55.282043 | Repaired and retrained |
+ 
+-How the simulator behaves, and why the models look like this: [FINDINGS.md](FINDINGS.md). Latest results: [results/](../results/README.md).
++These are full-public-validation development scores, not hidden-test scores. Archived M5=54.987969 and M6=55.296582 scores describe the pre-repair implementation only.
+ 
+-## Layout
++## Training and inference
+ 
+-```
+-models/
+-  common/
+-    data.py         load a kit split into numpy arrays (history matrix X[m, t])
+-    components.py   context priors, online Dirichlet filter, payout-size component
+-    selection.py    train-only hyperparameter selection (prequential and pseudo-query log-loss)
+-    evaluate.py     kit scorer wrapper, test-file check, extra diagnostics
+-  m1_hierarchical_frequency/   model.py + MODEL.md
+-  m2_lag_pair/                 model.py + MODEL.md
+-  m3_lag_pair_flip/            model.py + MODEL.md
+-  m4_lag_pair_flip_shared/     model.py (subclass of m3) + MODEL.md
+-  m5_boosted_corrector/        model.py + MODEL.md
+-  m6_ensemble/                 model.py + MODEL.md
+-  FINDINGS.md       what the data analysis found (rules, flips, payout size)
+-  run.py            fit -> predict -> score -> write a results folder
+-```
++Each model implements `fit(train)`, `predict(split)` returning five payout probabilities, and `describe()`. Data loading rejects at/after-cutoff history and keeps missing ticks distinct from zero payouts. M4/M5/M6 use episode peers, so prediction batching must keep complete episodes together.
+ 
+-## Model contract
++`common/crossfit.py` provides episode folds, aligned pseudo-query rows, data fingerprints, and a session-local fit cache. M5 constructs held-episode M4 features for both classifier fitting and nested tree-count selection. M6 creates held-episode forecasts for every member before fitting blend weights. `Ensemble.evaluate_heldout()` refits the entire pipeline inside additional outer training folds.
+ 
+-Every model is a class with:
++The original M1–M4 internal training-selection losses are development diagnostics; they can reuse priors learned from their supplied training partition. M5's minimum tree-selection loss and M6's fitted weight loss are also not independent assessments. The separately held-episode outer results assess the complete M5/M6 fitting procedure.
+ 
+-- `fit(train: Split) -> self`: learns everything from the train split only.
+-- `predict(split: Split) -> np.ndarray[n, 5]`: probabilities for 0×, 1×, 2×, 5× and 20× at each query's cutoff.
+-- `describe() -> dict`: fitted priors and the hyperparameter selection table, saved as `params.json`.
++The simulator analysis is in [FINDINGS.md](FINDINGS.md). The fixed repair retained the original model families and hyperparameter grids.
+ 
+-## Rules every model follows
+-
+-- **No future data:** a forecast for tick *t* reads only ticks before *t*. `load_split` rejects any history at or after the cutoff, and every model runs as an online filter.
+-- **Missing ticks are unknown,** never treated as a 0× payout.
+-- **Validation is only for scoring.** Hyperparameters, boosting rounds and ensemble weights are chosen on train:
+-  - **Models 1–2:** prequential log-loss over each machine's last 32 observed ticks plus its label.
+-  - **Models 3–6:** pseudo-queries, with each train machine re-cut at 8 earlier cutoffs.
+-- **Official scoring:** validation points come from the kit's own `contest_score`, so they match `check_submission.py --split validation`.
+-
+-## Running
++## Run the repaired comparison
+ 
+ From the repository root:
+ 
+ ```sh
+-pip install -r requirements.txt
+-python -m models.run                     # kit baselines + all models -> results/<date>_m1_m2_m3_m4_m5_m6/
+-python -m models.run --models m2 --out results/m2-experiment
++python -m pip install -r requirements-repaired-models.txt
++python -B run_repaired_comparison.py prepare --out results/repaired-fresh --outer-folds 2 \
++  --previous main-participants-60-40/adversarial_review/branches/amir/results/2026-11-07_m1_to_m6
++python -B run_repaired_comparison.py score --out results/repaired-fresh
++python -B verify_repaired_inference.py --out results/repaired-fresh
++python -B -m unittest discover -s tests -p 'test_*.py' -v
+ ```
+ 
+-The runner refuses to overwrite an existing results folder, so earlier runs are kept.
+-
+-## Adding a model
+-
+-1. Create `models/mN_<name>/` with `model.py`, `__init__.py` and `MODEL.md`.
+-2. Implement the contract above, reusing `common/` where possible.
+-3. Register it in `MODELS` in `run.py` and run it.
+-
+-## Not yet done
+-
+-- **Upload packaging:** the code ZIP with `predict.py --data --out` and `reproduce.json` is not built yet. The runner writes test CSVs that already pass the kit's format check.
+-- **Test predictions use priors from train only.** Refitting on train + validation for the final upload is a possible small gain.
++Use a fresh output directory. `prepare` freezes all training decisions and predictions before `score` reads validation answers. The saved run includes fitted checkpoints and validated test CSVs; submission packaging is separate. See [M5_M6_REPAIR.md](../M5_M6_REPAIR.md) for the exact workflow and files.
+--- /dev/null
++++ b/models/common/crossfit.py
+@@ -0,0 +1,134 @@
++"""Episode-heldout rows and session-local model fits for stacked models.
++
++The fingerprint includes every training field a model may use. In particular,
++changing an outcome or a history invalidates cached fits, even if the episode
++IDs and the requested model name stay the same.
++"""
++from __future__ import annotations
++
++import hashlib
++import inspect
++from dataclasses import dataclass, fields, replace
++
++import numpy as np
++
++from .data import MISSING, Split
++from .selection import PSEUDO_SHIFTS, pseudo_splits
++
++
++def subset_split(split: Split, rows: np.ndarray) -> Split:
++    rows = np.asarray(rows, dtype=int)
++    if rows.ndim != 1 or np.any(rows < 0) or np.any(rows >= split.n):
++        raise ValueError("rows must be valid one-dimensional indices")
++    if len(np.unique(rows)) != len(rows):
++        raise ValueError("duplicate rows")
++    values = {}
++    for f in fields(Split):
++        value = getattr(split, f.name)
++        if f.name in ("name",):
++            continue
++        if value is None:
++            values[f.name] = None
++        elif isinstance(value, list):
++            values[f.name] = [value[i] for i in rows]
++        else:
++            values[f.name] = value[rows].copy()
++    return replace(split, **values)
++
++
++def episode_folds(split: Split, n_splits: int) -> list[tuple[np.ndarray, np.ndarray]]:
++    """Stable folds: all queries from one episode occupy one heldout fold."""
++    episodes = sorted(set(str(x) for x in split.episode_ids))
++    if not 2 <= n_splits <= len(episodes):
++        raise ValueError(f"need 2..{len(episodes)} episode folds, got {n_splits}")
++    buckets = [set(episodes[i::n_splits]) for i in range(n_splits)]
++    names = np.asarray([str(x) for x in split.episode_ids])
++    folds = []
++    for bucket in buckets:
++        held = np.flatnonzero(np.isin(names, list(bucket)))
++        train = np.flatnonzero(~np.isin(names, list(bucket)))
++        folds.append((train, held))
++    return folds
++
++
++@dataclass
++class PseudoFrame:
++    splits: list[Split]
++    valid: list[np.ndarray]
++    row_ids: list[tuple[str, str, int]]
++    episode_ids: np.ndarray
++    y: np.ndarray
++
++
++def pseudo_frame(train: Split) -> PseudoFrame:
++    splits = pseudo_splits(train)
++    valid = [np.flatnonzero(s.labels != MISSING) for s in splits]
++    ids = [(str(s.episode_ids[i]), str(s.query_ids[i]), shift)
++           for shift, s, indices in zip(PSEUDO_SHIFTS, splits, valid) for i in indices]
++    if len(set(ids)) != len(ids):
++        raise ValueError("pseudo-query row IDs are not unique")
++    groups = np.concatenate([s.episode_ids[idx] for s, idx in zip(splits, valid)])
++    y = np.concatenate([(s.labels[idx] > 0).astype(float) for s, idx in zip(splits, valid)])
++    return PseudoFrame(splits, valid, ids, groups, y)
++
++
++def frame_values(model, frame: PseudoFrame, method: str) -> np.ndarray:
++    """Predict or extract features in the frame's stable shift/row order."""
++    return np.concatenate([getattr(model, method)(s)[idx] for s, idx in
++                           zip(frame.splits, frame.valid)], axis=0)
++
++
++def align_rows(source: PseudoFrame, target: PseudoFrame) -> np.ndarray:
++    pos = {key: i for i, key in enumerate(target.row_ids)}
++    try:
++        return np.asarray([pos[key] for key in source.row_ids], dtype=int)
++    except KeyError as exc:
++        raise ValueError(f"pseudo row missing from target: {exc}") from exc
++
++
++def split_fingerprint(split: Split) -> str:
++    h = hashlib.sha256()
++    for f in fields(Split):
++        if f.name in ("name", "targets", "reference", "conditions"):
++            continue  # never train on validation truth or condition labels
++        value = getattr(split, f.name)
++        h.update(f.name.encode())
++        if value is None:
++            h.update(b"none")
++            continue
++        arr = np.asarray(value)
++        h.update(str(arr.shape).encode())
++        h.update(str(arr.dtype).encode())
++        if arr.dtype.kind in "OUS":
++            for item in arr.flat:
++                b = str(item).encode()
++                h.update(len(b).to_bytes(8, "little"))
++                h.update(b)
++        else:
++            h.update(np.ascontiguousarray(arr).tobytes())
++    return h.hexdigest()
++
++
++class FitCache:
++    """No global state: safe to share only within one fit/evaluation session."""
++
++    def __init__(self):
++        self._models = {}
++
++    def fit(self, kind: str, train: Split, factory, config=()):
++        fingerprint = split_fingerprint(train)
++        key = (kind, repr(config), fingerprint)
++        if key not in self._models:
++            model = factory().fit(train)
++            model._fit_fingerprint = fingerprint
++            self._models[key] = model
++        return self._models[key]
++
++
++def factory_config(factory):
++    """Constructor and class-level tuning settings for a cache key."""
++    if inspect.isclass(factory):
++        return (id(factory), str(inspect.signature(factory.__init__)),
++                repr(getattr(factory, "GRID", None)), repr(getattr(factory, "ITER_GRID", None)),
++                repr(getattr(factory, "GBM", None)))
++    return (id(factory), repr(getattr(factory, "__dict__", {})))
+--- a/models/common/selection.py
++++ b/models/common/selection.py
+@@ -1,9 +1,11 @@
+-"""Hyperparameter selection on the training split only.
++"""Hyperparameter selection within the supplied training partition.
+ 
+-Models produce a predictive distribution at every tick (built from earlier
+-ticks), so each observed tick near the end of a training history is a fresh
+-out-of-sample test. Selection uses log-loss on those ticks plus the labelled
+-outcome at the cutoff. Validation answers are never used for selection.
++Local pseudo-query histories exclude their target tick. Shared empirical
++priors can still be fitted on the full supplied partition, so these losses
++are selection diagnostics, not independently held-out generalization scores.
++Stacked-model training uses common.crossfit to exclude entire episodes from
++all upstream fitting before building held-out features and predictions.
++Validation answers are never used by these selection helpers.
+ """
+ from __future__ import annotations
+ 
+@@ -38,7 +40,7 @@
+ 
+ 
+ def pseudo_splits(train: Split, shifts=PSEUDO_SHIFTS) -> list[Split]:
+-    """Train re-cut at earlier cutoffs: each gives one fresh labelled query per machine."""
++    """Train re-cut at earlier cutoffs, with one labelled query per machine."""
+     from .data import truncate
+     return [truncate(train, s) for s in shifts]
+ 
+--- a/models/m3_lag_pair_flip/model.py
++++ b/models/m3_lag_pair_flip/model.py
+@@ -232,13 +232,14 @@
+         flip = tau_post[:, 1:].sum(axis=1)
+         since = split.cutoff[:, None] - self.tau_grid[None, :]
+         exp_since = (tau_post[:, 1:] * since).sum(axis=1) / np.maximum(flip, 1e-12)
+-        obs = split.X != MISSING
+-        recent = obs[:, -64:].sum(axis=1)
++        ticks = np.arange(split.X.shape[1])[None, :]
++        observed_history = (split.X != MISSING) & (ticks < split.cutoff[:, None])
++        recent = observed_history & (ticks >= split.cutoff[:, None] - 64)
+         p_ind = res["ind"]["p_win"]
+         return {"p_win": res["p_win"], "p_win_independent": p_ind, "p_shared": res["p_shared"],
+                 "p_null": res["ind"]["post0"], "max_pair_post": pair_post.max(axis=1),
+                 "p_flip": flip / np.maximum(pattern, 1e-12), "since_flip": np.where(flip > 0.5, exp_since, -1.0),
+-                "n_obs": obs.sum(axis=1).astype(float), "n_recent": recent.astype(float),
++                "n_obs": observed_history.sum(axis=1).astype(float), "n_recent": recent.sum(axis=1).astype(float),
+                 "machine_type": split.machine_type.astype(float), "signal": split.signal.astype(float)}
+ 
+     def describe(self) -> dict:
+--- a/models/m5_boosted_corrector/MODEL.md
++++ b/models/m5_boosted_corrector/MODEL.md
+@@ -1,40 +1,23 @@
+-# Model 5: gradient-boosted corrector
++# Model 5: boosted win classifier
+ 
+-**Validation: 54.99 / 60** (its base, model 4: 55.28). **Negative result: the corrector makes things slightly worse.** Code: [model.py](model.py).
++Model 5 replaces Model 4's win probability with a histogram gradient boosting classifier. Model 4 supplies its win logit, independent win logit, and posterior summaries; the classifier can change the probability in any way supported by those features. P(size | win) still comes from Model 4.
+ 
+-## Idea
++## Episode crossfit
+ 
+-Boosting can learn where a strong base model is systematically off. A scikit-learn `HistGradientBoostingClassifier` predicts win/loss for the next spin from:
++Training uses eight pseudo cutoffs per training query. All machines and pseudo cutoffs from one episode stay together in every fold.
+ 
+-- model 4's P(win), as a logit, and its independent-only P(win);
+-- posterior summaries: top pair confidence, P(null), P(flip), expected ticks since the flip, P(shared flip);
+-- context: observed ticks (total and in the last 64), machine type, signal.
++For each of four round-selection folds:
+ 
+-P(size | win) comes from model 4.
++1. Fit Model 4 on the other episodes to produce held-fold features. This refits Model 4 priors and its selected hyperparameters.
++2. Within those other episodes, make classifier training features with three episode folds. Each feature row comes from a Model 4 fit that excludes its episode and the outer held episodes.
++3. Fit a classifier for each round choice `{25, 50, 100, 200}` on those crossfit training features and predict the outer held fold.
+ 
+-## Training (train only)
++The chosen round count minimizes the combined selection-fold binary log-loss. The reported minimum is a **round-selection loss**, so it is optimistic as an estimate of a fully tuned model's future loss.
+ 
+-- **Rows:** train pseudo-queries, with every machine re-cut at 8 earlier cutoffs and the observed payout there as the label (about 6,100 rows).
+-- **Rounds:** chosen from {25, 50, 100, 200} by 4-fold cross-validation **grouped by episode**. 100 was chosen.
+-- **GBM settings:** learning rate 0.05, 15 leaves, at least 50 samples per leaf, L2 regularization 1.0.
+-- **Out-of-fold predictions** are kept so that model 6 can weigh this model fairly.
++The final classifier is trained on crossfit Model 4 features for all training episodes. Its deployment Model 4 is fitted on all training episodes. Any supplied prefit base is accepted only when its data fingerprint matches that exact final training partition.
+ 
+-## Result
++The model uses only the training split for fitting and selection. Current validation and test results are reported by the repaired comparison run; scores from the archived implementation do not apply to this fit.
+ 
+-| | Pseudo-query log-loss (train) | Validation points |
+-|---|---|---|
+-| Model 4 (base) | 0.3034 | 55.28 |
+-| Model 5, out of fold | 0.3082 | 54.99 |
++## Repaired run
+ 
+-The corrector was already worse than its base on held-out train folds, and validation agrees. **Why:**
+-
+-- **The base is well calibrated:** it is a full Bayesian posterior, so there is little systematic error left to learn.
+-- **The labels are noisy:** they are single sampled outcomes, not true probabilities. About 6,000 noisy labels are not enough to reliably correct an error that is already small.
+-
+-Kept for transparency and as an ensemble member. It is not recommended on its own.
+-
+-## Run it
+-
+-```sh
+-python -m models.run --models m4 m5
+-```
++The fixed repair run scores **54.841763 / 60** on the previously used public validation set, versus M3 at **55.268370**. The selected classifier has **100 trees**; it remains worse than M3 on validation and held-episode training diagnostics. See the [repair results](../../results/repaired-m5-m6/README.md).
+--- a/models/m5_boosted_corrector/model.py
++++ b/models/m5_boosted_corrector/model.py
+@@ -1,25 +1,21 @@
+-"""Model 5: gradient-boosted corrector on top of model 4.
++"""Model 5: a replacement win classifier trained on episode-heldout M4 features.
+ 
+-A HistGradientBoostingClassifier predicts the next spin's win/loss from model
+-4's P(win) (as a logit) plus summaries of its posterior (pair confidence, flip
+-probability, ticks since flip, shared-flip probability, null probability,
+-history length, type, signal). It can only learn systematic miscalibration of
+-the base model; the base still does the pattern finding.
+-
+-Training rows are pseudo-queries on train (each machine re-cut at 8 earlier
+-cutoffs, label = the observed payout there). The number of boosting rounds is
+-chosen by 4-fold cross-validation grouped by episode, and the out-of-fold
+-predictions are kept so the ensemble (model 6) can weigh this model fairly.
++GBM round selection is nested: for each selection fold, the GBM's training
++features are themselves generated with M4 fits excluding each feature row's
++episode. The selection fold is absent from all those M4 fits and the GBM fit.
+ """
+ from __future__ import annotations
+ 
++import sys
++
+ import numpy as np
+ from sklearn.ensemble import HistGradientBoostingClassifier
+-from sklearn.model_selection import GroupKFold
+ 
+ from ..common.components import combine
+-from ..common.data import MISSING, Split
+-from ..common.selection import binary_logloss, pseudo_splits
++from ..common.crossfit import (FitCache, episode_folds, factory_config, frame_values,
++                               pseudo_frame, split_fingerprint, subset_split)
++from ..common.data import Split
++from ..common.selection import binary_logloss
+ from ..m4_lag_pair_flip_shared import SharedFlipLagPairModel
+ 
+ FEATURES = ("logit_p_win", "logit_p_win_independent", "p_shared", "p_null", "max_pair_post", "p_flip",
+@@ -37,12 +33,25 @@
+     GBM = dict(learning_rate=0.05, max_leaf_nodes=15, min_samples_leaf=50, l2_regularization=1.0,
+                early_stopping=False, random_state=0)
+ 
+-    def __init__(self, base=None, folds: int = 4):
+-        self.base = base
++    def __init__(self, base=None, folds: int = 4, inner_folds: int = 3,
++                 base_factory=None, classifier_factory=None, fit_cache: FitCache | None = None,
++                 progress=None):
++        self.base = base  # only eligible for the final all-episode fit
+         self.folds = folds
++        self.inner_folds = inner_folds
++        self.base_factory = base_factory or SharedFlipLagPairModel
++        self.classifier_factory = classifier_factory
++        self.fit_cache = fit_cache
++        self.progress = progress
+         self.gbm = None
+         self.selection = []
+         self.oof = None
++
++    def _progress(self, message):
++        if self.progress is None:
++            print(f"[m5] {message}", file=sys.stderr, flush=True)
++        else:
++            self.progress(f"m5: {message}")
+ 
+     @staticmethod
+     def _design(f: dict) -> np.ndarray:
+@@ -51,34 +60,81 @@
+         cols["logit_p_win_independent"] = _logit(f["p_win_independent"])
+         return np.column_stack([cols[k] for k in FEATURES])
+ 
++    def _new_classifier(self, n_iter):
++        if self.classifier_factory is not None:
++            return self.classifier_factory(n_iter)
++        return HistGradientBoostingClassifier(max_iter=n_iter, **self.GBM)
++
++    def _base_fit(self, train: Split, cache: FitCache):
++        config = factory_config(self.base_factory)
++        return cache.fit("m4-for-m5", train, self.base_factory, config=config)
++
++    def _features(self, base, frame):
++        return np.vstack([self._design(base.features(s))[idx]
++                          for s, idx in zip(frame.splits, frame.valid)])
++
++    def _crossfit_features(self, train: Split, cache: FitCache, folds: int):
++        frame = pseudo_frame(train)
++        X = np.empty((len(frame.y), len(FEATURES)))
++        assigned = np.zeros(len(frame.y), bool)
++        pos = {key: i for i, key in enumerate(frame.row_ids)}
++        for tr_i, held_i in episode_folds(train, folds):
++            base = self._base_fit(subset_split(train, tr_i), cache)
++            held = pseudo_frame(subset_split(train, held_i))
++            idx = np.asarray([pos[key] for key in held.row_ids], dtype=int)
++            X[idx] = self._features(base, held)
++            assigned[idx] = True
++        if not assigned.all():
++            raise RuntimeError("crossfit feature rows were not all assigned")
++        return frame, X
++
+     def fit(self, train: Split) -> "BoostedCorrector":
+-        if self.base is None:
+-            self.base = SharedFlipLagPairModel().fit(train)
+-        Xs, ys, gs, base_p = [], [], [], []
+-        for s in pseudo_splits(train):
+-            ok = s.labels != MISSING
+-            f = self.base.features(s)
+-            Xs.append(self._design(f)[ok])
+-            ys.append((s.labels[ok] > 0).astype(int))
+-            gs.append(s.episode_ids[ok])
+-            base_p.append(f["p_win"][ok])
+-        X, y, groups = np.vstack(Xs), np.concatenate(ys), np.concatenate(gs)
+-        base_p = np.concatenate(base_p)
+-        all_rows = np.ones_like(y, dtype=bool)
+-        self.base_logloss = binary_logloss(base_p, y.astype(float), all_rows)
++        cache = self.fit_cache or FitCache()
++        n_episodes = len(set(train.episode_ids))
++        if n_episodes < 4:
++            raise ValueError("M5 nested episode crossfit requires at least four episodes")
++        outer_n = min(self.folds, n_episodes)
++        full = pseudo_frame(train)
++        pos = {key: i for i, key in enumerate(full.row_ids)}
++        oof_grid = {n: np.empty(len(full.y)) for n in self.ITER_GRID}
++        base_oof = np.empty(len(full.y))
++        assigned = np.zeros(len(full.y), bool)
+ 
+-        best = None
+-        for n_iter in self.ITER_GRID:
+-            oof = np.empty(len(y))
+-            for tr_i, te_i in GroupKFold(self.folds).split(X, y, groups):
+-                m = HistGradientBoostingClassifier(max_iter=n_iter, **self.GBM).fit(X[tr_i], y[tr_i])
+-                oof[te_i] = m.predict_proba(X[te_i])[:, 1]
+-            ll = binary_logloss(oof, y.astype(float), all_rows)
+-            self.selection.append({"max_iter": n_iter, "cv_logloss": ll})
+-            if best is None or ll < best[0]:
+-                best = (ll, n_iter, oof)
+-        self.cv_logloss, self.max_iter, self.oof = best
+-        self.gbm = HistGradientBoostingClassifier(max_iter=self.max_iter, **self.GBM).fit(X, y)
++        for fold_no, (tr_i, held_i) in enumerate(episode_folds(train, outer_n), 1):
++            fit_part, held_part = subset_split(train, tr_i), subset_split(train, held_i)
++            n_inner = min(self.inner_folds, len(set(fit_part.episode_ids)))
++            self._progress(f"selection fold {fold_no}/{outer_n}: crossfit M4 training features ({n_inner} folds)")
++            fit_frame, X_fit = self._crossfit_features(fit_part, cache, n_inner)
++            held_frame = pseudo_frame(held_part)
++            held_pos = np.asarray([pos[key] for key in held_frame.row_ids], dtype=int)
++            held_base = self._base_fit(fit_part, cache)
++            X_held = self._features(held_base, held_frame)
++            base_oof[held_pos] = frame_values(held_base, held_frame, "predict_win")
++            for n_iter in self.ITER_GRID:
++                model = self._new_classifier(n_iter).fit(X_fit, fit_frame.y.astype(int))
++                oof_grid[n_iter][held_pos] = model.predict_proba(X_held)[:, 1]
++            assigned[held_pos] = True
++        if not assigned.all():
++            raise RuntimeError("M5 selection predictions were not all assigned")
++
++        mask = np.ones(len(full.y), bool)
++        self.base_logloss = binary_logloss(base_oof, full.y, mask)
++        self.selection = [{"max_iter": n, "nested_episode_cv_logloss": binary_logloss(oof_grid[n], full.y, mask)}
++                          for n in self.ITER_GRID]
++        chosen = min(self.selection, key=lambda r: r["nested_episode_cv_logloss"])
++        self.max_iter = chosen["max_iter"]
++        self.cv_logloss = chosen["nested_episode_cv_logloss"]
++        self.oof = oof_grid[self.max_iter].copy()
++        self.oof_row_ids = full.row_ids
++
++        self._progress(f"selected {self.max_iter} rounds; crossfit final M4 features")
++        final_frame, X_final = self._crossfit_features(train, cache, outer_n)
++        if final_frame.row_ids != full.row_ids:
++            raise RuntimeError("final pseudo row order changed")
++        self.gbm = self._new_classifier(self.max_iter).fit(X_final, full.y.astype(int))
++        if self.base is None or getattr(self.base, "_fit_fingerprint", None) != split_fingerprint(train):
++            self.base = self._base_fit(train, cache)
++        self._progress("complete")
+         return self
+ 
+     def predict_win(self, split: Split) -> np.ndarray:
+@@ -90,5 +146,12 @@
+     def describe(self) -> dict:
+         return {"base": self.base.name, "features": list(FEATURES), "max_iter": self.max_iter,
+                 "gbm": self.GBM, "selection": self.selection,
+-                "pseudo_query_logloss": {"base_model": round(self.base_logloss, 5),
+-                                         "corrector_out_of_fold": round(self.cv_logloss, 5)}}
++                "selection_pseudo_query_logloss": {"heldout_base": round(self.base_logloss, 5),
++                                                   "selected_corrector": round(self.cv_logloss, 5)},
++                "selection_note": "The minimum over round choices is a selection loss, not an unbiased assessment."}
++
++    def __getstate__(self):
++        state = self.__dict__.copy()
++        state["fit_cache"] = None
++        state["progress"] = None
++        return state
+--- a/models/m6_ensemble/MODEL.md
++++ b/models/m6_ensemble/MODEL.md
+@@ -1,40 +1,17 @@
+ # Model 6: ensemble
+ 
+-**Validation: 55.30 / 60** (best single model, model 4: 55.28; model 3: 55.27). Code: [model.py](model.py).
++Model 6 blends the win probabilities of Models 2–5 with nonnegative weights that sum to one. P(size | win) comes from Model 4.
+ 
+-## Idea
++## Weight fitting
+ 
+-Blend the win probabilities of models 2–5: `P(win) = Σ wᵢ · Pᵢ(win)`, with non-negative weights that sum to 1. P(size | win) comes from model 4.
++The meta-training rows are the eight pseudo cutoffs from each training query. Four episode folds produce every meta column. For a given held episode, each of Models 2, 3, and 4 is fitted and tuned on the other episodes. Model 5 is fitted on those same other episodes, including its own nested episode crossfit and round selection. No supplied prefit member is used to construct held-episode meta rows.
+ 
+-## Choosing the weights (train only)
++Weights minimize binary log-loss on that held-episode prediction matrix. The reported blend loss is **in-sample for the weights** because those same rows both fit and score the weights. The individual member losses use held-episode forecasts, but do not assess the effect of weight fitting.
+ 
+-The weights minimise log-loss on train pseudo-queries: every machine re-cut at 8 earlier cutoffs, about 6,100 labelled spins. Model 5 contributes its **out-of-fold** predictions, so it isn't favoured for having been trained on those rows. Validation is not used.
++`Ensemble.evaluate_heldout(train, folds=...)` assesses the entire procedure: in each additional outer episode fold, it refits all four members, their selections, and the weights within the outer training episodes, then predicts the held episodes. It returns aligned pseudo-query IDs, episode IDs, labels, endpoint flags, member and blend predictions, and each fold's weights and Model 5 round choice. Its binary log-loss is a separate held-episode assessment of the full pipeline.
+ 
+-| Member | Pseudo-query log-loss | Weight |
+-|---|---|---|
+-| m2 lag-pair (online) | 0.3659 | 0.00 |
+-| m3 flip-aware | 0.3033 | **0.83** |
+-| m4 flip + shared | 0.3034 | 0.00 |
+-| m5 boosted corrector | 0.3082 | 0.17 |
+-| **Blend** | **0.3031** | |
++Final deployment members are fitted on all training episodes. Supplied prefit members are reused only if their data fingerprints match that final partition. Current validation and test results are reported by the repaired comparison run; scores from the archived implementation do not apply to this fit.
+ 
+-## Result
++## Repaired run
+ 
+-| | Stable | Short history | Drift | Shared change | Points |
+-|---|---|---|---|---|---|
+-| Model 3 | 0.077 | 0.107 | 0.080 | 0.078 | 55.27 |
+-| Model 6 | 0.077 | 0.106 | 0.080 | 0.078 | 55.30 |
+-
+-**A gain of 0.03 points, which is noise.** Ensembling helps when members make *different* mistakes:
+-
+-- **Models 3 and 4 are nearly the same model,** so blending them adds nothing.
+-- **Model 2 is uniformly worse,** so it gets no weight.
+-- **Model 5 is built on model 4.**
+-
+-A useful ensemble would need a genuinely different strong model. A sequence neural network trained on pseudo-queries is the obvious candidate.
+-
+-## Run it
+-
+-```sh
+-python -m models.run --models m2 m3 m4 m5 m6
+-```
++The fixed repair run scores **55.282043 / 60** on the previously used public validation set, versus M3 at **55.268370**. Weights are approximately **67.04% M3, 21.67% M4, 11.29% M5**, and negligible M2. The 0.014-point gain over M3 has a paired interval crossing zero and no improvement in held-episode training diagnostics. See the [repair results](../../results/repaired-m5-m6/README.md).
+--- a/models/m6_ensemble/model.py
++++ b/models/m6_ensemble/model.py
+@@ -1,69 +1,123 @@
+-"""Model 6: weighted blend of models 2-5.
++"""Model 6: weights fit to episode-heldout forecasts from models 2–5.
+ 
+-P(win) = sum_i w_i * P_i(win) with w on the simplex, chosen by minimising
+-log-loss on train pseudo-queries (each machine re-cut at 8 earlier cutoffs).
+-Model 5's contribution uses its out-of-fold predictions so it is not
+-favoured for having been trained on the same rows. Validation is not used.
+-P(size | win) is taken from model 4.
++The fitted blend loss is in-sample for its weights. ``evaluate_heldout``
++refits the whole weight-selection pipeline inside an additional outer fold.
+ """
+ from __future__ import annotations
++
++import sys
+ 
+ import numpy as np
+ from scipy.optimize import minimize
+ 
+ from ..common.components import combine
+-from ..common.data import MISSING, Split
+-from ..common.selection import binary_logloss, pseudo_splits
++from ..common.crossfit import (FitCache, episode_folds, factory_config, frame_values,
++                               pseudo_frame, split_fingerprint, subset_split)
++from ..common.data import Split
++from ..common.selection import binary_logloss
+ 
+ 
+ class Ensemble:
+     name = "m6_ensemble"
++    KEYS = ("m2", "m3", "m4", "m5")
+ 
+-    def __init__(self, members: dict | None = None):
+-        self.members = members or {}
++    def __init__(self, members: dict | None = None, folds: int = 4, fit_cache: FitCache | None = None,
++                 progress=None, member_factories: dict | None = None):
++        self.members = dict(members or {})  # supplied models are used for final deployment only
++        self.folds = folds
++        self.fit_cache = fit_cache
++        self.progress = progress
++        self.member_factories = member_factories
+         self.weights = None
+         self.member_logloss = {}
+ 
+-    def _ensure_members(self, train: Split) -> None:
++    def _progress(self, message):
++        if self.progress is None:
++            print(f"[m6] {message}", file=sys.stderr, flush=True)
++        else:
++            self.progress(f"m6: {message}")
++
++    def _fit_members(self, train: Split, cache: FitCache, use_supplied: bool) -> dict:
+         from ..m2_lag_pair import LagPairModel
+         from ..m3_lag_pair_flip import FlipLagPairModel
+         from ..m4_lag_pair_flip_shared import SharedFlipLagPairModel
+         from ..m5_boosted_corrector import BoostedCorrector
+-        if "m2" not in self.members:
+-            self.members["m2"] = LagPairModel().fit(train)
+-        if "m3" not in self.members:
+-            self.members["m3"] = FlipLagPairModel().fit(train)
+-        if "m4" not in self.members:
+-            self.members["m4"] = SharedFlipLagPairModel().fit(train)
+-        if "m5" not in self.members:
+-            self.members["m5"] = BoostedCorrector(base=self.members["m4"]).fit(train)
+ 
+-    def fit(self, train: Split) -> "Ensemble":
+-        self._ensure_members(train)
+-        self.names = list(self.members)
+-        splits = pseudo_splits(train)
+-        cols = []
+-        for name in self.names:
+-            model = self.members[name]
+-            if getattr(model, "oof", None) is not None:          # boosted corrector: out-of-fold
+-                cols.append(model.oof)
++        factories = self.member_factories or {
++            "m2": LagPairModel, "m3": FlipLagPairModel, "m4": SharedFlipLagPairModel,
++            "m5": BoostedCorrector,
++        }
++        fitted = {}
++        for key in self.KEYS:
++            if (use_supplied and key in self.members
++                    and getattr(self.members[key], "_fit_fingerprint", None) == split_fingerprint(train)):
++                fitted[key] = self.members[key]
++                continue
++            factory = factories[key]
++            if key == "m5" and self.member_factories is None:
++                # M4 for this same partition is safe for M5's final model;
++                # its nested heldout fits always use independently fitted M4s.
++                def new_m5():
++                    return BoostedCorrector(base=fitted["m4"], fit_cache=cache, progress=self.progress)
++                fitted[key] = cache.fit("member-m5", train, new_m5,
++                                        config=(BoostedCorrector.ITER_GRID, BoostedCorrector.GBM))
+             else:
+-                cols.append(np.concatenate([model.predict_win(s)[s.labels != MISSING] for s in splits]))
+-        P = np.clip(np.column_stack(cols), 1e-6, 1 - 1e-6)
+-        y = np.concatenate([(s.labels[s.labels != MISSING] > 0) for s in splits]).astype(float)
++                kind = "m4-for-m5" if key == "m4" and self.member_factories is None else f"member-{key}"
++                fitted[key] = cache.fit(kind, train, factory,
++                                        config=factory_config(factory))
++        return fitted
++
++    @staticmethod
++    def _weights(P: np.ndarray, y: np.ndarray):
+         rows = np.ones_like(y, dtype=bool)
+-        self.member_logloss = {n: binary_logloss(P[:, i], y, rows) for i, n in enumerate(self.names)}
+ 
+         def loss(z):
+             w = np.exp(z - z.max())
+             w /= w.sum()
+             return binary_logloss(P @ w, y, rows)
+ 
+-        res = minimize(loss, np.zeros(len(self.names)), method="Nelder-Mead",
++        res = minimize(loss, np.zeros(P.shape[1]), method="Nelder-Mead",
+                        options={"maxiter": 4000, "xatol": 1e-6, "fatol": 1e-9})
+         w = np.exp(res.x - res.x.max())
+-        self.weights = w / w.sum()
+-        self.blend_logloss = float(res.fun)
++        w /= w.sum()
++        return w, loss(res.x)
++
++    def fit(self, train: Split) -> "Ensemble":
++        cache = self.fit_cache or FitCache()
++        n_folds = min(self.folds, len(set(train.episode_ids)))
++        if n_folds < 2:
++            raise ValueError("ensemble episode crossfit requires at least two episodes")
++        frame = pseudo_frame(train)
++        pos = {key: i for i, key in enumerate(frame.row_ids)}
++        P = np.empty((len(frame.y), len(self.KEYS)))
++        assigned = np.zeros(len(frame.y), bool)
++        self.fold_choices = []
++
++        for fold_no, (tr_i, held_i) in enumerate(episode_folds(train, n_folds), 1):
++            fit_part, held_part = subset_split(train, tr_i), subset_split(train, held_i)
++            self._progress(f"meta fold {fold_no}/{n_folds}: fit members on {len(set(fit_part.episode_ids))} episodes")
++            members = self._fit_members(fit_part, cache, use_supplied=False)
++            held_frame = pseudo_frame(held_part)
++            rows = np.asarray([pos[key] for key in held_frame.row_ids], dtype=int)
++            for col, key in enumerate(self.KEYS):
++                P[rows, col] = frame_values(members[key], held_frame, "predict_win")
++            assigned[rows] = True
++            self.fold_choices.append({"held_episode_ids": sorted(set(str(x) for x in held_part.episode_ids)),
++                                      "m5_max_iter": members["m5"].max_iter})
++        if not assigned.all():
++            raise RuntimeError("ensemble meta rows were not all assigned")
++
++        P = np.clip(P, 1e-6, 1 - 1e-6)
++        self.names = list(self.KEYS)
++        rows = np.ones(len(frame.y), bool)
++        self.member_logloss = {key: binary_logloss(P[:, col], frame.y, rows)
++                               for col, key in enumerate(self.KEYS)}
++        self.weights, self.blend_logloss = self._weights(P, frame.y)
++        self.meta_oof = P
++        self.meta_row_ids = frame.row_ids
++        self._progress("weights fit; fit final members on all episodes")
++        self.members = self._fit_members(train, cache, use_supplied=True)
++        self._progress("complete")
+         return self
+ 
+     def predict_win(self, split: Split) -> np.ndarray:
+@@ -74,5 +128,52 @@
+ 
+     def describe(self) -> dict:
+         return {"weights": {n: round(float(w), 4) for n, w in zip(self.names, self.weights)},
+-                "pseudo_query_logloss": {**{n: round(v, 5) for n, v in self.member_logloss.items()},
+-                                         "blend": round(self.blend_logloss, 5)}}
++                "weight_fit_pseudo_query_logloss": {
++                    **{n: round(v, 5) for n, v in self.member_logloss.items()},
++                    "blend_in_sample_for_weights": round(self.blend_logloss, 5)},
++                "meta_feature_provenance": "Every member prediction is episode held out; M5 rounds are selected inside each fit partition.",
++                "fold_choices": self.fold_choices,
++                "loss_note": "Blend loss fits and scores weights on the same meta rows; use evaluate_heldout for full-pipeline assessment."}
++
++    def evaluate_heldout(self, train: Split, folds: int = 4, progress=None) -> dict:
++        """Whole-pipeline outer assessment; no supplied models enter any fold.
++
++        Returns aligned pseudo-query rows for each member and the blend. Rows
++        with shift zero are the original labelled cutoff queries.
++        """
++        if progress is not None:
++            self.progress = progress
++        cache = self.fit_cache or FitCache()
++        frame = pseudo_frame(train)
++        pos = {key: i for i, key in enumerate(frame.row_ids)}
++        preds = {key: np.empty(len(frame.y)) for key in (*self.KEYS, "m6")}
++        assigned = np.zeros(len(frame.y), bool)
++        fold_info = []
++        for fold_no, (tr_i, held_i) in enumerate(episode_folds(train, folds), 1):
++            fit_part, held_part = subset_split(train, tr_i), subset_split(train, held_i)
++            self._progress(f"outer assessment fold {fold_no}/{folds}: refit complete ensemble")
++            fitted = Ensemble(folds=self.folds, fit_cache=cache, progress=self.progress,
++                              member_factories=self.member_factories).fit(fit_part)
++            held_frame = pseudo_frame(held_part)
++            rows = np.asarray([pos[key] for key in held_frame.row_ids], dtype=int)
++            for key in self.KEYS:
++                preds[key][rows] = frame_values(fitted.members[key], held_frame, "predict_win")
++            preds["m6"][rows] = frame_values(fitted, held_frame, "predict_win")
++            assigned[rows] = True
++            fold_info.append({"held_episode_ids": sorted(set(str(x) for x in held_part.episode_ids)),
++                              "weights": {n: float(w) for n, w in zip(fitted.names, fitted.weights)},
++                              "m5_max_iter": fitted.members["m5"].max_iter,
++                              "meta_fold_choices": fitted.fold_choices})
++        if not assigned.all():
++            raise RuntimeError("outer assessment rows were not all assigned")
++        return {"row_ids": frame.row_ids, "episode_ids": frame.episode_ids, "y": frame.y,
++                "is_endpoint": np.asarray([shift == 0 for _, _, shift in frame.row_ids]),
++                "predictions": preds, "folds": fold_info,
++                "binary_logloss": {key: binary_logloss(p, frame.y, np.ones(len(frame.y), bool))
++                                   for key, p in preds.items()}}
++
++    def __getstate__(self):
++        state = self.__dict__.copy()
++        state["fit_cache"] = None
++        state["progress"] = None
++        return state
+--- /dev/null
++++ b/tests/test_crossfit.py
+@@ -0,0 +1,147 @@
++"""Fast episode-exclusion and alignment tests for the stacked models."""
++from __future__ import annotations
++
++import pickle
++import unittest
++
++import numpy as np
++
++from models.common.crossfit import FitCache, episode_folds, pseudo_frame, subset_split
++from models.common.data import Split
++from models.m5_boosted_corrector import BoostedCorrector
++from models.m6_ensemble import Ensemble
++
++
++def sample_train(n_episodes=16):
++    n = n_episodes * 2
++    cutoff = np.full(n, 36)
++    X = np.zeros((n, 37), dtype=np.int8)
++    for i in range(n):
++        X[i, :36] = ((np.arange(36) + i * 3) % 7 == 0).astype(np.int8)
++        X[i, 36] = -1
++    return Split(name="train", query_ids=[f"q{i}" for i in range(n)],
++                 episode_ids=np.asarray([f"e{i // 2:02d}" for i in range(n)]),
++                 machine_ids=[f"m{i}" for i in range(n)], machine_type=np.zeros(n, dtype=int),
++                 signal=np.zeros(n, dtype=int), cutoff=cutoff, X=X,
++                 labels=np.asarray([(i * 5) % 7 == 0 for i in range(n)], dtype=np.int8))
++
++
++class FakeBase:
++    name = "fake_base"
++    feature_calls = []
++
++    def __init__(self, bias=0):
++        self.bias = bias
++
++    def fit(self, train):
++        self.fit_episodes = set(train.episode_ids)
++        self.prior = float(np.mean(train.labels > 0))
++        return self
++
++    def features(self, split):
++        assert self.fit_episodes.isdisjoint(set(split.episode_ids)), "base feature leaked episode"
++        self.feature_calls.append((frozenset(self.fit_episodes), frozenset(split.episode_ids)))
++        p = np.clip(0.25 + self.bias + 0.35 * self.prior + 0.05 * split.X[:, :10].mean(axis=1), 0.02, 0.98)
++        n = split.n
++        return {"p_win": p, "p_win_independent": p,
++                "p_shared": np.full(n, 0.2), "p_null": np.full(n, 0.1),
++                "max_pair_post": np.full(n, 0.6), "p_flip": np.full(n, 0.3),
++                "since_flip": np.full(n, 12.0), "n_obs": np.sum(split.X >= 0, axis=1),
++                "n_recent": np.sum(split.X[:, -8:] >= 0, axis=1),
++                "machine_type": split.machine_type, "signal": split.signal}
++
++    def predict_win(self, split):
++        return self.features(split)["p_win"]
++
++
++class FakeClassifier:
++    def __init__(self, n_iter):
++        self.n_iter = n_iter
++
++    def fit(self, X, y):
++        self.mean = float(np.mean(y))
++        return self
++
++    def predict_proba(self, X):
++        p = np.clip(0.1 + 0.75 * self.mean + 0.01 * X[:, 0] + self.n_iter / 10000, 0.01, 0.99)
++        return np.column_stack([1 - p, p])
++
++
++class FakeMember(FakeBase):
++    def predict_win(self, split):
++        return np.clip(super().predict_win(split), 0.01, 0.99)
++
++
++def m5_factory():
++    return BoostedCorrector(base_factory=FakeBase, classifier_factory=FakeClassifier,
++                            folds=4, inner_folds=3, progress=lambda _: None)
++
++
++def member_factories():
++    return {"m2": lambda: FakeMember(-0.06), "m3": lambda: FakeMember(0.0),
++            "m4": lambda: FakeMember(0.04), "m5": m5_factory}
++
++
++class CrossfitTests(unittest.TestCase):
++    def test_episode_folds_hold_all_cutoffs_and_row_ids_align(self):
++        train = sample_train()
++        frame = pseudo_frame(train)
++        self.assertEqual(len(frame.row_ids), train.n * 8)
++        self.assertEqual(len(set(frame.row_ids)), len(frame.row_ids))
++        for _, held in episode_folds(train, 4):
++            held_eps = set(train.episode_ids[held])
++            self.assertEqual(set(train.episode_ids[held]), held_eps)
++            self.assertEqual(sum(ep in held_eps for ep in frame.episode_ids), len(held) * 8)
++        self.assertEqual(sum(shift == 0 for _, _, shift in frame.row_ids), train.n)
++
++    def test_cache_invalidates_same_ids_when_label_or_history_changes(self):
++        train = sample_train()
++        cache = FitCache()
++        count = []
++
++        class Counting(FakeBase):
++            def fit(self, part):
++                count.append(1)
++                return super().fit(part)
++
++        a = cache.fit("fake", train, Counting, config=(1,))
++        self.assertIs(a, cache.fit("fake", train, Counting, config=(1,)))
++        changed = subset_split(train, np.arange(train.n))
++        changed.labels[0] = 1 - changed.labels[0]
++        self.assertIsNot(a, cache.fit("fake", changed, Counting, config=(1,)))
++        changed.X[0, 0] = 1 - changed.X[0, 0]
++        cache.fit("fake", changed, Counting, config=(1,))
++        self.assertEqual(len(count), 3)
++
++    def test_m5_nested_features_exclude_each_feature_episode(self):
++        FakeBase.feature_calls = []
++        train = sample_train(8)
++        model = m5_factory().fit(train)
++        self.assertEqual(len(model.oof), len(pseudo_frame(train).y))
++        self.assertTrue(FakeBase.feature_calls)
++        self.assertTrue(all(a.isdisjoint(b) for a, b in FakeBase.feature_calls))
++        self.assertIn(model.max_iter, model.ITER_GRID)
++        pickle.dumps(model)  # a progress closure must not enter the checkpoint
++
++    def test_outer_holdout_label_change_cannot_change_forecasts_or_choices(self):
++        train = sample_train()
++        a = Ensemble(folds=4, member_factories=member_factories(), progress=lambda _: None)
++        first = a.evaluate_heldout(train, folds=2)
++        changed = subset_split(train, np.arange(train.n))
++        changed.labels[changed.episode_ids == "e00"] = 1 - changed.labels[changed.episode_ids == "e00"]
++        b = Ensemble(folds=4, member_factories=member_factories(), progress=lambda _: None)
++        second = b.evaluate_heldout(changed, folds=2)
++        self.assertEqual(first["row_ids"], second["row_ids"])
++        self.assertEqual(set(first["predictions"]), set(Ensemble.KEYS) | {"m6"})
++        held_fold = next(i for i, f in enumerate(first["folds"]) if "e00" in f["held_episode_ids"])
++        self.assertEqual(first["folds"][held_fold], second["folds"][held_fold])
++        held_eps = set(first["folds"][held_fold]["held_episode_ids"])
++        rows = np.isin(first["episode_ids"], list(held_eps))
++        for key in first["predictions"]:
++            np.testing.assert_allclose(first["predictions"][key][rows],
++                                       second["predictions"][key][rows], rtol=0, atol=0)
++        self.assertEqual(int(first["is_endpoint"].sum()), train.n)
++
++
++if __name__ == "__main__":
++    unittest.main()
+--- /dev/null
++++ b/tests/test_recent_history.py
+@@ -0,0 +1,144 @@
++"""Regression checks for per-query history features used by M5 and M6."""
++from __future__ import annotations
++
++import sys
++import unittest
++from dataclasses import replace
++from pathlib import Path
++
++import numpy as np
++
++sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
++
++from models.common.data import MISSING, N_CONTEXTS, Split
++from models.m3_lag_pair_flip.model import FlipLagPairModel
++from models.m4_lag_pair_flip_shared.model import SharedFlipLagPairModel
++
++
++def make_split() -> Split:
++    cutoffs = np.array([40, 40, 40, 104, 104])
++    X = np.full((5, 105), MISSING, dtype=np.int8)
++    for row, cutoff in enumerate(cutoffs):
++        for tick in range(cutoff):
++            if (tick + 3 * row) % 11:
++                X[row, tick] = (tick + row) % 5
++    return Split(
++        name="history-feature-test",
++        query_ids=[f"q{i}" for i in range(5)],
++        episode_ids=np.array(["early"] * 3 + ["late"] * 2),
++        machine_ids=[f"m{i}" for i in range(5)],
++        machine_type=np.array([0, 1, 2, 1, 0]),
++        signal=np.array([-1, 0, 1, 1, -1]),
++        cutoff=cutoffs,
++        X=X,
++    )
++
++
++def take_rows(split: Split, rows: list[int], width: int | None = None) -> Split:
++    return replace(
++        split,
++        query_ids=[split.query_ids[i] for i in rows],
++        episode_ids=split.episode_ids[rows],
++        machine_ids=[split.machine_ids[i] for i in rows],
++        machine_type=split.machine_type[rows],
++        signal=split.signal[rows],
++        cutoff=split.cutoff[rows],
++        X=split.X[rows, :width].copy(),
++    )
++
++
++def configured(model_class: type[FlipLagPairModel]) -> FlipLagPairModel:
++    """Fixed parameters avoid training and make forecast regressions reproducible."""
++    model = model_class(max_lag=4, tau_step=4, min_segment=8, max_tick=108)
++    model.win_prior = np.full(N_CONTEXTS, 0.4)
++    model.hi = np.full(N_CONTEXTS, 0.85)
++    model.lo = np.full(N_CONTEXTS, 0.08)
++    model.pair_prior = np.full(len(model.pairs), 1 / len(model.pairs))
++    model.tau_q = np.full(len(model.tau_grid), 1 / len(model.tau_grid))
++    model.params = {"kappa": 20.0}
++    model.size.prior = np.tile([0.5, 0.3, 0.15, 0.05], (N_CONTEXTS, 1))
++    model.size.params = {"strength": 100.0, "half_life": float("inf")}
++    return model
++
++
++def scalar_counts(split: Split) -> tuple[np.ndarray, np.ndarray]:
++    """Independent tick-by-tick oracle, including missing payouts and zero wins."""
++    observed, recent = [], []
++    for row, cutoff in enumerate(split.cutoff):
++        ticks = [t for t in range(int(cutoff)) if split.X[row, t] != MISSING]
++        observed.append(len(ticks))
++        recent.append(sum(t >= cutoff - 64 for t in ticks))
++    return np.asarray(observed, dtype=float), np.asarray(recent, dtype=float)
++
++
++class RecentHistoryFeatureTest(unittest.TestCase):
++    def test_history_counts_match_scalar_oracle_at_each_cutoff(self) -> None:
++        split = make_split()
++        expected_obs, expected_recent = scalar_counts(split)
++        for model_class in (FlipLagPairModel, SharedFlipLagPairModel):
++            with self.subTest(model=model_class.__name__):
++                features = configured(model_class).features(split)
++                np.testing.assert_array_equal(features["n_obs"], expected_obs)
++                np.testing.assert_array_equal(features["n_recent"], expected_recent)
++                self.assertEqual(features["n_recent"][0], features["n_obs"][0])
++                self.assertLess(features["n_recent"][3], features["n_obs"][3])
++
++    def test_padding_and_unrelated_episode_leave_all_features_unchanged(self) -> None:
++        full = make_split()
++        early = take_rows(full, [0, 1, 2], width=41)
++        order = [2, 0, 4, 1, 3]
++        reordered = take_rows(full, order)
++        for model_class in (FlipLagPairModel, SharedFlipLagPairModel):
++            with self.subTest(model=model_class.__name__):
++                model = configured(model_class)
++                early_features = model.features(early)
++                full_features = model.features(full)
++                ordered_features = model.features(reordered)
++                for key in early_features:
++                    np.testing.assert_allclose(early_features[key], full_features[key][:3], rtol=0, atol=1e-13,
++                                               err_msg=f"{key} changed when a later episode was added")
++                    np.testing.assert_allclose(full_features[key][order], ordered_features[key], rtol=0, atol=1e-13,
++                                               err_msg=f"{key} changed with row order")
++
++    def test_counts_ignore_values_at_cutoff_and_in_future_storage(self) -> None:
++        split = make_split()
++        changed = replace(split, X=split.X.copy())
++        changed.X[0, split.cutoff[0]:] = 4
++        changed.X[3, split.cutoff[3]] = 0
++        for model_class in (FlipLagPairModel, SharedFlipLagPairModel):
++            with self.subTest(model=model_class.__name__):
++                model = configured(model_class)
++                original = model.features(split)
++                mutated = model.features(changed)
++                for key in ("n_obs", "n_recent"):
++                    np.testing.assert_array_equal(mutated[key], original[key])
++        # Other posterior features assume the sanitized Split guaranteed by load_split.
++
++    def test_forecasts_are_unchanged_by_the_feature_fix(self) -> None:
++        split = make_split()
++        # Baselines generated from the pre-fix M3/M4 code with these fixed parameters.
++        expected = {
++            FlipLagPairModel: [
++                [0.4119902683425104, 0.2598182535230768, 0.16865395404129546, 0.10028072942995947, 0.059256794663157863],
++                [0.34727974924977745, 0.28619272532894374, 0.19079515021929583, 0.1154812751327317, 0.060251100069251315],
++                [0.37190087459897936, 0.28240115715704805, 0.18015246232432375, 0.10711768030094926, 0.058427825618699594],
++                [0.266024758179949, 0.2893959524890487, 0.2013189234706426, 0.14260090412503848, 0.1006594617353213],
++                [0.2711483150132643, 0.28574299013684523, 0.20291893502471617, 0.1408008936906194, 0.09938886613455486],
++            ],
++            SharedFlipLagPairModel: [
++                [0.41367979928803905, 0.25907171659365724, 0.16816935989412837, 0.09999259236948173, 0.05908653185469375],
++                [0.34780689706106716, 0.28596159128860904, 0.19064106085907268, 0.11538801051996504, 0.060202440271286115],
++                [0.37287524803361083, 0.28196306677558586, 0.17987299087408062, 0.10695150808729117, 0.05833718622943155],
++                [0.2659081339897229, 0.289441935741195, 0.20135091181996173, 0.14262356253913955, 0.10067545590998087],
++                [0.27116838946142696, 0.28573512004069057, 0.2029133461158527, 0.14079701567222433, 0.09938612870980541],
++            ],
++        }
++        for model_class, values in expected.items():
++            with self.subTest(model=model_class.__name__):
++                model = configured(model_class)
++                np.testing.assert_allclose(model.predict(split), values, rtol=0, atol=1e-12)
++                np.testing.assert_allclose(model.predict_win(split), 1 - np.asarray(values)[:, 0], rtol=0, atol=1e-12)
++
++
++if __name__ == "__main__":
++    unittest.main()
+--- /dev/null
++++ b/tests/test_review_invariance.py
+@@ -0,0 +1,123 @@
++"""Independent metamorphic checks for episode exclusion and cache provenance."""
++from __future__ import annotations
++
++import sys
++import unittest
++from dataclasses import replace
++from pathlib import Path
++
++import numpy as np
++
++sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
++
++from models.common.crossfit import FitCache
++from models.common.data import MISSING, Split
++from models.m5_boosted_corrector.model import BoostedCorrector
++
++
++def small_train() -> Split:
++    episodes = 6
++    machines = 3
++    n = episodes * machines
++    cutoff = np.full(n, 40, dtype=int)
++    history = np.full((n, 41), MISSING, dtype=np.int8)
++    for row in range(n):
++        for tick in range(40):
++            history[row, tick] = int((tick + row * 3) % 7 in (0, 1))
++    return Split(
++        name="metamorphic-train",
++        query_ids=[f"q{row}" for row in range(n)],
++        episode_ids=np.array([f"e{row // machines}" for row in range(n)]),
++        machine_ids=[f"m{row % machines}" for row in range(n)],
++        machine_type=np.array([row % 3 for row in range(n)]),
++        signal=np.array([row % 3 - 1 for row in range(n)]),
++        cutoff=cutoff,
++        X=history,
++        labels=np.array([int(row % 4 == 0) for row in range(n)], dtype=np.int8),
++    )
++
++
++class SensitiveBase:
++    name = "sensitive_base"
++
++    def fit(self, train):
++        self.p = 0.2 + 0.6 * float(np.mean(train.labels > 0))
++        self.size = self
++        return self
++
++    def features(self, split):
++        n = split.n
++        p = np.full(n, self.p)
++        zero = np.zeros(n)
++        return dict(p_win=p, p_win_independent=p, p_shared=zero,
++                    p_null=zero, max_pair_post=np.full(n, 0.5), p_flip=zero,
++                    since_flip=zero, n_obs=np.full(n, 40.0),
++                    n_recent=np.full(n, 40.0),
++                    machine_type=split.machine_type.astype(float),
++                    signal=split.signal.astype(float))
++
++    def predict_win(self, split):
++        return np.full(split.n, self.p)
++
++    def predict(self, split):
++        return np.tile([0.25, 0.25, 0.25, 0.25], (split.n, 1))
++
++
++class SensitiveClassifier:
++    def __init__(self, n_iter):
++        self.n_iter = n_iter
++
++    def fit(self, X, y):
++        self.training_feature_mean = float(np.mean(X[:, 0]))
++        self.training_label_mean = float(np.mean(y))
++        return self
++
++    def predict_proba(self, X):
++        z = 0.2 * X[:, 0] + 0.3 * self.training_feature_mean + self.training_label_mean
++        p = 1 / (1 + np.exp(-z))
++        return np.column_stack([1 - p, p])
++
++
++class ReviewInvarianceTest(unittest.TestCase):
++    def test_m5_heldout_forecasts_ignore_heldout_cutoff_labels(self):
++        original = small_train()
++        changed = replace(original, labels=original.labels.copy())
++        changed.labels[changed.episode_ids == "e0"] = 1
++        self.assertFalse(np.array_equal(original.labels, changed.labels))
++
++        def fit(train):
++            model = BoostedCorrector(
++                folds=3, inner_folds=2, base_factory=SensitiveBase,
++                classifier_factory=SensitiveClassifier, progress=lambda _: None,
++            )
++            model.ITER_GRID = (1,)  # fixed choice isolates the heldout fit invariant
++            return model.fit(train)
++
++        before, after = fit(original), fit(changed)
++        self.assertEqual(before.oof_row_ids, after.oof_row_ids)
++        held = np.array([episode == "e0" for episode, _, _ in before.oof_row_ids])
++        np.testing.assert_array_equal(before.oof[held], after.oof[held])
++        # The mutation is real and affects fits whose training partitions contain e0.
++        self.assertTrue(np.any(before.oof[~held] != after.oof[~held]))
++
++    def test_cache_distinguishes_same_episode_ids_with_changed_outcomes_and_history(self):
++        original = small_train()
++        cache = FitCache()
++        first = cache.fit("base", original, SensitiveBase)
++        self.assertIs(first, cache.fit("base", original, SensitiveBase))
++
++        labels_changed = replace(original, labels=original.labels.copy())
++        labels_changed.labels[:3] = 1
++        second = cache.fit("base", labels_changed, SensitiveBase)
++        self.assertIsNot(first, second)
++        self.assertNotEqual(first.p, second.p)
++
++        history_changed = replace(original, X=original.X.copy())
++        history_changed.X[0, 0] = 1 - history_changed.X[0, 0]
++        third = cache.fit("base", history_changed, SensitiveBase)
++        self.assertIsNot(first, third)
++        self.assertIsNot(second, third)
++
++
++if __name__ == "__main__":
++    unittest.main()
+--- /dev/null
++++ b/run_repaired_comparison.py
+@@ -0,0 +1,298 @@
++"""Freeze repaired M3/M5/M6 forecasts before scoring released validation answers.
++
++Run prepare first, then score against the frozen predictions. This is a fixed
++repair experiment, not a validation-driven hyperparameter sweep.
++"""
++from __future__ import annotations
++
++import argparse
++import csv
++import hashlib
++import json
++import math
++import platform
++import shutil
++import sys
++from pathlib import Path
++from time import perf_counter
++
++import joblib
++import numpy as np
++import scipy
++import sklearn
++from threadpoolctl import threadpool_limits
++
++from models.common.data import Split, MISSING, TYPES, PAYOUT_INDEX, PROB_COLUMNS, load_split
++from models.common.evaluate import DEFAULT_DATA, write_predictions, to_dict
++from models.m6_ensemble import Ensemble
++from models.common.crossfit import FitCache
++from slot_forecasting.contest import contest_score
++import slot_forecasting.contest as contest_module
++import slot_forecasting.scoring as scoring_module
++import slot_forecasting.schema as schema_module
++from slot_forecasting.io import read_targets, read_submission, read_rows, read_queries
++from slot_forecasting.rounds import VERSION, round_metadata
++
++ROOT = Path(__file__).resolve().parent
++MODEL_NAMES = ('m3', 'm4', 'm5', 'm6')
++PREVIOUS_NAMES = {'m3': 'm3_lag_pair_flip', 'm5': 'm5_boosted_corrector', 'm6': 'm6_ensemble'}
++CONDITIONS = ('stable', 'short_history', 'drift', 'shared_change')
++
++
++def clean(value):
++    if isinstance(value, np.ndarray):
++        return clean(value.tolist())
++    if isinstance(value, np.generic):
++        return clean(value.item())
++    if isinstance(value, dict):
++        return {str(k): clean(v) for k, v in value.items()}
++    if isinstance(value, (tuple, list)):
++        return [clean(v) for v in value]
++    if isinstance(value, float) and not math.isfinite(value):
++        return str(value)
++    return value
++
++
++def save_json(path, value):
++    path.write_text(json.dumps(clean(value), indent=2, allow_nan=False) + '\n')
++
++
++def digest(path):
++    return hashlib.sha256(path.read_bytes()).hexdigest()
++
++
++def source_hashes():
++    paths = sorted((ROOT / 'models').rglob('*.py')) + [Path(__file__).resolve()]
++    return {str(p.relative_to(ROOT)): digest(p) for p in paths}
++
++
++def input_only(data, split_name):
++    """Read query/history files only, never validation labels/targets/reference."""
++    folder = data / split_name
++    with (folder / 'queries.csv').open(newline='') as stream:
++        queries = list(csv.DictReader(stream))
++    cutoff = np.array([int(q['cutoff']) for q in queries])
++    matrix = np.full((len(queries), int(cutoff.max()) + 1), MISSING, dtype=np.int8)
++    index = {(q['episode_id'], q['machine_id']): i for i, q in enumerate(queries)}
++    with (folder / 'history.csv').open(newline='') as stream:
++        for row in csv.DictReader(stream):
++            i = index[(row['episode_id'], row['machine_id'])]
++            t = int(row['tick'])
++            if not 0 <= t < cutoff[i] or matrix[i, t] != MISSING:
++                raise ValueError('Invalid or duplicated pre-cutoff observation')
++            matrix[i, t] = PAYOUT_INDEX[int(row['payout'])]
++    return Split(split_name, [q['query_id'] for q in queries],
++                 np.array([q['episode_id'] for q in queries]), [q['machine_id'] for q in queries],
++                 np.array([TYPES.index(q['machine_type']) for q in queries]),
++                 np.array([int(q['signal']) for q in queries]), cutoff, matrix)
++
++
++def binary_metrics(p, y, episode_ids, mask):
++    episodes = sorted(set(episode_ids[mask]))
++    p = np.clip(p, 1e-12, 1 - 1e-12)
++    loss = -y * np.log(p) - (1-y) * np.log(1-p)
++    square = np.square(p-y)
++    return {'episodes': len(episodes), 'rows': int(mask.sum()),
++            'binary_logloss': float(np.mean([loss[mask & (episode_ids == e)].mean() for e in episodes])),
++            'binary_brier': float(np.mean([square[mask & (episode_ids == e)].mean() for e in episodes]))}
++
++
++def save_outer(out, result):
++    y = np.asarray(result['y'], dtype=float)
++    groups = np.asarray(result['episode_ids'])
++    endpoint = np.asarray(result['is_endpoint'], dtype=bool)
++    predictions = result['predictions']
++    np.savez_compressed(out / 'train_outer_predictions.npz',
++                        y=y, episode_ids=groups, row_ids=np.asarray(result['row_ids']),
++                        is_endpoint=endpoint, **predictions)
++    summary = {'scope': 'Entire pipeline refitted inside each outer fit partition; diagnostics use noisy train outcomes.',
++               'outer_folds': result['folds'],
++               'metrics': {name: {label: binary_metrics(np.asarray(p), y, groups, mask)
++                                  for label, mask in [('all_pseudo_queries', np.ones(len(y), bool)),
++                                                      ('released_cutoffs', endpoint),
++                                                      ('historical_pseudo_queries', ~endpoint)]}
++                           for name, p in predictions.items()}}
++    save_json(out / 'train_outer_report.json', summary)
++    return summary
++
++
++def prepare(data, out, previous, outer_folds):
++    if out.exists():
++        raise FileExistsError('Use a fresh output directory: ' + str(out))
++    metadata = round_metadata(data)
++    if metadata['round'] != 'main':
++        raise ValueError('This frozen M3 repair comparison is for the main round')
++    out.mkdir(parents=True)
++    started = perf_counter()
++    def progress(message):
++        line = f'{perf_counter()-started:.1f}s {message}'
++        print(line, flush=True)
++        with (out / 'progress.log').open('a') as stream:
++            stream.write(line + '\n')
++    plan = {'experiment': 'Repair cutoff-relative features and all learned layers of M5/M6 episode exclusion.',
++            'outer_evaluation_folds': outer_folds, 'numerical_threads': 2,
++            'validation_policy': 'No validation answers loaded before forecast freeze; single fixed repair comparison.',
++            'main_comparator': 'Unchanged M3; M4 diagnostic only.',
++            'outer_caveat': 'Two outer folds fit on half of train. These diagnostics do not estimate full-train test score.',
++            'source_sha256': source_hashes(),
++            'scorer_sha256': {Path(m.__file__).name: digest(Path(m.__file__)) for m in (contest_module, scoring_module, schema_module)},
++            'input_sha256': {str(p.relative_to(data)): digest(p) for p in [
++                data/'metadata.json', data/'train/queries.csv', data/'train/history.csv', data/'train/labels.csv',
++                data/'validation/queries.csv', data/'validation/history.csv',
++                data/'test/queries.csv', data/'test/history.csv']},
++            'versions': {'python': platform.python_version(), 'numpy': np.__version__,
++                         'scipy': scipy.__version__, 'scikit-learn': sklearn.__version__, 'joblib': joblib.__version__},
++            'command': sys.argv}
++    save_json(out / 'plan.json', plan)
++    progress('Read train only for model fitting and selection')
++    train = load_split(data, 'train')
++    model = Ensemble(fit_cache=FitCache(), progress=progress)
++    with threadpool_limits(limits=2):
++        progress('Begin whole-pipeline outer training evaluation')
++        outer = model.evaluate_heldout(train, folds=outer_folds, progress=progress)
++        save_outer(out, outer)
++        progress('Begin final fit on all training episodes')
++        model.fit(train)
++        models = {name: model.members[name] for name in ('m3', 'm4', 'm5')}
++        models['m6'] = model
++        descriptions = {name: m.describe() for name, m in models.items()}
++        save_json(out / 'fitted_configurations.json', descriptions)
++        # Model __getstate__ removes run-local cache/progress callbacks.
++        joblib.dump(models, out / 'models.joblib')
++        forecasts = {}
++        for split_name in ('validation', 'test'):
++            split = input_only(data, split_name)
++            for name, fitted in models.items():
++                progress(f'Predict {name} on {split_name} inputs without answers')
++                probability = fitted.predict(split)
++                path = out / name / ('validation_predictions.csv' if split_name == 'validation' else 'submission.csv')
++                write_predictions(path, to_dict(split, probability))
++                read_submission(path, set(split.query_ids))
++                forecasts[str(path.relative_to(out))] = digest(path)
++        # Re-load the exact saved checkpoint and check actual deployed inference.
++        loaded = joblib.load(out / 'models.joblib')
++        validation = input_only(data, 'validation')
++        checkpoint_deltas = {}
++        for name, fitted in loaded.items():
++            expected = read_submission(out / name / 'validation_predictions.csv', set(validation.query_ids))
++            current = fitted.predict(validation)
++            checkpoint_deltas[name] = float(np.max(abs(current - np.array([expected[k] for k in validation.query_ids]))))
++            if checkpoint_deltas[name] > 1e-8:
++                raise ValueError('Checkpoint replay failed: ' + name)
++    previous_hashes = {}
++    m3_delta = None
++    if previous is not None:
++        for name, folder in PREVIOUS_NAMES.items():
++            source = previous / folder / 'validation_predictions.csv'
++            destination = out / 'previous' / name / 'validation_predictions.csv'
++            destination.parent.mkdir(parents=True, exist_ok=True)
++            shutil.copyfile(source, destination)
++            previous_hashes[str(destination.relative_to(out))] = digest(destination)
++        old = read_submission(out / 'previous/m3/validation_predictions.csv')
++        new = read_submission(out / 'm3/validation_predictions.csv', set(old))
++        m3_delta = max(abs(a-b) for key in old for a,b in zip(old[key],new[key]))
++        if m3_delta > 1e-8:
++            raise ValueError('M3 comparator changed: ' + str(m3_delta))
++    if plan['source_sha256'] != source_hashes():
++        raise ValueError('Source changed during experiment')
++    freeze = {'forecast_sha256': forecasts, 'previous_sha256': previous_hashes,
++              'checkpoint_sha256': digest(out/'models.joblib'), 'source_sha256': plan['source_sha256'],
++              'plan_sha256': digest(out/'plan.json'), 'checkpoint_replay_max_abs_delta': checkpoint_deltas,
++              'unchanged_m3_max_abs_delta': m3_delta, 'elapsed_seconds': perf_counter()-started,
++              'scope': 'All training decisions and forecasts frozen before validation-answer scoring.'}
++    save_json(out / 'freeze.json', freeze)
++    progress('Frozen forecasts and checkpoints; ready for score phase')
++
++
++def paired(candidate, control, targets, groups, reference, repeats=10000):
++    conditions = {}
++    values = {}
++    for target in targets:
++        k = target.query_id
++        truth = np.asarray(target.probabilities)
++        row = (np.square(candidate[k]-truth).sum() - np.square(control[k]-truth).sum(),
++               np.square(reference[k]-truth).sum())
++        values.setdefault(target.episode_id, []).append(row)
++        conditions[target.episode_id] = groups[k]
++    episodes = {e: np.mean(v, axis=0) for e,v in values.items()}
++    draws = np.zeros(repeats); deltas = {}; rng=np.random.default_rng(314159)
++    for condition in CONDITIONS:
++        data = np.array([episodes[e] for e in sorted(episodes) if conditions[e] == condition])
++        means = data.mean(0); deltas[condition] = float(means[0]/means[1])
++        samples = data[rng.integers(len(data), size=(repeats,len(data)))].mean(1)
++        draws += samples[:,0]/samples[:,1]/4
++    return {'delta_R': float(np.mean(list(deltas.values()))),
++            'fixed_forecast_episode_bootstrap_95pct': np.quantile(draws,[.025,.975]).tolist(),
++            'condition_delta_R': deltas,
++            'episodes_better': sum(v[0]<-1e-12 for v in episodes.values()),
++            'episodes_worse': sum(v[0]>1e-12 for v in episodes.values()),
++            'caveat': 'Fixed forecasts on already used public validation; not a fresh audit or selection-adjusted interval.'}
++
++
++def score(data, out):
++    if (out/'comparison.json').exists():
++        raise FileExistsError('Comparison already exists')
++    frozen=json.loads((out/'freeze.json').read_text())
++    if digest(out/'plan.json') != frozen['plan_sha256']:
++        raise ValueError('Experiment plan changed')
++    plan=json.loads((out/'plan.json').read_text())
++    for name, sha in plan['input_sha256'].items():
++        if digest(data/name) != sha:raise ValueError('Data changed: '+name)
++    for module in (contest_module, scoring_module, schema_module):
++        if digest(Path(module.__file__)) != plan['scorer_sha256'][Path(module.__file__).name]:
++            raise ValueError('Scorer changed')
++    for name, sha in {**frozen['forecast_sha256'],**frozen['previous_sha256']}.items():
++        if digest(out/name)!=sha:raise ValueError('Frozen prediction changed: '+name)
++    if digest(out/'models.joblib')!=frozen['checkpoint_sha256']:
++        raise ValueError('Frozen checkpoint changed')
++    queries=read_queries(data/'validation/queries.csv');ids={q.query_id for q in queries}
++    targets=read_targets(data/'validation/targets.csv')
++    groups={r['query_id']:r['condition'] for r in read_rows(data/'validation/conditions.csv',('query_id','condition'))}
++    reference={k:np.asarray(v) for k,v in read_submission(data/'validation/reference.csv',ids).items()}
++    predictions={name:{k:np.asarray(v) for k,v in read_submission(out/name/'validation_predictions.csv',ids).items()} for name in MODEL_NAMES}
++    for name in PREVIOUS_NAMES:
++        path=out/'previous'/name/'validation_predictions.csv'
++        if path.exists():predictions['previous_'+name]={k:np.asarray(v) for k,v in read_submission(path,ids).items()}
++    scores={name:contest_score(p,targets,groups,reference,max_points=60,version=VERSION) for name,p in predictions.items()}
++    comparisons={name+'_minus_m3':paired(p,predictions['m3'],targets,groups,reference)
++                 for name,p in predictions.items() if name!='m3'}
++    for name in ('m5','m6'):
++        previous='previous_'+name
++        if previous in predictions:
++            comparisons[name+'_minus_'+previous]=paired(predictions[name],predictions[previous],targets,groups,reference)
++    result={'scope':'Single fixed repair experiment on all 96 previously used validation episodes; not a new audit.',
++            'scores':scores,'paired_comparisons':comparisons,'freeze_sha256':digest(out/'freeze.json'),
++            'validation_answer_sha256':{name:digest(data/'validation'/name) for name in ('targets.csv','reference.csv','conditions.csv')},
++            'test_csvs':'All four forecasts validated for exact test query coverage and probability constraints in prepare.'}
++    save_json(out/'comparison.json',result)
++    lines=['# Repaired M5/M6 compared with unchanged M3','',result['scope'],'',
++           '| Model | Points / 60 | R | Stable | Short history | Drift | Shared change |',
++           '|---|---:|---:|---:|---:|---:|---:|']
++    for name,row in scores.items():
++        values=' | '.join(f"{row['by_condition'][c]['loss_ratio']:.6f}" for c in CONDITIONS)
++        lines.append(f"| {name} | {row['technical_points']:.6f} | {row['mean_loss_ratio']:.6f} | {values} |")
++    lines += ['','| Repaired candidate minus M3 | ΔR | Descriptive 95% interval |','|---|---:|---|']
++    for name in ('m5','m6'):
++        row=comparisons[name+'_minus_m3'];lo,hi=row['fixed_forecast_episode_bootstrap_95pct']
++        lines.append(f"| {name} | {row['delta_R']:+.6f} | [{lo:+.6f}, {hi:+.6f}] |")
++    lines += ['', 'Lower R is better. Intervals resample episodes within condition with fixed forecasts.',
++              'See train_outer_report.json for separately held-out whole-pipeline training diagnostics,',
++              'fitted_configurations.json for selections, and freeze.json for hashes and replay checks.']
++    (out/'comparison.md').write_text('\n'.join(lines)+'\n')
++    print('\n'.join(lines),flush=True)
++
++
++def main():
++    parser=argparse.ArgumentParser(description=__doc__)
++    parser.add_argument('phase',choices=('prepare','score'))
++    parser.add_argument('--data',type=Path,default=DEFAULT_DATA)
++    parser.add_argument('--out',type=Path,required=True)
++    parser.add_argument('--previous',type=Path)
++    parser.add_argument('--outer-folds',type=int,default=2)
++    args=parser.parse_args()
++    if args.phase=='prepare':prepare(args.data.resolve(),args.out.resolve(),args.previous.resolve() if args.previous else None,args.outer_folds)
++    else:score(args.data.resolve(),args.out.resolve())
++
++
++if __name__=='__main__':
++    main()
+--- /dev/null
++++ b/verify_repaired_inference.py
+@@ -0,0 +1,60 @@
++"""Verify frozen, fitted models under changes to prediction batching."""
++from __future__ import annotations
++
++import argparse
++import json
++from pathlib import Path
++
++import joblib
++import numpy as np
++from threadpoolctl import threadpool_limits
++
++from models.common.crossfit import subset_split
++from models.common.data import MISSING
++from run_repaired_comparison import DEFAULT_DATA, digest, input_only, save_json
++from slot_forecasting.io import read_submission
++
++
++def main():
++    parser = argparse.ArgumentParser(description=__doc__)
++    parser.add_argument('--out', required=True, type=Path)
++    parser.add_argument('--data', type=Path, default=DEFAULT_DATA)
++    args = parser.parse_args()
++    freeze = json.loads((args.out / 'freeze.json').read_text())
++    checkpoint = args.out / 'models.joblib'
++    assert digest(checkpoint) == freeze['checkpoint_sha256']
++    models = joblib.load(checkpoint)
++    split = input_only(args.data, 'validation')
++    expected = {name: np.asarray([p[q] for q in split.query_ids]) for name in models
++                for p in [read_submission(args.out / name / 'validation_predictions.csv', set(split.query_ids))]}
++    order = np.random.default_rng(271828).permutation(split.n)
++    reordered = subset_split(split, order)
++    padded = subset_split(split, np.arange(split.n))
++    padded.X = np.pad(padded.X, ((0, 0), (0, 127)), constant_values=MISSING)
++    episodes = sorted(set(split.episode_ids),
++                      key=lambda e: int(split.cutoff[split.episode_ids == e].max()))
++    chosen = [episodes[i] for i in np.linspace(0, len(episodes)-1, 8, dtype=int)]
++    checks = [('row_permutation', reordered, order),
++              ('extra_missing_padding', padded, np.arange(split.n))]
++    for ep in chosen:
++        rows = np.flatnonzero(split.episode_ids == ep)
++        single = subset_split(split, rows)
++        single.X = single.X[:, :int(single.cutoff.max())+1]
++        checks.append(('isolated_trimmed_episode_' + str(ep), single, rows))
++    report = {'checkpoint_sha256': freeze['checkpoint_sha256'],
++              'scope': 'Actual frozen models; full-episode batching preserves M4 shared inference.',
++              'tolerance': 1e-10, 'checks': {}}
++    with threadpool_limits(limits=2):
++        for label, changed, rows in checks:
++            deltas = {name: float(np.max(np.abs(model.predict(changed) - expected[name][rows])))
++                      for name, model in models.items()}
++            report['checks'][label] = deltas
++            print(label, deltas, flush=True)
++            if any(delta > report['tolerance'] for delta in deltas.values()):
++                raise AssertionError('Prediction batching changed forecasts: ' + label)
++    report['passed'] = True
++    save_json(args.out / 'inference_verification.json', report)
++
++
++if __name__ == '__main__':
++    main()
+--- /dev/null
++++ b/requirements-repaired-models.txt
+@@ -0,0 +1,5 @@
++numpy==1.26.4
++scipy==1.13.1
++scikit-learn==1.6.1
++joblib==1.5.3
++threadpoolctl==3.6.0
+--- /dev/null
++++ b/M5_M6_REPAIR.md
+@@ -0,0 +1,38 @@
++# M5/M6 repair experiment
++
++The repaired model code is based on `amir_workspace` at `c339b469de33bbc2b2c68ea739eeec835139d42b`. The archived branch snapshot remains unchanged. The runnable source, tests, and completed results are installed at the repository root. A staging copy remains in `main-participants-60-40/m5_m6_repair/`.
++
++The recent-history feature now counts observed ticks in each query's own `[cutoff - 64, cutoff)` window. Missing ticks remain missing, and counts exclude ticks at or after the cutoff. M3's fitting and direct prediction formulas are unchanged.
++
++M5 selects its tree count using episode folds, with another episode crossfit inside each fold to construct classifier training features. Every M4 feature model is fitted without the episode it predicts. M6 fits its weights from held-episode forecasts of all four members; the entire M5 fitting and selection procedure runs inside each M6 training partition. An additional outer split refits the complete ensemble, including its weights, to assess that procedure on excluded episodes.
++
++The repair preserves the original model family, feature list, tree settings, candidate tree counts, and blend optimizer. It does not establish that those choices are optimal. The experiment uses two outer assessment folds and the original four internal model-selection folds. Each outer model sees half of the training episodes, so its binary outcome diagnostics do not directly estimate the final model's contest score.
++
++## Reproduce
++
++From the repository root, in an environment with the pinned dependencies:
++
++```sh
++python -m pip install -r requirements-repaired-models.txt
++python -B run_repaired_comparison.py prepare --out results/repaired-fresh --outer-folds 2 \
++  --previous main-participants-60-40/adversarial_review/branches/amir/results/2026-11-07_m1_to_m6
++python -B run_repaired_comparison.py score --out results/repaired-fresh
++python -B verify_repaired_inference.py --out results/repaired-fresh
++python -B -m unittest discover -s tests -p 'test_*.py' -v
++```
++
++For this staged directory, the `--previous` path is `../adversarial_review/branches/amir/results/2026-11-07_m1_to_m6`. The recorded run used Python 3.9.6 and two numerical-library threads. Use a fresh output directory for a new run; existing experiments are never overwritten.
++
++`prepare` records code, input, and scorer hashes before fitting. It uses training data for all fitting decisions, reads only query/history files for validation and test inference, saves and replays the fitted checkpoint, verifies the unchanged M3 comparator, and freezes predictions. `score` verifies the frozen artifacts before reading validation answers. The public validation set was already used in earlier model development; this is a fixed development comparison, not a fresh audit.
++
++## Artifacts
++
++- `results/repaired-m5-m6/comparison.md` and `comparison.json`: official validation scores and paired episode-bootstrap comparisons.
++- `train_outer_report.json` and `train_outer_predictions.npz`: predictions and binary outcome metrics from the outer training folds.
++- `fitted_configurations.json`: selected tree count, blend weights, and selection diagnostics. M5's minimum selection loss and M6's weight-fitting loss are not independent performance estimates.
++- `models.joblib`: fitted M3, M4, M5, and M6 models.
++- `<model>/validation_predictions.csv` and `<model>/submission.csv`: frozen validation and test forecasts.
++- `plan.json`, `freeze.json`, and `inference_verification.json`: provenance, checkpoint replay, and prediction-batching checks.
++- `results/repaired-m5-m6/REPAIR_REVIEW.md`: independent source review, conducted before the full comparison.
++
++Test targets are private. Test CSV checks establish format and coverage, not test performance. Upload packaging remains a separate task.

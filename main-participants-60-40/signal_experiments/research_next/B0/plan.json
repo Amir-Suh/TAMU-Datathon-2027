@@ -1,0 +1,58 @@
+{
+  "scope": "Main development. Frozen validation hybrid baseline.",
+  "inputs_sha256": {
+    "../public/metadata.json": "7979323052df471e6b8b2c985cb48faa89e287ac6b0fd7789f24bccd544ce7bf",
+    "../public/train/queries.csv": "96cbf59fe0b340981f3f2958dde3305162215ae911d0559d6f34764e74460846",
+    "../public/train/history.csv": "46a1e783a1b222dc2de33bc72259207e3d013135d1229af9669ffcd454116217",
+    "../public/train/labels.csv": "f6b3a2ca73888b91bb9a38d0ca52f449062ce70534bef9776ad4f53fc713b46a",
+    "folds.csv": "df85f54a091a88b1961ed69d29d4884718bf7c2ce809d7793ee80bb529f5bac2",
+    "FORECASTING_EXPERIMENTS.md": "7bc65b426b5c7e2b16ee8f7b290daf848b248ac8a29ebc0e78a7115ef2ba738f"
+  },
+  "fredy_source_commit": "bbff7379e57984eb623588273ed1c958bb8b4f47",
+  "amir_reference_commit": "bb0357e772fa263c6f293cd0efd19d161b5ce334",
+  "release": {
+    "conditions": [
+      "stable",
+      "short_history",
+      "drift",
+      "shared_change"
+    ],
+    "counts_per_condition": {
+      "test": 48,
+      "train": 24,
+      "validation": 24
+    },
+    "history": "Machine-specific interactions, lags up to 8, missing observations and changing regimes.",
+    "machines_per_episode": 8,
+    "max_points": 60,
+    "mode": "event",
+    "reference": "Pooled, strength=20, fitted separately on this round's training observations.",
+    "round": "main",
+    "season_id": "5fffdc4d0c700bbf61c3f911",
+    "suite_version": "experimentation-suite-v3",
+    "target": "Next-spin probabilities for 0x, 1x, 2x, 5x, 20x.",
+    "test_policy": "Test targets, conditions and reference predictions stay private.",
+    "warning": "Public demo seeds are reconstructable; event seeds are private."
+  },
+  "frozen_hybrid": {
+    "path": "combined/m3_match_split_win_pair_l31_factor_gru_size.csv",
+    "sha256": "ac6fae2e924da0bb5f1b7638480572373a87a192d4891c1315ffc11f714aeea6",
+    "points": 56.34102223545075,
+    "R": 0.0649434039243781,
+    "delta_R": 0.0,
+    "delta_R_95": [
+      0.0,
+      0.0
+    ],
+    "condition_R": {
+      "stable": 0.05107419424809494,
+      "short_history": 0.09293615471880542,
+      "drift": 0.05531415455351391,
+      "shared_change": 0.060449112177098134
+    },
+    "p0_mse": 0.00446809666869068,
+    "conditional_payout_sse": 0.018921580024474416,
+    "win_mass_weighted_conditional_payout_sse": 0.006448433389233892
+  },
+  "recomposition_byte_exact": true
+}

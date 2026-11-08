@@ -1,0 +1,24 @@
+# Assignment 02 · Online regime filter for the adaptive win forecast
+
+## Goal
+
+Implement a small forward filter over changes in a machine's win-rate level or lag direction. Keep the existing conditional positive payout mix so the ablation isolates the win head. Test whether this improves drift and shared change without giving back the adaptive model's stable performance. The tuning control is **33.224516/60**. [Current model](../slot_forecasting/adaptive.py), [comparison](../runs/model-comparison/comparison.json).
+
+Dynamic generalized linear models combine non-Gaussian observations with time-varying latent parameters. Bayesian online changepoint detection models uncertainty about when a segment began, and fixed share lets an online forecast return weight to experts after a change. The proposed finite-state filter uses a small state grid and a reset transition for this short Bernoulli stream. [West, Harrison and Migon on dynamic GLMs](https://www2.stat.duke.edu/~mw/mwextrapubs/West1985a.pdf), [Adams and MacKay on online changepoints](https://arxiv.org/abs/0710.3742), [Herbster and Warmuth on tracking experts](https://mwarmuth.bitbucket.io/pubs/J39.pdf).
+
+## Build
+
+1. Extract causal win forecasts `b_t` from the existing adaptive lag model and `n_t` from its matched no-lag control. Define `z_t = logit(clip(n_t))` and `d_t = logit(clip(b_t)) - z_t`. The first implementation may replay truncated manifests in batches, one endpoint offset per pass, with each machine appearing once per batch. Filter all eight machines at each pseudo-cutoff. Memoize inside your output lane. If you implement a faster trace, compare endpoint outputs to `AdaptiveLagForecaster.predict_variants()` and avoid editing the shared module. When scoring training folds, fit the underlying type/signal prior on the other episodes.
+2. Use state-specific win odds `sigmoid(z_t + a*d_t + δ)`. The first state set is `(a,δ) = (1,0), (1,-1), (1,1)`, with prior mass `(.6,.2,.2)`. In a second variant add `(0,0)` and `(-1,0)`, reallocating prior mass to test attenuation and reversal. A five-state starting prior is `(.5,.15,.15,.1,.1)` in that order. Use a reset transition `π_pre = (1-h)*π_post_previous + h*π_prior`. Start with `h = 1/64` per tick and compare `1/24` in train folds.
+3. Emit `sum(π_pre * p_state(t))` before the outcome. For an observed outcome `y`, update `π_post ∝ π_pre * p_state(t)^y * (1-p_state(t))^(1-y)`. For an unobserved tick, apply the transition and skip the likelihood. Run initially over the final 40 ticks before each evaluation endpoint and include the final transition to the query tick. This gives the actual main queries a matched window. Report the observed support for earlier training pseudo-endpoints, where the short-history window may be incomplete. Compare the filter with a fixed latent state (`h=0`) and the exact base model. If long versus short filters are compared, keep all other settings fixed.
+4. Try peer-assisted reset only after the local filter passes. At `t`, use the prior few ticks of leave-one-out peer evidence that a shifted state fits better than the base state. Start with the median clipped absolute difference between recent and older signed residual means across supported peers. Fit a threshold using train only and allow the hazard to rise to a capped value, e.g. `1/16`, on that trigger. Compare with the same unconditional average hazard. Keep the sign of each machine's update local.
+
+## Verification
+
+- With all mass and reset mass on `(1,0)`, recover the adaptive win forecast at every checked tick. With all outcomes missing, repeated transitions must preserve an initialized prior and produce normalized probabilities. Check on a small hand-computed sequence and a seeded level-change or sign-reversal sequence.
+- When testing simultaneous changes across machines, alter all outcomes at tick `t` and later. Every forecast and peer hazard at `t` must be unchanged. Changing tick `t-1` may affect the forecast at `t`. Never smooth the state path backward before producing any predictions.
+- Compare no filter, constant-hazard local filter, and any peer-triggered filter on identical IDs. Report drift/shared-change gains, stable/short-history costs, posterior mass by state and detection lag on synthetic switches. Estimate any tuning gain using paired episode resampling.
+
+## Execution and handoff
+
+Own `slot_forecasting/regime_filter.py` and `run_regime_filter.py`. Write to `runs/02-regime-filter/<run-id>/`. Use organizer train only for fitting or choosing parameters and keep folds grouped by episode. Use `run_model_comparison.tuning_data()` and `contest_score` on the 48 tuning episodes, with the adaptive control scored on the same IDs. Reserve audit and test. Return a command, config, checks, `tuning_predictions.csv`, and `report.json` with per-condition scores, paired uncertainty and timing. See the [shared experiment contract](README.md#shared-experiment-contract).

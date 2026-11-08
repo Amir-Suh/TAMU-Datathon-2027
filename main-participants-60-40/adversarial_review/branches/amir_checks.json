@@ -1,0 +1,103 @@
+{
+  "scope": "Fixed synthetic parameter configurations using real public validation histories. Not saved model replay or performance scoring.",
+  "low_cutoff": 192,
+  "high_cutoff": 256,
+  "metadata_invariance": {
+    "m1_hierarchical_frequency": 0.0,
+    "m2_lag_pair": 0.0,
+    "m3_lag_pair_flip": 0.0,
+    "m4_lag_pair_flip_shared": 0.0
+  },
+  "unrelated_episode_probability_invariance": {
+    "m1_hierarchical_frequency": 0.0,
+    "m2_lag_pair": 0.0,
+    "m3_lag_pair_flip": 0.0,
+    "m4_lag_pair_flip_shared": 0.0
+  },
+  "m3_lag_pair_flip_n_recent": {
+    "alone": [
+      45.0,
+      42.0,
+      43.0,
+      42.0,
+      42.0,
+      41.0,
+      43.0,
+      43.0
+    ],
+    "with_unrelated_later_episode": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "expected_last64": [
+      45,
+      43,
+      43,
+      43,
+      42,
+      41,
+      43,
+      43
+    ]
+  },
+  "m4_lag_pair_flip_shared_n_recent": {
+    "alone": [
+      45.0,
+      42.0,
+      43.0,
+      42.0,
+      42.0,
+      41.0,
+      43.0,
+      43.0
+    ],
+    "with_unrelated_later_episode": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "expected_last64": [
+      45,
+      43,
+      43,
+      43,
+      42,
+      41,
+      43,
+      43
+    ]
+  },
+  "full_validation_n_recent_mismatch": {
+    "rows": 749,
+    "total": 768,
+    "maximum_undercount": 64,
+    "implemented_minmax": [
+      0,
+      63
+    ],
+    "actual_minmax": [
+      40,
+      64
+    ]
+  },
+  "single_training_cutoff_label_changes_own_prior": {
+    "query": "main-train-e00000-m000-next",
+    "win_prior_max_abs_delta": 5.7463546976666e-05,
+    "size_prior_max_abs_delta": 6.21854875118566e-05,
+    "own_context_before_after": [
+      0.6400091033803289,
+      0.6399516398333522
+    ]
+  }
+}

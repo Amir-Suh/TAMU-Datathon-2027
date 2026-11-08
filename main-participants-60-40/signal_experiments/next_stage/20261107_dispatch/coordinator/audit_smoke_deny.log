@@ -1,0 +1,26 @@
+Traceback (most recent call last):
+  File "/Users/andrewvong/Documents/Projects/tamudatathon27/main-participants-60-40/signal_experiments/next_stage/20261107_dispatch/coordinator/audit_run.py", line 75, in <module>
+    main()
+  File "/Users/andrewvong/Documents/Projects/tamudatathon27/main-participants-60-40/signal_experiments/next_stage/20261107_dispatch/coordinator/audit_run.py", line 63, in main
+    runpy.run_path(str(script), run_name="__main__")
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/runpy.py", line 268, in run_path
+    return _run_module_code(code, init_globals, run_name,
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/runpy.py", line 97, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/Users/andrewvong/Documents/Projects/tamudatathon27/main-participants-60-40/signal_experiments/score.py", line 147, in <module>
+    main()
+  File "/Users/andrewvong/Documents/Projects/tamudatathon27/main-participants-60-40/signal_experiments/score.py", line 139, in main
+    output = json.dumps(compare(args.data, args.baseline, forecasts, points, args.draws), indent=2) + "\n"
+  File "/Users/andrewvong/Documents/Projects/tamudatathon27/main-participants-60-40/signal_experiments/score.py", line 50, in compare
+    targets = read_targets(data / "targets.csv")
+  File "/Users/andrewvong/Documents/Projects/tamudatathon27/main-participants-60-40/slot_forecasting/io.py", line 93, in read_targets
+    for r in read_rows(path, TARGET_COLUMNS, content=content))
+  File "/Users/andrewvong/Documents/Projects/tamudatathon27/main-participants-60-40/slot_forecasting/io.py", line 18, in read_rows
+    else Path(path).open("r", encoding="utf-8-sig", newline=""))
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/pathlib.py", line 1242, in open
+    return io.open(self, mode, buffering, encoding, errors, newline,
+  File "/Users/andrewvong/Documents/Projects/tamudatathon27/main-participants-60-40/signal_experiments/next_stage/20261107_dispatch/coordinator/audit_run.py", line 50, in audit
+    raise PermissionError(f"Protected data read during {args.stage}: {path}")
+PermissionError: Protected data read during fit-predict: /Users/andrewvong/Documents/Projects/tamudatathon27/main-participants-60-40/public/validation/targets.csv

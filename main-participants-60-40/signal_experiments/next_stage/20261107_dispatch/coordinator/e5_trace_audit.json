@@ -1,0 +1,21 @@
+[
+  {
+    "path": "signal_experiments/next_stage/20261107_dispatch/adapt_pairs/attempt_01/known_law/fit_trace.jsonl",
+    "stage": "fit-predict",
+    "script": "/Users/andrewvong/Documents/Projects/tamudatathon27/main-participants-60-40/signal_experiments/next_stage/20261107_dispatch/adapt_pairs/attempt_01/run.py",
+    "audited_paths_read": 37,
+    "data_reads": [],
+    "child_processes": [
+      "file",
+      "uname"
+    ]
+  },
+  {
+    "path": "signal_experiments/next_stage/20261107_dispatch/adapt_pairs/attempt_01/known_law/score_trace.jsonl",
+    "stage": "score",
+    "script": "/Users/andrewvong/Documents/Projects/tamudatathon27/main-participants-60-40/signal_experiments/next_stage/20261107_dispatch/adapt_pairs/attempt_01/run.py",
+    "audited_paths_read": 30,
+    "data_reads": [],
+    "child_processes": []
+  }
+]

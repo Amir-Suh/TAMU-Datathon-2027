@@ -1,0 +1,51 @@
+{
+  "forecast_sha256": {
+    "m3/validation_predictions.csv": "36cbb8ddb8f7cc5d1ee4273a2d7fc50b3d976530c1b0f56dc84f4282dab1bd5c",
+    "m4/validation_predictions.csv": "530ff50d95b7ac46d18514a88b68378ec67cc645794e1df21cc73c1e2ad157af",
+    "m5/validation_predictions.csv": "ad2e287eef0e9ca94604ecf530eec81844c980e9ad3d4a9463f80a8a7558292a",
+    "m6/validation_predictions.csv": "2b5e22c3bafbcc147f759853ef9b53a28b3738b74186febf3e1fd385911c2d69",
+    "m3/submission.csv": "7e60f59ed821e85de73094d62e13da18020d4e4cb5f5ba508595dd83491a257c",
+    "m4/submission.csv": "6f5484037405d19719f2852b625e2273423cabe4a808a6fefa51d8ebf5799db3",
+    "m5/submission.csv": "187593d950f6c7f7f7ed58698a9e3796958575d7daa938eab01a85d582735bb9",
+    "m6/submission.csv": "12360db01a2bf1a40c29f097bc056b0bac7f1d930e57fd6620a899946415d336"
+  },
+  "previous_sha256": {
+    "previous/m3/validation_predictions.csv": "5f1eda2818fe27c78cad9b93531439cc2b494d431ca473c58b37e34578c7f0d5",
+    "previous/m5/validation_predictions.csv": "fe0a8c27184d03bbbf4942e485a798e34670bfe5b6cf264974dd53f66ce6bb44",
+    "previous/m6/validation_predictions.csv": "bc965bc34aaf3dc173e16a9e78622e925b17bca837d537d96624f1b52061a101"
+  },
+  "checkpoint_sha256": "9dbc6ff51e85c4758f22d4835b366b203e69d927cf796fdee7ace51b67c12bbf",
+  "source_sha256": {
+    "models/__init__.py": "db9b9013a43f3ab8758802c8526418de19be3663eac95a6f0d53655c0af60bae",
+    "models/common/__init__.py": "e49796d13deb529d7807662b1c4e1bb9d3f7decedc6592849c5e055c33fe26c2",
+    "models/common/components.py": "d77a90f34655e68b2709c6157bc131992ec3a7b44f78c18c65b00b0d4ce65779",
+    "models/common/crossfit.py": "1de34f668fdd4222dafccd7336aa718967c7cc2156537f33a125b832378e611d",
+    "models/common/data.py": "a508a6d12b3b9e2473a27528188c8f6455cbd658ea901731e86dfa75feea9e0b",
+    "models/common/evaluate.py": "47a51b0c7d95402a1fb92a56bb16fe5cb481725ae0d926829240f8b81944265a",
+    "models/common/selection.py": "86c8384d3d536908c45acd48a74a47bef03ed1cc211f6030dd3903a3ed32bd62",
+    "models/m1_hierarchical_frequency/__init__.py": "ea7938303c031557751d1a6a5f4c2ca3c31b8b27813e5257e13f7efc2b78b924",
+    "models/m1_hierarchical_frequency/model.py": "176fc3d14726960a7109583d1b4b3b3a9c53a993dc21cebc0d15095b0a7908e6",
+    "models/m2_lag_pair/__init__.py": "f351ccb10034d64c830c5b57577bb33cc653c389db39b866288b449942331064",
+    "models/m2_lag_pair/model.py": "2133522b9e478b4d265b1cb5ca597396c2c590d690400d01b71bfd85351a7c07",
+    "models/m3_lag_pair_flip/__init__.py": "dc1c8ac4bbb1aadbb952b808db5f4c23f54cf61240767f0a9e480fc063955365",
+    "models/m3_lag_pair_flip/model.py": "547ab43d704fe7c6c3933f15bdadeeb3ae0c223b452bae6b3cd0ec163e3600a3",
+    "models/m4_lag_pair_flip_shared/__init__.py": "1a9dfa7b31eac75e421d052d6b58e5aa09c679b0ec54b8378524a6d24caa78f8",
+    "models/m4_lag_pair_flip_shared/model.py": "0f426c0b9a57ac7736b95d4b262fc9b08e9dbcbe3365f298455c8f14beebf0ce",
+    "models/m5_boosted_corrector/__init__.py": "6db1d8b6eb618379f57de5db417d2e2ed30eb7a7a15291fcdddf5b2eba32ead1",
+    "models/m5_boosted_corrector/model.py": "9341bc7e4cc1f72b56e0cef42143bc8ff598ae7ed960d9e3d0774d8c290df403",
+    "models/m6_ensemble/__init__.py": "0b0e7c747137ab9e73e126cde727718e96238628c715d1bdec213f6c016bbeb3",
+    "models/m6_ensemble/model.py": "b9b5f9f53b494777a8e18919c81120c82dce969d38e3e24c7ba99c4645afee2b",
+    "models/run.py": "1b6ba35089e58bb605b84920a864de07c60301a1008e098efeed098a169a1c2a",
+    "run_repaired_comparison.py": "9f6ef0a7d6faefc369c5e835db187f7cee852d74963772abc340b0ba34bc4951"
+  },
+  "plan_sha256": "8429d206e62afbf92346e14cbf96f4a455ae49aead0bb6114dbf685be3a88b70",
+  "checkpoint_replay_max_abs_delta": {
+    "m3": 2.220446049250313e-16,
+    "m4": 2.220446049250313e-16,
+    "m5": 2.220446049250313e-16,
+    "m6": 2.220446049250313e-16
+  },
+  "unchanged_m3_max_abs_delta": 1.3322676295501878e-14,
+  "elapsed_seconds": 837.693118084,
+  "scope": "All training decisions and forecasts frozen before validation-answer scoring."
+}

@@ -1,0 +1,30 @@
+{"args": ["signal_experiments/next_stage/20261107_dispatch/adapt_pairs/attempt_01/verification.json"], "event": "start", "observed_roots": ["/Users/andrewvong/Documents/Projects/tamudatathon27/main-participants-60-40"], "script": "/Users/andrewvong/Documents/Projects/tamudatathon27/main-participants-60-40/signal_experiments/next_stage/20261107_dispatch/adapt_pairs/attempt_01/verify.py", "stage": "fit-predict", "utc": "2026-11-07T23:58:33.469539+00:00"}
+{"allowed": true, "event": "open", "flags": 16777216, "mode": "r", "path": "signal_experiments/next_stage/20261107_dispatch/adapt_pairs/attempt_01/verify.py"}
+{"allowed": true, "event": "open", "flags": 16777216, "mode": "r", "path": "signal_experiments/next_stage/20261107_dispatch/adapt_pairs/attempt_01/filtering.py"}
+{"allowed": true, "event": "open", "flags": 16777216, "mode": "r", "path": "signal_experiments/next_stage/20261107_dispatch/adapt_pairs/attempt_01/fixtures.py"}
+{"allowed": true, "event": "open", "flags": 16777216, "mode": "r", "path": "signal_experiments/research_next/synthetic.py"}
+{"allowed": true, "event": "open", "flags": 16777216, "mode": "r", "path": "m5_m6_repair/models/__init__.py"}
+{"allowed": true, "event": "open", "flags": 16777216, "mode": "r", "path": "m5_m6_repair/models/common/__init__.py"}
+{"allowed": true, "event": "open", "flags": 16777216, "mode": "r", "path": "m5_m6_repair/models/common/data.py"}
+{"allowed": true, "event": "open", "flags": 16777216, "mode": "r", "path": "signal_experiments/05_adaptation_stress/stress.py"}
+{"allowed": true, "event": "open", "flags": 16777216, "mode": "r", "path": "m5_m6_repair/models/m3_lag_pair_flip/__init__.py"}
+{"allowed": true, "event": "open", "flags": 16777216, "mode": "r", "path": "m5_m6_repair/models/m3_lag_pair_flip/model.py"}
+{"allowed": true, "event": "open", "flags": 16777216, "mode": "r", "path": "m5_m6_repair/models/common/components.py"}
+{"allowed": true, "event": "open", "flags": 16777216, "mode": "r", "path": "m5_m6_repair/models/common/selection.py"}
+{"allowed": true, "event": "open", "flags": 16777216, "mode": "r", "path": "m5_m6_repair/models/m4_lag_pair_flip_shared/__init__.py"}
+{"allowed": true, "event": "open", "flags": 16777216, "mode": "r", "path": "m5_m6_repair/models/m4_lag_pair_flip_shared/model.py"}
+{"allowed": true, "event": "open", "flags": 16777216, "mode": "r", "path": "m5_m6_repair/run_repaired_comparison.py"}
+{"allowed": true, "event": "open", "flags": 16777216, "mode": "r", "path": "m5_m6_repair/models/common/evaluate.py"}
+{"allowed": true, "event": "open", "flags": 16777216, "mode": "r", "path": "slot_forecasting/__init__.py"}
+{"allowed": true, "event": "open", "flags": 16777216, "mode": "r", "path": "slot_forecasting/contest.py"}
+{"allowed": true, "event": "open", "flags": 16777216, "mode": "r", "path": "slot_forecasting/io.py"}
+{"allowed": true, "event": "open", "flags": 16777216, "mode": "r", "path": "slot_forecasting/schema.py"}
+{"allowed": true, "event": "open", "flags": 16777216, "mode": "r", "path": "slot_forecasting/scoring.py"}
+{"allowed": true, "event": "open", "flags": 16777216, "mode": "r", "path": "m5_m6_repair/models/m6_ensemble/__init__.py"}
+{"allowed": true, "event": "open", "flags": 16777216, "mode": "r", "path": "m5_m6_repair/models/m6_ensemble/model.py"}
+{"allowed": true, "event": "open", "flags": 16777216, "mode": "r", "path": "m5_m6_repair/models/common/crossfit.py"}
+{"allowed": true, "event": "open", "flags": 16777216, "mode": "r", "path": "slot_forecasting/rounds.py"}
+{"allowed": true, "event": "open", "flags": 16777216, "mode": "r", "path": "signal_experiments/score.py"}
+{"allowed": true, "event": "open", "flags": 16778753, "mode": "w", "path": "signal_experiments/next_stage/20261107_dispatch/adapt_pairs/attempt_01/verification.json"}
+{"allowed": true, "event": "open", "flags": 16778753, "mode": null, "path": "signal_experiments/next_stage/20261107_dispatch/adapt_pairs/attempt_01/verification.json"}
+{"event": "end", "exit": 0}

@@ -1,0 +1,95 @@
+{
+  "archive": {
+    "path": "signal_experiments/next_stage/20261107_dispatch/package/01_frozen_controls/m3_code.zip",
+    "sha256": "013072de25b11c32da79cd803e3ba504d4f758c27d5848508d7ce4b278e3ac7e",
+    "compressed_bytes": 19622,
+    "unpacked_bytes": 48101,
+    "entries": 16,
+    "config": {
+      "image": "python",
+      "command": [
+        "python",
+        "-B",
+        "predict.py",
+        "--model",
+        "m3",
+        "--data",
+        "/data",
+        "--out",
+        "/output/submission.csv"
+      ]
+    },
+    "member_sha256": {
+      "README.md": "4b64d870956b55e42e54042113a42015a7f59f13667924b169cb0c7b17686a1b",
+      "input_only.py": "c4a4116fb8a66957f832f3d3681a494dd1908f67ba64725cf4a58108626e8101",
+      "models/__init__.py": "db9b9013a43f3ab8758802c8526418de19be3663eac95a6f0d53655c0af60bae",
+      "models/common/__init__.py": "e49796d13deb529d7807662b1c4e1bb9d3f7decedc6592849c5e055c33fe26c2",
+      "models/common/components.py": "d77a90f34655e68b2709c6157bc131992ec3a7b44f78c18c65b00b0d4ce65779",
+      "models/common/data.py": "a508a6d12b3b9e2473a27528188c8f6455cbd658ea901731e86dfa75feea9e0b",
+      "models/common/selection.py": "86c8384d3d536908c45acd48a74a47bef03ed1cc211f6030dd3903a3ed32bd62",
+      "models/m3_lag_pair_flip/__init__.py": "dc1c8ac4bbb1aadbb952b808db5f4c23f54cf61240767f0a9e480fc063955365",
+      "models/m3_lag_pair_flip/model.py": "547ab43d704fe7c6c3933f15bdadeeb3ae0c223b452bae6b3cd0ec163e3600a3",
+      "predict.py": "ac0f61febbf56a647db4be3794c94f2dcaf4387ebd19215ca939b334e25a724e",
+      "reproduce.json": "21a92c3dc393d9908dbda2060df7980c950d810f8fd38e7f63ee72f7a0a8ecbd",
+      "requirements.txt": "983665a6331eda07ab1f4b23ef92d66f4b024c27b360ee0e7420511ef3b28c64",
+      "slot_forecasting/__init__.py": "49490dd5af60e50f1dd37048845f7b056b6f2b83a30b53031b4f12bb4c1e22e2",
+      "slot_forecasting/io.py": "3ef8706676971936080da79be2c073e2a12472ab3a892757a9c2aff8712ab76f",
+      "slot_forecasting/schema.py": "2a8ab28d29865faf0ee533c17af6b425e12b96be381825f3b23f241479645b22",
+      "weights/m3.json": "f5bcd2e6693f5c5438c844784979d8334ac643328436e5db50b37591eb00addc"
+    }
+  },
+  "runtime": {
+    "python": "3.13.18 (main, Nov  5 2026, 09:50:38) [GCC 14.2.0]",
+    "platform": "Linux-6.12.54-linuxkit-aarch64-with-glibc2.41",
+    "limits": {
+      "cpu.max": "200000 100000",
+      "memory.max": "17179869184"
+    },
+    "timeout_seconds_per_command": 1800,
+    "mount_options": {
+      "/tmp": "rw,nosuid,nodev,noexec,relatime",
+      "/submission": "ro,nosuid,nodev,relatime",
+      "/data": "ro,nosuid,nodev,relatime",
+      "/output": "rw,nosuid,nodev,relatime"
+    },
+    "test": {
+      "command": [
+        "python",
+        "-B",
+        "predict.py",
+        "--model",
+        "m3",
+        "--data",
+        "/data",
+        "--out",
+        "/output/submission.csv"
+      ],
+      "elapsed_seconds": 1.043678916999852,
+      "peak_rss_bytes": 419278848
+    }
+  },
+  "test": {
+    "expected_csv": "m5_m6_repair/results/repaired-m5-m6/m3/submission.csv",
+    "expected_sha256": "7e60f59ed821e85de73094d62e13da18020d4e4cb5f5ba508595dd83491a257c",
+    "replay_sha256": "3dc38665791451daad15e904d056abab743ac8e6c3775959648b63dbf4cda131",
+    "query_count": 1536,
+    "exact_ids": true,
+    "max_normalized_probability_difference": 1.3551659794330817e-14,
+    "accessed_data": [
+      "/data/test/history.csv",
+      "/data/test/queries.csv"
+    ]
+  },
+  "validation": {
+    "expected_csv": "m5_m6_repair/results/repaired-m5-m6/m3/validation_predictions.csv",
+    "expected_sha256": "36cbb8ddb8f7cc5d1ee4273a2d7fc50b3d976530c1b0f56dc84f4282dab1bd5c",
+    "replay_sha256": "2857240500594deeeaaccc04bb0781bf2d215d1839dd37adf525df8228b4b733",
+    "query_count": 768,
+    "exact_ids": true,
+    "max_normalized_probability_difference": 9.825473767932635e-15,
+    "accessed_data": [
+      "/data/validation/history.csv",
+      "/data/validation/queries.csv"
+    ]
+  }
+}

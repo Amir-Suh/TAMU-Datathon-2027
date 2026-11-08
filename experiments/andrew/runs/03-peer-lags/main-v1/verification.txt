@@ -1,0 +1,11 @@
+$ /Users/andrewvong/ml_env/bin/python3 -m unittest -v test_peer_lags
+
+test_permutation_ids_missing_and_ties (test_peer_lags.PeerLagsTest) ... ok
+test_planted_opposite_lag_signs_and_null (test_peer_lags.PeerLagsTest) ... ok
+test_prefix_mutation_and_focal_exclusion (test_peer_lags.PeerLagsTest) ... ok
+test_trace_matches_truncated_reference (test_peer_lags.PeerLagsTest) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.130s
+
+OK

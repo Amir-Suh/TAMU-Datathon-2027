@@ -1,0 +1,8 @@
+{
+  "fit_episodes": 48,
+  "independent_eval_episodes": 192,
+  "verified_cases": 12,
+  "models_per_case": 16,
+  "public_data_reads": 0,
+  "prediction_sha256": "bb484aff5bea65b8a3dc1022d3e969c437ccd6c7fb29829a86220b9dcbaf0094"
+}

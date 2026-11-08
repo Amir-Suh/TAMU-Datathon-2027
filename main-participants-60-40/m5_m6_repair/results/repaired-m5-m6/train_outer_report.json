@@ -1,0 +1,365 @@
+{
+  "scope": "Entire pipeline refitted inside each outer fit partition; diagnostics use noisy train outcomes.",
+  "outer_folds": [
+    {
+      "held_episode_ids": [
+        "main-train-e00000",
+        "main-train-e00002",
+        "main-train-e00004",
+        "main-train-e00006",
+        "main-train-e00008",
+        "main-train-e00010",
+        "main-train-e00012",
+        "main-train-e00014",
+        "main-train-e00016",
+        "main-train-e00018",
+        "main-train-e00020",
+        "main-train-e00022",
+        "main-train-e00024",
+        "main-train-e00026",
+        "main-train-e00028",
+        "main-train-e00030",
+        "main-train-e00032",
+        "main-train-e00034",
+        "main-train-e00036",
+        "main-train-e00038",
+        "main-train-e00040",
+        "main-train-e00042",
+        "main-train-e00044",
+        "main-train-e00046",
+        "main-train-e00048",
+        "main-train-e00050",
+        "main-train-e00052",
+        "main-train-e00054",
+        "main-train-e00056",
+        "main-train-e00058",
+        "main-train-e00060",
+        "main-train-e00062",
+        "main-train-e00064",
+        "main-train-e00066",
+        "main-train-e00068",
+        "main-train-e00070",
+        "main-train-e00072",
+        "main-train-e00074",
+        "main-train-e00076",
+        "main-train-e00078",
+        "main-train-e00080",
+        "main-train-e00082",
+        "main-train-e00084",
+        "main-train-e00086",
+        "main-train-e00088",
+        "main-train-e00090",
+        "main-train-e00092",
+        "main-train-e00094"
+      ],
+      "weights": {
+        "m2": 9.830582694463012e-41,
+        "m3": 0.944752977699405,
+        "m4": 1.9289459282159308e-13,
+        "m5": 0.055247022300401856
+      },
+      "m5_max_iter": 50,
+      "meta_fold_choices": [
+        {
+          "held_episode_ids": [
+            "main-train-e00001",
+            "main-train-e00009",
+            "main-train-e00017",
+            "main-train-e00025",
+            "main-train-e00033",
+            "main-train-e00041",
+            "main-train-e00049",
+            "main-train-e00057",
+            "main-train-e00065",
+            "main-train-e00073",
+            "main-train-e00081",
+            "main-train-e00089"
+          ],
+          "m5_max_iter": 50
+        },
+        {
+          "held_episode_ids": [
+            "main-train-e00003",
+            "main-train-e00011",
+            "main-train-e00019",
+            "main-train-e00027",
+            "main-train-e00035",
+            "main-train-e00043",
+            "main-train-e00051",
+            "main-train-e00059",
+            "main-train-e00067",
+            "main-train-e00075",
+            "main-train-e00083",
+            "main-train-e00091"
+          ],
+          "m5_max_iter": 50
+        },
+        {
+          "held_episode_ids": [
+            "main-train-e00005",
+            "main-train-e00013",
+            "main-train-e00021",
+            "main-train-e00029",
+            "main-train-e00037",
+            "main-train-e00045",
+            "main-train-e00053",
+            "main-train-e00061",
+            "main-train-e00069",
+            "main-train-e00077",
+            "main-train-e00085",
+            "main-train-e00093"
+          ],
+          "m5_max_iter": 50
+        },
+        {
+          "held_episode_ids": [
+            "main-train-e00007",
+            "main-train-e00015",
+            "main-train-e00023",
+            "main-train-e00031",
+            "main-train-e00039",
+            "main-train-e00047",
+            "main-train-e00055",
+            "main-train-e00063",
+            "main-train-e00071",
+            "main-train-e00079",
+            "main-train-e00087",
+            "main-train-e00095"
+          ],
+          "m5_max_iter": 100
+        }
+      ]
+    },
+    {
+      "held_episode_ids": [
+        "main-train-e00001",
+        "main-train-e00003",
+        "main-train-e00005",
+        "main-train-e00007",
+        "main-train-e00009",
+        "main-train-e00011",
+        "main-train-e00013",
+        "main-train-e00015",
+        "main-train-e00017",
+        "main-train-e00019",
+        "main-train-e00021",
+        "main-train-e00023",
+        "main-train-e00025",
+        "main-train-e00027",
+        "main-train-e00029",
+        "main-train-e00031",
+        "main-train-e00033",
+        "main-train-e00035",
+        "main-train-e00037",
+        "main-train-e00039",
+        "main-train-e00041",
+        "main-train-e00043",
+        "main-train-e00045",
+        "main-train-e00047",
+        "main-train-e00049",
+        "main-train-e00051",
+        "main-train-e00053",
+        "main-train-e00055",
+        "main-train-e00057",
+        "main-train-e00059",
+        "main-train-e00061",
+        "main-train-e00063",
+        "main-train-e00065",
+        "main-train-e00067",
+        "main-train-e00069",
+        "main-train-e00071",
+        "main-train-e00073",
+        "main-train-e00075",
+        "main-train-e00077",
+        "main-train-e00079",
+        "main-train-e00081",
+        "main-train-e00083",
+        "main-train-e00085",
+        "main-train-e00087",
+        "main-train-e00089",
+        "main-train-e00091",
+        "main-train-e00093",
+        "main-train-e00095"
+      ],
+      "weights": {
+        "m2": 6.1110294484424625e-137,
+        "m3": 3.0576175196694846e-43,
+        "m4": 1.0,
+        "m5": 5.215040681225182e-18
+      },
+      "m5_max_iter": 100,
+      "meta_fold_choices": [
+        {
+          "held_episode_ids": [
+            "main-train-e00000",
+            "main-train-e00008",
+            "main-train-e00016",
+            "main-train-e00024",
+            "main-train-e00032",
+            "main-train-e00040",
+            "main-train-e00048",
+            "main-train-e00056",
+            "main-train-e00064",
+            "main-train-e00072",
+            "main-train-e00080",
+            "main-train-e00088"
+          ],
+          "m5_max_iter": 50
+        },
+        {
+          "held_episode_ids": [
+            "main-train-e00002",
+            "main-train-e00010",
+            "main-train-e00018",
+            "main-train-e00026",
+            "main-train-e00034",
+            "main-train-e00042",
+            "main-train-e00050",
+            "main-train-e00058",
+            "main-train-e00066",
+            "main-train-e00074",
+            "main-train-e00082",
+            "main-train-e00090"
+          ],
+          "m5_max_iter": 50
+        },
+        {
+          "held_episode_ids": [
+            "main-train-e00004",
+            "main-train-e00012",
+            "main-train-e00020",
+            "main-train-e00028",
+            "main-train-e00036",
+            "main-train-e00044",
+            "main-train-e00052",
+            "main-train-e00060",
+            "main-train-e00068",
+            "main-train-e00076",
+            "main-train-e00084",
+            "main-train-e00092"
+          ],
+          "m5_max_iter": 100
+        },
+        {
+          "held_episode_ids": [
+            "main-train-e00006",
+            "main-train-e00014",
+            "main-train-e00022",
+            "main-train-e00030",
+            "main-train-e00038",
+            "main-train-e00046",
+            "main-train-e00054",
+            "main-train-e00062",
+            "main-train-e00070",
+            "main-train-e00078",
+            "main-train-e00086",
+            "main-train-e00094"
+          ],
+          "m5_max_iter": 50
+        }
+      ]
+    }
+  ],
+  "metrics": {
+    "m2": {
+      "all_pseudo_queries": {
+        "episodes": 96,
+        "rows": 6144,
+        "binary_logloss": 0.36575104604614106,
+        "binary_brier": 0.11064050921898023
+      },
+      "released_cutoffs": {
+        "episodes": 96,
+        "rows": 768,
+        "binary_logloss": 0.3115581236427726,
+        "binary_brier": 0.08876116850226767
+      },
+      "historical_pseudo_queries": {
+        "episodes": 96,
+        "rows": 5376,
+        "binary_logloss": 0.3734928921037652,
+        "binary_brier": 0.11376612932136776
+      }
+    },
+    "m3": {
+      "all_pseudo_queries": {
+        "episodes": 96,
+        "rows": 6144,
+        "binary_logloss": 0.3032186147193959,
+        "binary_brier": 0.08972531878335066
+      },
+      "released_cutoffs": {
+        "episodes": 96,
+        "rows": 768,
+        "binary_logloss": 0.26635696106548773,
+        "binary_brier": 0.07662880124540182
+      },
+      "historical_pseudo_queries": {
+        "episodes": 96,
+        "rows": 5376,
+        "binary_logloss": 0.3084845652413828,
+        "binary_brier": 0.0915962498602005
+      }
+    },
+    "m4": {
+      "all_pseudo_queries": {
+        "episodes": 96,
+        "rows": 6144,
+        "binary_logloss": 0.303378372117426,
+        "binary_brier": 0.08982773488196101
+      },
+      "released_cutoffs": {
+        "episodes": 96,
+        "rows": 768,
+        "binary_logloss": 0.267503832747544,
+        "binary_brier": 0.07702833878531183
+      },
+      "historical_pseudo_queries": {
+        "episodes": 96,
+        "rows": 5376,
+        "binary_logloss": 0.30850330631312345,
+        "binary_brier": 0.09165622003862521
+      }
+    },
+    "m5": {
+      "all_pseudo_queries": {
+        "episodes": 96,
+        "rows": 6144,
+        "binary_logloss": 0.3131746088182972,
+        "binary_brier": 0.09213803855511048
+      },
+      "released_cutoffs": {
+        "episodes": 96,
+        "rows": 768,
+        "binary_logloss": 0.27776591698756153,
+        "binary_brier": 0.07912994650764876
+      },
+      "historical_pseudo_queries": {
+        "episodes": 96,
+        "rows": 5376,
+        "binary_logloss": 0.31823299336554506,
+        "binary_brier": 0.09399633741903357
+      }
+    },
+    "m6": {
+      "all_pseudo_queries": {
+        "episodes": 96,
+        "rows": 6144,
+        "binary_logloss": 0.30344672074361456,
+        "binary_brier": 0.08982227290654465
+      },
+      "released_cutoffs": {
+        "episodes": 96,
+        "rows": 768,
+        "binary_logloss": 0.267516654389238,
+        "binary_brier": 0.07698191765216057
+      },
+      "historical_pseudo_queries": {
+        "episodes": 96,
+        "rows": 5376,
+        "binary_logloss": 0.3085795873656683,
+        "binary_brier": 0.09165660937145666
+      }
+    }
+  }
+}

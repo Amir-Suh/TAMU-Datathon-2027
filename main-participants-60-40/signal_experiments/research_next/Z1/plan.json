@@ -1,0 +1,64 @@
+{
+  "arms": [
+    "raw",
+    "intercept",
+    "intercept_state"
+  ],
+  "bootstrap": {
+    "draws": 10000,
+    "seed": 20261107,
+    "stratified_by": "condition",
+    "unit": "episode"
+  },
+  "experiment": "Z1",
+  "fit": {
+    "actual_cutoff_outcomes_only": true,
+    "feature": "Frozen GRU conditional 1x probability, z-scored by type in fitting episodes.",
+    "intercept_prior_sd": 1.0,
+    "objective": "Bernoulli log loss with equal episode weight and a fixed raw win-logit offset.",
+    "seed": null,
+    "state_slope_prior_sd": 0.5
+  },
+  "folds": "signal_experiments/folds.csv",
+  "frozen_inputs_sha256": {
+    "m5_m6_repair/results/repaired-m5-m6/freeze.json": "a9eb3738ff1537254a6277687b28805a40790041f2807f51654d705299083e04",
+    "m5_m6_repair/results/repaired-m5-m6/models.joblib": "9dbc6ff51e85c4758f22d4835b366b203e69d927cf796fdee7ace51b67c12bbf",
+    "public/metadata.json": "7979323052df471e6b8b2c985cb48faa89e287ac6b0fd7789f24bccd544ce7bf",
+    "public/validation/conditions.csv": "ebcca7597bbdfa532c5254b92903e66522a710502a6f70689c3de311f75c29b1",
+    "public/validation/history.csv": "4b7ef4789750b7459eb085be3449ea8bd9dfd31441a928ad391a1376a44f8fe4",
+    "public/validation/labels.csv": "3881ed7e2451573f023d09d85b737cdc99a00b4b224eb020f371c02b9f9a91e2",
+    "public/validation/queries.csv": "168b7f6365a4f51084437c0071636b102ca3fb4bf0347b912778c51714fc48f2",
+    "public/validation/reference.csv": "bb396d9e4d20bf4004374f9ab781f41aaa8b730e61887c1969be534efeb1e6c6",
+    "public/validation/targets.csv": "93b6e978f6818d2456dcb677fddb6ba243e864cef56e33a4bf94bde5ba4b51f3",
+    "signal_experiments/01_fredy_replay/forecasts/gru128_factor_mean_3.csv": "31234e47b508c9ccf258841e088bf26a06f2100ca65916ecf81040aaf6abbbb2",
+    "signal_experiments/03_signal_calibration/calibrate.py": "69ae0217d4363d4bb535f3f97485eec3d0556ac1b8cab94301c14ff4ed14a2bb",
+    "signal_experiments/03_signal_calibration/results/fredy_factored_gru_mean/official_signal_vs_intercept.json": "22ecd0a1d30c12d963962f6e98365d4931ef6ae4f9ff027da1eb15bb599f9185",
+    "signal_experiments/ceiling_analysis/analyze.py": "9ca40388e8a0472592498311beeeb93daca48944bd443e0c759e18cf74d7ff55",
+    "signal_experiments/combined/m3_match_split_win_pair_l31_factor_gru_size.csv": "ac6fae2e924da0bb5f1b7638480572373a87a192d4891c1315ffc11f714aeea6",
+    "signal_experiments/folds.csv": "df85f54a091a88b1961ed69d29d4884718bf7c2ce809d7793ee80bb529f5bac2",
+    "signal_experiments/research_next/Z1/run.py": "60de1be165ef1d61fb9a99b2db3148411b696ec7b530273df45b349c8b556b79",
+    "signal_experiments/score.py": "8f1559eaa94bf1224094abc8ffe33695ce9438a4cc586b186f3e7608c6da6264"
+  },
+  "git": {
+    "branch": "main",
+    "commit": null
+  },
+  "max_cpu_threads": 2,
+  "payout_order": [
+    0,
+    1,
+    2,
+    5,
+    20
+  ],
+  "round": "main",
+  "scope": "Grouped main-validation development. Frozen parents use train cutoff labels in the GRU and transductive pre-cutoff histories. The offset fits only other validation-fold actual cutoff outcomes, with no fit on released validation probabilities.",
+  "season_id": "5fffdc4d0c700bbf61c3f911",
+  "secondary_post_hoc": "Repeat the two adjusted arms with fitting-fold released win odds.",
+  "versions": {
+    "numpy": "1.26.4",
+    "python": "3.9.6",
+    "scikit_learn": "1.6.1",
+    "scipy": "1.13.1"
+  }
+}

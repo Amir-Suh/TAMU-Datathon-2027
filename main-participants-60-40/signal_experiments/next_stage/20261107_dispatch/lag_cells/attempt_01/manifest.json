@@ -1,0 +1,209 @@
+{
+  "arms": [
+    "W1a",
+    "W1b",
+    "W2",
+    "E3Frozen",
+    "E3Full",
+    "E3Shared"
+  ],
+  "audit_phases": {
+    "four_cells_audit.jsonl": {
+      "first": {
+        "args": [],
+        "event": "start",
+        "observed_roots": [
+          "/Users/andrewvong/Documents/Projects/tamudatathon27/main-participants-60-40"
+        ],
+        "script": "/Users/andrewvong/Documents/Projects/tamudatathon27/main-participants-60-40/signal_experiments/next_stage/20261107_dispatch/lag_cells/attempt_01/four_cells.py",
+        "stage": "fit-predict",
+        "utc": "2026-11-07T23:46:47.614932+00:00"
+      },
+      "last": {
+        "event": "end",
+        "exit": 0
+      }
+    },
+    "replay_audit.jsonl": {
+      "first": {
+        "args": [],
+        "event": "start",
+        "script": "/Users/andrewvong/Documents/Projects/tamudatathon27/main-participants-60-40/signal_experiments/next_stage/20261107_dispatch/lag_cells/attempt_01/replay.py",
+        "stage": "fit-predict",
+        "utc": "2026-11-07T23:43:45.803766+00:00"
+      },
+      "last": {
+        "event": "end",
+        "exit": 0
+      }
+    },
+    "score_audit.jsonl": {
+      "first": {
+        "args": [],
+        "event": "start",
+        "observed_roots": [
+          "/Users/andrewvong/Documents/Projects/tamudatathon27/main-participants-60-40"
+        ],
+        "script": "/Users/andrewvong/Documents/Projects/tamudatathon27/main-participants-60-40/signal_experiments/next_stage/20261107_dispatch/lag_cells/attempt_01/score_frozen.py",
+        "stage": "score",
+        "utc": "2026-11-07T23:47:55.179859+00:00"
+      },
+      "last": {
+        "event": "end",
+        "exit": 0
+      }
+    }
+  },
+  "card": "E3",
+  "commands": [
+    "env OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 NUMEXPR_NUM_THREADS=1 python3 -B signal_experiments/next_stage/20261107_dispatch/lag_cells/attempt_01/replay.py > signal_experiments/next_stage/20261107_dispatch/lag_cells/attempt_01/replay.log 2>&1",
+    "env OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 NUMEXPR_NUM_THREADS=1 python3 -B signal_experiments/next_stage/20261107_dispatch/coordinator/audit_run.py --stage fit-predict --trace signal_experiments/next_stage/20261107_dispatch/lag_cells/attempt_01/replay_audit.jsonl signal_experiments/next_stage/20261107_dispatch/lag_cells/attempt_01/replay.py > signal_experiments/next_stage/20261107_dispatch/lag_cells/attempt_01/replay_audited.log 2>&1",
+    "env OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 NUMEXPR_NUM_THREADS=1 python3 -B signal_experiments/next_stage/20261107_dispatch/coordinator/audit_run.py --stage fit-predict --trace signal_experiments/next_stage/20261107_dispatch/lag_cells/attempt_01/four_cells_audit.jsonl signal_experiments/next_stage/20261107_dispatch/lag_cells/attempt_01/four_cells.py > signal_experiments/next_stage/20261107_dispatch/lag_cells/attempt_01/four_cells.log 2>&1",
+    "env OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 NUMEXPR_NUM_THREADS=1 python3 -B signal_experiments/next_stage/20261107_dispatch/coordinator/audit_run.py --stage score --trace signal_experiments/next_stage/20261107_dispatch/lag_cells/attempt_01/score_audit.jsonl signal_experiments/next_stage/20261107_dispatch/lag_cells/attempt_01/score_frozen.py > signal_experiments/next_stage/20261107_dispatch/lag_cells/attempt_01/score.log 2>&1",
+    "for arm in W1a W1b W2 E3Frozen E3Full E3Shared; do python3 -B check_submission.py \"signal_experiments/next_stage/20261107_dispatch/lag_cells/attempt_01/validation_$arm.csv\" --split validation; python3 -B check_submission.py \"signal_experiments/next_stage/20261107_dispatch/lag_cells/attempt_01/test_$arm.csv\"; done > signal_experiments/next_stage/20261107_dispatch/lag_cells/attempt_01/format_checks.log"
+  ],
+  "dispatch_manifest_sha256": "148afa154f2112e184b5827380152bd0891271603462d1fd0a08ecca61605411",
+  "fit_scope": {
+    "W1a_W1b_W2": "Archived training-fit settings, forecast-only replay on main validation/test pre-cutoff histories.",
+    "fixed_payout_donor": "Archived hybrid conditional payout mix, including frozen transductive tree/GRU parents.",
+    "new_win_head": "Main train histories and labels exclusively, held episode IDs excluded within each grouped fold.",
+    "test": "Unscored pre-cutoff history forecasts.",
+    "validation": "Reused main development; targets/reference/conditions read in score process after fit and forecast freezes."
+  },
+  "fold_trace": "episode_fold_trace.json",
+  "output_sha256": {
+    "REPORT.md": "862372d9e7abe320d9bd9f73ae3ebcd76a09b5534b6a30d3ee60bbf24f89e65d",
+    "commands.sh": "e96b8827373d93e092ac55371f0f1f7339df4d9a491d1d5f89848286a76157da",
+    "control_replay.json": "d3685b0fc75a7d2138cd95d2055c35d2e7d38d911fb94f084cd42d77449e292c",
+    "episode_fold_trace.json": "d9b4f0608eb7ac30c2f27fcaca0c81454f651a7cfed39fec50bd41f845b62767",
+    "forecast_freeze.json": "66150db3a1dfd619e45a1ccd180874cfe8fe5150f2ca2161a22a7e9688974c89",
+    "format_checks.log": "1d4bee336e465c888c43c5926c9840bc2779b678067df453733c7d52fb04b0aa",
+    "four_cells.log": "aebc0a2e1e3c41e783edd6e45252de483cc3a495166225ba251a8d255a1c4973",
+    "four_cells.py": "09c81fcbe87d7be6852472cbd2cca89487e69d613eb9b4bf1d51bd9d3b6d96ee",
+    "four_cells_audit.jsonl": "d1694e184cb61da6a4951c25f0e78f543eb932f8a9dba4e8fa4d75e2fff8b23b",
+    "four_cells_file_reads.jsonl": "df83b02d640d73f4f98569970502eeb8372b73fd7ba26476eeae9b8804a6a620",
+    "frozen_fit.json": "5538e3d2c281cfe2365a87dd7297bc155b7ad4f6593133eb1539126ed3d0269f",
+    "frozen_validation_slices.csv": "3addfa2703d2bef0bc784fc3b71712f711a940f0139f7748b634710fd258d3aa",
+    "grouped_metrics.json": "c13e39395bf810e824aecb94e991359bdd1c3d7971af4a5df32d77143d04625e",
+    "invariance_checks.json": "8b682eebbf96490df4731ee79c2b16cfc87aeda1b64d6b41d556d29e84d478b7",
+    "prespecified_settings.json": "e11ffa05960df52f47ae28383075524ad1989b103cc01b5057b0d73ae034e9e7",
+    "replay.log": "9a76b77cdfed4fdd8344d1624c6af00f3f5622cf3879bcf8b15086f7d4bcd54f",
+    "replay.py": "d3d9a8cd568f220dc6b9900120303ff36ae1ea0f99a5b5c55062eded484b9ed0",
+    "replay_audit.jsonl": "f4f23f86cd0ed92cc56cab79034eb655e34a04301313ebb72f706bd968390a75",
+    "replay_audited.log": "1b65e0ce4f913a1277b41e96c19e5220edc7fc3d91fda916c7e07024ff6817e8",
+    "replay_file_reads.jsonl": "8d8f76ce69c5596b88cb238604c847783677b537a5111c4d0d8bdcf61d42b1ca",
+    "score.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "score_audit.jsonl": "d097a0390681276f7ed1345ba35ed36a15ef3baab257c2d8a0f7865e0870a809",
+    "score_file_reads.jsonl": "6a31688545ebec5938976b3a3f1f09a420796bb3703f5b0197734aab240d98c4",
+    "score_frozen.py": "4b14c3df3e59674cd3540063b0dfab1e4810eddc9a78743691fb93777a23cb4a",
+    "scores_vs_hybrid.json": "0bdc841d94e0839a6f2321bbe6a742c3a18742da895ae3a51d0a5302973f05b2",
+    "scores_vs_m3.json": "6cffde3895211c24863d3c554ac93c324f080c30924dc208dbec489ca79b78f1",
+    "scores_vs_matched.json": "7579d8c75de0770d5b170f061c9d6e3ea9bc1fdbb4403ec0c2948aee875a0ad4",
+    "slices.csv": "6c26c872fd6d4c4dffdcaeea9a28591f47185b02fdc39725e11ce3f9f9f94400",
+    "synthetic_scores.json": "9c16eb6f3c87612d19e29b13edc600945ca7c24cec2ffcf98589c9c472061c8a",
+    "test_E3Frozen.csv": "6e6d3f9994485a8b766f873c3a185d8eb2afc83a4c6206929d9688a65c0d9ea8",
+    "test_E3Full.csv": "e590efe8e8265c7c0d92e6331ba744e1017be9960eadc5d7f8f0d9061f7abc5e",
+    "test_E3Shared.csv": "cd40eaa17370d307caee67351470f0ea44af1bcb7fbf478191f397b3ea955f62",
+    "test_W1a.csv": "6eda258567dcbe18c7ad98528567d177d818580a8454411bb3629ffa57b8e903",
+    "test_W1b.csv": "65b54d89c15ce9d3941eec5665c883a2660f313945bd9719f8d7c48bf14219ed",
+    "test_W2.csv": "52602bbc56a432d1fdf37ac9a17ae36ed65642ab7f221710678e487fa7cbadb2",
+    "train_grouped_predictions.csv": "3c5f8b08262ce2d0d7e123ab21f401bbe72e1dda29293170c04a2607052b4b07",
+    "train_rates.npz": "8582f385a412c8bcf406fc84a1986380f26522a96812530d5cdb1e61380ae8d3",
+    "validation_E3Frozen.csv": "b6a1533b87c547a7b511619b895132bab9204d3259508e0941921a36b4c370d7",
+    "validation_E3Full.csv": "63ebfaa079ffcc0e39bcf752dcbdf4969440b9050a8abf5b9582430d6ffa0656",
+    "validation_E3Shared.csv": "d3abf1d78ee60b646be3db72915c03a3c927c25eb0a6d9fee08f7cd291c30a12",
+    "validation_W1a.csv": "a0c057a67e15244d47856435b43b105c167db56265e81ec48517262cde52a538",
+    "validation_W1b.csv": "b5b91c73a28874091091473fe63af43b35fb3c4297da373f186d2f0fba181bac",
+    "validation_W2.csv": "db8ed3e841ff0c7a32947badc15e1598f391585e192501e86a6a619308a9a097",
+    "validation_cell_diagnostics.csv": "7713198d800eb5de18c1e8f4cafffc7b9b29ae066de6583f80f414a5ec9f9f0b",
+    "validation_hypothesis_grid.npz": "6f605769668979bd84a4d9b8301cc3555e49c8bced25ad6ef2453932c2acab28"
+  },
+  "owner": "lag_cells",
+  "paired_bootstrap_seed": 20261107,
+  "round": "main",
+  "season_id": "5fffdc4d0c700bbf61c3f911",
+  "shared_input_sha256": {
+    "m5_m6_repair/results/repaired-m5-m6/freeze.json": "a9eb3738ff1537254a6277687b28805a40790041f2807f51654d705299083e04",
+    "m5_m6_repair/results/repaired-m5-m6/m3/validation_predictions.csv": "36cbb8ddb8f7cc5d1ee4273a2d7fc50b3d976530c1b0f56dc84f4282dab1bd5c",
+    "m5_m6_repair/results/repaired-m5-m6/models.joblib": "9dbc6ff51e85c4758f22d4835b366b203e69d927cf796fdee7ace51b67c12bbf",
+    "public/test/history.csv": "7f3695122e0f0bf18fe603a6515d190d9c8578a8c702f11881befb40c636cf9e",
+    "public/test/queries.csv": "3d8065626e161fd3e7b988b735583a23d4c989eb64c8ae90f200b726c02e42b9",
+    "public/train/history.csv": "46a1e783a1b222dc2de33bc72259207e3d013135d1229af9669ffcd454116217",
+    "public/train/labels.csv": "f6b3a2ca73888b91bb9a38d0ca52f449062ce70534bef9776ad4f53fc713b46a",
+    "public/train/queries.csv": "96cbf59fe0b340981f3f2958dde3305162215ae911d0559d6f34764e74460846",
+    "public/validation/conditions.csv": "ebcca7597bbdfa532c5254b92903e66522a710502a6f70689c3de311f75c29b1",
+    "public/validation/history.csv": "4b7ef4789750b7459eb085be3449ea8bd9dfd31441a928ad391a1376a44f8fe4",
+    "public/validation/queries.csv": "168b7f6365a4f51084437c0071636b102ca3fb4bf0347b912778c51714fc48f2",
+    "public/validation/reference.csv": "bb396d9e4d20bf4004374f9ab781f41aaa8b730e61887c1969be534efeb1e6c6",
+    "public/validation/targets.csv": "93b6e978f6818d2456dcb677fddb6ba243e864cef56e33a4bf94bde5ba4b51f3",
+    "signal_experiments/AGENT_DISPATCH_PLAN.md": "829425835588fa8909eecaa70fabdae80f1fc56dd6e5ab60655b33f271a181f6",
+    "signal_experiments/EXPERIMENT_PLAN.md": "8971f457ef4e3f27b880fef99a3fc741c8caa21e2f252bb815ec56e437962d88",
+    "signal_experiments/combined/m3_match_split_win_pair_l31_factor_gru_size.csv": "ac6fae2e924da0bb5f1b7638480572373a87a192d4891c1315ffc11f714aeea6",
+    "signal_experiments/combined/m3_match_split_win_pair_l31_factor_gru_size_test.csv": "ce389ffa0eaede28f55ad8df70ccbdcec8c251f214416792d6d830130a68c74a",
+    "signal_experiments/folds.csv": "df85f54a091a88b1961ed69d29d4884718bf7c2ce809d7793ee80bb529f5bac2",
+    "signal_experiments/next_stage/20261107_dispatch/manifest.json": "148afa154f2112e184b5827380152bd0891271603462d1fd0a08ecca61605411",
+    "signal_experiments/research_next/W1/W1a_test_predictions.csv": "6eda258567dcbe18c7ad98528567d177d818580a8454411bb3629ffa57b8e903",
+    "signal_experiments/research_next/W1/W1a_validation_predictions.csv": "a0c057a67e15244d47856435b43b105c167db56265e81ec48517262cde52a538",
+    "signal_experiments/research_next/W1/W1b_test_predictions.csv": "65b54d89c15ce9d3941eec5665c883a2660f313945bd9719f8d7c48bf14219ed",
+    "signal_experiments/research_next/W1/W1b_validation_predictions.csv": "b5b91c73a28874091091473fe63af43b35fb3c4297da373f186d2f0fba181bac",
+    "signal_experiments/research_next/W1/plan.json": "d2ce4182f5b3fe2d8df9c827cba80eadfdedb3909c10b86647b87480cf6ff83c",
+    "signal_experiments/research_next/W2/test_predictions.csv": "52602bbc56a432d1fdf37ac9a17ae36ed65642ab7f221710678e487fa7cbadb2",
+    "signal_experiments/research_next/W2/validation_predictions.csv": "db8ed3e841ff0c7a32947badc15e1598f391585e192501e86a6a619308a9a097"
+  },
+  "source_sha256": {
+    "check_submission.py": "5c403aedff0ff9955900c2ee3567b627b8fa345ac2be595730cb8557adb22628",
+    "m5_m6_repair/models/__init__.py": "db9b9013a43f3ab8758802c8526418de19be3663eac95a6f0d53655c0af60bae",
+    "m5_m6_repair/models/common/__init__.py": "e49796d13deb529d7807662b1c4e1bb9d3f7decedc6592849c5e055c33fe26c2",
+    "m5_m6_repair/models/common/components.py": "d77a90f34655e68b2709c6157bc131992ec3a7b44f78c18c65b00b0d4ce65779",
+    "m5_m6_repair/models/common/crossfit.py": "1de34f668fdd4222dafccd7336aa718967c7cc2156537f33a125b832378e611d",
+    "m5_m6_repair/models/common/data.py": "a508a6d12b3b9e2473a27528188c8f6455cbd658ea901731e86dfa75feea9e0b",
+    "m5_m6_repair/models/common/evaluate.py": "47a51b0c7d95402a1fb92a56bb16fe5cb481725ae0d926829240f8b81944265a",
+    "m5_m6_repair/models/common/selection.py": "86c8384d3d536908c45acd48a74a47bef03ed1cc211f6030dd3903a3ed32bd62",
+    "m5_m6_repair/models/m2_lag_pair/__init__.py": "f351ccb10034d64c830c5b57577bb33cc653c389db39b866288b449942331064",
+    "m5_m6_repair/models/m2_lag_pair/model.py": "2133522b9e478b4d265b1cb5ca597396c2c590d690400d01b71bfd85351a7c07",
+    "m5_m6_repair/models/m3_lag_pair_flip/__init__.py": "dc1c8ac4bbb1aadbb952b808db5f4c23f54cf61240767f0a9e480fc063955365",
+    "m5_m6_repair/models/m3_lag_pair_flip/model.py": "547ab43d704fe7c6c3933f15bdadeeb3ae0c223b452bae6b3cd0ec163e3600a3",
+    "m5_m6_repair/models/m4_lag_pair_flip_shared/__init__.py": "1a9dfa7b31eac75e421d052d6b58e5aa09c679b0ec54b8378524a6d24caa78f8",
+    "m5_m6_repair/models/m4_lag_pair_flip_shared/model.py": "0f426c0b9a57ac7736b95d4b262fc9b08e9dbcbe3365f298455c8f14beebf0ce",
+    "m5_m6_repair/models/m5_boosted_corrector/__init__.py": "6db1d8b6eb618379f57de5db417d2e2ed30eb7a7a15291fcdddf5b2eba32ead1",
+    "m5_m6_repair/models/m5_boosted_corrector/model.py": "9341bc7e4cc1f72b56e0cef42143bc8ff598ae7ed960d9e3d0774d8c290df403",
+    "m5_m6_repair/models/m6_ensemble/__init__.py": "0b0e7c747137ab9e73e126cde727718e96238628c715d1bdec213f6c016bbeb3",
+    "m5_m6_repair/models/m6_ensemble/model.py": "b9b5f9f53b494777a8e18919c81120c82dce969d38e3e24c7ba99c4645afee2b",
+    "m5_m6_repair/run_repaired_comparison.py": "9f6ef0a7d6faefc369c5e835db187f7cee852d74963772abc340b0ba34bc4951",
+    "signal_experiments/04_four_lag_cells/run.py": "b1c20fa0d92c21a2196c0e7cbabb809ab9a2462ed7052d54568bbace78d9f30f",
+    "signal_experiments/next_stage/20261107_dispatch/coordinator/audit_run.py": "9e527ab592bb7b5490a2c9e23f876a905df75663e29d9f5bd2b5df3704db1935",
+    "signal_experiments/next_stage/20261107_dispatch/lag_cells/attempt_01/four_cells.py": "09c81fcbe87d7be6852472cbd2cca89487e69d613eb9b4bf1d51bd9d3b6d96ee",
+    "signal_experiments/next_stage/20261107_dispatch/lag_cells/attempt_01/replay.py": "d3d9a8cd568f220dc6b9900120303ff36ae1ea0f99a5b5c55062eded484b9ed0",
+    "signal_experiments/next_stage/20261107_dispatch/lag_cells/attempt_01/score_frozen.py": "4b14c3df3e59674cd3540063b0dfab1e4810eddc9a78743691fb93777a23cb4a",
+    "signal_experiments/research_next/W1/run.py": "0979b86fe5eca2419ab45da60c12091f23c77a93444b644a6331efdbdb7ac92c",
+    "signal_experiments/research_next/W2/run.py": "8feb8658502ffbba21c5977949514e8fa79e01ecdfc1a5cb64479085e9885852",
+    "signal_experiments/research_next/synthetic.py": "aa4caa31f9582106906adea2bdf36da02bd62ce2f7e13ef9f3aa99336863529c",
+    "signal_experiments/score.py": "8f1559eaa94bf1224094abc8ffe33695ce9438a4cc586b186f3e7608c6da6264",
+    "slot_forecasting/__init__.py": "49490dd5af60e50f1dd37048845f7b056b6f2b83a30b53031b4f12bb4c1e22e2",
+    "slot_forecasting/contest.py": "411c7586b26cbc579ac32489b5306a4e87942aac58738cdec0e7e8ce7d3cc442",
+    "slot_forecasting/io.py": "3ef8706676971936080da79be2c073e2a12472ab3a892757a9c2aff8712ab76f",
+    "slot_forecasting/rounds.py": "e048ef615df8c291305c7a0c642b85bad9df80103c6c7c2e1756cd6ff7508955",
+    "slot_forecasting/schema.py": "2a8ab28d29865faf0ee533c17af6b425e12b96be381825f3b23f241479645b22",
+    "slot_forecasting/scoring.py": "477c66c6c5449ca65f77ec4867a9b80934a52c892b045abe32e6471d2c8d4edd"
+  },
+  "status": "reject_new_arms",
+  "synthetic_seeds": [
+    38102,
+    38104
+  ],
+  "thread_cap": 1,
+  "timing_seconds": {
+    "audited_control_replay": 13.950099584,
+    "grouped_fit_invariance_and_forecast_generation": 54.190474707999996
+  },
+  "versions": {
+    "joblib": "1.5.3",
+    "numpy": "1.26.4",
+    "platform": "macOS-27.0.1-arm64-arm-64bit",
+    "python": "3.9.6",
+    "scikit-learn": "1.6.1",
+    "scipy": "1.13.1",
+    "threadpoolctl": "3.6.0"
+  },
+  "workspace": "/Users/andrewvong/Documents/Projects/tamudatathon27/main-participants-60-40"
+}

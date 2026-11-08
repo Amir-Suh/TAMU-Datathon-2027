@@ -1,0 +1,176 @@
+{
+  "fit": "Observed training history only; cutoff labels are used in a separate grouped diagnostic.",
+  "metadata": {
+    "conditions": [
+      "stable",
+      "short_history",
+      "drift",
+      "shared_change"
+    ],
+    "counts_per_condition": {
+      "test": 48,
+      "train": 24,
+      "validation": 24
+    },
+    "history": "Machine-specific interactions, lags up to 8, missing observations and changing regimes.",
+    "machines_per_episode": 8,
+    "max_points": 60,
+    "mode": "event",
+    "reference": "Pooled, strength=20, fitted separately on this round's training observations.",
+    "round": "main",
+    "season_id": "5fffdc4d0c700bbf61c3f911",
+    "suite_version": "experimentation-suite-v3",
+    "target": "Next-spin probabilities for 0x, 1x, 2x, 5x, 20x.",
+    "test_policy": "Test targets, conditions and reference predictions stay private.",
+    "warning": "Public demo seeds are reconstructable; event seeds are private."
+  },
+  "inputs": {
+    "queries.csv": "96cbf59fe0b340981f3f2958dde3305162215ae911d0559d6f34764e74460846",
+    "history.csv": "46a1e783a1b222dc2de33bc72259207e3d013135d1229af9669ffcd454116217",
+    "labels.csv": "f6b3a2ca73888b91bb9a38d0ca52f449062ce70534bef9776ad4f53fc713b46a"
+  },
+  "source_sha256": "2e2a01f8c5e28a24f7ebfb04fce4cf0db3f2b49d50e4dc366a9d60d3a234cb6b",
+  "variants": {
+    "raw_counts": {
+      "pseudocount_per_class": 0.0,
+      "ratios": {
+        "steady": [
+          0.7904727793696275,
+          0.20531876790830947,
+          0.0042084527220630375
+        ],
+        "balanced": [
+          0.6908548707753479,
+          0.26403119743079984,
+          0.04511393179385227
+        ],
+        "jackpot": [
+          0.3760599208592425,
+          0.4608535895986433,
+          0.1630864895421142
+        ]
+      },
+      "validation_max_p0_p1_error": 1.1102230246251565e-16,
+      "test_max_p0_p1_error": 1.1102230246251565e-16
+    },
+    "half_count": {
+      "pseudocount_per_class": 0.5,
+      "ratios": {
+        "steady": [
+          0.7904113881552441,
+          0.2053359595326559,
+          0.004252652312099915
+        ],
+        "balanced": [
+          0.6908138690316908,
+          0.264039145227264,
+          0.04514698574104515
+        ],
+        "jackpot": [
+          0.37605086541858,
+          0.4608265630519251,
+          0.1631225715294949
+        ]
+      },
+      "validation_max_p0_p1_error": 1.1102230246251565e-16,
+      "test_max_p0_p1_error": 1.1102230246251565e-16
+    }
+  },
+  "counts_by_type": {
+    "steady": [
+      8828,
+      2293,
+      47
+    ],
+    "balanced": [
+      9035,
+      3453,
+      590
+    ],
+    "jackpot": [
+      2661,
+      3261,
+      1154
+    ]
+  },
+  "counts_by_condition_and_type": {
+    "stable": {
+      "steady": [
+        2708,
+        705,
+        19
+      ],
+      "balanced": [
+        2444,
+        996,
+        163
+      ],
+      "jackpot": [
+        755,
+        953,
+        328
+      ]
+    },
+    "short_history": {
+      "steady": [
+        573,
+        133,
+        3
+      ],
+      "balanced": [
+        894,
+        391,
+        65
+      ],
+      "jackpot": [
+        327,
+        394,
+        116
+      ]
+    },
+    "drift": {
+      "steady": [
+        2981,
+        812,
+        15
+      ],
+      "balanced": [
+        2853,
+        1068,
+        178
+      ],
+      "jackpot": [
+        721,
+        827,
+        307
+      ]
+    },
+    "shared_change": {
+      "steady": [
+        2566,
+        643,
+        10
+      ],
+      "balanced": [
+        2844,
+        998,
+        184
+      ],
+      "jackpot": [
+        858,
+        1087,
+        403
+      ]
+    }
+  },
+  "training_cutoff_OOF": {
+    "raw_counts": {
+      "cutoff_tail_outcomes": 176,
+      "mean_logloss": 0.766873159941126
+    },
+    "half_count": {
+      "cutoff_tail_outcomes": 176,
+      "mean_logloss": 0.7668832320206882
+    }
+  }
+}

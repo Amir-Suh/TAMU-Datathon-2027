@@ -1,0 +1,48 @@
+{
+  "actual_cutoff_supervision_weight": 8,
+  "arms": [
+    "factored",
+    "signal_offset",
+    "signal_offset_mask"
+  ],
+  "batch_size": 48,
+  "card": "E6",
+  "commands": [
+    "/Users/andrewvong/Documents/Projects/tamudatathon27/main-participants-60-40/signal_experiments/next_stage/20261107_dispatch/neural/attempt_01/run.py",
+    "--out",
+    "signal_experiments/next_stage/20261107_dispatch/neural/attempt_01/full"
+  ],
+  "coordinator_manifest_sha256": "148afa154f2112e184b5827380152bd0891271603462d1fd0a08ecca61605411",
+  "epochs": 8,
+  "external_controls": "Archived factored GRU and hybrid used observed histories across all main splits. Only hybrid swaps inherit this history exposure.",
+  "network_fit": "main train pre-cutoff observed history outcomes and actual train cutoff labels only",
+  "owner": "neural",
+  "round": "main",
+  "scope": "main development with the N1 proxy lag-structure offset",
+  "season_id": "5fffdc4d0c700bbf61c3f911",
+  "seeds": [
+    101,
+    202,
+    303
+  ],
+  "sources_sha256": {
+    "m5_m6_repair/run_repaired_comparison.py": "9f6ef0a7d6faefc369c5e835db187f7cee852d74963772abc340b0ba34bc4951",
+    "signal_experiments/folds.csv": "df85f54a091a88b1961ed69d29d4884718bf7c2ce809d7793ee80bb529f5bac2",
+    "signal_experiments/next_stage/20261107_dispatch/neural/attempt_01/run.py": "ff2747aff033f77dba08729b4678e45787c1cbe6885e2302569e7e919c42271c",
+    "signal_experiments/research_next/N1/infer.py": "4a53f5beb8f1e45d2431cd052c1499236a7532faee82681011db08f65e426604",
+    "signal_experiments/research_next/N1/structure.py": "f05bded000c422864ab747ed33d5f89e32c02dce28eca8488ca7c5e6fb668927",
+    "signal_experiments/research_next/W1/run.py": "0979b86fe5eca2419ab45da60c12091f23c77a93444b644a6331efdbdb7ac92c",
+    "signal_experiments/research_next/synthetic.py": "aa4caa31f9582106906adea2bdf36da02bd62ce2f7e13ef9f3aa99336863529c"
+  },
+  "threads": 1,
+  "upstream_fit": "N1 priors refit from main train histories only, four grouped cross-fit splits",
+  "versions": {
+    "numpy": "1.26.4",
+    "python": "3.9.6",
+    "scipy": "1.13.1",
+    "torch": "2.8.0"
+  },
+  "wall_seconds": 108.140319791,
+  "weights_sha256": "0324ac94caf8d99c6015efc57804e8c7e57282181b5e6388a3b126e2fd7891c4",
+  "win_logit_penalty": 0.01
+}

@@ -1,0 +1,63 @@
+{
+  "grouped_forecast_sha256": "3c5f8b08262ce2d0d7e123ab21f401bbe72e1dda29293170c04a2607052b4b07",
+  "kappa": 50.0,
+  "m3_train_kappa_selection": [
+    {
+      "kappa": 8.0,
+      "train_logloss": 0.30886959858607516
+    },
+    {
+      "kappa": 20.0,
+      "train_logloss": 0.30606994750824273
+    },
+    {
+      "kappa": 50.0,
+      "train_logloss": 0.304886047123407
+    },
+    {
+      "kappa": 120.0,
+      "train_logloss": 0.3050387069173314
+    }
+  ],
+  "production_settings": {
+    "S0": "Inherited train-fitted M3 kappa in each fold",
+    "comparison": {
+      "E3Frozen": "new posterior cell means with M3 hypothesis weights",
+      "E3Full": "same predictions with full four-cell evidence",
+      "E3Shared": "same full evidence plus separate episode sharing"
+    },
+    "direction": [
+      "match_high",
+      "differ_high"
+    ],
+    "earlier_signal": 0,
+    "held_shifts": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      28
+    ],
+    "high_pair_mass": 0.9,
+    "null": "M3 likelihood and prediction",
+    "pair_pseudocount": 150,
+    "pool_pseudocount": 200,
+    "production_preflip": "XOR raw code with 2, flipping lag t-a",
+    "raw_cell_order": [
+      "00",
+      "01",
+      "10",
+      "11"
+    ],
+    "selection": "Prespecified fixed primary XOR and pseudo-counts. The B-XOR sensitivity stays in grouped train.",
+    "shared_episode_prior": 0.3,
+    "train_only_sensitivity": "XOR raw code with 1, flipping lag t-b",
+    "unavailable": "M3 context-prior beta evidence over incomplete observed triples and matched M3 all-history cutoff fallback"
+  },
+  "scope": "new win model fit only on main train histories and labels",
+  "source_sha256": "09c81fcbe87d7be6852472cbd2cca89487e69d613eb9b4bf1d51bd9d3b6d96ee",
+  "train_rates_sha256": "8582f385a412c8bcf406fc84a1986380f26522a96812530d5cdb1e61380ae8d3"
+}

@@ -1,0 +1,120 @@
+{
+  "arms": [
+    "hybrid",
+    "m3"
+  ],
+  "build_command": "python3 -B signal_experiments/next_stage/20261107_dispatch/package/01_frozen_controls/build.py",
+  "card": "Main A reproduction",
+  "fit_scope": {
+    "hybrid": "Frozen M3 plus train-history match-cell contrasts. Archived LightGBM uses pre-cutoff ticks in train, validation, and test, with early stopping on held train episodes. Factored GRU checkpoints use those released history splits and train cutoff outcomes.",
+    "m3": "Frozen M3 fitted to main training histories and train cutoff outcomes. Deployed state uses the independent posterior and stored size prior."
+  },
+  "fredy_source_commit": "bbff7379e57984eb623588273ed1c958bb8b4f47",
+  "inference": "Deterministic saved weights. No runtime fitting, network, validation answers, or at-cutoff outcomes.",
+  "input_sha256": {
+    "m5_m6_repair/results/repaired-m5-m6/freeze.json": "a9eb3738ff1537254a6277687b28805a40790041f2807f51654d705299083e04",
+    "m5_m6_repair/results/repaired-m5-m6/models.joblib": "9dbc6ff51e85c4758f22d4835b366b203e69d927cf796fdee7ace51b67c12bbf",
+    "public/metadata.json": "7979323052df471e6b8b2c985cb48faa89e287ac6b0fd7789f24bccd544ce7bf",
+    "public/test/history.csv": "7f3695122e0f0bf18fe603a6515d190d9c8578a8c702f11881befb40c636cf9e",
+    "public/test/queries.csv": "3d8065626e161fd3e7b988b735583a23d4c989eb64c8ae90f200b726c02e42b9",
+    "public/train/history.csv": "46a1e783a1b222dc2de33bc72259207e3d013135d1229af9669ffcd454116217",
+    "public/train/labels.csv": "f6b3a2ca73888b91bb9a38d0ca52f449062ce70534bef9776ad4f53fc713b46a",
+    "public/train/queries.csv": "96cbf59fe0b340981f3f2958dde3305162215ae911d0559d6f34764e74460846",
+    "public/validation/history.csv": "4b7ef4789750b7459eb085be3449ea8bd9dfd31441a928ad391a1376a44f8fe4",
+    "public/validation/queries.csv": "168b7f6365a4f51084437c0071636b102ca3fb4bf0347b912778c51714fc48f2",
+    "signal_experiments/01_fredy_replay/checkpoints/gru128_factor_seed_1/meta.json": "b8a110028a54eb5c1fabb30a75ff5567152a38b047082bc6f5a1fc9e9d8b3dbc",
+    "signal_experiments/01_fredy_replay/checkpoints/gru128_factor_seed_1/model.npz": "34c3adf24f6f88614a75b29156aa9651c1682e840db04389a7f9ef14781bc9c9",
+    "signal_experiments/01_fredy_replay/checkpoints/gru128_factor_seed_1/run.json": "8aef9910ba0435b0781f1c7a970e98eb98b43c04d6b2db4be70c4a8a949ebecb",
+    "signal_experiments/01_fredy_replay/checkpoints/gru128_factor_seed_2/meta.json": "ad8aca2b382fd7c1d73d43b09e90837717998bd135967ded1acf368e7a173ca5",
+    "signal_experiments/01_fredy_replay/checkpoints/gru128_factor_seed_2/model.npz": "cd8431d63d4a3fa217dd36b49523c196ae5d34235d893c9798808d078a18a9de",
+    "signal_experiments/01_fredy_replay/checkpoints/gru128_factor_seed_2/run.json": "489d184df06c4b8327437d09b305cddb2d994bd1e7b1d3c78350cf3b3703ff5c",
+    "signal_experiments/01_fredy_replay/checkpoints/gru128_factor_seed_3/meta.json": "c220bdfbca2c5b7ef34a8d99c9646ef7fe09fdb25011bc1cf939da87860d01c7",
+    "signal_experiments/01_fredy_replay/checkpoints/gru128_factor_seed_3/model.npz": "d706f48425cdd95d0df64c02cf79989c40ac7111e9abfb4204a9097327f448fc",
+    "signal_experiments/01_fredy_replay/checkpoints/gru128_factor_seed_3/run.json": "f9715fcbf2652296aed63a274f73536549739ed8cdf60aad3da49eb9a3f88da4",
+    "signal_experiments/01_fredy_replay/checkpoints/pair_l31/features.json": "a58d61dfa70aa7ea2ef9542da2dbcaf5159bf278de85432362d96ed978ba19f6",
+    "signal_experiments/01_fredy_replay/checkpoints/pair_l31/model.txt.gz": "48837ce847d47d6eb536207d521ad68d8184cfeac3e1395949a544f0b6746513",
+    "signal_experiments/01_fredy_replay/checkpoints/pair_l31/run.json": "64889edaf1e8d1a91f488354b2d49e5c06a0ca3992ef2d4d0027939b020d6bbe",
+    "signal_experiments/04_four_lag_cells/run.py": "b1c20fa0d92c21a2196c0e7cbabb809ab9a2462ed7052d54568bbace78d9f30f",
+    "signal_experiments/04_four_lag_cells/train_fit.json": "70153ef8872777978b4e51a148524724bf7e806dd8464f7044740ce56f62902d",
+    "signal_experiments/folds.csv": "df85f54a091a88b1961ed69d29d4884718bf7c2ce809d7793ee80bb529f5bac2",
+    "signal_experiments/next_stage/20261107_dispatch/manifest.json": "148afa154f2112e184b5827380152bd0891271603462d1fd0a08ecca61605411",
+    "signal_experiments/next_stage/20261107_dispatch/package/01_frozen_controls/Dockerfile": "3d8c4d50d08e0e818b3ade8bdec523507ecb7684958cd089741ad5653e2e2f53",
+    "signal_experiments/next_stage/20261107_dispatch/package/01_frozen_controls/build.py": "47b352d820b692ed637f4cd4890ab3723f3ce701e091a8c867fcca56cb199b38",
+    "signal_experiments/next_stage/20261107_dispatch/package/01_frozen_controls/container_driver.py": "1329bccbfb532e0d4ba74cdad24bb3abb1a02de9a5d5ef366eba84a04aa947bf",
+    "signal_experiments/next_stage/20261107_dispatch/package/01_frozen_controls/predict.py": "ac0f61febbf56a647db4be3794c94f2dcaf4387ebd19215ca939b334e25a724e",
+    "signal_experiments/next_stage/20261107_dispatch/package/01_frozen_controls/run_docker.sh": "27bb20afab33c2b0c0a7d4cbf0872521761be654e686e15cc9dbea9d2351363e",
+    "signal_experiments/next_stage/20261107_dispatch/package/01_frozen_controls/verify_replay.py": "40f427806d1f6c4e4641929b4d67966a37a0e2d157f9636a9e8e0206109816ce"
+  },
+  "organizer_commands": {
+    "hybrid": [
+      "python",
+      "-B",
+      "predict.py",
+      "--model",
+      "hybrid",
+      "--data",
+      "/data",
+      "--out",
+      "/output/submission.csv"
+    ],
+    "m3": [
+      "python",
+      "-B",
+      "predict.py",
+      "--model",
+      "m3",
+      "--data",
+      "/data",
+      "--out",
+      "/output/submission.csv"
+    ]
+  },
+  "output_sha256": {
+    "hybrid_code.zip": "7cc7ce9e4aefd13d696e1776f1e3ff0348312812ff77faf5683035d73dec688b",
+    "hybrid_replay.json": "bc89af3a18875638f05c6c5e0c24c3fdbf5cb9bf954948e78d4b6bae368383fe",
+    "hybrid_test_access.jsonl": "f8f4a6d04916bc2d357484161012ae0d215963f275119e0b1c60c062e16842cc",
+    "hybrid_test_replay.csv": "49a5a5ccdb5db809c8ba3529df82321273a2d952350cd766d8f604cff0fd9a5c",
+    "hybrid_validation_access.jsonl": "f723da4e2afa0e840500b51cab441eea47f98866fb05cfa142a369d1c0cc1c90",
+    "hybrid_validation_replay.csv": "2cb51e4db70dbea38705c0856beb6932296a69b5b4021a910ef14544aa970210",
+    "m3_code.zip": "013072de25b11c32da79cd803e3ba504d4f758c27d5848508d7ce4b278e3ac7e",
+    "m3_replay.json": "e558bc5ad7d758d394fb745adb9a4d6cef6fe6194c625c69573e5dd4cf9f8043",
+    "m3_test_access.jsonl": "650d6e09dbbfd058474b5e28c84c89e1f93355d2969c0634def6c1389615428d",
+    "m3_test_replay.csv": "3dc38665791451daad15e904d056abab743ac8e6c3775959648b63dbf4cda131",
+    "m3_validation_access.jsonl": "44ea7616c8f5c1f2d3cae46efe0ee1b1fcb134c4ceb0f7e42b555eb1ffb5ae4a",
+    "m3_validation_replay.csv": "2857240500594deeeaaccc04bb0781bf2d215d1839dd37adf525df8228b4b733"
+  },
+  "owner": "package",
+  "replay_command": "bash signal_experiments/next_stage/20261107_dispatch/package/01_frozen_controls/run_docker.sh \"$scratch\" \"$scratch/round-data\" hybrid m3",
+  "replay_container": {
+    "base_python_oci_sha256": "ecbe213fb818d557fd19db4078244339e2e2e52874f9c81052d3094ea114d797",
+    "cpu_quota_cores": 2,
+    "dependencies": {
+      "lightgbm": "4.7.0",
+      "narwhals": "2.28.0",
+      "numpy": "2.5.4",
+      "scipy": "1.18.1"
+    },
+    "image": "house-edge-main-replay:py313",
+    "image_config_sha256": "4b67de1cf27a788be8d98771a5c5d7dfa3d693a398ffe4063b5b722611ea63c9",
+    "memory_bytes": 17179869184,
+    "network": "none",
+    "numerical_threads": 1,
+    "timeout_seconds": 1800
+  },
+  "reports": {
+    "hybrid": "hybrid_replay.json",
+    "m3": "m3_replay.json"
+  },
+  "round": "main",
+  "season_id": "5fffdc4d0c700bbf61c3f911",
+  "status": "verified fallback",
+  "training_seeds": {
+    "factored_gru": [
+      1,
+      2,
+      3
+    ],
+    "tree": 7
+  },
+  "verify_command": "python3 -B signal_experiments/next_stage/20261107_dispatch/package/01_frozen_controls/verify_replay.py \"$scratch\" hybrid m3"
+}

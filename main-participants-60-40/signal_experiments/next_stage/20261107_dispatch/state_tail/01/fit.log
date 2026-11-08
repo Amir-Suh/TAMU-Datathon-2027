@@ -1,0 +1,15 @@
+finished exclude_0: 72 episodes in 2.23s
+finished exclude_1: 72 episodes in 1.84s
+finished exclude_2: 72 episodes in 1.93s
+finished exclude_3: 72 episodes in 1.92s
+finished exclude_0_1: 48 episodes in 1.28s
+finished exclude_0_2: 48 episodes in 1.21s
+finished exclude_0_3: 48 episodes in 1.18s
+finished exclude_1_2: 48 episodes in 1.20s
+finished exclude_1_3: 48 episodes in 1.17s
+finished exclude_2_3: 48 episodes in 1.20s
+finished full: 96 episodes in 2.42s
+Training selection: kappa=-0.45, alpha=512, beta=[1.0562423702015904, 0.3120432944264441]
+Frozen forecasts in signal_experiments/next_stage/20261107_dispatch/state_tail/01 after 25.05s
+       26.49 real        25.73 user         0.60 sys
+time: sysctl kern.clockrate: Operation not permitted

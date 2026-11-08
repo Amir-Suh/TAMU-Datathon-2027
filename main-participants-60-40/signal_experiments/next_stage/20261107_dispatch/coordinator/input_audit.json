@@ -1,0 +1,27 @@
+{
+  "verified_input_hashes": 540,
+  "manifest_sha256": "148afa154f2112e184b5827380152bd0891271603462d1fd0a08ecca61605411",
+  "episode_ids_disjoint": true,
+  "history_pre_cutoff": true,
+  "fold_coverage": true,
+  "splits": {
+    "train": {
+      "episodes": 96,
+      "queries": 768,
+      "history_rows": 139944,
+      "max_tick_minus_cutoff": -1
+    },
+    "validation": {
+      "episodes": 96,
+      "queries": 768,
+      "history_rows": 141392,
+      "max_tick_minus_cutoff": -1
+    },
+    "test": {
+      "episodes": 192,
+      "queries": 1536,
+      "history_rows": 282664,
+      "max_tick_minus_cutoff": -1
+    }
+  }
+}

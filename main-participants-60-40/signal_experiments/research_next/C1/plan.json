@@ -1,0 +1,45 @@
+{
+  "fit": "Frozen train-fitted M3 high/low and pair prior. Constant-hazard states with fixed emissions; no shared updates.",
+  "signal": "Neutral at historical ticks and supplied signal at the cutoff only.",
+  "input_forecast": "signal_experiments/combined/m3_match_split_win_pair_l31_factor_gru_size.csv",
+  "input_forecast_sha256": "ac6fae2e924da0bb5f1b7638480572373a87a192d4891c1315ffc11f714aeea6",
+  "source_sha256": "92903f6c2b261a2c388dcf6a8e5789aa366c5acf140bfa26cf84fd0f32bd3673",
+  "variants": {
+    "fixed": {
+      "hazard": 0,
+      "mean_run_age": 222.80208333333334,
+      "mean_top_pair_confidence": 0.9588420572253445
+    },
+    "polarity_32": {
+      "hazard": 0.03125,
+      "mean_run_age": 79.54893879421982,
+      "mean_top_pair_confidence": 0.972555102597568
+    },
+    "polarity_96": {
+      "hazard": 0.010416666666666666,
+      "mean_run_age": 111.07017981054413,
+      "mean_top_pair_confidence": 0.9770305534064824
+    },
+    "pair_32": {
+      "hazard": 0.03125,
+      "mean_run_age": 49.92075227222969,
+      "mean_top_pair_confidence": 0.6530875904400401
+    },
+    "pair_96": {
+      "hazard": 0.010416666666666666,
+      "mean_run_age": 86.90866173160953,
+      "mean_top_pair_confidence": 0.7311134091870141
+    },
+    "strength_32": {
+      "hazard": 0.03125,
+      "mean_run_age": 48.0239426988749,
+      "mean_top_pair_confidence": 0.9561774427614487
+    },
+    "strength_96": {
+      "hazard": 0.010416666666666666,
+      "mean_run_age": 87.70838554409573,
+      "mean_top_pair_confidence": 0.9536746061663326
+    }
+  },
+  "row_order_and_padding": "passed"
+}

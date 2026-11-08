@@ -1,0 +1,91 @@
+{
+  "bootstrap_scope": "Whole episodes sampled within condition, with OOF forecasts fixed.",
+  "conditional_mix_max_change": {
+    "intercept": 2.220446049250313e-16,
+    "intercept_signal": 2.220446049250313e-16,
+    "raw": 0.0
+  },
+  "contrasts": {
+    "intercept_signal_vs_intercept": {
+      "observed_win_brier": {
+        "delta": 2.3119520963676288e-05,
+        "paired_ci95": [
+          -0.0005950479560015462,
+          0.0006361689507715393
+        ]
+      },
+      "observed_win_logloss": {
+        "delta": -0.0005351918169570749,
+        "paired_ci95": [
+          -0.002501717583563699,
+          0.0013088958561570893
+        ]
+      }
+    },
+    "intercept_signal_vs_raw": {
+      "observed_win_brier": {
+        "delta": 0.0011490949956821667,
+        "paired_ci95": [
+          -0.00017598646695758728,
+          0.002477214620331491
+        ]
+      },
+      "observed_win_logloss": {
+        "delta": 0.0023543316315364285,
+        "paired_ci95": [
+          -0.001295593693252499,
+          0.00597867466796423
+        ]
+      }
+    },
+    "intercept_vs_raw": {
+      "observed_win_brier": {
+        "delta": 0.0011259754747184906,
+        "paired_ci95": [
+          -6.991195491921993e-05,
+          0.0022672211146934954
+        ]
+      },
+      "observed_win_logloss": {
+        "delta": 0.002889523448493503,
+        "paired_ci95": [
+          -0.00044344057609127535,
+          0.006072253164099116
+        ]
+      }
+    }
+  },
+  "fit_scope": "Train OOF cutoff calibration, fixed before validation scoring.",
+  "input_sha256": {
+    "/Users/andrewvong/Documents/Projects/tamudatathon27/main-participants-60-40/public/train/labels.csv": "f6b3a2ca73888b91bb9a38d0ca52f449062ce70534bef9776ad4f53fc713b46a",
+    "/Users/andrewvong/Documents/Projects/tamudatathon27/main-participants-60-40/public/train/queries.csv": "96cbf59fe0b340981f3f2958dde3305162215ae911d0559d6f34764e74460846",
+    "/Users/andrewvong/Documents/Projects/tamudatathon27/main-participants-60-40/public/validation/conditions.csv": "ebcca7597bbdfa532c5254b92903e66522a710502a6f70689c3de311f75c29b1",
+    "/Users/andrewvong/Documents/Projects/tamudatathon27/main-participants-60-40/public/validation/labels.csv": "3881ed7e2451573f023d09d85b737cdc99a00b4b224eb020f371c02b9f9a91e2",
+    "/Users/andrewvong/Documents/Projects/tamudatathon27/main-participants-60-40/public/validation/queries.csv": "168b7f6365a4f51084437c0071636b102ca3fb4bf0347b912778c51714fc48f2",
+    "/Users/andrewvong/Documents/Projects/tamudatathon27/main-participants-60-40/public/validation/targets.csv": "93b6e978f6818d2456dcb677fddb6ba243e864cef56e33a4bf94bde5ba4b51f3",
+    "m5_m6_repair/results/repaired-m5-m6/m3/validation_predictions.csv": "36cbb8ddb8f7cc5d1ee4273a2d7fc50b3d976530c1b0f56dc84f4282dab1bd5c",
+    "m5_m6_repair/results/repaired-m5-m6/train_outer_predictions.npz": "ad52d791a77e484fcc4a0cb94bc5ecff1919a7ec587938d3332a8589ef680247"
+  },
+  "metrics": {
+    "intercept": {
+      "observed_win_brier": 0.09655405455568415,
+      "observed_win_logloss": 0.31754287873352954
+    },
+    "intercept_signal": {
+      "observed_win_brier": 0.09657717407664783,
+      "observed_win_logloss": 0.3170076869165725
+    },
+    "raw": {
+      "observed_win_brier": 0.09542807908096564,
+      "observed_win_logloss": 0.3146533552850361
+    }
+  },
+  "model": "Repaired M3 (signal-aware fallback)",
+  "prior_sd": {
+    "intercept": 1.0,
+    "signal_slope": 0.5
+  },
+  "target_probabilities_used_in_fit": false,
+  "validation_episodes": 96,
+  "validation_queries": 768
+}

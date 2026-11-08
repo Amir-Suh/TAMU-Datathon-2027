@@ -1,0 +1,91 @@
+{
+  "bootstrap_scope": "Whole episodes sampled within condition, with OOF forecasts fixed.",
+  "conditional_mix_max_change": {
+    "intercept": 2.220446049250313e-16,
+    "intercept_signal": 2.220446049250313e-16,
+    "raw": 0.0
+  },
+  "contrasts": {
+    "intercept_signal_vs_intercept": {
+      "observed_win_brier": {
+        "delta": 3.920914398672519e-05,
+        "paired_ci95": [
+          -0.0013026033550528294,
+          0.0013049195231137815
+        ]
+      },
+      "observed_win_logloss": {
+        "delta": -0.001521597449066647,
+        "paired_ci95": [
+          -0.005434087556889764,
+          0.0021814961502023447
+        ]
+      }
+    },
+    "intercept_signal_vs_raw": {
+      "observed_win_brier": {
+        "delta": 0.0005295977990203369,
+        "paired_ci95": [
+          -0.0012014417204973342,
+          0.002201956375381787
+        ]
+      },
+      "observed_win_logloss": {
+        "delta": 0.0006476278396952106,
+        "paired_ci95": [
+          -0.003969845655995618,
+          0.004975580029510921
+        ]
+      }
+    },
+    "intercept_vs_raw": {
+      "observed_win_brier": {
+        "delta": 0.0004903886550336116,
+        "paired_ci95": [
+          -0.000741755551699936,
+          0.0016330582510098923
+        ]
+      },
+      "observed_win_logloss": {
+        "delta": 0.002169225288761858,
+        "paired_ci95": [
+          -0.001156501397149437,
+          0.005333743446159915
+        ]
+      }
+    }
+  },
+  "fit_scope": "Train cutoff calibration on fixed base predictions independent of all train cutoff outcomes, evaluated on held validation.",
+  "input_sha256": {
+    "/Users/andrewvong/Documents/Projects/tamudatathon27/main-participants-60-40/public/train/labels.csv": "f6b3a2ca73888b91bb9a38d0ca52f449062ce70534bef9776ad4f53fc713b46a",
+    "/Users/andrewvong/Documents/Projects/tamudatathon27/main-participants-60-40/public/train/queries.csv": "96cbf59fe0b340981f3f2958dde3305162215ae911d0559d6f34764e74460846",
+    "/Users/andrewvong/Documents/Projects/tamudatathon27/main-participants-60-40/public/validation/conditions.csv": "ebcca7597bbdfa532c5254b92903e66522a710502a6f70689c3de311f75c29b1",
+    "/Users/andrewvong/Documents/Projects/tamudatathon27/main-participants-60-40/public/validation/labels.csv": "3881ed7e2451573f023d09d85b737cdc99a00b4b224eb020f371c02b9f9a91e2",
+    "/Users/andrewvong/Documents/Projects/tamudatathon27/main-participants-60-40/public/validation/queries.csv": "168b7f6365a4f51084437c0071636b102ca3fb4bf0347b912778c51714fc48f2",
+    "/Users/andrewvong/Documents/Projects/tamudatathon27/main-participants-60-40/public/validation/targets.csv": "93b6e978f6818d2456dcb677fddb6ba243e864cef56e33a4bf94bde5ba4b51f3",
+    "signal_experiments/01_fredy_replay/forecasts/pair_l31.csv": "893d24e38a2ea4b1bce8fbeb880fce38e57a5aeef8ef9920fbc9e450eb6fc00d",
+    "signal_experiments/01_fredy_replay/train_forecasts/pair_l31.csv": "723fd57a776ab77e12cf219241692a7a4bff943dcdb6e4a0fde749d0dd88fc5b"
+  },
+  "metrics": {
+    "intercept": {
+      "observed_win_brier": 0.09920557856760276,
+      "observed_win_logloss": 0.32960296278342743
+    },
+    "intercept_signal": {
+      "observed_win_brier": 0.09924478771158951,
+      "observed_win_logloss": 0.32808136533436083
+    },
+    "raw": {
+      "observed_win_brier": 0.09871518991256917,
+      "observed_win_logloss": 0.3274337374946656
+    }
+  },
+  "model": "Fredy pair_l31 GBDT at bbff737 (dev fit uses histories, zero cutoff labels)",
+  "prior_sd": {
+    "intercept": 1.0,
+    "signal_slope": 0.5
+  },
+  "target_probabilities_used_in_fit": false,
+  "validation_episodes": 96,
+  "validation_queries": 768
+}

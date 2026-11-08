@@ -1,0 +1,1258 @@
+{
+  "scope": "Existing saved tuning forecasts and two previously frozen/scored audit forecasts only",
+  "unique_prediction_arrays": 72,
+  "files_scored": 152,
+  "skipped_coverage": [],
+  "tuning_ranking": [
+    {
+      "points": 53.7996437694031,
+      "R": 0.11524902018260502,
+      "condition_R": {
+        "stable": 0.10969916644305812,
+        "short_history": 0.15049534942571752,
+        "drift": 0.1160273783217178,
+        "shared_change": 0.0847741865399266
+      },
+      "max_condition_R": 0.15049534942571752,
+      "worst_episode_squared_error": 0.10762299187591774,
+      "paths": [
+        "runs/bayesian-lag-pair-tuning/replay/win_only.csv"
+      ]
+    },
+    {
+      "points": 53.39279598028289,
+      "R": 0.12374710667253769,
+      "condition_R": {
+        "stable": 0.1072995339158957,
+        "short_history": 0.1813739838022297,
+        "drift": 0.11911203189923046,
+        "shared_change": 0.08720287707279488
+      },
+      "max_condition_R": 0.1813739838022297,
+      "worst_episode_squared_error": 0.11902344814205178,
+      "paths": [
+        "runs/bayesian-lag-pairs/initial/crossfit_blend.csv",
+        "runs/bayesian-lag-pairs/replay/crossfit_blend.csv"
+      ]
+    },
+    {
+      "points": 53.3827584912762,
+      "R": 0.12395840334487743,
+      "condition_R": {
+        "stable": 0.10946269687469387,
+        "short_history": 0.18196785209777663,
+        "drift": 0.11976734998471414,
+        "shared_change": 0.08463571442232509
+      },
+      "max_condition_R": 0.18196785209777663,
+      "worst_episode_squared_error": 0.11728429311988178,
+      "paths": [
+        "runs/bayesian-lag-pairs/initial/standalone.csv",
+        "runs/bayesian-lag-pairs/replay/standalone.csv"
+      ]
+    },
+    {
+      "points": 51.71227617215947,
+      "R": 0.16026608073195622,
+      "condition_R": {
+        "stable": 0.1288859263823787,
+        "short_history": 0.20100070680757479,
+        "drift": 0.15463471317779293,
+        "shared_change": 0.1565429765600785
+      },
+      "max_condition_R": 0.20100070680757479,
+      "worst_episode_squared_error": 0.15933610914737284,
+      "paths": [
+        "runs/bayesian-lag-pairs/initial/fixed_blend.csv",
+        "runs/bayesian-lag-pairs/replay/fixed_blend.csv"
+      ]
+    },
+    {
+      "points": 50.27395719034001,
+      "R": 0.19346085634032428,
+      "condition_R": {
+        "stable": 0.1526773005885332,
+        "short_history": 0.21913084278762582,
+        "drift": 0.19121325703955708,
+        "shared_change": 0.21082202494558097
+      },
+      "max_condition_R": 0.21913084278762582,
+      "worst_episode_squared_error": 0.18062563239870305,
+      "paths": [
+        "runs/06-combine-forecasts/initial/fixed__boosted_3072_logistic_head.csv",
+        "runs/06-combine-forecasts/replay/fixed__boosted_3072_logistic_head.csv"
+      ]
+    },
+    {
+      "points": 50.23737040023799,
+      "R": 0.19433002806444183,
+      "condition_R": {
+        "stable": 0.15232414186751866,
+        "short_history": 0.21706801981434867,
+        "drift": 0.19560357285918525,
+        "shared_change": 0.2123243777167147
+      },
+      "max_condition_R": 0.21706801981434867,
+      "worst_episode_squared_error": 0.17955946584711246,
+      "paths": [
+        "runs/06-combine-forecasts/initial/out_of_fold__boosted_motifs_win_scalar_logistic_head.csv",
+        "runs/06-combine-forecasts/replay/out_of_fold__boosted_motifs_win_scalar_logistic_head.csv"
+      ]
+    },
+    {
+      "points": 49.748833686585,
+      "R": 0.20605842496724225,
+      "condition_R": {
+        "stable": 0.17297217105186544,
+        "short_history": 0.22129809489589705,
+        "drift": 0.2095351816265969,
+        "shared_change": 0.22042825229460958
+      },
+      "max_condition_R": 0.22129809489589705,
+      "worst_episode_squared_error": 0.1723308334522215,
+      "paths": [
+        "runs/06-combine-forecasts/initial/in_sample__boosted_motifs_win_scalar.csv",
+        "runs/06-combine-forecasts/replay/in_sample__boosted_motifs_win_scalar.csv"
+      ]
+    },
+    {
+      "points": 49.743869080412104,
+      "R": 0.20617879367221364,
+      "condition_R": {
+        "stable": 0.17534198513310983,
+        "short_history": 0.22322633177621137,
+        "drift": 0.20678068087769508,
+        "shared_change": 0.2193661769018383
+      },
+      "max_condition_R": 0.22322633177621137,
+      "worst_episode_squared_error": 0.17436677246198526,
+      "paths": [
+        "runs/04-boosted-correction/main-rate3072/tuning_predictions.csv",
+        "runs/04-boosted-correction/main-rate3072-first/tuning_predictions.csv"
+      ]
+    },
+    {
+      "points": 49.743869080412104,
+      "R": 0.20617879367221364,
+      "condition_R": {
+        "stable": 0.17534198513310983,
+        "short_history": 0.22322633177621137,
+        "drift": 0.20678068087769508,
+        "shared_change": 0.2193661769018383
+      },
+      "max_condition_R": 0.22322633177621137,
+      "worst_episode_squared_error": 0.17436677246198526,
+      "paths": [
+        "runs/06-combine-forecasts/initial/fixed__boosted_3072.csv",
+        "runs/06-combine-forecasts/replay/fixed__boosted_3072.csv"
+      ]
+    },
+    {
+      "points": 49.70976717082141,
+      "R": 0.20700625681503362,
+      "condition_R": {
+        "stable": 0.17489892605077306,
+        "short_history": 0.22119906502841152,
+        "drift": 0.21133275679811567,
+        "shared_change": 0.2205942793828343
+      },
+      "max_condition_R": 0.22119906502841152,
+      "worst_episode_squared_error": 0.17333959913937874,
+      "paths": [
+        "runs/06-combine-forecasts/initial/out_of_fold__boosted_motifs_win_scalar.csv",
+        "runs/06-combine-forecasts/replay/out_of_fold__boosted_motifs_win_scalar.csv"
+      ]
+    },
+    {
+      "points": 49.218726714585394,
+      "R": 0.21904819577991436,
+      "condition_R": {
+        "stable": 0.17861420293831864,
+        "short_history": 0.23238328609607023,
+        "drift": 0.22301769146443468,
+        "shared_change": 0.2421776026208339
+      },
+      "max_condition_R": 0.2421776026208339,
+      "worst_episode_squared_error": 0.17988879677666936,
+      "paths": [
+        "runs/04-boosted-correction/main-rate3072/trees_30.csv",
+        "runs/04-boosted-correction/main-rate3072-first/trees_30.csv"
+      ]
+    },
+    {
+      "points": 46.034884616097635,
+      "R": 0.3033594088561916,
+      "condition_R": {
+        "stable": 0.21249201429137451,
+        "short_history": 0.3040635782071994,
+        "drift": 0.3540912172037013,
+        "shared_change": 0.3427908257224913
+      },
+      "max_condition_R": 0.3540912172037013,
+      "worst_episode_squared_error": 0.20724193197179322,
+      "paths": [
+        "runs/04-boosted-correction/main-rate3072/calibration.csv",
+        "runs/04-boosted-correction/main-rate3072-first/calibration.csv"
+      ]
+    },
+    {
+      "points": 44.529093876706646,
+      "R": 0.3474336613749567,
+      "condition_R": {
+        "stable": 0.18904889224197083,
+        "short_history": 0.31229751227476593,
+        "drift": 0.4597288569647633,
+        "shared_change": 0.4286593840183268
+      },
+      "max_condition_R": 0.4597288569647633,
+      "worst_episode_squared_error": 0.18466578663284436,
+      "paths": [
+        "runs/06-combine-forecasts/initial/out_of_fold__current_motifs_win_scalar_logistic_head.csv",
+        "runs/06-combine-forecasts/replay/out_of_fold__current_motifs_win_scalar_logistic_head.csv"
+      ]
+    },
+    {
+      "points": 44.384945835024205,
+      "R": 0.35180969293092923,
+      "condition_R": {
+        "stable": 0.22539915183657164,
+        "short_history": 0.3724298366791911,
+        "drift": 0.40661979987110763,
+        "shared_change": 0.40278998333684635
+      },
+      "max_condition_R": 0.40661979987110763,
+      "worst_episode_squared_error": 0.20956434532288776,
+      "paths": [
+        "runs/06-combine-forecasts/initial/fixed__adaptive_3072_logistic_head.csv",
+        "runs/06-combine-forecasts/replay/fixed__adaptive_3072_logistic_head.csv"
+      ]
+    },
+    {
+      "points": 44.24694038509591,
+      "R": 0.35602596423164967,
+      "condition_R": {
+        "stable": 0.14410265908278552,
+        "short_history": 0.2443540022452011,
+        "drift": 0.5553115735914058,
+        "shared_change": 0.48033562200720636
+      },
+      "max_condition_R": 0.5553115735914058,
+      "worst_episode_squared_error": 0.19706153068002452,
+      "paths": [
+        "runs/06-combine-forecasts/initial/fixed__current_motifs_fixed_50_logistic_head.csv",
+        "runs/06-combine-forecasts/replay/fixed__current_motifs_fixed_50_logistic_head.csv"
+      ]
+    },
+    {
+      "points": 44.243484693915725,
+      "R": 0.35613187828876147,
+      "condition_R": {
+        "stable": 0.20318039067902893,
+        "short_history": 0.3135735823888275,
+        "drift": 0.47451647030566657,
+        "shared_change": 0.43325706978152295
+      },
+      "max_condition_R": 0.47451647030566657,
+      "worst_episode_squared_error": 0.1799429431277038,
+      "paths": [
+        "runs/06-combine-forecasts/initial/in_sample__current_motifs_win_scalar.csv",
+        "runs/06-combine-forecasts/replay/in_sample__current_motifs_win_scalar.csv"
+      ]
+    },
+    {
+      "points": 44.234403557601695,
+      "R": 0.3564102864384387,
+      "condition_R": {
+        "stable": 0.19497614976720917,
+        "short_history": 0.30073700708480594,
+        "drift": 0.4891962783284752,
+        "shared_change": 0.4407317105732644
+      },
+      "max_condition_R": 0.4891962783284752,
+      "worst_episode_squared_error": 0.17808802075901065,
+      "paths": [
+        "runs/06-combine-forecasts/initial/fixed__current_motifs_fixed_25.csv",
+        "runs/06-combine-forecasts/replay/fixed__current_motifs_fixed_25.csv"
+      ]
+    },
+    {
+      "points": 44.224557099905596,
+      "R": 0.35671228689655043,
+      "condition_R": {
+        "stable": 0.20521692035189326,
+        "short_history": 0.3127044282842081,
+        "drift": 0.4750796888636468,
+        "shared_change": 0.43384811008645346
+      },
+      "max_condition_R": 0.4750796888636468,
+      "worst_episode_squared_error": 0.17998822186980248,
+      "paths": [
+        "runs/06-combine-forecasts/initial/out_of_fold__current_motifs_win_scalar.csv",
+        "runs/06-combine-forecasts/replay/out_of_fold__current_motifs_win_scalar.csv"
+      ]
+    },
+    {
+      "points": 44.11675283398711,
+      "R": 0.3600275665297062,
+      "condition_R": {
+        "stable": 0.24548805827857711,
+        "short_history": 0.3618416821292111,
+        "drift": 0.42214100688114764,
+        "shared_change": 0.4106395188298888
+      },
+      "max_condition_R": 0.42214100688114764,
+      "worst_episode_squared_error": 0.1954412487939822,
+      "paths": [
+        "runs/03-peer-lags/main-rate3072/tuning_predictions.csv",
+        "runs/03-peer-lags/main-rate3072-first/tuning_predictions.csv"
+      ]
+    },
+    {
+      "points": 44.10371728399275,
+      "R": 0.3604295441503915,
+      "condition_R": {
+        "stable": 0.24097348934483995,
+        "short_history": 0.3718267222029846,
+        "drift": 0.4257073997475665,
+        "shared_change": 0.40321056530617494
+      },
+      "max_condition_R": 0.4257073997475665,
+      "worst_episode_squared_error": 0.2015017468740325,
+      "paths": [
+        "runs/adaptive-weight-rate/main/rate_1536.csv",
+        "runs/adaptive-weight-rate/replay/rate_1536.csv"
+      ]
+    },
+    {
+      "points": 44.10116269553195,
+      "R": 0.36050834791434694,
+      "condition_R": {
+        "stable": 0.24104209085770908,
+        "short_history": 0.37204331032703103,
+        "drift": 0.4236636745871502,
+        "shared_change": 0.40528431588549746
+      },
+      "max_condition_R": 0.4236636745871502,
+      "worst_episode_squared_error": 0.20255450338355246,
+      "paths": [
+        "runs/adaptive-weight-rate/main/rate_2048.csv",
+        "runs/adaptive-weight-rate/replay/rate_2048.csv"
+      ]
+    },
+    {
+      "points": 44.09789238774471,
+      "R": 0.360609243462952,
+      "condition_R": {
+        "stable": 0.241067824652502,
+        "short_history": 0.3717475477375373,
+        "drift": 0.4214557643227098,
+        "shared_change": 0.40816583713905874
+      },
+      "max_condition_R": 0.4214557643227098,
+      "worst_episode_squared_error": 0.2044194004893929,
+      "paths": [
+        "runs/03-peer-lags/main-rate3072/self_only.csv",
+        "runs/03-peer-lags/main-rate3072-first/self_only.csv",
+        "runs/04-boosted-correction/main-rate3072/zero_correction.csv",
+        "runs/04-boosted-correction/main-rate3072-first/zero_correction.csv",
+        "runs/06-combine-forecasts/initial/fixed__adaptive_3072.csv",
+        "runs/06-combine-forecasts/replay/fixed__adaptive_3072.csv"
+      ]
+    },
+    {
+      "points": 44.09789238774471,
+      "R": 0.360609243462952,
+      "condition_R": {
+        "stable": 0.241067824652502,
+        "short_history": 0.3717475477375373,
+        "drift": 0.4214557643227098,
+        "shared_change": 0.40816583713905874
+      },
+      "max_condition_R": 0.4214557643227098,
+      "worst_episode_squared_error": 0.2044194004893929,
+      "paths": [
+        "runs/adaptive-weight-rate/main/rate_3072.csv",
+        "runs/adaptive-weight-rate/main/tuning_predictions.csv",
+        "runs/adaptive-weight-rate/replay/rate_3072.csv",
+        "runs/adaptive-weight-rate/replay/tuning_predictions.csv"
+      ]
+    },
+    {
+      "points": 44.09102781599168,
+      "R": 0.3608210779390856,
+      "condition_R": {
+        "stable": 0.246126180653394,
+        "short_history": 0.36540943608276455,
+        "drift": 0.42190517020247975,
+        "shared_change": 0.409843524817704
+      },
+      "max_condition_R": 0.42190517020247975,
+      "worst_episode_squared_error": 0.20295748092608223,
+      "paths": [
+        "runs/03-peer-lags/main-rate3072/pooled.csv",
+        "runs/03-peer-lags/main-rate3072-first/pooled.csv"
+      ]
+    },
+    {
+      "points": 44.07898881350085,
+      "R": 0.36119274999390955,
+      "condition_R": {
+        "stable": 0.24101341774593094,
+        "short_history": 0.3733323511294088,
+        "drift": 0.4288457342986597,
+        "shared_change": 0.4015794968016386
+      },
+      "max_condition_R": 0.4288457342986597,
+      "worst_episode_squared_error": 0.200097262549623,
+      "paths": [
+        "runs/adaptive-weight-rate/main/rate_1024.csv",
+        "runs/adaptive-weight-rate/replay/rate_1024.csv"
+      ]
+    },
+    {
+      "points": 44.06135952519241,
+      "R": 0.36173737366625186,
+      "condition_R": {
+        "stable": 0.2454904464987822,
+        "short_history": 0.3686697996374027,
+        "drift": 0.4221471310010831,
+        "shared_change": 0.4106421175277395
+      },
+      "max_condition_R": 0.4221471310010831,
+      "worst_episode_squared_error": 0.2021123346294636,
+      "paths": [
+        "runs/03-peer-lags/main-rate3072/aligned_matched.csv",
+        "runs/03-peer-lags/main-rate3072-first/aligned_matched.csv"
+      ]
+    },
+    {
+      "points": 44.026873644398364,
+      "R": 0.36280401112773375,
+      "condition_R": {
+        "stable": 0.24160040435678448,
+        "short_history": 0.37619598042234104,
+        "drift": 0.43135205542879423,
+        "shared_change": 0.40206760430301547
+      },
+      "max_condition_R": 0.43135205542879423,
+      "worst_episode_squared_error": 0.19910720541700622,
+      "paths": [
+        "runs/adaptive-weight-rate/main/rate_768.csv",
+        "runs/adaptive-weight-rate/replay/rate_768.csv"
+      ]
+    },
+    {
+      "points": 44.00982083216855,
+      "R": 0.36333206692228986,
+      "condition_R": {
+        "stable": 0.24018502898676553,
+        "short_history": 0.3715238516307306,
+        "drift": 0.43179328659081156,
+        "shared_change": 0.4098261004808517
+      },
+      "max_condition_R": 0.43179328659081156,
+      "worst_episode_squared_error": 0.20636373303622013,
+      "paths": [
+        "runs/03-peer-lags/main-rate3072/shifted_matched.csv",
+        "runs/03-peer-lags/main-rate3072-first/shifted_matched.csv"
+      ]
+    },
+    {
+      "points": 43.949859861907,
+      "R": 0.3651920663347613,
+      "condition_R": {
+        "stable": 0.24226569957290445,
+        "short_history": 0.37644272465442924,
+        "drift": 0.42472034089362176,
+        "shared_change": 0.41733950021808974
+      },
+      "max_condition_R": 0.42472034089362176,
+      "worst_episode_squared_error": 0.2083503666973589,
+      "paths": [
+        "runs/02-regime-filter/initial/tuning_predictions_rate_3072.csv",
+        "runs/02-regime-filter/replay/tuning_predictions_rate_3072.csv"
+      ]
+    },
+    {
+      "points": 43.917794959005036,
+      "R": 0.3661888092516226,
+      "condition_R": {
+        "stable": 0.1613442709836144,
+        "short_history": 0.24645848488271965,
+        "drift": 0.5714514684334978,
+        "shared_change": 0.4855010127066586
+      },
+      "max_condition_R": 0.5714514684334978,
+      "worst_episode_squared_error": 0.2093113178083722,
+      "paths": [
+        "runs/06-combine-forecasts/initial/fixed__current_motifs_fixed_50.csv",
+        "runs/06-combine-forecasts/replay/fixed__current_motifs_fixed_50.csv"
+      ]
+    },
+    {
+      "points": 43.88298821511842,
+      "R": 0.36727243153712597,
+      "condition_R": {
+        "stable": 0.24413948280141204,
+        "short_history": 0.3814766889664028,
+        "drift": 0.4372651288679401,
+        "shared_change": 0.406208425512749
+      },
+      "max_condition_R": 0.4372651288679401,
+      "worst_episode_squared_error": 0.19782438349262327,
+      "paths": [
+        "runs/adaptive-weight-rate/main/rate_512.csv",
+        "runs/adaptive-weight-rate/replay/rate_512.csv"
+      ]
+    },
+    {
+      "points": 43.68197498030536,
+      "R": 0.3735642682605777,
+      "condition_R": {
+        "stable": 0.24941383436017597,
+        "short_history": 0.3867872330691253,
+        "drift": 0.4452022051456544,
+        "shared_change": 0.41285380046735515
+      },
+      "max_condition_R": 0.4452022051456544,
+      "worst_episode_squared_error": 0.19690790215408863,
+      "paths": [
+        "runs/adaptive-weight-rate/main/rate_384.csv",
+        "runs/adaptive-weight-rate/replay/rate_384.csv"
+      ]
+    },
+    {
+      "points": 43.32457670450189,
+      "R": 0.3848952387748397,
+      "condition_R": {
+        "stable": 0.2609757856433632,
+        "short_history": 0.39663329907043243,
+        "drift": 0.456632820059309,
+        "shared_change": 0.42533905032625413
+      },
+      "max_condition_R": 0.456632820059309,
+      "worst_episode_squared_error": 0.1956540818204625,
+      "paths": [
+        "runs/adaptive-weight-rate/main/rate_288.csv",
+        "runs/adaptive-weight-rate/replay/rate_288.csv"
+      ]
+    },
+    {
+      "points": 43.16718152131111,
+      "R": 0.38994481190250374,
+      "condition_R": {
+        "stable": 0.14017218830171763,
+        "short_history": 0.2089119811312785,
+        "drift": 0.6682213346377773,
+        "shared_change": 0.5424737435392414
+      },
+      "max_condition_R": 0.6682213346377773,
+      "worst_episode_squared_error": 0.24420121026204,
+      "paths": [
+        "runs/06-combine-forecasts/initial/fixed__current_motifs_fixed_75.csv",
+        "runs/06-combine-forecasts/replay/fixed__current_motifs_fixed_75.csv"
+      ]
+    },
+    {
+      "points": 42.401934374422645,
+      "R": 0.4150297830797246,
+      "condition_R": {
+        "stable": 0.11111052284428817,
+        "short_history": 0.182205775758693,
+        "drift": 0.7609560842236458,
+        "shared_change": 0.6058467494922716
+      },
+      "max_condition_R": 0.7609560842236458,
+      "worst_episode_squared_error": 0.2680638846946483,
+      "paths": [
+        "runs/06-combine-forecasts/initial/fixed__signed_motifs_logistic_head.csv",
+        "runs/06-combine-forecasts/replay/fixed__signed_motifs_logistic_head.csv"
+      ]
+    },
+    {
+      "points": 42.40193437442263,
+      "R": 0.41502978307972505,
+      "condition_R": {
+        "stable": 0.11111052284428817,
+        "short_history": 0.18220577575869293,
+        "drift": 0.7609560842236466,
+        "shared_change": 0.6058467494922725
+      },
+      "max_condition_R": 0.7609560842236466,
+      "worst_episode_squared_error": 0.26806388469464837,
+      "paths": [
+        "runs/bayesian-lag-pairs/initial/signed_control.csv",
+        "runs/bayesian-lag-pairs/replay/signed_control.csv"
+      ]
+    },
+    {
+      "points": 42.37136656661576,
+      "R": 0.41605062243316393,
+      "condition_R": {
+        "stable": 0.2871271833715765,
+        "short_history": 0.4360931306546039,
+        "drift": 0.49020565960550616,
+        "shared_change": 0.45077651610096925
+      },
+      "max_condition_R": 0.49020565960550616,
+      "worst_episode_squared_error": 0.20003414376600998,
+      "paths": [
+        "runs/adaptive-weight-rate/main/rate_192.csv",
+        "runs/adaptive-weight-rate/replay/rate_192.csv"
+      ]
+    },
+    {
+      "points": 42.02627457160477,
+      "R": 0.42767829439108207,
+      "condition_R": {
+        "stable": 0.13145990172151886,
+        "short_history": 0.1880974958304825,
+        "drift": 0.7795058769413141,
+        "shared_change": 0.6116499030710127
+      },
+      "max_condition_R": 0.7795058769413141,
+      "worst_episode_squared_error": 0.28275769812001394,
+      "paths": [
+        "runs/01-signed-motifs/initial/tuning_predictions.csv",
+        "runs/01-signed-motifs/replay/tuning_predictions.csv"
+      ]
+    },
+    {
+      "points": 42.02627457160477,
+      "R": 0.42767829439108207,
+      "condition_R": {
+        "stable": 0.13145990172151886,
+        "short_history": 0.1880974958304825,
+        "drift": 0.7795058769413141,
+        "shared_change": 0.6116499030710127
+      },
+      "max_condition_R": 0.7795058769413141,
+      "worst_episode_squared_error": 0.28275769812001394,
+      "paths": [
+        "runs/06-combine-forecasts/initial/fixed__signed_motifs.csv",
+        "runs/06-combine-forecasts/replay/fixed__signed_motifs.csv"
+      ]
+    },
+    {
+      "points": 41.232587319066646,
+      "R": 0.45515971471077143,
+      "condition_R": {
+        "stable": 0.4609928854283987,
+        "short_history": 0.48168623897198454,
+        "drift": 0.46701574890427344,
+        "shared_change": 0.4109439855384292
+      },
+      "max_condition_R": 0.48168623897198454,
+      "worst_episode_squared_error": 0.27006233404469493,
+      "paths": [
+        "runs/05-transition-retrieval/initial/learned_retrieval.csv",
+        "runs/05-transition-retrieval/initial/tuning_predictions.csv",
+        "runs/05-transition-retrieval/replay/learned_retrieval.csv",
+        "runs/05-transition-retrieval/replay/tuning_predictions.csv"
+      ]
+    },
+    {
+      "points": 41.114215775639124,
+      "R": 0.4593492510576115,
+      "condition_R": {
+        "stable": 0.3114038239667007,
+        "short_history": 0.49548059364712,
+        "drift": 0.5460401104589384,
+        "shared_change": 0.48447247615768696
+      },
+      "max_condition_R": 0.5460401104589384,
+      "worst_episode_squared_error": 0.21826257964125556,
+      "paths": [
+        "runs/adaptive-weight-rate/main/rate_144.csv",
+        "runs/adaptive-weight-rate/replay/rate_144.csv"
+      ]
+    },
+    {
+      "points": 38.17673427502427,
+      "R": 0.571637834911741,
+      "condition_R": {
+        "stable": 0.3646956981803497,
+        "short_history": 0.6391324222902973,
+        "drift": 0.6844784705949641,
+        "shared_change": 0.5982447485813531
+      },
+      "max_condition_R": 0.6844784705949641,
+      "worst_episode_squared_error": 0.26288440551768766,
+      "paths": [
+        "runs/adaptive-weight-rate/main/rate_96.csv",
+        "runs/adaptive-weight-rate/replay/rate_96.csv"
+      ]
+    },
+    {
+      "points": 37.774879465105194,
+      "R": 0.5883571529440726,
+      "condition_R": {
+        "stable": 0.38612853223216653,
+        "short_history": 0.6905092718821499,
+        "drift": 0.680076435846275,
+        "shared_change": 0.5967143718156991
+      },
+      "max_condition_R": 0.6905092718821499,
+      "worst_episode_squared_error": 0.2715579332935476,
+      "paths": [
+        "runs/04-boosted-correction/main-v1/tuning_predictions.csv",
+        "runs/04-boosted-correction/main-v1-first/tuning_predictions.csv"
+      ]
+    },
+    {
+      "points": 37.225746044724026,
+      "R": 0.6117877107933407,
+      "condition_R": {
+        "stable": 0.4211259712842969,
+        "short_history": 0.7043648130928823,
+        "drift": 0.7011778283768885,
+        "shared_change": 0.6204822304192952
+      },
+      "max_condition_R": 0.7043648130928823,
+      "worst_episode_squared_error": 0.28518103005116086,
+      "paths": [
+        "runs/04-boosted-correction/main-v1/trees_30.csv",
+        "runs/04-boosted-correction/main-v1-first/trees_30.csv"
+      ]
+    },
+    {
+      "points": 35.827895970230315,
+      "R": 0.6746727201020815,
+      "condition_R": {
+        "stable": 0.45378195132422605,
+        "short_history": 0.7669418166273997,
+        "drift": 0.7771979729442248,
+        "shared_change": 0.7007691395124751
+      },
+      "max_condition_R": 0.7771979729442248,
+      "worst_episode_squared_error": 0.285192400781915,
+      "paths": [
+        "runs/adaptive-weight-rate/main/rate_72.csv",
+        "runs/adaptive-weight-rate/replay/rate_72.csv"
+      ]
+    },
+    {
+      "points": 33.39607988516238,
+      "R": 0.7966180523678029,
+      "condition_R": {
+        "stable": 0.6761380820019728,
+        "short_history": 0.8820280283118402,
+        "drift": 0.8333360474833501,
+        "shared_change": 0.7949700516740483
+      },
+      "max_condition_R": 0.8820280283118402,
+      "worst_episode_squared_error": 0.30274438901994394,
+      "paths": [
+        "runs/06-combine-forecasts/initial/in_sample__legacy_positive_scalar.csv",
+        "runs/06-combine-forecasts/replay/in_sample__legacy_positive_scalar.csv"
+      ]
+    },
+    {
+      "points": 33.38587069342934,
+      "R": 0.7971674470005232,
+      "condition_R": {
+        "stable": 0.6769555859403451,
+        "short_history": 0.882240722471244,
+        "drift": 0.833980183468819,
+        "shared_change": 0.795493296121685
+      },
+      "max_condition_R": 0.882240722471244,
+      "worst_episode_squared_error": 0.30295650387608936,
+      "paths": [
+        "runs/06-combine-forecasts/initial/out_of_fold__legacy_positive_scalar.csv",
+        "runs/06-combine-forecasts/replay/out_of_fold__legacy_positive_scalar.csv"
+      ]
+    },
+    {
+      "points": 33.378209979987844,
+      "R": 0.797579919233939,
+      "condition_R": {
+        "stable": 0.6774610181679134,
+        "short_history": 0.8811118915337232,
+        "drift": 0.8362872485354459,
+        "shared_change": 0.7954595186986737
+      },
+      "max_condition_R": 0.8811118915337232,
+      "worst_episode_squared_error": 0.30240046478379534,
+      "paths": [
+        "runs/06-combine-forecasts/initial/fixed__legacy_half_positive_mix.csv",
+        "runs/06-combine-forecasts/replay/fixed__legacy_half_positive_mix.csv"
+      ]
+    },
+    {
+      "points": 33.3742368541793,
+      "R": 0.7977939169712124,
+      "condition_R": {
+        "stable": 0.6769458126362319,
+        "short_history": 0.8852707295626527,
+        "drift": 0.8326469083037709,
+        "shared_change": 0.796312217382194
+      },
+      "max_condition_R": 0.8852707295626527,
+      "worst_episode_squared_error": 0.3034928972107232,
+      "paths": [
+        "runs/06-combine-forecasts/initial/fixed__legacy_logistic_head_swap.csv",
+        "runs/06-combine-forecasts/replay/fixed__legacy_logistic_head_swap.csv"
+      ]
+    },
+    {
+      "points": 33.35734120451214,
+      "R": 0.7987045080164841,
+      "condition_R": {
+        "stable": 0.68167912748111,
+        "short_history": 0.8703849873557917,
+        "drift": 0.8400302315916761,
+        "shared_change": 0.8027236856373583
+      },
+      "max_condition_R": 0.8703849873557917,
+      "worst_episode_squared_error": 0.3011929392547334,
+      "paths": [
+        "runs/03-peer-lags/main-v1/pooled.csv",
+        "runs/03-peer-lags/main-v1-first/pooled.csv"
+      ]
+    },
+    {
+      "points": 33.336518429298934,
+      "R": 0.7998280212509222,
+      "condition_R": {
+        "stable": 0.670980556565366,
+        "short_history": 0.8795430422937491,
+        "drift": 0.8511951338376945,
+        "shared_change": 0.7975933523068793
+      },
+      "max_condition_R": 0.8795430422937491,
+      "worst_episode_squared_error": 0.3188112675098684,
+      "paths": [
+        "runs/04-boosted-correction/main-v1/calibration.csv",
+        "runs/04-boosted-correction/main-v1-first/calibration.csv"
+      ]
+    },
+    {
+      "points": 33.22451619154785,
+      "R": 0.805895371179662,
+      "condition_R": {
+        "stable": 0.6866240742957036,
+        "short_history": 0.8854459576137379,
+        "drift": 0.8497311886943201,
+        "shared_change": 0.8017802641148869
+      },
+      "max_condition_R": 0.8854459576137379,
+      "worst_episode_squared_error": 0.3027106330362753,
+      "paths": [
+        "runs/03-peer-lags/main-rate3072/adaptive_rate_48.csv",
+        "runs/03-peer-lags/main-rate3072-first/adaptive_rate_48.csv",
+        "runs/03-peer-lags/main-v1/self_only.csv",
+        "runs/03-peer-lags/main-v1-first/self_only.csv",
+        "runs/04-boosted-correction/main-rate3072/adaptive_rate_48.csv",
+        "runs/04-boosted-correction/main-rate3072-first/adaptive_rate_48.csv",
+        "runs/04-boosted-correction/main-v1/zero_correction.csv",
+        "runs/04-boosted-correction/main-v1-first/zero_correction.csv",
+        "runs/06-combine-forecasts/initial/fixed__adaptive_48.csv",
+        "runs/06-combine-forecasts/replay/fixed__adaptive_48.csv"
+      ]
+    },
+    {
+      "points": 33.22451619154785,
+      "R": 0.805895371179662,
+      "condition_R": {
+        "stable": 0.6866240742957036,
+        "short_history": 0.8854459576137379,
+        "drift": 0.8497311886943201,
+        "shared_change": 0.8017802641148869
+      },
+      "max_condition_R": 0.8854459576137379,
+      "worst_episode_squared_error": 0.3027106330362753,
+      "paths": [
+        "runs/adaptive-weight-rate/main/rate_48.csv",
+        "runs/adaptive-weight-rate/replay/rate_48.csv",
+        "runs/model-comparison/adaptive_lag.csv"
+      ]
+    },
+    {
+      "points": 33.20192571684699,
+      "R": 0.8071240961049252,
+      "condition_R": {
+        "stable": 0.692736278025094,
+        "short_history": 0.8713742395480667,
+        "drift": 0.8645182348539158,
+        "shared_change": 0.7998676319926245
+      },
+      "max_condition_R": 0.8713742395480667,
+      "worst_episode_squared_error": 0.2996157160843736,
+      "paths": [
+        "runs/03-peer-lags/main-v1/tuning_predictions.csv",
+        "runs/03-peer-lags/main-v1-first/tuning_predictions.csv"
+      ]
+    },
+    {
+      "points": 33.149447384100306,
+      "R": 0.8099849238747252,
+      "condition_R": {
+        "stable": 0.6994654581478419,
+        "short_history": 0.8849013089299284,
+        "drift": 0.8533864763307925,
+        "shared_change": 0.8021864520903379
+      },
+      "max_condition_R": 0.8849013089299284,
+      "worst_episode_squared_error": 0.29875712729354775,
+      "paths": [
+        "runs/06-combine-forecasts/initial/fixed__legacy_whole_90_10.csv",
+        "runs/06-combine-forecasts/replay/fixed__legacy_whole_90_10.csv"
+      ]
+    },
+    {
+      "points": 33.14637109283042,
+      "R": 0.8101529072960278,
+      "condition_R": {
+        "stable": 0.7088848325492749,
+        "short_history": 0.8831813106020667,
+        "drift": 0.8390273807336703,
+        "shared_change": 0.8095181052990994
+      },
+      "max_condition_R": 0.8831813106020667,
+      "worst_episode_squared_error": 0.3179089405473735,
+      "paths": [
+        "runs/02-regime-filter/initial/tuning_predictions.csv",
+        "runs/02-regime-filter/replay/tuning_predictions.csv"
+      ]
+    },
+    {
+      "points": 33.14521336308772,
+      "R": 0.8102161341588829,
+      "condition_R": {
+        "stable": 0.6961271308901368,
+        "short_history": 0.8829625253962586,
+        "drift": 0.8547565820491423,
+        "shared_change": 0.807018298299994
+      },
+      "max_condition_R": 0.8829625253962586,
+      "worst_episode_squared_error": 0.2893788791976921,
+      "paths": [
+        "runs/03-peer-lags/main-v1/shifted_matched.csv",
+        "runs/03-peer-lags/main-v1-first/shifted_matched.csv"
+      ]
+    },
+    {
+      "points": 33.14382018061793,
+      "R": 0.8102922256103483,
+      "condition_R": {
+        "stable": 0.6928664052172259,
+        "short_history": 0.8839064787404057,
+        "drift": 0.8645263634865556,
+        "shared_change": 0.799869654997206
+      },
+      "max_condition_R": 0.8839064787404057,
+      "worst_episode_squared_error": 0.29962749184445725,
+      "paths": [
+        "runs/03-peer-lags/main-v1/aligned_matched.csv",
+        "runs/03-peer-lags/main-v1-first/aligned_matched.csv"
+      ]
+    },
+    {
+      "points": 31.66584518585714,
+      "R": 0.8947859956947459,
+      "condition_R": {
+        "stable": 0.8965472748420665,
+        "short_history": 0.937103641211993,
+        "drift": 0.8881326040422276,
+        "shared_change": 0.8573604626826963
+      },
+      "max_condition_R": 0.937103641211993,
+      "worst_episode_squared_error": 0.31434161685284256,
+      "paths": [
+        "runs/adaptive-weight-rate/main/rate_24.csv",
+        "runs/adaptive-weight-rate/replay/rate_24.csv"
+      ]
+    },
+    {
+      "points": 31.597319962118096,
+      "R": 0.8988952250359767,
+      "condition_R": {
+        "stable": 0.9092956901040739,
+        "short_history": 0.8654725194706313,
+        "drift": 0.9735581238527743,
+        "shared_change": 0.8472545667164275
+      },
+      "max_condition_R": 0.9735581238527743,
+      "worst_episode_squared_error": 0.309396211223244,
+      "paths": [
+        "runs/05-temporal-cnn/initial/tuning_predictions.csv",
+        "runs/05-temporal-cnn/replay/tuning_predictions.csv"
+      ]
+    },
+    {
+      "points": 31.443817463299645,
+      "R": 0.9081652560167144,
+      "condition_R": {
+        "stable": 0.9176818850353157,
+        "short_history": 0.9260248371041808,
+        "drift": 0.9401905815534539,
+        "shared_change": 0.8487637203739071
+      },
+      "max_condition_R": 0.9401905815534539,
+      "worst_episode_squared_error": 0.3791986933519708,
+      "paths": [
+        "runs/06-combine-forecasts/initial/fixed__self_logistic.csv",
+        "runs/06-combine-forecasts/replay/fixed__self_logistic.csv"
+      ]
+    },
+    {
+      "points": 31.443817463299645,
+      "R": 0.9081652560167144,
+      "condition_R": {
+        "stable": 0.9176818850353157,
+        "short_history": 0.9260248371041808,
+        "drift": 0.9401905815534539,
+        "shared_change": 0.8487637203739071
+      },
+      "max_condition_R": 0.9401905815534539,
+      "worst_episode_squared_error": 0.3791986933519708,
+      "paths": [
+        "runs/model-comparison/two_stage_self.csv"
+      ]
+    },
+    {
+      "points": 31.438348230315913,
+      "R": 0.9084972136717464,
+      "condition_R": {
+        "stable": 0.9587996882938313,
+        "short_history": 0.9329839487878212,
+        "drift": 0.8858459923993013,
+        "shared_change": 0.8563592252060319
+      },
+      "max_condition_R": 0.9587996882938313,
+      "worst_episode_squared_error": 0.33250060656678565,
+      "paths": [
+        "runs/05-transition-retrieval/fixed-probe/tuning_predictions.csv"
+      ]
+    },
+    {
+      "points": 31.438348230315913,
+      "R": 0.9084972136717464,
+      "condition_R": {
+        "stable": 0.9587996882938313,
+        "short_history": 0.9329839487878213,
+        "drift": 0.8858459923993013,
+        "shared_change": 0.8563592252060319
+      },
+      "max_condition_R": 0.9587996882938313,
+      "worst_episode_squared_error": 0.33250060656678565,
+      "paths": [
+        "runs/05-transition-retrieval/initial/fixed_retrieval.csv",
+        "runs/05-transition-retrieval/replay/fixed_retrieval.csv"
+      ]
+    },
+    {
+      "points": 31.3810328418184,
+      "R": 0.9119829580638892,
+      "condition_R": {
+        "stable": 0.9327618160449691,
+        "short_history": 0.9461385943716578,
+        "drift": 0.899945253501449,
+        "shared_change": 0.8690861683374808
+      },
+      "max_condition_R": 0.9461385943716578,
+      "worst_episode_squared_error": 0.31590570942192675,
+      "paths": [
+        "runs/adaptive-weight-rate/main/rate_12.csv",
+        "runs/adaptive-weight-rate/replay/rate_12.csv"
+      ]
+    },
+    {
+      "points": 31.353549330006604,
+      "R": 0.9136589407623331,
+      "condition_R": {
+        "stable": 0.9193778412971831,
+        "short_history": 0.9352899679620789,
+        "drift": 0.941386327052224,
+        "shared_change": 0.8585816267378464
+      },
+      "max_condition_R": 0.941386327052224,
+      "worst_episode_squared_error": 0.3878092906720871,
+      "paths": [
+        "runs/model-comparison/direct_five_class.csv"
+      ]
+    },
+    {
+      "points": 31.305904148544805,
+      "R": 0.9165713826792311,
+      "condition_R": {
+        "stable": 0.9293894835915043,
+        "short_history": 0.933250225888521,
+        "drift": 0.9480917065649095,
+        "shared_change": 0.8555541146719893
+      },
+      "max_condition_R": 0.9480917065649095,
+      "worst_episode_squared_error": 0.3956928817135924,
+      "paths": [
+        "runs/model-comparison/two_stage.csv"
+      ]
+    },
+    {
+      "points": 31.290485743022533,
+      "R": 0.9175157743717481,
+      "condition_R": {
+        "stable": 0.9288057668089285,
+        "short_history": 0.9363727779335249,
+        "drift": 0.9481945134452617,
+        "shared_change": 0.8566900392992776
+      },
+      "max_condition_R": 0.9481945134452617,
+      "worst_episode_squared_error": 0.39554695399353385,
+      "paths": [
+        "runs/model-comparison/two_stage_unblended.csv"
+      ]
+    },
+    {
+      "points": 31.236835735846004,
+      "R": 0.9208091532506496,
+      "condition_R": {
+        "stable": 0.9483187911569734,
+        "short_history": 0.9508026401374386,
+        "drift": 0.9077910090450765,
+        "shared_change": 0.87632417266311
+      },
+      "max_condition_R": 0.9508026401374386,
+      "worst_episode_squared_error": 0.316290287031696,
+      "paths": [
+        "runs/adaptive-weight-rate/main/rate_0.csv",
+        "runs/adaptive-weight-rate/replay/rate_0.csv"
+      ]
+    },
+    {
+      "points": 31.236835735846004,
+      "R": 0.9208091532506497,
+      "condition_R": {
+        "stable": 0.9483187911569736,
+        "short_history": 0.950802640137439,
+        "drift": 0.9077910090450763,
+        "shared_change": 0.87632417266311
+      },
+      "max_condition_R": 0.950802640137439,
+      "worst_episode_squared_error": 0.316290287031696,
+      "paths": [
+        "runs/model-comparison/lag_fixed.csv"
+      ]
+    },
+    {
+      "points": 31.133201825291575,
+      "R": 0.9272030013712884,
+      "condition_R": {
+        "stable": 0.9516569974310966,
+        "short_history": 0.9642310043796993,
+        "drift": 0.916702734361744,
+        "shared_change": 0.8762212693126143
+      },
+      "max_condition_R": 0.9642310043796993,
+      "worst_episode_squared_error": 0.30709859567230324,
+      "paths": [
+        "runs/model-comparison/baseline.csv"
+      ]
+    },
+    {
+      "points": 31.13320182529157,
+      "R": 0.9272030013712886,
+      "condition_R": {
+        "stable": 0.9516569974310966,
+        "short_history": 0.9642310043796997,
+        "drift": 0.916702734361744,
+        "shared_change": 0.8762212693126143
+      },
+      "max_condition_R": 0.9642310043796997,
+      "worst_episode_squared_error": 0.30709859567230335,
+      "paths": [
+        "runs/model-comparison/lag_no_context.csv"
+      ]
+    }
+  ],
+  "existing_audit_scores": {
+    "bayesian": {
+      "points": 52.66512348539097,
+      "R": 0.13927388809111366,
+      "condition_R": {
+        "stable": 0.09361720393052154,
+        "short_history": 0.2259377476306234,
+        "drift": 0.11405799762703027,
+        "shared_change": 0.12348260317627936
+      },
+      "max_condition_R": 0.2259377476306234,
+      "worst_episode_squared_error": 0.07489545111605533
+    },
+    "previous_lead": {
+      "points": 49.21250587208315,
+      "R": 0.2192022929284787,
+      "condition_R": {
+        "stable": 0.0768373667894735,
+        "short_history": 0.2775041523491073,
+        "drift": 0.2711221182713454,
+        "shared_change": 0.25134553430398854
+      },
+      "max_condition_R": 0.2775041523491073,
+      "worst_episode_squared_error": 0.16396636999339897
+    }
+  },
+  "paired_diagnostics": {
+    "bayesian_minus_boosted_tuning": {
+      "delta_R": -0.06950245299544683,
+      "conditional_95pct_bootstrap_delta_R": [
+        -0.10386112035338098,
+        -0.03810781932772439
+      ],
+      "episodes_better": 32,
+      "episodes_worse": 16,
+      "leave_one_condition_out_delta_R": {
+        "stable": -0.07826506942264932,
+        "short_history": -0.08028227376397938,
+        "drift": -0.06885463497564813,
+        "shared_change": -0.050607833819510485
+      },
+      "caveat": "Fixed forecast episode resampling; not model selection adjusted or a test-score prediction interval."
+    },
+    "learned_prior_minus_uniform_tuning": {
+      "delta_R": -0.00870938316227242,
+      "conditional_95pct_bootstrap_delta_R": [
+        -0.014079753982333857,
+        -0.0044255575186614516
+      ],
+      "episodes_better": 28,
+      "episodes_worse": 9,
+      "leave_one_condition_out_delta_R": {
+        "stable": -0.01169133407248465,
+        "short_history": -0.0011216766590101863,
+        "drift": -0.010365853662031119,
+        "shared_change": -0.011658668255563727
+      },
+      "caveat": "Fixed forecast episode resampling; not model selection adjusted or a test-score prediction interval."
+    },
+    "bayesian_minus_boosted_existing_audit": {
+      "delta_R": -0.0799284048373651,
+      "conditional_95pct_bootstrap_delta_R": [
+        -0.1233171840982211,
+        -0.04171035559886719
+      ],
+      "episodes_better": 30,
+      "episodes_worse": 18,
+      "leave_one_condition_out_delta_R": {
+        "stable": -0.11216448549683612,
+        "short_history": -0.08938240487699213,
+        "drift": -0.05421649956838174,
+        "shared_change": -0.06395022940725037
+      },
+      "caveat": "Fixed forecast episode resampling; not model selection adjusted or a test-score prediction interval."
+    }
+  },
+  "nested_training_outer_cutoff_brier": {
+    "control": {
+      "joint": 0.37213231745366204,
+      "win": 0.08281190809508894
+    },
+    "win_only": {
+      "joint": 0.37168536226160537,
+      "win": 0.0824518301346999
+    },
+    "selected": {
+      "joint": 0.37181453506218803,
+      "win": 0.0824518301346999
+    }
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "bootstrap": {
+    "draws": 10000,
+    "refits": false,
+    "seed": 20261107,
+    "unit": "paired whole episodes stratified by condition"
+  },
+  "checks_passed": [
+    "frozen input hashes",
+    "published fold membership and condition balance",
+    "independent cutoff-prefix features with scalar usable triple counts",
+    "feature row permutation, missing padding, and injected post-cutoff outcomes",
+    "stack row permutation and held-target/condition/reference poisoning",
+    "fallback on missing and out-of-range features",
+    "convex weights and normalized rows",
+    "official score and baseline replay"
+  ],
+  "classes": [
+    0,
+    1,
+    2,
+    5,
+    20
+  ],
+  "entropy_boundary": 0.01,
+  "entropy_feature": "Normalized Shannon entropy of the M3 pair posterior including the null.",
+  "fallback": "Global weight for nonfinite features or outside the fitted range of their bin.",
+  "git_branch": "main",
+  "git_commit": null,
+  "input_sha256": {
+    "m5_m6_repair/results/repaired-m5-m6/freeze.json": "a9eb3738ff1537254a6277687b28805a40790041f2807f51654d705299083e04",
+    "m5_m6_repair/results/repaired-m5-m6/models.joblib": "9dbc6ff51e85c4758f22d4835b366b203e69d927cf796fdee7ace51b67c12bbf",
+    "public/metadata.json": "7979323052df471e6b8b2c985cb48faa89e287ac6b0fd7789f24bccd544ce7bf",
+    "public/validation/conditions.csv": "ebcca7597bbdfa532c5254b92903e66522a710502a6f70689c3de311f75c29b1",
+    "public/validation/history.csv": "4b7ef4789750b7459eb085be3449ea8bd9dfd31441a928ad391a1376a44f8fe4",
+    "public/validation/queries.csv": "168b7f6365a4f51084437c0071636b102ca3fb4bf0347b912778c51714fc48f2",
+    "public/validation/reference.csv": "bb396d9e4d20bf4004374f9ab781f41aaa8b730e61887c1969be534efeb1e6c6",
+    "public/validation/targets.csv": "93b6e978f6818d2456dcb677fddb6ba243e864cef56e33a4bf94bde5ba4b51f3",
+    "signal_experiments/01_fredy_replay/forecasts/pair_l31_factor_gru_m6_repaired.csv": "52ce50fdd18bad4bfc533d11f30a8af5e81156b14c22fd6aa035da2b84b39211",
+    "signal_experiments/ceiling_analysis/diagnostics.json": "d4f6ea83d66d0f23a1827bad1f3294330559bbca4fb8fce4f53c59b5f129afe5",
+    "signal_experiments/combined/m3_match_split_win_pair_l31_factor_gru_size.csv": "ac6fae2e924da0bb5f1b7638480572373a87a192d4891c1315ffc11f714aeea6",
+    "signal_experiments/folds.csv": "df85f54a091a88b1961ed69d29d4884718bf7c2ce809d7793ee80bb529f5bac2"
+  },
+  "metadata": {
+    "conditions": [
+      "stable",
+      "short_history",
+      "drift",
+      "shared_change"
+    ],
+    "counts_per_condition": {
+      "test": 48,
+      "train": 24,
+      "validation": 24
+    },
+    "history": "Machine-specific interactions, lags up to 8, missing observations and changing regimes.",
+    "machines_per_episode": 8,
+    "max_points": 60,
+    "mode": "event",
+    "reference": "Pooled, strength=20, fitted separately on this round's training observations.",
+    "round": "main",
+    "season_id": "5fffdc4d0c700bbf61c3f911",
+    "suite_version": "experimentation-suite-v3",
+    "target": "Next-spin probabilities for 0x, 1x, 2x, 5x, 20x.",
+    "test_policy": "Test targets, conditions and reference predictions stay private.",
+    "warning": "Public demo seeds are reconstructable; event seeds are private."
+  },
+  "parent_order": [
+    "hybrid",
+    "full_blend"
+  ],
+  "runtime": {
+    "joblib": "1.5.3",
+    "numerical_thread_limit": 2,
+    "numpy": "1.26.4",
+    "python": "3.9.6",
+    "scikit-learn": "1.6.1",
+    "scipy": "1.13.1",
+    "threadpoolctl": "3.6.0"
+  },
+  "scope": "Reused main-validation development with episode-held-out stack weights and frozen parents. Shared transductive Fredy components trained on pre-cutoff observed ticks from all main splits.",
+  "seconds_before_verification_to_features": 0.7499044999999999,
+  "seconds_elapsed": 2.209301209,
+  "shrink_pseudo_episodes": 8,
+  "source_sha256": {
+    "m5_m6_repair/models/m3_lag_pair_flip/model.py": "547ab43d704fe7c6c3933f15bdadeeb3ae0c223b452bae6b3cd0ec163e3600a3",
+    "m5_m6_repair/run_repaired_comparison.py": "9f6ef0a7d6faefc369c5e835db187f7cee852d74963772abc340b0ba34bc4951",
+    "signal_experiments/research_next/S1/run.py": "c947338c49d35f174b8a9ce2ef994c59ffcebd2871194d8c0ccf712a64647431",
+    "signal_experiments/score.py": "8f1559eaa94bf1224094abc8ffe33695ce9438a4cc586b186f3e7608c6da6264",
+    "slot_forecasting/contest.py": "411c7586b26cbc579ac32489b5306a4e87942aac58738cdec0e7e8ce7d3cc442",
+    "slot_forecasting/scoring.py": "477c66c6c5449ca65f77ec4867a9b80934a52c892b045abe32e6471d2c8d4edd"
+  },
+  "support_boundary": 40
+}

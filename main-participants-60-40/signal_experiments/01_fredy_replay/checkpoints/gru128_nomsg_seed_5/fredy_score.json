@@ -1,0 +1,66 @@
+{
+  "audit": {
+    "by_condition": {
+      "drift": 0.10361534451624399,
+      "shared_change": 0.07985623328432441,
+      "short_history": 0.18023428532394695,
+      "stable": 0.09640725819472355
+    },
+    "mean_loss_ratio": 0.11502828032980972,
+    "points": 53.81029437410578
+  },
+  "by_condition": {
+    "drift": 0.11101126947342574,
+    "shared_change": 0.0978396562637173,
+    "short_history": 0.16238809032185933,
+    "stable": 0.10440283470506506
+  },
+  "contest": {
+    "by_condition": {
+      "drift": {
+        "episodes": 24,
+        "error": 0.021073705629676375,
+        "loss_ratio": 0.11101126947342574,
+        "queries": 192,
+        "reference_error": 0.18983393064179913
+      },
+      "shared_change": {
+        "episodes": 24,
+        "error": 0.020112178975550336,
+        "loss_ratio": 0.0978396562637173,
+        "queries": 192,
+        "reference_error": 0.20556264957983816
+      },
+      "short_history": {
+        "episodes": 24,
+        "error": 0.02879813907366303,
+        "loss_ratio": 0.16238809032185933,
+        "queries": 192,
+        "reference_error": 0.1773414479878668
+      },
+      "stable": {
+        "episodes": 24,
+        "error": 0.020489140135163945,
+        "loss_ratio": 0.10440283470506506,
+        "queries": 192,
+        "reference_error": 0.19625080289290195
+      }
+    },
+    "contest_version": "evidence-contest-v1",
+    "max_points": 60.0,
+    "mean_loss_ratio": 0.11891046269101685,
+    "technical_points": 53.62359366601864
+  },
+  "mean_loss_ratio": 0.11891046269101685,
+  "points": 53.62359366601864,
+  "tuning": {
+    "by_condition": {
+      "drift": 0.11751919513767212,
+      "shared_change": 0.11482185458395601,
+      "short_history": 0.1467141852513216,
+      "stable": 0.1115255295982679
+    },
+    "mean_loss_ratio": 0.12264519114280441,
+    "points": 53.44520287743146
+  }
+}

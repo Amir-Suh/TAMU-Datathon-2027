@@ -1,0 +1,92 @@
+{
+  "W1a_max_abs_replay_delta": 0.0,
+  "folds": [
+    {
+      "fit_episode_sha256": "ab13c3ead7ac7c9fa692de415f5b0485dd46a3531417c307b73b95f97a8ebd38",
+      "fit_episodes": 72,
+      "fold": 0,
+      "held_episode_sha256": "0bdb288da89c13c06252e4ebaa71d972ba8b6da7a1e5b115ed4f83d7c0e83fc7",
+      "held_episodes": 24,
+      "m3_kappa": 120.0
+    },
+    {
+      "fit_episode_sha256": "f50f4d4f6e01d2cbb9c18c97c6b3f515e78e190343d561c49cc34fe206638b12",
+      "fit_episodes": 72,
+      "fold": 1,
+      "held_episode_sha256": "5e476206b78cb283e7578ca9671a39e1e992e8138f49b152f26b9a6f40ce3142",
+      "held_episodes": 24,
+      "m3_kappa": 50.0
+    },
+    {
+      "fit_episode_sha256": "2447867b5f4039a54208d2482e4b6ed78ee3044b45a6ea55825d8cf39e722d87",
+      "fit_episodes": 72,
+      "fold": 2,
+      "held_episode_sha256": "2862917ef963845641b0d04846de8ba970fdae4522597340af365a734198ccee",
+      "held_episodes": 24,
+      "m3_kappa": 50.0
+    },
+    {
+      "fit_episode_sha256": "3f49059aa1037c6c2bf5baf8f8165837ab0dc7a7e654d9e49e8228476afddc64",
+      "fit_episodes": 72,
+      "fold": 3,
+      "held_episode_sha256": "0623ba1f3049a927a9185776926a89bb53d4d57848264fe44bff701dee2a8589",
+      "held_episodes": 24,
+      "m3_kappa": 50.0
+    }
+  ],
+  "metrics": {
+    "W1a": {
+      "actual_cutoff": {
+        "binary_brier": 0.07665013722507505,
+        "binary_logloss": 0.2667351089230474,
+        "episodes": 96,
+        "rows": 768
+      },
+      "all": {
+        "binary_brier": 0.08981639619278063,
+        "binary_logloss": 0.3046227324039858,
+        "episodes": 96,
+        "rows": 6144
+      },
+      "earlier_cutoffs": {
+        "binary_brier": 0.09169729033102429,
+        "binary_logloss": 0.31003525004411986,
+        "episodes": 96,
+        "rows": 5376
+      },
+      "top_pair_4_7": {
+        "binary_brier": 0.0905704691343081,
+        "binary_logloss": 0.3023040577361423,
+        "episodes": 88,
+        "rows": 1871
+      }
+    },
+    "W2": {
+      "actual_cutoff": {
+        "binary_brier": 0.07650606362335004,
+        "binary_logloss": 0.2664728551693853,
+        "episodes": 96,
+        "rows": 768
+      },
+      "all": {
+        "binary_brier": 0.0897872743453229,
+        "binary_logloss": 0.3045621903792619,
+        "episodes": 96,
+        "rows": 6144
+      },
+      "earlier_cutoffs": {
+        "binary_brier": 0.09168459016274759,
+        "binary_logloss": 0.3100035239806728,
+        "episodes": 96,
+        "rows": 5376
+      },
+      "top_pair_4_7": {
+        "binary_brier": 0.09053387152461738,
+        "binary_logloss": 0.30222823243071484,
+        "episodes": 88,
+        "rows": 1871
+      }
+    }
+  },
+  "refit_scope": "All upstream M3 win and W1 pooled parameters refit inside each fold."
+}

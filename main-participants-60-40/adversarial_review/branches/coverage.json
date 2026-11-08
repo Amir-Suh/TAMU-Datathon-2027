@@ -1,0 +1,171 @@
+{
+  "remote_enumeration_complete": true,
+  "remote_heads_verified_via_GitHub": true,
+  "worktrees_found": 1,
+  "branches": [
+    {
+      "name": "amir",
+      "ref": "origin/amir_workspace",
+      "sha": "c339b469de33bbc2b2c68ea739eeec835139d42b",
+      "snapshot": "/Users/andrewvong/Documents/Projects/tamudatathon27/main-participants-60-40/adversarial_review/branches/amir",
+      "source_sha256": {
+        "data_vis/make_plots.py": "0f016932512837106cb1583f7cc36caa590add52efc6183d56329c866fd1dcca",
+        "main-participants-60-40/build_entry.py": "1497d4e1ca57d467d1b55d86c8ffcce82c96888379d6882deae257bf59d6e439",
+        "main-participants-60-40/check_submission.py": "5c403aedff0ff9955900c2ee3567b627b8fa345ac2be595730cb8557adb22628",
+        "main-participants-60-40/run_experiments.py": "6d0b6ebc2e2bb83dc3c3580fd596988c97c54f684c450568b0c50085a6661b74",
+        "main-participants-60-40/run_starter.py": "5ebe386ae954a09256a9e7f11d5285bbdcaf990272f45e5eb8acae2e834aa9a4",
+        "main-participants-60-40/slot_forecasting/__init__.py": "49490dd5af60e50f1dd37048845f7b056b6f2b83a30b53031b4f12bb4c1e22e2",
+        "main-participants-60-40/slot_forecasting/baseline.py": "c7e73421a47800812c54c2b58cb324446d173ebdedaaf06fc15512046f9f87c9",
+        "main-participants-60-40/slot_forecasting/contest.py": "411c7586b26cbc579ac32489b5306a4e87942aac58738cdec0e7e8ce7d3cc442",
+        "main-participants-60-40/slot_forecasting/experiments.py": "a0c06144922f8b7f49d9c058c963ffc2b49cd555bb474a92a335d330044ce036",
+        "main-participants-60-40/slot_forecasting/io.py": "3ef8706676971936080da79be2c073e2a12472ab3a892757a9c2aff8712ab76f",
+        "main-participants-60-40/slot_forecasting/rounds.py": "e048ef615df8c291305c7a0c642b85bad9df80103c6c7c2e1756cd6ff7508955",
+        "main-participants-60-40/slot_forecasting/schema.py": "2a8ab28d29865faf0ee533c17af6b425e12b96be381825f3b23f241479645b22",
+        "main-participants-60-40/slot_forecasting/scoring.py": "477c66c6c5449ca65f77ec4867a9b80934a52c892b045abe32e6471d2c8d4edd",
+        "main-participants-60-40/slot_forecasting/starter.py": "33f50997aa73969d3e0fc09df6c88ad00032026b62d680ab8f76d055bd0f1069",
+        "main-participants-60-40/slot_forecasting/submission_contract.py": "d88207f8279d6800b06bbad79dc24187df6816ae89defad0b8ff0c80c0ae499c",
+        "main-participants-60-40/slot_forecasting/transition.py": "eb37e6b87c76f4c2f9643cbfdfe69d19980760efbaa019ee5a1984c839f2576f",
+        "models/__init__.py": "db9b9013a43f3ab8758802c8526418de19be3663eac95a6f0d53655c0af60bae",
+        "models/common/__init__.py": "e49796d13deb529d7807662b1c4e1bb9d3f7decedc6592849c5e055c33fe26c2",
+        "models/common/components.py": "d77a90f34655e68b2709c6157bc131992ec3a7b44f78c18c65b00b0d4ce65779",
+        "models/common/data.py": "a508a6d12b3b9e2473a27528188c8f6455cbd658ea901731e86dfa75feea9e0b",
+        "models/common/evaluate.py": "47a51b0c7d95402a1fb92a56bb16fe5cb481725ae0d926829240f8b81944265a",
+        "models/common/selection.py": "fae22f03eee97b26dd7354d57a24ec0b54560196ad31a7b8260cffc117af7d67",
+        "models/m1_hierarchical_frequency/__init__.py": "ea7938303c031557751d1a6a5f4c2ca3c31b8b27813e5257e13f7efc2b78b924",
+        "models/m1_hierarchical_frequency/model.py": "176fc3d14726960a7109583d1b4b3b3a9c53a993dc21cebc0d15095b0a7908e6",
+        "models/m2_lag_pair/__init__.py": "f351ccb10034d64c830c5b57577bb33cc653c389db39b866288b449942331064",
+        "models/m2_lag_pair/model.py": "2133522b9e478b4d265b1cb5ca597396c2c590d690400d01b71bfd85351a7c07",
+        "models/m3_lag_pair_flip/__init__.py": "dc1c8ac4bbb1aadbb952b808db5f4c23f54cf61240767f0a9e480fc063955365",
+        "models/m3_lag_pair_flip/model.py": "f662b7bbd59e923c974f9e4870ffed276220d206d2ba24a46982f93a81775d75",
+        "models/m4_lag_pair_flip_shared/__init__.py": "1a9dfa7b31eac75e421d052d6b58e5aa09c679b0ec54b8378524a6d24caa78f8",
+        "models/m4_lag_pair_flip_shared/model.py": "0f426c0b9a57ac7736b95d4b262fc9b08e9dbcbe3365f298455c8f14beebf0ce",
+        "models/m5_boosted_corrector/__init__.py": "6db1d8b6eb618379f57de5db417d2e2ed30eb7a7a15291fcdddf5b2eba32ead1",
+        "models/m5_boosted_corrector/model.py": "92f045ab8e09c0116ec894fad218e4c2563941ffb0babc1657292baebefb2425",
+        "models/m6_ensemble/__init__.py": "0b0e7c747137ab9e73e126cde727718e96238628c715d1bdec213f6c016bbeb3",
+        "models/m6_ensemble/model.py": "05ba59851d7c8c075f333b61be67c9106250fed8430d0bb57a6bb8f934981468",
+        "models/run.py": "1b6ba35089e58bb605b84920a864de07c60301a1008e098efeed098a169a1c2a"
+      }
+    },
+    {
+      "name": "fredy",
+      "ref": "origin/fredy/bakeoff-gbdt-seq",
+      "sha": "5ba591c91d3589a2511b946dcf908b194e1390aa",
+      "snapshot": "/Users/andrewvong/Documents/Projects/tamudatathon27/main-participants-60-40/adversarial_review/branches/fredy",
+      "source_sha256": {
+        "claude_output/sh/audit_facts.py": "c78763e3a255b7127e41eceb16ad7737fd4f9e31ed36872fe23f60344d4a4d63",
+        "src/tdx/__init__.py": "83e4497bceae69322eb7c538910a50c20126a63f143b209159ca07761be79b61",
+        "src/tdx/arm.py": "f2f173adb34c1794fbd757b725176bc73f5f66af2c4771bd2375d8b9230cfa40",
+        "src/tdx/arms/__init__.py": "b2e65ec8aa1402d192bfdd4cd7f5a5e6b68d723441325599c7aae518979931d4",
+        "src/tdx/arms/gbdt/__init__.py": "b442b54b250dac2613023a09b6d216d6b80c3c741df84fe4b452b7655cea8284",
+        "src/tdx/arms/gbdt/arm.py": "e1c87532c4e73f0c803298b6cf8eeee23f10421d557fab4b3cf38fae58611a07",
+        "src/tdx/arms/gbdt/features.py": "6ea016b98747ce8317d1f1050ed643e4315174b1ff89b92d9da09bcd456b9d2d",
+        "src/tdx/arms/glm/__init__.py": "e2676d38bde3ff6ea34209880a2571b1a0c51865f1e4be8f5a0822a992050d7b",
+        "src/tdx/arms/glm/arm.py": "21175b4df8e6f197ff469fbb22ca0b438876efeb56ba4f7d353569f7ac2baa7d",
+        "src/tdx/arms/glm/factorized.py": "d096415142e4c04bf3f97251f2067d1525637da3d8ca6a89fc7e8c1e5ea38677",
+        "src/tdx/arms/glm/features.py": "53fd7f71adc12cad3705014c44b8df1ef80e1dffdc8e3553c2dfa3f5662f6966",
+        "src/tdx/arms/glm/model.py": "d37dcdbdf08ea637033cd603e48e930e6321eb30d09044de35eb9ad5e7bbcc29",
+        "src/tdx/arms/pooled/__init__.py": "e4db8368aeec67477b834fa5dd82a00faf681e8ea6740665a3681708b28c937a",
+        "src/tdx/arms/pooled/arm.py": "13e8242a3a53f32b61de3ecce5fa31b1feb78727bf4e0e0b142ec182b48c4c06",
+        "src/tdx/arms/regime/__init__.py": "8a6281b245f6afa267cff12e460694a8e1fcb5cf52699640251e76aa3cb8a7d9",
+        "src/tdx/arms/regime/arm.py": "18f7fb88637c8145566a5a26b6ceadcfb0e9e8960f39cc2dc9efef3bacda9a46",
+        "src/tdx/arms/regime/changepoint.py": "c9c49bedff4d255563b416d04f45ffcec1262d0732dd2500fbeaa6509b7d6fed",
+        "src/tdx/arms/regime/classifier.py": "695d0a243a30760182b1220c7c8ef7fcea55f15bc2f1c62318db00d9377c719d",
+        "src/tdx/arms/regime/specialists.py": "73fc7eb4d51cd0ec11cbc290d87aa53e534041abd0bba5e756a432404a8adb57",
+        "src/tdx/arms/regime/tune.py": "d503b1e78db76f90361aef9c2bf1dd1632e7975c307f9cb75e395a47fa56065b",
+        "src/tdx/arms/seq/__init__.py": "1ec22b0671c294b3b39cfcd69fe75e619c2ee221559657475e6de608543cbafa",
+        "src/tdx/arms/seq/arm.py": "70e6678aa515e7cb193ec126932def9cc0d51f4607a4a3dcac2d4168ffe95515",
+        "src/tdx/data.py": "b0ee2c37e2ee012fa634b8866dd2b8b0a2aa665d4531270d4b11f9bebd54d253",
+        "src/tdx/feat.py": "1082e023e76de50ec767d660ac6b2f1af82050cf33187a9543557223eb962bb3",
+        "src/tdx/fit.py": "dbf54682ef05b8f0533c74c301d942a9f28a4dcdc15c3432ccac4612b13fe5cc",
+        "src/tdx/log.py": "bc328c4a753a4f7d72605fe37370abd33532487c93e29e6b4a57b15af9897f85",
+        "src/tdx/package/__init__.py": "d1e8d3427177c47af3999f767b4f5e3a59036c5277ac17ba47e5dcdcf4991d20",
+        "src/tdx/package/adapters.py": "36114b39df58ddb4e6961b172f13df5ef7ab72ca386a03b4bcc6ddfb5587733d",
+        "src/tdx/package/blend.py": "160f0d659cd27ea8ab05e1b12caa89806d64c2472d3ca13f68b3edc93ba12ef1",
+        "src/tdx/package/build.py": "944df25cf657e7be9ec5b61a1d39655661a30f591871304927762ba841c51cb3",
+        "src/tdx/package/predict.py": "740f93a29b0a6feba3f44108b497312e78814c306ff52c1ae8c769319b8deafb",
+        "src/tdx/package/repro.py": "554896e51b5f7c29f17b53b3564f9a6e3a0c417f1c74efc510baed00c78cdcac",
+        "src/tdx/paths.py": "c55e47c5f2868fb6aedcb15a41e9194e3ef3b9b8ad14e4971f7721f81acaf66e",
+        "src/tdx/pipeline.py": "9754ecd8c41eb166fa9e47c4eaa41b9985f112fa4df59460c4e3468a07cbacb1",
+        "src/tdx/run.py": "0751e61f553d8476c70e06938fd6e2c5ba1bedbb65d1d202232745a73477eede",
+        "src/tdx/score.py": "d5c4a0fb049dffa3c1a3c66b79870a1dd1c607f71b791befd923adc146b34859",
+        "src/tdx/sweep.py": "860a054a5a41cea20efbb3e27e72b20965ef2c713d967434400788c5b789c8b7",
+        "src/tdx/tools/__init__.py": "4331f066dd508c49caab02828024feaa1a1fb838222b6bef41d47ea151c1c03b",
+        "src/tdx/tools/compare.py": "8cffbef7f4e278d69f3ce85cc0d6e9b1ceb2c364c8bd5c470b886209604d8fbf",
+        "src/tdx/tools/leak_test.py": "d7c2849d8ed8aae16a59fed7513915bf215155cc7e7f3e994703890afca7afe3",
+        "tests/gbdt/test_gbdt.py": "6744060eb677747052432d49489bcea8644639d1b46837756bf3cd266607adf8",
+        "tests/glm/test_factorized.py": "e7691fcb51bf98cb4ff255e716744db2be5a6caa7596c3e5d002e39697ba562c",
+        "tests/glm/test_glm.py": "3e2812b05d3b974f8d06471d6dcb5d2bbe11b8e38666f9e689ceb637bb10e009",
+        "tests/package/test_adapters.py": "57d39f121005b2737ad375c4768443f305c055535ed8e40980bdcfcc124968f5",
+        "tests/package/test_package.py": "bd16be3102a870e064da84c9eb029dabb2f907c1882441a56f75a31c519c0bcd",
+        "tests/regime/test_arm.py": "a0da3ab6d5a2d3f6c5279e63f2844be9053866bd7b489b0a64f24454b39d5327",
+        "tests/regime/test_changepoint.py": "cd552201fcb1983701ce0cbd2240cfd166c094b1d9e5c6d524a083c532e33b9c",
+        "tests/regime/test_classifier.py": "9a3a955174a2abf85516714a73c8032f2198ae0fa9b7be9cb1fb2db26d9de316",
+        "tests/regime/test_specialists.py": "2b687dc9e52145e99d9d0e717c781a3e6eece86d13aa4e67b2e1b0dab9f44b90",
+        "tests/seq/test_seq.py": "55d2f625cd3fa5508d48f4d8576a6fc5775d89c90decebf342060fb69ebcfb74",
+        "tests/test_data.py": "3718b2a42a4813a088651f622fc4dfb106b835faed8643dc0bae99615ed04fb1",
+        "tests/test_feat.py": "a513a88b78bf51347f5ea97e6a4adbe20c253a8689cf87c4bb4ba7677a652a8b",
+        "tests/test_leak.py": "f6f73a7282cf655b4fa7c38eeac2bc237e172ff2cd5a50163bb49dbb83e78670",
+        "tests/test_score.py": "1af0083bda820e55913ca96670fbe104a1299fd4737129a5a92106d96ca19fbb"
+      }
+    },
+    {
+      "name": "main",
+      "ref": "origin/main",
+      "sha": "c7da3c55ac14b65448aa9f293601467178d3593e",
+      "scope": "README only; no model implementations"
+    }
+  ],
+  "coverage": {
+    "amir_workspace": {
+      "models": [
+        "m1_hierarchical_frequency",
+        "m2_lag_pair",
+        "m3_lag_pair_flip",
+        "m4_lag_pair_flip_shared",
+        "m5_boosted_corrector",
+        "m6_ensemble"
+      ],
+      "additional": [
+        "common components and selection",
+        "two saved run batches",
+        "baseline controls"
+      ],
+      "excluded_duplicates": {
+        "rounds.py": true,
+        "baseline.py": true,
+        "contest.py": true,
+        "scoring.py": true,
+        "io.py": true,
+        "transition.py": true,
+        "__init__.py": true,
+        "experiments.py": true,
+        "starter.py": true,
+        "submission_contract.py": true,
+        "schema.py": true
+      }
+    },
+    "fredy/bakeoff-gbdt-seq": {
+      "arms": [
+        "pooled",
+        "glm",
+        "gbdt",
+        "seq",
+        "regime"
+      ],
+      "additional": [
+        "all declared variants",
+        "supervision permissions and scoring",
+        "blend/refit pipeline and packaging"
+      ],
+      "limitations": [
+        "Saved pilot prediction arrays and fitted models are git-ignored and absent from branch snapshot; scores for learned arms may be log-only."
+      ]
+    },
+    "main": {
+      "models": []
+    },
+    "previous_checkout": {
+      "scope": "Previously reviewed custom slot_forecasting suite excluded; saved Bayesian/boosted forecasts used only as fixed benchmarks."
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{"args": ["--baseline", "signal_experiments/combined/m3_match_split_win_pair_l31_factor_gru_size.csv", "--out", "signal_experiments/next_stage/20261107_dispatch/coordinator/e3_vs_hybrid.json", "E3Frozen=signal_experiments/next_stage/20261107_dispatch/lag_cells/attempt_01/validation_E3Frozen.csv", "E3Full=signal_experiments/next_stage/20261107_dispatch/lag_cells/attempt_01/validation_E3Full.csv", "E3Shared=signal_experiments/next_stage/20261107_dispatch/lag_cells/attempt_01/validation_E3Shared.csv"], "event": "start", "observed_roots": ["/Users/andrewvong/Documents/Projects/tamudatathon27/main-participants-60-40"], "script": "/Users/andrewvong/Documents/Projects/tamudatathon27/main-participants-60-40/signal_experiments/score.py", "stage": "score", "utc": "2026-11-07T23:47:56.668895+00:00"}
+{"allowed": true, "event": "open", "flags": 16777216, "mode": "r", "path": "signal_experiments/score.py"}
+{"allowed": true, "event": "open", "flags": 16777216, "mode": "r", "path": "slot_forecasting/__init__.py"}
+{"allowed": true, "event": "open", "flags": 16777216, "mode": "r", "path": "slot_forecasting/contest.py"}
+{"allowed": true, "event": "open", "flags": 16777216, "mode": "r", "path": "slot_forecasting/io.py"}
+{"allowed": true, "event": "open", "flags": 16777216, "mode": "r", "path": "slot_forecasting/schema.py"}
+{"allowed": true, "event": "open", "flags": 16777216, "mode": "r", "path": "slot_forecasting/scoring.py"}
+{"allowed": true, "event": "open", "flags": 16777216, "mode": "r", "path": "public/metadata.json"}
+{"allowed": true, "event": "open", "flags": 16777216, "mode": null, "path": "public/metadata.json"}
+{"allowed": true, "event": "open", "flags": 16777216, "mode": "r", "path": "public/validation/queries.csv"}
+{"allowed": true, "event": "open", "flags": 16777216, "mode": null, "path": "public/validation/queries.csv"}
+{"allowed": true, "event": "open", "flags": 16777216, "mode": "r", "path": "public/validation/targets.csv"}
+{"allowed": true, "event": "open", "flags": 16777216, "mode": null, "path": "public/validation/targets.csv"}
+{"allowed": true, "event": "open", "flags": 16777216, "mode": "r", "path": "public/validation/conditions.csv"}
+{"allowed": true, "event": "open", "flags": 16777216, "mode": null, "path": "public/validation/conditions.csv"}
+{"allowed": true, "event": "open", "flags": 16777216, "mode": "r", "path": "public/validation/reference.csv"}
+{"allowed": true, "event": "open", "flags": 16777216, "mode": null, "path": "public/validation/reference.csv"}
+{"allowed": true, "event": "open", "flags": 16777216, "mode": "r", "path": "signal_experiments/combined/m3_match_split_win_pair_l31_factor_gru_size.csv"}
+{"allowed": true, "event": "open", "flags": 16777216, "mode": null, "path": "signal_experiments/combined/m3_match_split_win_pair_l31_factor_gru_size.csv"}
+{"allowed": true, "event": "open", "flags": 16777216, "mode": "r", "path": "signal_experiments/next_stage/20261107_dispatch/lag_cells/attempt_01/validation_E3Frozen.csv"}
+{"allowed": true, "event": "open", "flags": 16777216, "mode": null, "path": "signal_experiments/next_stage/20261107_dispatch/lag_cells/attempt_01/validation_E3Frozen.csv"}
+{"allowed": true, "event": "open", "flags": 16777216, "mode": "r", "path": "signal_experiments/next_stage/20261107_dispatch/lag_cells/attempt_01/validation_E3Full.csv"}
+{"allowed": true, "event": "open", "flags": 16777216, "mode": null, "path": "signal_experiments/next_stage/20261107_dispatch/lag_cells/attempt_01/validation_E3Full.csv"}
+{"allowed": true, "event": "open", "flags": 16777216, "mode": "r", "path": "signal_experiments/next_stage/20261107_dispatch/lag_cells/attempt_01/validation_E3Shared.csv"}
+{"allowed": true, "event": "open", "flags": 16777216, "mode": null, "path": "signal_experiments/next_stage/20261107_dispatch/lag_cells/attempt_01/validation_E3Shared.csv"}
+{"allowed": true, "event": "open", "flags": 16778753, "mode": "w", "path": "signal_experiments/next_stage/20261107_dispatch/coordinator/e3_vs_hybrid.json"}
+{"allowed": true, "event": "open", "flags": 16778753, "mode": null, "path": "signal_experiments/next_stage/20261107_dispatch/coordinator/e3_vs_hybrid.json"}
+{"event": "end", "exit": 0}

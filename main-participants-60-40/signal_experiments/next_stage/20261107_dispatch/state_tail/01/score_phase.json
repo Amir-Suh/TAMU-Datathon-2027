@@ -1,0 +1,7 @@
+{
+  "phase": "scored_frozen_forecasts",
+  "forecast_freeze_sha256": "8a7f7bc3122b0747ba0a6a795a817b855388f271f8bad6cec96d7e60c2f89c88",
+  "score_end_utc": "2026-11-07T23:50:03.384657+00:00",
+  "score_seconds": 1.5652094159999999,
+  "fit_files_unchanged": true
+}

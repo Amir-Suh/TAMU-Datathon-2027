@@ -1,0 +1,116 @@
+{
+  "archive": {
+    "path": "signal_experiments/next_stage/20261107_dispatch/package/02_w1a_p0/w1a_p0_code.zip",
+    "sha256": "e4610accbfb69604d7497b01afb2e59682df10ca9ec32459dd733fe59cf78451",
+    "compressed_bytes": 3806626,
+    "unpacked_bytes": 4463632,
+    "entries": 37,
+    "config": {
+      "image": "python",
+      "command": [
+        "python",
+        "-B",
+        "predict.py",
+        "--model",
+        "w1a_p0",
+        "--data",
+        "/data",
+        "--out",
+        "/output/submission.csv"
+      ]
+    },
+    "member_sha256": {
+      "README.md": "08cd122772d891116921a854b5a5a155b492cbae127115084b56ad3b33911a19",
+      "input_only.py": "c4a4116fb8a66957f832f3d3681a494dd1908f67ba64725cf4a58108626e8101",
+      "match_split.py": "ae9b46e4e27fff3889a3abd457a44b923265741150da1ce9b4de7d38966721c3",
+      "models/__init__.py": "db9b9013a43f3ab8758802c8526418de19be3663eac95a6f0d53655c0af60bae",
+      "models/common/__init__.py": "e49796d13deb529d7807662b1c4e1bb9d3f7decedc6592849c5e055c33fe26c2",
+      "models/common/components.py": "d77a90f34655e68b2709c6157bc131992ec3a7b44f78c18c65b00b0d4ce65779",
+      "models/common/data.py": "a508a6d12b3b9e2473a27528188c8f6455cbd658ea901731e86dfa75feea9e0b",
+      "models/common/selection.py": "86c8384d3d536908c45acd48a74a47bef03ed1cc211f6030dd3903a3ed32bd62",
+      "models/m3_lag_pair_flip/__init__.py": "dc1c8ac4bbb1aadbb952b808db5f4c23f54cf61240767f0a9e480fc063955365",
+      "models/m3_lag_pair_flip/model.py": "547ab43d704fe7c6c3933f15bdadeeb3ae0c223b452bae6b3cd0ec163e3600a3",
+      "ordered_cells.py": "8376a5c6c3172b0859077b2ad7ab12dd3f57dadef1f0d22599e21e569ac3185d",
+      "predict.py": "f8fb0ed8e55edd24eeb8da6ee5e2ca14eff94fde951e3d8065a3b87708e75bc4",
+      "reproduce.json": "7441407bfb5187d64540d1dc39e476d0655260d539778a388cabc2ec0db01519",
+      "requirements.txt": "fc064d44b05c1294090a7df75e901fe28e9da808caac4cbb7f414df701eeccd3",
+      "slot_forecasting/__init__.py": "49490dd5af60e50f1dd37048845f7b056b6f2b83a30b53031b4f12bb4c1e22e2",
+      "slot_forecasting/io.py": "3ef8706676971936080da79be2c073e2a12472ab3a892757a9c2aff8712ab76f",
+      "slot_forecasting/schema.py": "2a8ab28d29865faf0ee533c17af6b425e12b96be381825f3b23f241479645b22",
+      "tdx/__init__.py": "83e4497bceae69322eb7c538910a50c20126a63f143b209159ca07761be79b61",
+      "tdx/arm.py": "f2f173adb34c1794fbd757b725176bc73f5f66af2c4771bd2375d8b9230cfa40",
+      "tdx/arms/__init__.py": "b2e65ec8aa1402d192bfdd4cd7f5a5e6b68d723441325599c7aae518979931d4",
+      "tdx/arms/gbdt/__init__.py": "a2cac9a19764f619c492a68bb4b91f9ab89616899e7ecb79acfa1b57aed3aad5",
+      "tdx/arms/gbdt/arm.py": "32c5e659a3be3c7dca9904b7e309704d1e87fadbfd3c8653ed31f293fb614327",
+      "tdx/arms/gbdt/features.py": "4341ad3f33e96f620c96627357f38c45697d1a573da3e7b13b7011d09fed0cc1",
+      "tdx/arms/seq/__init__.py": "2b1d31b8dbec5e3a1ed505f752c85bd2df53ac4476609c7e36127e02fbb0fba5",
+      "tdx/arms/seq/arm.py": "698d7cf1e61542ee4a555d9d5de072231855387131773bbd4583d63312f963ae",
+      "tdx/data.py": "a2ede1bcf2c370cf72af650e433f62892fe4877f0a557a78aa5730e115ff63f3",
+      "tdx/feat.py": "1082e023e76de50ec767d660ac6b2f1af82050cf33187a9543557223eb962bb3",
+      "weights/gru128_factor_seed_1/meta.json": "b8a110028a54eb5c1fabb30a75ff5567152a38b047082bc6f5a1fc9e9d8b3dbc",
+      "weights/gru128_factor_seed_1/model.npz": "34c3adf24f6f88614a75b29156aa9651c1682e840db04389a7f9ef14781bc9c9",
+      "weights/gru128_factor_seed_2/meta.json": "ad8aca2b382fd7c1d73d43b09e90837717998bd135967ded1acf368e7a173ca5",
+      "weights/gru128_factor_seed_2/model.npz": "cd8431d63d4a3fa217dd36b49523c196ae5d34235d893c9798808d078a18a9de",
+      "weights/gru128_factor_seed_3/meta.json": "c220bdfbca2c5b7ef34a8d99c9646ef7fe09fdb25011bc1cf939da87860d01c7",
+      "weights/gru128_factor_seed_3/model.npz": "d706f48425cdd95d0df64c02cf79989c40ac7111e9abfb4204a9097327f448fc",
+      "weights/m3.json": "f5bcd2e6693f5c5438c844784979d8334ac643328436e5db50b37591eb00addc",
+      "weights/pair_l31/features.json": "a58d61dfa70aa7ea2ef9542da2dbcaf5159bf278de85432362d96ed978ba19f6",
+      "weights/pair_l31/model.txt.gz": "48837ce847d47d6eb536207d521ad68d8184cfeac3e1395949a544f0b6746513",
+      "weights/w1a_p0.json": "5ada9fc86127d09fcaf64219543d726f05b6a817a530ddc294eddd4fc327fa95"
+    }
+  },
+  "runtime": {
+    "python": "3.13.18 (main, Nov  5 2026, 09:50:38) [GCC 14.2.0]",
+    "platform": "Linux-6.12.54-linuxkit-aarch64-with-glibc2.41",
+    "limits": {
+      "cpu.max": "200000 100000",
+      "memory.max": "17179869184"
+    },
+    "timeout_seconds_per_command": 1800,
+    "mount_options": {
+      "/tmp": "rw,nosuid,nodev,noexec,relatime",
+      "/submission": "ro,nosuid,nodev,relatime",
+      "/data": "ro,nosuid,nodev,relatime",
+      "/output": "rw,nosuid,nodev,relatime"
+    },
+    "test": {
+      "command": [
+        "python",
+        "-B",
+        "predict.py",
+        "--model",
+        "w1a_p0",
+        "--data",
+        "/data",
+        "--out",
+        "/output/submission.csv"
+      ],
+      "elapsed_seconds": 9.106294753999919,
+      "peak_rss_bytes": 622338048
+    }
+  },
+  "test": {
+    "expected_csv": "signal_experiments/next_stage/20261107_dispatch/coordinator/assembly/test_W1a_P0.csv",
+    "expected_sha256": "c7c34efd491648b5a7cf97bfa04df090427fc528dde31a28800211575a856b8b",
+    "replay_sha256": "230578b6f0618fec7835b1a3e93812f2f31640eebd6bd5f368ffd8f8b9af0a39",
+    "query_count": 1536,
+    "exact_ids": true,
+    "max_normalized_probability_difference": 1.3763296058399987e-14,
+    "accessed_data": [
+      "/data/test/history.csv",
+      "/data/test/queries.csv"
+    ]
+  },
+  "validation": {
+    "expected_csv": "signal_experiments/next_stage/20261107_dispatch/coordinator/assembly/validation_W1a_P0.csv",
+    "expected_sha256": "0121a2dcdd3633beca6766f706830995b29f8410dd2b29f8975a7109744e9901",
+    "replay_sha256": "ce516146c598f978fcf4d138e83fc0d8e66a7b2e0aaaf8db758920ca3aed9618",
+    "query_count": 768,
+    "exact_ids": true,
+    "max_normalized_probability_difference": 9.658940314238862e-15,
+    "accessed_data": [
+      "/data/validation/history.csv",
+      "/data/validation/queries.csv"
+    ]
+  }
+}

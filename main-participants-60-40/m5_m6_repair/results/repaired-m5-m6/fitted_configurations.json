@@ -1,0 +1,469 @@
+{
+  "m3": {
+    "params": {
+      "kappa": 120.0
+    },
+    "share_episode": false,
+    "hi_by_context": [
+      0.925,
+      0.941,
+      0.962,
+      0.781,
+      0.835,
+      0.866,
+      0.498,
+      0.594,
+      0.645
+    ],
+    "lo_by_context": [
+      0.115,
+      0.151,
+      0.214,
+      0.038,
+      0.054,
+      0.071,
+      0.011,
+      0.015,
+      0.02
+    ],
+    "top_pairs": [
+      {
+        "pair": "1-3",
+        "prior": 0.328
+      },
+      {
+        "pair": "2-5",
+        "prior": 0.2925
+      },
+      {
+        "pair": "4-7",
+        "prior": 0.2846
+      },
+      {
+        "pair": "6-7",
+        "prior": 0.0047
+      },
+      {
+        "pair": "1-2",
+        "prior": 0.0042
+      },
+      {
+        "pair": "1-4",
+        "prior": 0.0041
+      }
+    ],
+    "p_flip": 0.623,
+    "flip_tick_prior_peak": 16,
+    "p_shared": null,
+    "confident_share_train": 0.96,
+    "size_params": {
+      "strength": 100.0,
+      "half_life": "inf"
+    },
+    "selection": [
+      {
+        "kappa": 8.0,
+        "train_logloss": 0.30865655293568833
+      },
+      {
+        "kappa": 20.0,
+        "train_logloss": 0.30551884826093617
+      },
+      {
+        "kappa": 50.0,
+        "train_logloss": 0.303800056247293
+      },
+      {
+        "kappa": 120.0,
+        "train_logloss": 0.3032484433701827
+      }
+    ],
+    "size_selection": [
+      {
+        "strength": 5.0,
+        "half_life": "inf",
+        "train_logloss": 1.0549361368555996
+      },
+      {
+        "strength": 5.0,
+        "half_life": 96.0,
+        "train_logloss": 1.0523027221826804
+      },
+      {
+        "strength": 5.0,
+        "half_life": 48.0,
+        "train_logloss": 1.05373893868028
+      },
+      {
+        "strength": 15.0,
+        "half_life": "inf",
+        "train_logloss": 1.044458560976165
+      },
+      {
+        "strength": 15.0,
+        "half_life": 96.0,
+        "train_logloss": 1.0416443497032035
+      },
+      {
+        "strength": 15.0,
+        "half_life": 48.0,
+        "train_logloss": 1.0415863016456344
+      },
+      {
+        "strength": 40.0,
+        "half_life": "inf",
+        "train_logloss": 1.0379498575585644
+      },
+      {
+        "strength": 40.0,
+        "half_life": 96.0,
+        "train_logloss": 1.0364936464584054
+      },
+      {
+        "strength": 40.0,
+        "half_life": 48.0,
+        "train_logloss": 1.0367676143790803
+      },
+      {
+        "strength": 100.0,
+        "half_life": "inf",
+        "train_logloss": 1.0355888221528828
+      },
+      {
+        "strength": 100.0,
+        "half_life": 96.0,
+        "train_logloss": 1.0358041403810885
+      },
+      {
+        "strength": 100.0,
+        "half_life": 48.0,
+        "train_logloss": 1.0366182023255905
+      }
+    ]
+  },
+  "m4": {
+    "params": {
+      "kappa": 120.0
+    },
+    "share_episode": true,
+    "hi_by_context": [
+      0.925,
+      0.941,
+      0.962,
+      0.781,
+      0.835,
+      0.866,
+      0.498,
+      0.594,
+      0.645
+    ],
+    "lo_by_context": [
+      0.115,
+      0.151,
+      0.214,
+      0.038,
+      0.054,
+      0.071,
+      0.011,
+      0.015,
+      0.02
+    ],
+    "top_pairs": [
+      {
+        "pair": "1-3",
+        "prior": 0.328
+      },
+      {
+        "pair": "2-5",
+        "prior": 0.2925
+      },
+      {
+        "pair": "4-7",
+        "prior": 0.2846
+      },
+      {
+        "pair": "6-7",
+        "prior": 0.0047
+      },
+      {
+        "pair": "1-2",
+        "prior": 0.0042
+      },
+      {
+        "pair": "1-4",
+        "prior": 0.0041
+      }
+    ],
+    "p_flip": 0.623,
+    "flip_tick_prior_peak": 16,
+    "p_shared": 0.67,
+    "confident_share_train": 0.96,
+    "size_params": {
+      "strength": 100.0,
+      "half_life": "inf"
+    },
+    "selection": [
+      {
+        "kappa": 8.0,
+        "train_logloss": 0.3087026764134877
+      },
+      {
+        "kappa": 20.0,
+        "train_logloss": 0.30563116266798057
+      },
+      {
+        "kappa": 50.0,
+        "train_logloss": 0.30393243898551153
+      },
+      {
+        "kappa": 120.0,
+        "train_logloss": 0.3033751802284305
+      }
+    ],
+    "size_selection": [
+      {
+        "strength": 5.0,
+        "half_life": "inf",
+        "train_logloss": 1.0549361368555996
+      },
+      {
+        "strength": 5.0,
+        "half_life": 96.0,
+        "train_logloss": 1.0523027221826804
+      },
+      {
+        "strength": 5.0,
+        "half_life": 48.0,
+        "train_logloss": 1.05373893868028
+      },
+      {
+        "strength": 15.0,
+        "half_life": "inf",
+        "train_logloss": 1.044458560976165
+      },
+      {
+        "strength": 15.0,
+        "half_life": 96.0,
+        "train_logloss": 1.0416443497032035
+      },
+      {
+        "strength": 15.0,
+        "half_life": 48.0,
+        "train_logloss": 1.0415863016456344
+      },
+      {
+        "strength": 40.0,
+        "half_life": "inf",
+        "train_logloss": 1.0379498575585644
+      },
+      {
+        "strength": 40.0,
+        "half_life": 96.0,
+        "train_logloss": 1.0364936464584054
+      },
+      {
+        "strength": 40.0,
+        "half_life": 48.0,
+        "train_logloss": 1.0367676143790803
+      },
+      {
+        "strength": 100.0,
+        "half_life": "inf",
+        "train_logloss": 1.0355888221528828
+      },
+      {
+        "strength": 100.0,
+        "half_life": 96.0,
+        "train_logloss": 1.0358041403810885
+      },
+      {
+        "strength": 100.0,
+        "half_life": 48.0,
+        "train_logloss": 1.0366182023255905
+      }
+    ]
+  },
+  "m5": {
+    "base": "m4_lag_pair_flip_shared",
+    "features": [
+      "logit_p_win",
+      "logit_p_win_independent",
+      "p_shared",
+      "p_null",
+      "max_pair_post",
+      "p_flip",
+      "since_flip",
+      "n_obs",
+      "n_recent",
+      "machine_type",
+      "signal"
+    ],
+    "max_iter": 100,
+    "gbm": {
+      "learning_rate": 0.05,
+      "max_leaf_nodes": 15,
+      "min_samples_leaf": 50,
+      "l2_regularization": 1.0,
+      "early_stopping": false,
+      "random_state": 0
+    },
+    "selection": [
+      {
+        "max_iter": 25,
+        "nested_episode_cv_logloss": 0.3609651557379668
+      },
+      {
+        "max_iter": 50,
+        "nested_episode_cv_logloss": 0.31479359420990477
+      },
+      {
+        "max_iter": 100,
+        "nested_episode_cv_logloss": 0.30914834643756156
+      },
+      {
+        "max_iter": 200,
+        "nested_episode_cv_logloss": 0.31611114871598306
+      }
+    ],
+    "selection_pseudo_query_logloss": {
+      "heldout_base": 0.3033,
+      "selected_corrector": 0.30915
+    },
+    "selection_note": "The minimum over round choices is a selection loss, not an unbiased assessment."
+  },
+  "m6": {
+    "weights": {
+      "m2": 0.0,
+      "m3": 0.6704,
+      "m4": 0.2167,
+      "m5": 0.1129
+    },
+    "weight_fit_pseudo_query_logloss": {
+      "m2": 0.36536,
+      "m3": 0.30322,
+      "m4": 0.3033,
+      "m5": 0.30879,
+      "blend_in_sample_for_weights": 0.30313
+    },
+    "meta_feature_provenance": "Every member prediction is episode held out; M5 rounds are selected inside each fit partition.",
+    "fold_choices": [
+      {
+        "held_episode_ids": [
+          "main-train-e00000",
+          "main-train-e00004",
+          "main-train-e00008",
+          "main-train-e00012",
+          "main-train-e00016",
+          "main-train-e00020",
+          "main-train-e00024",
+          "main-train-e00028",
+          "main-train-e00032",
+          "main-train-e00036",
+          "main-train-e00040",
+          "main-train-e00044",
+          "main-train-e00048",
+          "main-train-e00052",
+          "main-train-e00056",
+          "main-train-e00060",
+          "main-train-e00064",
+          "main-train-e00068",
+          "main-train-e00072",
+          "main-train-e00076",
+          "main-train-e00080",
+          "main-train-e00084",
+          "main-train-e00088",
+          "main-train-e00092"
+        ],
+        "m5_max_iter": 100
+      },
+      {
+        "held_episode_ids": [
+          "main-train-e00001",
+          "main-train-e00005",
+          "main-train-e00009",
+          "main-train-e00013",
+          "main-train-e00017",
+          "main-train-e00021",
+          "main-train-e00025",
+          "main-train-e00029",
+          "main-train-e00033",
+          "main-train-e00037",
+          "main-train-e00041",
+          "main-train-e00045",
+          "main-train-e00049",
+          "main-train-e00053",
+          "main-train-e00057",
+          "main-train-e00061",
+          "main-train-e00065",
+          "main-train-e00069",
+          "main-train-e00073",
+          "main-train-e00077",
+          "main-train-e00081",
+          "main-train-e00085",
+          "main-train-e00089",
+          "main-train-e00093"
+        ],
+        "m5_max_iter": 100
+      },
+      {
+        "held_episode_ids": [
+          "main-train-e00002",
+          "main-train-e00006",
+          "main-train-e00010",
+          "main-train-e00014",
+          "main-train-e00018",
+          "main-train-e00022",
+          "main-train-e00026",
+          "main-train-e00030",
+          "main-train-e00034",
+          "main-train-e00038",
+          "main-train-e00042",
+          "main-train-e00046",
+          "main-train-e00050",
+          "main-train-e00054",
+          "main-train-e00058",
+          "main-train-e00062",
+          "main-train-e00066",
+          "main-train-e00070",
+          "main-train-e00074",
+          "main-train-e00078",
+          "main-train-e00082",
+          "main-train-e00086",
+          "main-train-e00090",
+          "main-train-e00094"
+        ],
+        "m5_max_iter": 100
+      },
+      {
+        "held_episode_ids": [
+          "main-train-e00003",
+          "main-train-e00007",
+          "main-train-e00011",
+          "main-train-e00015",
+          "main-train-e00019",
+          "main-train-e00023",
+          "main-train-e00027",
+          "main-train-e00031",
+          "main-train-e00035",
+          "main-train-e00039",
+          "main-train-e00043",
+          "main-train-e00047",
+          "main-train-e00051",
+          "main-train-e00055",
+          "main-train-e00059",
+          "main-train-e00063",
+          "main-train-e00067",
+          "main-train-e00071",
+          "main-train-e00075",
+          "main-train-e00079",
+          "main-train-e00083",
+          "main-train-e00087",
+          "main-train-e00091",
+          "main-train-e00095"
+        ],
+        "m5_max_iter": 100
+      }
+    ],
+    "loss_note": "Blend loss fits and scores weights on the same meta rows; use evaluate_heldout for full-pipeline assessment."
+  }
+}

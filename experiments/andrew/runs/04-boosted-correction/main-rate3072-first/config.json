@@ -1,0 +1,31 @@
+{
+  "adaptive": {
+    "half_lives": [
+      12,
+      48
+    ],
+    "strength": 8,
+    "weight_rate": 3072.0
+  },
+  "calibration_ridge": 0.01,
+  "command": "/Users/andrewvong/ml_env/bin/python3 run_boosted_correction.py --out runs/04-boosted-correction/main-rate3072-first --adaptive-rate 3072 --control runs/adaptive-weight-rate/main/rate_3072.csv",
+  "curvature_floor": 0.001,
+  "history_labels_per_machine": 32,
+  "lead_correction": "trees_60",
+  "max_depth": 2,
+  "min_samples_leaf": 100,
+  "seed": 314159,
+  "shrinkage": 0.05,
+  "step_limit": 1.0,
+  "threads": 2,
+  "tree_budgets": [
+    30,
+    60
+  ],
+  "versions": {
+    "numpy": "1.26.4",
+    "python": "3.9.6",
+    "scikit-learn": "1.6.1",
+    "scipy": "1.13.1"
+  }
+}

@@ -1,0 +1,14 @@
+[
+  {
+    "name": "amir",
+    "ref": "origin/amir_workspace",
+    "sha": "c339b469de33bbc2b2c68ea739eeec835139d42b",
+    "snapshot": "/Users/andrewvong/Documents/Projects/tamudatathon27/main-participants-60-40/adversarial_review/branches/amir"
+  },
+  {
+    "name": "fredy",
+    "ref": "origin/fredy/bakeoff-gbdt-seq",
+    "sha": "5ba591c91d3589a2511b946dcf908b194e1390aa",
+    "snapshot": "/Users/andrewvong/Documents/Projects/tamudatathon27/main-participants-60-40/adversarial_review/branches/fredy"
+  }
+]

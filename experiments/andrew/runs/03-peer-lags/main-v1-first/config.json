@@ -1,0 +1,67 @@
+{
+  "adaptive": {
+    "half_lives": [
+      12,
+      48
+    ],
+    "strength": 8,
+    "weight_rate": 48
+  },
+  "candidates": [
+    {
+      "min_gain": 0.002,
+      "shrink": 0.35,
+      "top": 1
+    },
+    {
+      "min_gain": 0.002,
+      "shrink": 0.7,
+      "top": 1
+    },
+    {
+      "min_gain": 0.002,
+      "shrink": 0.35,
+      "top": 2
+    },
+    {
+      "min_gain": 0.002,
+      "shrink": 0.7,
+      "top": 2
+    }
+  ],
+  "centering_prior_strength": 8,
+  "coefficient_bounds": [
+    -2,
+    2
+  ],
+  "command": "/Users/andrewvong/ml_env/bin/python3 run_peer_lags.py --out runs/03-peer-lags/main-v1-first",
+  "evidence_ticks": 12,
+  "fold_seed": 314159,
+  "half_life": 24,
+  "historical_endpoints_per_machine": 32,
+  "min_pairs": 8,
+  "peer_lags": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "placebo_shift": 11,
+  "ridge": 2,
+  "selected": {
+    "min_gain": 0.002,
+    "shrink": 0.35,
+    "top": 1
+  },
+  "threads": 2,
+  "versions": {
+    "numpy": "1.26.4",
+    "python": "3.9.6",
+    "scikit-learn": "1.6.1",
+    "scipy": "1.13.1"
+  }
+}

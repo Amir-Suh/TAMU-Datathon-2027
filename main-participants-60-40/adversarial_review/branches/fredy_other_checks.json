@@ -1,0 +1,63 @@
+{
+  "python": "3.9.6 (default, Apr 17 2026, 18:15:52) \n[Clang 21.0.0 (clang-2100.1.1.101)]",
+  "versions": {
+    "numpy": "1.26.4",
+    "scipy": "1.13.1",
+    "sklearn": "1.6.1"
+  },
+  "passed": [
+    "glm/test_shared_harness_device_and_smoke_arguments",
+    "glm/test_feature_causality_and_cutoff_storage",
+    "glm/test_missing_neighbours_rates_and_observed_window",
+    "glm/test_gradient",
+    "glm/test_planted_lag2",
+    "glm/save_load_causal",
+    "factorized/test_factorized_soft_and_hard_gradient",
+    "factorized/test_losses_provide_no_size_gradient",
+    "factorized/test_factorized_planted_lag2",
+    "factorized/test_default_dispatch_is_exactly_unchanged",
+    "factorized/save_load_causal",
+    "gbdt/test_three_episode_scalar_reference",
+    "gbdt/test_feature_future_perturbation",
+    "gbdt/test_sparse_divergence_requires_observations_in_both_windows",
+    "gbdt/test_neighbour_one_uses_each_other_machines_last_observation",
+    "classifier/test_history_features_ignore_future_and_answers",
+    "classifier/test_probability_serialization_and_short_override",
+    "classifier/test_explicit_labelled_training_and_deterministic_group_folds",
+    "specialists/test_forecast_is_causal_and_normalised",
+    "specialists/test_unknown_lag_falls_back_and_postchange_ignores_old_context",
+    "changepoint/test_detects_shared_change_and_json_roundtrip",
+    "changepoint/test_future_and_cutoff_covariates_cannot_affect_fit_or_detect",
+    "changepoint/test_missing_ticks_are_unknown_not_losing_spins",
+    "changepoint/test_fit_order_determinism_and_single_episode_cv",
+    "gbdt/captured_final_soft_weights_and_holdout_partition",
+    "blend/fallback_has_two_identifiable_groups"
+  ],
+  "count": 26,
+  "limitations": [
+    "Python 3.9 with annotation-only import compatibility; native 3.10 SciPy extension failed to load.",
+    "No pytest installation: original test functions invoked directly with minimal raises context helper.",
+    "No LightGBM installation: only feature oracle/causality and dataset capture tested; no native booster training, determinism, or serialization claim.",
+    "No full public dataset training or scoring, no source mutations, no package reproduction."
+  ],
+  "gbdt_captured_dev_rows": 4105,
+  "gbdt_captured_final_rows": 6829,
+  "blend_fallback_weights": [
+    [
+      1.1102230246251565e-16,
+      0.9999999999999999
+    ],
+    [
+      0.9999999999999999,
+      1.1102230246251565e-16
+    ],
+    [
+      1.1102230246251565e-16,
+      0.9999999999999999
+    ],
+    [
+      1.1102230246251565e-16,
+      0.9999999999999999
+    ]
+  ]
+}

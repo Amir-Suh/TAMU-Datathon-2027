@@ -1,0 +1,15 @@
+{
+  "card": "E4",
+  "primary_control": "Frozen main champion, m3_match_split_win_pair_l31_factor_gru_size",
+  "contrast_controls": {
+    "forward": "matched S2 drop using same fixed rates and hypothesis prior",
+    "constant": "same S2 forward, tree+GRU donor and conditional payout head",
+    "gated": "constant blend with same inputs"
+  },
+  "archived_diagnostic_controls": ["S1 global, fitted on public validation folds", "native M3", "native M4"],
+  "common_slices": ["all", "released short history", "released complete history", "released forward support below 40", "frozen M3 top pair 4-7"],
+  "bootstrap": {"draws": 10000, "seed": 20261107, "unit": "whole episode", "stratification": "condition"},
+  "promotion": "Released main paired 95% interval entirely below zero against frozen champion, improvement in all four conditions, and a gain against the matched control on the E4 target slice.",
+  "mask_tiers": ["frozen payout only", "all mask-sensitive forecast parents recomputed"],
+  "mask_reporting": "Compare each stress forecast both to the frozen released champion and the same-mask champion."
+}

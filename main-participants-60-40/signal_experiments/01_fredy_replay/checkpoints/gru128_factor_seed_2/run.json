@@ -1,0 +1,33 @@
+{
+  "arm": "seq",
+  "data": "/Users/andrewvong/Documents/Projects/tamudatathon27/main-participants-60-40/public",
+  "data_root": "/Users/andrewvong/Documents/Projects/tamudatathon27/main-participants-60-40/public",
+  "device": null,
+  "fit_spec": {
+    "label_splits": [
+      "train"
+    ],
+    "soft_splits": [],
+    "tick_splits": [
+      "train",
+      "validation",
+      "test"
+    ]
+  },
+  "max_points": 60.0,
+  "metadata_sha256": "7979323052df471e6b8b2c985cb48faa89e287ac6b0fd7789f24bccd544ce7bf",
+  "mode": "dev",
+  "params": {
+    "epochs": 100,
+    "factor": true,
+    "h": 128,
+    "msg": false,
+    "seed": 2,
+    "transductive": true
+  },
+  "round": "main",
+  "seconds": 269.22255874999973,
+  "smoke": null,
+  "validation_queries_sha256": "168b7f6365a4f51084437c0071636b102ca3fb4bf0347b912778c51714fc48f2",
+  "variant": "gru128_factor"
+}

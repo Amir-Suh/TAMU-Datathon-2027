@@ -1,0 +1,28 @@
+Environment for commands: PYTHONDONTWRITEBYTECODE=1; OPENBLAS_NUM_THREADS=1; OMP_NUM_THREADS=1.
+Python: ~/.venvs/tdx/bin/python (bare `python` is unavailable).
+
+$ ~/.venvs/tdx/bin/python -m pytest -q tests/gbdt
+8 passed in 3.18s
+
+$ ~/.venvs/tdx/bin/python -m tdx.tools.leak_test --arm gbdt
+PASS gbdt/all_inf_l15: 5 episodes, cutoff reduced by 4, max abs difference 0.0; forbidden dev opens 0
+
+$ ~/.venvs/tdx/bin/python -m tdx.tools.leak_test --arm gbdt --variant trans_64_l15
+PASS gbdt/trans_64_l15: 5 episodes, cutoff reduced by 4, max abs difference 0.0; forbidden dev opens 0
+
+$ PYTHONPATH=src ~/.venvs/tdx/bin/python runs/gbdt/verify.py
+{"best_iteration": 394, "fit_rows": 133800, "test_repeat_max_abs_difference": 0.0, "test_save_load_max_abs_difference": 0.0, "validation_repeat_max_abs_difference": 0.0, "validation_save_load_max_abs_difference": 0.0}
+
+$ PYTHONPATH=src ~/.venvs/tdx/bin/python runs/gbdt/verify.py trans_64_l15
+{"best_iteration": 400, "fit_rows": 539424, "test_repeat_max_abs_difference": 0.0, "test_save_load_max_abs_difference": 0.0, "validation_repeat_max_abs_difference": 0.0, "validation_save_load_max_abs_difference": 0.0}
+
+$ ~/.venvs/tdx/bin/python kit/check_submission.py runs/gbdt/trans_64_l15_no_neighbour/test_pred.csv --data data/main
+VALID FORMAT: 1536 queries | main | test
+Season: 5fffdc4d0c700bbf61c3f911
+SHA-256: 8c0dc3f88fceb97f923f2e12537bc521cd6346c7f084de0f5835507139a65175
+Test answers are private; this check does not calculate your event score.
+Local check only. Nothing was uploaded. Acceptance and code reproduction are separate.
+
+Sweep and compare stdout: runs/gbdt/pilot_output.txt and runs/gbdt/compare.txt.
+Tests changed: initial newly written schema-length assertion corrected from 47 to 46 to match the explicit 8+1+20+3+1+1+9+2+1 feature specification; scalar oracle still verifies every feature for all rows of 3 episodes.
+Fresh-folder entry reproduction is reserved for W6/final upload; no entry ZIP or upload was requested or produced here.

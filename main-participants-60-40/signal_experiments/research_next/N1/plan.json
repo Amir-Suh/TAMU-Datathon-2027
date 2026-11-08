@@ -1,0 +1,66 @@
+{
+  "arms": [
+    "gru_raw",
+    "gru_pair_evidence",
+    "tcn_raw",
+    "tcn_pair_evidence"
+  ],
+  "batch_size": 48,
+  "bootstrap": {
+    "draws": 10000,
+    "seed": 20261107,
+    "unit": "condition-stratified episode"
+  },
+  "cpu_threads": 2,
+  "epochs": 8,
+  "experiment": "N1",
+  "git": {
+    "branch": "main",
+    "commit": null
+  },
+  "input_sha256": {
+    "m5_m6_repair/results/repaired-m5-m6/models.joblib": "9dbc6ff51e85c4758f22d4835b366b203e69d927cf796fdee7ace51b67c12bbf",
+    "public/metadata.json": "7979323052df471e6b8b2c985cb48faa89e287ac6b0fd7789f24bccd544ce7bf",
+    "public/train/history.csv": "46a1e783a1b222dc2de33bc72259207e3d013135d1229af9669ffcd454116217",
+    "public/train/labels.csv": "f6b3a2ca73888b91bb9a38d0ca52f449062ce70534bef9776ad4f53fc713b46a",
+    "public/train/queries.csv": "96cbf59fe0b340981f3f2958dde3305162215ae911d0559d6f34764e74460846",
+    "public/validation/conditions.csv": "ebcca7597bbdfa532c5254b92903e66522a710502a6f70689c3de311f75c29b1",
+    "public/validation/history.csv": "4b7ef4789750b7459eb085be3449ea8bd9dfd31441a928ad391a1376a44f8fe4",
+    "public/validation/queries.csv": "168b7f6365a4f51084437c0071636b102ca3fb4bf0347b912778c51714fc48f2",
+    "public/validation/reference.csv": "bb396d9e4d20bf4004374f9ab781f41aaa8b730e61887c1969be534efeb1e6c6",
+    "public/validation/targets.csv": "93b6e978f6818d2456dcb677fddb6ba243e864cef56e33a4bf94bde5ba4b51f3",
+    "signal_experiments/ceiling_analysis/analyze.py": "9ca40388e8a0472592498311beeeb93daca48944bd443e0c759e18cf74d7ff55",
+    "signal_experiments/combined/m3_match_split_win_pair_l31_factor_gru_size.csv": "ac6fae2e924da0bb5f1b7638480572373a87a192d4891c1315ffc11f714aeea6",
+    "signal_experiments/folds.csv": "df85f54a091a88b1961ed69d29d4884718bf7c2ce809d7793ee80bb529f5bac2",
+    "signal_experiments/research_next/N1/infer.py": "4a53f5beb8f1e45d2431cd052c1499236a7532faee82681011db08f65e426604",
+    "signal_experiments/research_next/N1/network.py": "4760f362b2a5f9b62be0fd7c0a1c9bdd6c9b3b11c20a867a047c30cd381b3667",
+    "signal_experiments/research_next/N1/run.py": "08f69428aeec2e75c63ab37f6e17b197cab15e463196a6a2abd8546dae87c9be",
+    "signal_experiments/research_next/N1/structure.py": "f05bded000c422864ab747ed33d5f89e32c02dce28eca8488ca7c5e6fb668927",
+    "signal_experiments/research_next/W1/run.py": "0979b86fe5eca2419ab45da60c12091f23c77a93444b644a6331efdbdb7ac92c",
+    "signal_experiments/score.py": "8f1559eaa94bf1224094abc8ffe33695ce9438a4cc586b186f3e7608c6da6264"
+  },
+  "pair_switch_probability": 0.00390625,
+  "payout_order": [
+    0,
+    1,
+    2,
+    5,
+    20
+  ],
+  "round": "main",
+  "scope": "Main-validation development with neural training exclusively on train episodes.",
+  "season_id": "5fffdc4d0c700bbf61c3f911",
+  "seeds": [
+    101,
+    202,
+    303
+  ],
+  "size_decay_per_tick": 0.9785720620877001,
+  "size_prior_strength": 24,
+  "versions": {
+    "numpy": "1.26.4",
+    "python": "3.9.6",
+    "scipy": "1.13.1",
+    "torch": "2.8.0"
+  }
+}

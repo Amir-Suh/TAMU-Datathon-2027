@@ -1,0 +1,22 @@
+[
+  {
+    "freeze": "state_tail/01/frozen.json",
+    "files_rehashed": 16,
+    "separate_score_started_at": "2026-11-07T23:50:01.746729+00:00"
+  },
+  {
+    "freeze": "lag_cells/attempt_01/forecast_freeze.json",
+    "files_rehashed": 6,
+    "separate_score_started_at": "2026-11-07T23:47:55.179859+00:00"
+  },
+  {
+    "freeze": "sparse_filter/attempt_01/forecast_freeze.json",
+    "files_rehashed": 57,
+    "separate_score_started_at": "2026-11-07T23:58:45.022781+00:00"
+  },
+  {
+    "freeze": "neural/attempt_01/full/forecast_freeze.json",
+    "files_rehashed": 52,
+    "separate_score_started_at": "2026-11-07T23:58:08.429579+00:00"
+  }
+]

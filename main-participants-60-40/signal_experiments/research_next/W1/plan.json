@@ -1,0 +1,114 @@
+{
+  "branch": "main",
+  "class_order": [
+    0,
+    1,
+    2,
+    5,
+    20
+  ],
+  "commit": null,
+  "earlier_cutoff_signal": 0,
+  "elapsed_forecast_and_checks_seconds": 40.542433667000005,
+  "forecast_sha256": {
+    "W1a_test_predictions.csv": "6eda258567dcbe18c7ad98528567d177d818580a8454411bb3629ffa57b8e903",
+    "W1a_validation_predictions.csv": "a0c057a67e15244d47856435b43b105c167db56265e81ec48517262cde52a538",
+    "W1b_test_predictions.csv": "65b54d89c15ce9d3941eec5665c883a2660f313945bd9719f8d7c48bf14219ed",
+    "W1b_validation_predictions.csv": "b5b91c73a28874091091473fe63af43b35fb3c4297da373f186d2f0fba181bac"
+  },
+  "frozen_m3_kappa": 120.0,
+  "historical_cutoff_shifts": [
+    0,
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    28
+  ],
+  "input_sha256": {
+    "m5_m6_repair/results/repaired-m5-m6/freeze.json": "a9eb3738ff1537254a6277687b28805a40790041f2807f51654d705299083e04",
+    "m5_m6_repair/results/repaired-m5-m6/models.joblib": "9dbc6ff51e85c4758f22d4835b366b203e69d927cf796fdee7ace51b67c12bbf",
+    "public/metadata.json": "7979323052df471e6b8b2c985cb48faa89e287ac6b0fd7789f24bccd544ce7bf",
+    "public/test/history.csv": "7f3695122e0f0bf18fe603a6515d190d9c8578a8c702f11881befb40c636cf9e",
+    "public/test/queries.csv": "3d8065626e161fd3e7b988b735583a23d4c989eb64c8ae90f200b726c02e42b9",
+    "public/train/history.csv": "46a1e783a1b222dc2de33bc72259207e3d013135d1229af9669ffcd454116217",
+    "public/train/labels.csv": "f6b3a2ca73888b91bb9a38d0ca52f449062ce70534bef9776ad4f53fc713b46a",
+    "public/train/queries.csv": "96cbf59fe0b340981f3f2958dde3305162215ae911d0559d6f34764e74460846",
+    "public/validation/history.csv": "4b7ef4789750b7459eb085be3449ea8bd9dfd31441a928ad391a1376a44f8fe4",
+    "public/validation/queries.csv": "168b7f6365a4f51084437c0071636b102ca3fb4bf0347b912778c51714fc48f2",
+    "signal_experiments/04_four_lag_cells/train_fit.json": "70153ef8872777978b4e51a148524724bf7e806dd8464f7044740ce56f62902d",
+    "signal_experiments/combined/m3_match_split_win_pair_l31_factor_gru_size.csv": "ac6fae2e924da0bb5f1b7638480572373a87a192d4891c1315ffc11f714aeea6",
+    "signal_experiments/combined/m3_match_split_win_pair_l31_factor_gru_size_test.csv": "ce389ffa0eaede28f55ad8df70ccbdcec8c251f214416792d6d830130a68c74a",
+    "signal_experiments/folds.csv": "df85f54a091a88b1961ed69d29d4884718bf7c2ce809d7793ee80bb529f5bac2"
+  },
+  "pair_prior_pseudocount": 200.0,
+  "round": {
+    "conditions": [
+      "stable",
+      "short_history",
+      "drift",
+      "shared_change"
+    ],
+    "counts_per_condition": {
+      "test": 48,
+      "train": 24,
+      "validation": 24
+    },
+    "history": "Machine-specific interactions, lags up to 8, missing observations and changing regimes.",
+    "machines_per_episode": 8,
+    "max_points": 60,
+    "mode": "event",
+    "reference": "Pooled, strength=20, fitted separately on this round's training observations.",
+    "round": "main",
+    "season_id": "5fffdc4d0c700bbf61c3f911",
+    "suite_version": "experimentation-suite-v3",
+    "target": "Next-spin probabilities for 0x, 1x, 2x, 5x, 20x.",
+    "test_policy": "Test targets, conditions and reference predictions stay private.",
+    "warning": "Public demo seeds are reconstructable; event seeds are private."
+  },
+  "seed": 20261107,
+  "selected_strength": 20,
+  "source_sha256": {
+    "m5_m6_repair/models/common/__init__.py": "e49796d13deb529d7807662b1c4e1bb9d3f7decedc6592849c5e055c33fe26c2",
+    "m5_m6_repair/models/common/components.py": "d77a90f34655e68b2709c6157bc131992ec3a7b44f78c18c65b00b0d4ce65779",
+    "m5_m6_repair/models/common/crossfit.py": "1de34f668fdd4222dafccd7336aa718967c7cc2156537f33a125b832378e611d",
+    "m5_m6_repair/models/common/data.py": "a508a6d12b3b9e2473a27528188c8f6455cbd658ea901731e86dfa75feea9e0b",
+    "m5_m6_repair/models/common/evaluate.py": "47a51b0c7d95402a1fb92a56bb16fe5cb481725ae0d926829240f8b81944265a",
+    "m5_m6_repair/models/common/selection.py": "86c8384d3d536908c45acd48a74a47bef03ed1cc211f6030dd3903a3ed32bd62",
+    "m5_m6_repair/models/m3_lag_pair_flip/model.py": "547ab43d704fe7c6c3933f15bdadeeb3ae0c223b452bae6b3cd0ec163e3600a3",
+    "m5_m6_repair/run_repaired_comparison.py": "9f6ef0a7d6faefc369c5e835db187f7cee852d74963772abc340b0ba34bc4951",
+    "signal_experiments/04_four_lag_cells/run.py": "b1c20fa0d92c21a2196c0e7cbabb809ab9a2462ed7052d54568bbace78d9f30f",
+    "signal_experiments/research_next/W1/run.py": "0979b86fe5eca2419ab45da60c12091f23c77a93444b644a6331efdbdb7ac92c",
+    "signal_experiments/score.py": "8f1559eaa94bf1224094abc8ffe33695ce9438a4cc586b186f3e7608c6da6264",
+    "slot_forecasting/__init__.py": "49490dd5af60e50f1dd37048845f7b056b6f2b83a30b53031b4f12bb4c1e22e2",
+    "slot_forecasting/baseline.py": "c7e73421a47800812c54c2b58cb324446d173ebdedaaf06fc15512046f9f87c9",
+    "slot_forecasting/contest.py": "411c7586b26cbc579ac32489b5306a4e87942aac58738cdec0e7e8ce7d3cc442",
+    "slot_forecasting/experiments.py": "a0c06144922f8b7f49d9c058c963ffc2b49cd555bb474a92a335d330044ce036",
+    "slot_forecasting/io.py": "3ef8706676971936080da79be2c073e2a12472ab3a892757a9c2aff8712ab76f",
+    "slot_forecasting/rounds.py": "e048ef615df8c291305c7a0c642b85bad9df80103c6c7c2e1756cd6ff7508955",
+    "slot_forecasting/schema.py": "2a8ab28d29865faf0ee533c17af6b425e12b96be381825f3b23f241479645b22",
+    "slot_forecasting/scoring.py": "477c66c6c5449ca65f77ec4867a9b80934a52c892b045abe32e6471d2c8d4edd",
+    "slot_forecasting/starter.py": "33f50997aa73969d3e0fc09df6c88ad00032026b62d680ab8f76d055bd0f1069",
+    "slot_forecasting/submission_contract.py": "d88207f8279d6800b06bbad79dc24187df6816ae89defad0b8ff0c80c0ae499c",
+    "slot_forecasting/transition.py": "eb37e6b87c76f4c2f9643cbfdfe69d19980760efbaa019ee5a1984c839f2576f"
+  },
+  "strength_grid": [
+    8,
+    20,
+    50
+  ],
+  "thread_cap": 2,
+  "train_selected_win_head": "W1a",
+  "type_gate": false,
+  "type_prior_pseudocount": 200.0,
+  "versions": {
+    "joblib": "1.5.3",
+    "numpy": "1.26.4",
+    "python": "3.9.6",
+    "scikit-learn": "1.6.1",
+    "scipy": "1.13.1",
+    "threadpoolctl": "3.6.0"
+  }
+}

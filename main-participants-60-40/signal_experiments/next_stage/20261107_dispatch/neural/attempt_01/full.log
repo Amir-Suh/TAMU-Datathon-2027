@@ -1,0 +1,16 @@
+features for fold 0 ready, 192 held machines
+features for fold 1 ready, 192 held machines
+features for fold 2 ready, 192 held machines
+features for fold 3 ready, 192 held machines
+factored_101 complete in 8.16s
+factored_202 complete in 7.60s
+factored_303 complete in 7.49s
+signal_offset_101 complete in 7.41s
+signal_offset_202 complete in 7.43s
+signal_offset_303 complete in 7.32s
+signal_offset_mask_101 complete in 7.42s
+signal_offset_mask_202 complete in 7.79s
+signal_offset_mask_303 complete in 7.75s
+validation inference, all arms, 23.42s
+test inference, all arms, 11.86s
+E6 finished in 108.14s

@@ -1,0 +1,23 @@
+{
+  "python": "3.10.20 (main, Mar  3 2026, 00:49:35) [Clang 21.0.0 (clang-2100.0.123.102)]",
+  "numpy": "2.2.6",
+  "torch": "2.11.0",
+  "test_numpy_matches_torch_and_roundtrips": {
+    "passed": true,
+    "seconds": 1.0254509169899393
+  },
+  "test_prediction_ignores_ticks_at_or_after_cutoff": {
+    "passed": true,
+    "seconds": 0.21912787499604747
+  },
+  "forbidden_answer_opens": [],
+  "export_result": "ValueError: torch is forbidden in shipped runtime graph: torch.nn.functional",
+  "synthetic_adversarial": {
+    "fit_future_storage_signal_and_disallowed_answers_invariant": true,
+    "finite_parameters_and_predictions": true,
+    "probability_sum_max_error": 2.220446049250313e-16,
+    "numpy_torch_logit_parity": 2.220446049250313e-16,
+    "prediction_future_storage_and_signal_max_delta": 0.0,
+    "machine_permutation_max_delta": 5.551115123125783e-17
+  }
+}

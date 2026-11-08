@@ -1,0 +1,44 @@
+--- a/src/tdx/arms/seq/arm.py
++++ b/src/tdx/arms/seq/arm.py
+@@ -62,7 +62,7 @@
+     def fit(self, rnd, spec):
+         import torch, torch.nn as nn, torch.nn.functional as F
+         p = self.p
+-        dev = self.device if self.device in ('cpu', 'cuda') else ('cuda' if torch.cuda.is_available() else 'cpu')
++        dev = self.device if self.device in ('cpu', 'cuda', 'mps') else ('cuda' if torch.cuda.is_available() else 'cpu')
+         torch.manual_seed(p['seed']); np.random.seed(p['seed'])
+         Y, MT, CO, LAB, SOFT = [], [], [], [], []
+         for name in spec.tick_splits:
+@@ -92,7 +92,19 @@
+             def forward(s, y, mt):
+                 B, M, T = y.shape
+                 h = torch.zeros(B, M, H, device=y.device, dtype=s.head.weight.dtype); m = torch.zeros_like(h)
+-                te = s.typ(mt); out = []
++                te = s.typ(mt)
++                if not p['msg']:
++                    x = torch.cat([s.tok(y + 1), te[:, :, None, :].expand(-1, -1, T, -1)], -1)
++                    x = x.reshape(B * M, T, -1)
++                    weights = [s.cell.weight_ih, s.cell.weight_hh, s.cell.bias_ih, s.cell.bias_hh]
++                    states, _ = torch._VF.gru(x, h.reshape(1, B * M, H), weights, True, 1, 0.0,
++                                              s.training, False, True)
++                    o = s.head(s.drop(states.reshape(B, M, T, H)))
++                    if p['factor']:
++                        wl = o[..., :1]
++                        o = torch.cat([F.logsigmoid(-wl), F.logsigmoid(wl) + F.log_softmax(o[..., 1:], -1)], -1)
++                    return o
++                out = []
+                 for t in range(T):
+                     x = torch.cat([s.tok(y[:, :, t] + 1), te] + ([m] if p['msg'] else []), -1)
+                     h = s.cell(x.reshape(B * M, -1), h.reshape(B * M, -1)).reshape(B, M, -1)
+@@ -123,9 +135,9 @@
+                     num = num + p['w_cut'] * (-(lab[ok] * cl[ok]).sum(-1)).sum(); den = den + p['w_cut'] * ok.sum()
+                 loss = num / den
+                 opt.zero_grad(); loss.backward(); nn.utils.clip_grad_norm_(net.parameters(), 1.0); opt.step()
+-        net.double().eval()
++        net.cpu().double().eval()
+         with torch.no_grad():
+-            ref = net(Y[:3], MT[:3]).cpu().numpy()
++            ref = net(Y[:3].cpu(), MT[:3].cpu()).numpy()
+         sd = {k: v.detach().cpu().double().numpy() for k, v in net.state_dict().items()}
+         self.w = dict(tok=sd['tok.weight'], typ=sd['typ.weight'], wih=sd['cell.weight_ih'], whh=sd['cell.weight_hh'],
+                       bih=sd['cell.bias_ih'], bhh=sd['cell.bias_hh'], hw=sd['head.weight'], hb=sd['head.bias'])

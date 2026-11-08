@@ -1,0 +1,15 @@
+Environment: PYTHONDONTWRITEBYTECODE=1 OPENBLAS_NUM_THREADS=2 OMP_NUM_THREADS=2 MKL_NUM_THREADS=2
+
+$ ~/.venvs/tdx/bin/python -m pytest -q tests/glm
+...... [100%]
+6 passed in 0.75s
+
+$ ~/.venvs/tdx/bin/python -m tdx.tools.leak_test --arm glm --variant l4
+PASS glm/l4: 5 episodes, cutoff reduced by 4, max abs difference 0.0; forbidden dev opens 0
+
+Microbenchmark: 6 episodes/split; fit 0.334s; validation+test prediction 0.340s.
+
+Final solver defaults: pooled_maxiter=1500, local_maxiter=150.
+$ PYTHONDONTWRITEBYTECODE=1 OPENBLAS_NUM_THREADS=2 OMP_NUM_THREADS=2 MKL_NUM_THREADS=2 ~/.venvs/tdx/bin/python -m pytest -q tests
+....................... [100%]
+23 passed in 9.27s

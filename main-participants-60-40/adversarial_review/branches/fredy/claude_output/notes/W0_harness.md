@@ -1,0 +1,24 @@
+# W0 harness
+- Shared API implemented in src/tdx: data, fit, Arm, features, score, run, sweep, log.
+- Payouts (0,1,2,5,20); types steady=0, balanced=1, jackpot=2; machines sorted per episode.
+- load_round(root=None,name=None,answers=True) returns dense splits; answers=False omits validation supervision.
+- with_answers(rnd) attaches released validation answers for scoring/final fitting.
+- Cache .cache/<round>_<metadata-sha>.npz holds inputs and train answers only; validates root and version.
+- load_round cold 0.719s; warm 0.009s, including validation answer attachment.
+- fit_round(rnd,spec) strips unauthorized labels/conditions/targets and all reference predictions.
+- dev loads validation answers after fitting/prediction; final writes test outputs and no validation scores.
+- Kit contest_score, score_predictions episode errors, and episode_folds supply all scoring.
+- pooled variants: pooled, pooled_recent, recent, context; vectorized numpy, save/load JSON directory.
+- Kit parity max abs difference <=3.33e-16; repeated CPU fit and save/load are bitwise identical.
+- run records dataset root, metadata and validation-query SHA256 for comparison integrity.
+- sweep shares loaded data; forwards device/smoke to named parameters or **kwargs.
+- compare: 2000 stratified paired episode draws, seed 20261107; percentile interval of points difference.
+- leak_test audits dev opens and tests five episodes with cutoff reduced by four.
+- Spec correction: last four observed ticks are legal at the original cutoff; perturb only after a reduced cutoff.
+- Root tdx -> src/tdx symlink enables the specified python -m tdx commands without installation/PYTHONPATH.
+- Copy that symlink too when collecting this stream, or set PYTHONPATH=src in the destination environment.
+- Other small extensions: root identity/version cache guard; test_pred.npy also saved in dev; dataset hashes in metadata.
+- 16 tests pass; pooled 30.000000, pooled_recent 30.825854; both submission format checks pass.
+- Full exact command outputs: claude_output/notes/W0_acceptance.txt.
+- No adaptation kit present; adaptation path is parameterized but not exercised.
+- No upload or final entry packaging performed; fresh-folder reproduction belongs to the final upload step.

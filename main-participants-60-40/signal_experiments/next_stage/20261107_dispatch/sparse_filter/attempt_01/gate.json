@@ -1,0 +1,131 @@
+{
+  "fit": {
+    "constant": 0.5411674421988663,
+    "eta": [
+      0.2838234488720525,
+      -1.1239478057105297,
+      0.0466468049858401
+    ],
+    "eta_formula_raw": [
+      0.2838234488720525,
+      -0.028098695142763242,
+      0.0466468049858401
+    ],
+    "lambda_max": 1.0
+  },
+  "gate_only_held_fold_diagnostics": {
+    "0": {
+      "coefficients": {
+        "constant": 0.5637429902555486,
+        "eta": [
+          0.4861002677878838,
+          -1.0542877837446254,
+          -0.22959590474742006
+        ],
+        "eta_formula_raw": [
+          0.4861002677878838,
+          -0.026357194593615636,
+          -0.22959590474742006
+        ],
+        "lambda_max": 1.0
+      },
+      "held_loss": {
+        "constant": {
+          "grouped_binary_brier": 0.09960637200370154,
+          "mean_weight": 0.5637429902555193
+        },
+        "gated": {
+          "grouped_binary_brier": 0.09816768082209183,
+          "mean_weight": 0.5366062912038517
+        }
+      }
+    },
+    "1": {
+      "coefficients": {
+        "constant": 0.5550308081269176,
+        "eta": [
+          0.31175005091158337,
+          -1.1216218151423594,
+          0.07648183686054287
+        ],
+        "eta_formula_raw": [
+          0.31175005091158337,
+          -0.028040545378558983,
+          0.07648183686054287
+        ],
+        "lambda_max": 1.0
+      },
+      "held_loss": {
+        "constant": {
+          "grouped_binary_brier": 0.1062326056355799,
+          "mean_weight": 0.5550308081268958
+        },
+        "gated": {
+          "grouped_binary_brier": 0.10478342616737679,
+          "mean_weight": 0.5351466451153752
+        }
+      }
+    },
+    "2": {
+      "coefficients": {
+        "constant": 0.5229656705034391,
+        "eta": [
+          0.2076289650948298,
+          -1.1330831490176287,
+          0.0714756198251596
+        ],
+        "eta_formula_raw": [
+          0.2076289650948298,
+          -0.02832707872544072,
+          0.0714756198251596
+        ],
+        "lambda_max": 1.0
+      },
+      "held_loss": {
+        "constant": {
+          "grouped_binary_brier": 0.10882080730299999,
+          "mean_weight": 0.5229656705034598
+        },
+        "gated": {
+          "grouped_binary_brier": 0.1071585904475064,
+          "mean_weight": 0.5151678756854835
+        }
+      }
+    },
+    "3": {
+      "coefficients": {
+        "constant": 0.5215343486940729,
+        "eta": [
+          0.11979552198607599,
+          -1.1841456038534164,
+          0.2773048725835073
+        ],
+        "eta_formula_raw": [
+          0.11979552198607599,
+          -0.02960364009633541,
+          0.2773048725835073
+        ],
+        "lambda_max": 1.0
+      },
+      "held_loss": {
+        "constant": {
+          "grouped_binary_brier": 0.11752957741583507,
+          "mean_weight": 0.5215343486941019
+        },
+        "gated": {
+          "grouped_binary_brier": 0.11600971689131077,
+          "mean_weight": 0.5191953543353374
+        }
+      }
+    }
+  },
+  "note": "Shared Fredy donor retains original transductive exposure. Bayesian held-row emissions are fitted on the other folds. Outer gate diagnostics do not nest emission refits.",
+  "ridge": 0.0001,
+  "shifts": [
+    0,
+    8,
+    16,
+    24
+  ],
+  "train_rows": 9216
+}

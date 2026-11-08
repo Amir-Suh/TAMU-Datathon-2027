@@ -1,0 +1,37 @@
+{
+  "at_cutoff_and_future_outcomes_and_cutoff_labels_invariant": true,
+  "chronological_likelihood_enumeration": {
+    "1": {
+      "hypotheses": 12,
+      "max_joint_likelihood_error": 3.0531133177191805e-16,
+      "max_normalization_error": 1.1102230246251565e-15,
+      "max_posterior_mean_error": 1.1102230246251565e-16,
+      "paths": 256
+    },
+    "2": {
+      "hypotheses": 12,
+      "max_joint_likelihood_error": 3.608224830031759e-16,
+      "max_normalization_error": 1.1102230246251565e-15,
+      "max_posterior_mean_error": 1.1102230246251565e-16,
+      "paths": 256
+    }
+  },
+  "extra_missing_padding_invariant": true,
+  "likelihood_enumeration_pre_grouped": {
+    "1": {
+      "hypotheses": 12,
+      "max_joint_likelihood_error": 3.0531133177191805e-16,
+      "max_normalization_error": 1.1102230246251565e-15,
+      "max_posterior_mean_error": 1.1102230246251565e-16,
+      "paths": 256
+    },
+    "2": {
+      "hypotheses": 12,
+      "max_joint_likelihood_error": 3.608224830031759e-16,
+      "max_normalization_error": 1.1102230246251565e-15,
+      "max_posterior_mean_error": 1.1102230246251565e-16,
+      "paths": 256
+    }
+  },
+  "xor_permutation_preserves_counts": true
+}

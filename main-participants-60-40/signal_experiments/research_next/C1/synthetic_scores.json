@@ -1,0 +1,1712 @@
+{
+  "stable_lead16_full": {
+    "m3": {
+      "p0_mse": 0.00026476362025096176
+    },
+    "fixed": {
+      "p0_mse": 5.261622966247549e-05,
+      "pair_accuracy": 1.0,
+      "polarity_accuracy": 1.0,
+      "mean_run_age": 200.0,
+      "mean_recent_reset_peak": 0.0,
+      "alarm_rate_within_16_of_change": null,
+      "median_alarm_delay_when_detected": null,
+      "stable_alarm_rate_after_warmup": 0.0
+    },
+    "polarity_32": {
+      "p0_mse": 0.014562694773196825,
+      "pair_accuracy": 1.0,
+      "polarity_accuracy": 0.96875,
+      "mean_run_age": 133.45322965213984,
+      "mean_recent_reset_peak": 0.18845123780252426,
+      "alarm_rate_within_16_of_change": null,
+      "median_alarm_delay_when_detected": null,
+      "stable_alarm_rate_after_warmup": 0.9375
+    },
+    "polarity_96": {
+      "p0_mse": 0.006738098262646896,
+      "pair_accuracy": 1.0,
+      "polarity_accuracy": 0.9791666666666666,
+      "mean_run_age": 181.46628986933715,
+      "mean_recent_reset_peak": 0.07941097713300942,
+      "alarm_rate_within_16_of_change": null,
+      "median_alarm_delay_when_detected": null,
+      "stable_alarm_rate_after_warmup": 0.14583333333333334
+    },
+    "pair_32": {
+      "p0_mse": 0.008197796408742424,
+      "pair_accuracy": 0.9791666666666666,
+      "polarity_accuracy": 1.0,
+      "mean_run_age": 111.4924422942774,
+      "mean_recent_reset_peak": 0.09847388356545826,
+      "alarm_rate_within_16_of_change": null,
+      "median_alarm_delay_when_detected": null,
+      "stable_alarm_rate_after_warmup": 0.7916666666666666
+    },
+    "pair_96": {
+      "p0_mse": 0.001914506799560486,
+      "pair_accuracy": 1.0,
+      "polarity_accuracy": 1.0,
+      "mean_run_age": 170.56705523893368,
+      "mean_recent_reset_peak": 0.04106668139124305,
+      "alarm_rate_within_16_of_change": null,
+      "median_alarm_delay_when_detected": null,
+      "stable_alarm_rate_after_warmup": 0.041666666666666664
+    },
+    "strength_96": {
+      "p0_mse": 0.0007621492995995572,
+      "pair_accuracy": 1.0,
+      "polarity_accuracy": 1.0,
+      "mean_run_age": 85.62499220254104,
+      "mean_recent_reset_peak": 0.011683979401914455,
+      "alarm_rate_within_16_of_change": null,
+      "median_alarm_delay_when_detected": null,
+      "stable_alarm_rate_after_warmup": 0.0
+    }
+  },
+  "stable_lead16_sparse": {
+    "m3": {
+      "p0_mse": 0.004074002897012618
+    },
+    "fixed": {
+      "p0_mse": 0.0001121667322226316,
+      "pair_accuracy": 0.9791666666666666,
+      "polarity_accuracy": 1.0,
+      "mean_run_age": 199.99999999999997,
+      "mean_recent_reset_peak": 0.0,
+      "alarm_rate_within_16_of_change": null,
+      "median_alarm_delay_when_detected": null,
+      "stable_alarm_rate_after_warmup": 0.0
+    },
+    "polarity_32": {
+      "p0_mse": 0.018498064972556728,
+      "pair_accuracy": 0.96875,
+      "polarity_accuracy": 0.9583333333333334,
+      "mean_run_age": 54.074223626669,
+      "mean_recent_reset_peak": 0.1871995126080405,
+      "alarm_rate_within_16_of_change": null,
+      "median_alarm_delay_when_detected": null,
+      "stable_alarm_rate_after_warmup": 0.8020833333333334
+    },
+    "polarity_96": {
+      "p0_mse": 0.010251269960468337,
+      "pair_accuracy": 0.96875,
+      "polarity_accuracy": 0.96875,
+      "mean_run_age": 107.19157354337192,
+      "mean_recent_reset_peak": 0.07926953556009488,
+      "alarm_rate_within_16_of_change": null,
+      "median_alarm_delay_when_detected": null,
+      "stable_alarm_rate_after_warmup": 0.052083333333333336
+    },
+    "pair_32": {
+      "p0_mse": 0.008454258392502089,
+      "pair_accuracy": 0.96875,
+      "polarity_accuracy": 1.0,
+      "mean_run_age": 47.21900061065764,
+      "mean_recent_reset_peak": 0.09838327126846097,
+      "alarm_rate_within_16_of_change": null,
+      "median_alarm_delay_when_detected": null,
+      "stable_alarm_rate_after_warmup": 0.25
+    },
+    "pair_96": {
+      "p0_mse": 0.0021789989282344564,
+      "pair_accuracy": 0.9791666666666666,
+      "polarity_accuracy": 1.0,
+      "mean_run_age": 101.50280915241383,
+      "mean_recent_reset_peak": 0.040944085882381874,
+      "alarm_rate_within_16_of_change": null,
+      "median_alarm_delay_when_detected": null,
+      "stable_alarm_rate_after_warmup": 0.0
+    },
+    "strength_96": {
+      "p0_mse": 0.0012659939204379418,
+      "pair_accuracy": 0.9791666666666666,
+      "polarity_accuracy": 1.0,
+      "mean_run_age": 83.17014899566489,
+      "mean_recent_reset_peak": 0.011495602208353833,
+      "alarm_rate_within_16_of_change": null,
+      "median_alarm_delay_when_detected": null,
+      "stable_alarm_rate_after_warmup": 0.0
+    }
+  },
+  "flip_lead8_full": {
+    "m3": {
+      "p0_mse": 0.008718300128399333
+    },
+    "fixed": {
+      "p0_mse": 0.4945860684279942,
+      "pair_accuracy": 0.96875,
+      "polarity_accuracy": 0.0,
+      "mean_run_age": 199.99999999999997,
+      "mean_recent_reset_peak": 0.0,
+      "alarm_rate_within_16_of_change": 0.0,
+      "median_alarm_delay_when_detected": null,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "polarity_32": {
+      "p0_mse": 0.009737359494420108,
+      "pair_accuracy": 1.0,
+      "polarity_accuracy": 0.9791666666666666,
+      "mean_run_age": 9.581723678768233,
+      "mean_recent_reset_peak": 0.2810057190278333,
+      "alarm_rate_within_16_of_change": 0.8229166666666666,
+      "median_alarm_delay_when_detected": 0.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "polarity_96": {
+      "p0_mse": 0.009015768959270436,
+      "pair_accuracy": 0.9895833333333334,
+      "polarity_accuracy": 0.9583333333333334,
+      "mean_run_age": 15.022285942379767,
+      "mean_recent_reset_peak": 0.13690594750301002,
+      "alarm_rate_within_16_of_change": 0.25,
+      "median_alarm_delay_when_detected": 1.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "pair_32": {
+      "p0_mse": 0.2407144755983952,
+      "pair_accuracy": 0.07291666666666667,
+      "polarity_accuracy": 0.0,
+      "mean_run_age": 18.33004738718296,
+      "mean_recent_reset_peak": 0.11743246085272407,
+      "alarm_rate_within_16_of_change": 0.28125,
+      "median_alarm_delay_when_detected": 0.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "pair_96": {
+      "p0_mse": 0.24654349468452197,
+      "pair_accuracy": 0.125,
+      "polarity_accuracy": 0.0,
+      "mean_run_age": 30.461821620811637,
+      "mean_recent_reset_peak": 0.05430774925934965,
+      "alarm_rate_within_16_of_change": 0.010416666666666666,
+      "median_alarm_delay_when_detected": 0.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "strength_96": {
+      "p0_mse": 0.3545302266859241,
+      "pair_accuracy": 0.96875,
+      "polarity_accuracy": 0.0,
+      "mean_run_age": 45.295254143698905,
+      "mean_recent_reset_peak": 0.01193265876053469,
+      "alarm_rate_within_16_of_change": 0.0,
+      "median_alarm_delay_when_detected": null,
+      "stable_alarm_rate_after_warmup": null
+    }
+  },
+  "flip_lead8_sparse": {
+    "m3": {
+      "p0_mse": 0.023955606721980115
+    },
+    "fixed": {
+      "p0_mse": 0.4140088115073967,
+      "pair_accuracy": 0.65625,
+      "polarity_accuracy": 0.041666666666666664,
+      "mean_run_age": 199.99999999999997,
+      "mean_recent_reset_peak": 0.0,
+      "alarm_rate_within_16_of_change": 0.0,
+      "median_alarm_delay_when_detected": null,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "polarity_32": {
+      "p0_mse": 0.020650296985067738,
+      "pair_accuracy": 0.9270833333333334,
+      "polarity_accuracy": 0.9583333333333334,
+      "mean_run_age": 9.442367888485302,
+      "mean_recent_reset_peak": 0.27716436310848613,
+      "alarm_rate_within_16_of_change": 0.8229166666666666,
+      "median_alarm_delay_when_detected": 0.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "polarity_96": {
+      "p0_mse": 0.023450472066791368,
+      "pair_accuracy": 0.9166666666666666,
+      "polarity_accuracy": 0.9166666666666666,
+      "mean_run_age": 17.01320807571787,
+      "mean_recent_reset_peak": 0.13593410438051357,
+      "alarm_rate_within_16_of_change": 0.25,
+      "median_alarm_delay_when_detected": 1.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "pair_32": {
+      "p0_mse": 0.22517300493990622,
+      "pair_accuracy": 0.07291666666666667,
+      "polarity_accuracy": 0.020833333333333332,
+      "mean_run_age": 14.728977262681113,
+      "mean_recent_reset_peak": 0.11681075151533704,
+      "alarm_rate_within_16_of_change": 0.28125,
+      "median_alarm_delay_when_detected": 0.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "pair_96": {
+      "p0_mse": 0.23349949187133312,
+      "pair_accuracy": 0.07291666666666667,
+      "polarity_accuracy": 0.020833333333333332,
+      "mean_run_age": 30.45810396687553,
+      "mean_recent_reset_peak": 0.05303863357104949,
+      "alarm_rate_within_16_of_change": 0.010416666666666666,
+      "median_alarm_delay_when_detected": 0.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "strength_96": {
+      "p0_mse": 0.3119540895831221,
+      "pair_accuracy": 0.7395833333333334,
+      "polarity_accuracy": 0.041666666666666664,
+      "mean_run_age": 70.14941107777464,
+      "mean_recent_reset_peak": 0.011750566666284818,
+      "alarm_rate_within_16_of_change": 0.0,
+      "median_alarm_delay_when_detected": null,
+      "stable_alarm_rate_after_warmup": null
+    }
+  },
+  "flip_lead16_full": {
+    "m3": {
+      "p0_mse": 0.0006190948317691419
+    },
+    "fixed": {
+      "p0_mse": 0.4779746265059898,
+      "pair_accuracy": 0.9375,
+      "polarity_accuracy": 0.0,
+      "mean_run_age": 200.0,
+      "mean_recent_reset_peak": 0.0,
+      "alarm_rate_within_16_of_change": 0.0,
+      "median_alarm_delay_when_detected": null,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "polarity_32": {
+      "p0_mse": 0.007297599723100862,
+      "pair_accuracy": 1.0,
+      "polarity_accuracy": 0.9791666666666666,
+      "mean_run_age": 14.778745786157065,
+      "mean_recent_reset_peak": 0.2714957249542496,
+      "alarm_rate_within_16_of_change": 0.8645833333333334,
+      "median_alarm_delay_when_detected": 0.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "polarity_96": {
+      "p0_mse": 0.002000466742388586,
+      "pair_accuracy": 1.0,
+      "polarity_accuracy": 1.0,
+      "mean_run_age": 15.766025543481632,
+      "mean_recent_reset_peak": 0.1381801087673495,
+      "alarm_rate_within_16_of_change": 0.2604166666666667,
+      "median_alarm_delay_when_detected": 0.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "pair_32": {
+      "p0_mse": 0.25704912147212017,
+      "pair_accuracy": 0.041666666666666664,
+      "polarity_accuracy": 0.0,
+      "mean_run_age": 16.45016862319791,
+      "mean_recent_reset_peak": 0.12784804236033473,
+      "alarm_rate_within_16_of_change": 0.2604166666666667,
+      "median_alarm_delay_when_detected": 0.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "pair_96": {
+      "p0_mse": 0.2629555310957223,
+      "pair_accuracy": 0.052083333333333336,
+      "polarity_accuracy": 0.0,
+      "mean_run_age": 26.026487982253382,
+      "mean_recent_reset_peak": 0.06205025446346318,
+      "alarm_rate_within_16_of_change": 0.03125,
+      "median_alarm_delay_when_detected": 0.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "strength_96": {
+      "p0_mse": 0.3008829038818052,
+      "pair_accuracy": 0.96875,
+      "polarity_accuracy": 0.0,
+      "mean_run_age": 33.92739408623098,
+      "mean_recent_reset_peak": 0.012139138169085453,
+      "alarm_rate_within_16_of_change": 0.0,
+      "median_alarm_delay_when_detected": null,
+      "stable_alarm_rate_after_warmup": null
+    }
+  },
+  "flip_lead16_sparse": {
+    "m3": {
+      "p0_mse": 0.001696316779168528
+    },
+    "fixed": {
+      "p0_mse": 0.2026620946699819,
+      "pair_accuracy": 0.08333333333333333,
+      "polarity_accuracy": 0.4375,
+      "mean_run_age": 200.00000000000003,
+      "mean_recent_reset_peak": 0.0,
+      "alarm_rate_within_16_of_change": 0.0,
+      "median_alarm_delay_when_detected": null,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "polarity_32": {
+      "p0_mse": 0.00834119325937892,
+      "pair_accuracy": 1.0,
+      "polarity_accuracy": 0.9791666666666666,
+      "mean_run_age": 14.964580875877902,
+      "mean_recent_reset_peak": 0.2559383194960254,
+      "alarm_rate_within_16_of_change": 0.8020833333333334,
+      "median_alarm_delay_when_detected": 0.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "polarity_96": {
+      "p0_mse": 0.0033179098061635165,
+      "pair_accuracy": 0.9895833333333334,
+      "polarity_accuracy": 0.9895833333333334,
+      "mean_run_age": 17.256083679992827,
+      "mean_recent_reset_peak": 0.12884087301044989,
+      "alarm_rate_within_16_of_change": 0.22916666666666666,
+      "median_alarm_delay_when_detected": 0.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "pair_32": {
+      "p0_mse": 0.14367516166875094,
+      "pair_accuracy": 0.3125,
+      "polarity_accuracy": 0.3333333333333333,
+      "mean_run_age": 16.66145793458489,
+      "mean_recent_reset_peak": 0.12494469299058597,
+      "alarm_rate_within_16_of_change": 0.2604166666666667,
+      "median_alarm_delay_when_detected": 0.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "pair_96": {
+      "p0_mse": 0.1493497099203827,
+      "pair_accuracy": 0.23958333333333334,
+      "polarity_accuracy": 0.3229166666666667,
+      "mean_run_age": 32.86588939559417,
+      "mean_recent_reset_peak": 0.06009363965909751,
+      "alarm_rate_within_16_of_change": 0.03125,
+      "median_alarm_delay_when_detected": 0.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "strength_96": {
+      "p0_mse": 0.16633169747193377,
+      "pair_accuracy": 0.28125,
+      "polarity_accuracy": 0.4270833333333333,
+      "mean_run_age": 80.2479556688189,
+      "mean_recent_reset_peak": 0.012087309028888738,
+      "alarm_rate_within_16_of_change": 0.0,
+      "median_alarm_delay_when_detected": null,
+      "stable_alarm_rate_after_warmup": null
+    }
+  },
+  "flip_lead40_full": {
+    "m3": {
+      "p0_mse": 0.0002319907320528058
+    },
+    "fixed": {
+      "p0_mse": 0.4726080309410818,
+      "pair_accuracy": 0.8854166666666666,
+      "polarity_accuracy": 0.0,
+      "mean_run_age": 200.0,
+      "mean_recent_reset_peak": 0.0,
+      "alarm_rate_within_16_of_change": 0.0,
+      "median_alarm_delay_when_detected": null,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "polarity_32": {
+      "p0_mse": 0.009149684238507318,
+      "pair_accuracy": 1.0,
+      "polarity_accuracy": 0.9791666666666666,
+      "mean_run_age": 34.828270443864795,
+      "mean_recent_reset_peak": 0.14239806455834333,
+      "alarm_rate_within_16_of_change": 0.875,
+      "median_alarm_delay_when_detected": 0.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "polarity_96": {
+      "p0_mse": 0.0022780351251549557,
+      "pair_accuracy": 1.0,
+      "polarity_accuracy": 1.0,
+      "mean_run_age": 38.505699932044216,
+      "mean_recent_reset_peak": 0.06013925171096757,
+      "alarm_rate_within_16_of_change": 0.2708333333333333,
+      "median_alarm_delay_when_detected": 1.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "pair_32": {
+      "p0_mse": 0.2524998307932239,
+      "pair_accuracy": 0.03125,
+      "polarity_accuracy": 0.0,
+      "mean_run_age": 17.736120276887323,
+      "mean_recent_reset_peak": 0.09058769922938248,
+      "alarm_rate_within_16_of_change": 0.3541666666666667,
+      "median_alarm_delay_when_detected": 3.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "pair_96": {
+      "p0_mse": 0.24586050676539248,
+      "pair_accuracy": 0.052083333333333336,
+      "polarity_accuracy": 0.0,
+      "mean_run_age": 29.500685185595888,
+      "mean_recent_reset_peak": 0.03966586605511479,
+      "alarm_rate_within_16_of_change": 0.020833333333333332,
+      "median_alarm_delay_when_detected": 0.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "strength_96": {
+      "p0_mse": 0.29566084940851006,
+      "pair_accuracy": 0.9270833333333334,
+      "polarity_accuracy": 0.0,
+      "mean_run_age": 54.87475116785424,
+      "mean_recent_reset_peak": 0.010854896184333529,
+      "alarm_rate_within_16_of_change": 0.0,
+      "median_alarm_delay_when_detected": null,
+      "stable_alarm_rate_after_warmup": null
+    }
+  },
+  "flip_lead40_sparse": {
+    "m3": {
+      "p0_mse": 0.0003609556491412883
+    },
+    "fixed": {
+      "p0_mse": 6.502741569600893e-05,
+      "pair_accuracy": 0.9375,
+      "polarity_accuracy": 1.0,
+      "mean_run_age": 200.0,
+      "mean_recent_reset_peak": 0.0,
+      "alarm_rate_within_16_of_change": 0.0,
+      "median_alarm_delay_when_detected": null,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "polarity_32": {
+      "p0_mse": 0.009209067371285054,
+      "pair_accuracy": 0.9895833333333334,
+      "polarity_accuracy": 0.9791666666666666,
+      "mean_run_age": 54.300353197915946,
+      "mean_recent_reset_peak": 0.1405953311902517,
+      "alarm_rate_within_16_of_change": 0.17708333333333334,
+      "median_alarm_delay_when_detected": 21.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "polarity_96": {
+      "p0_mse": 0.002372961038352697,
+      "pair_accuracy": 0.9791666666666666,
+      "polarity_accuracy": 1.0,
+      "mean_run_age": 99.49059862303807,
+      "mean_recent_reset_peak": 0.059602524844781214,
+      "alarm_rate_within_16_of_change": 0.010416666666666666,
+      "median_alarm_delay_when_detected": 22.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "pair_32": {
+      "p0_mse": 0.005601110630765596,
+      "pair_accuracy": 0.9479166666666666,
+      "polarity_accuracy": 1.0,
+      "mean_run_age": 46.70379107372344,
+      "mean_recent_reset_peak": 0.08553247280775635,
+      "alarm_rate_within_16_of_change": 0.010416666666666666,
+      "median_alarm_delay_when_detected": 26.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "pair_96": {
+      "p0_mse": 0.0017275044727203058,
+      "pair_accuracy": 0.9479166666666666,
+      "polarity_accuracy": 1.0,
+      "mean_run_age": 94.33144813762964,
+      "mean_recent_reset_peak": 0.03557656263876267,
+      "alarm_rate_within_16_of_change": 0.0,
+      "median_alarm_delay_when_detected": 38.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "strength_96": {
+      "p0_mse": 0.001238533177945055,
+      "pair_accuracy": 0.9375,
+      "polarity_accuracy": 1.0,
+      "mean_run_age": 82.86801294653124,
+      "mean_recent_reset_peak": 0.011303765357767831,
+      "alarm_rate_within_16_of_change": 0.0,
+      "median_alarm_delay_when_detected": null,
+      "stable_alarm_rate_after_warmup": null
+    }
+  },
+  "ramp_lead8_full": {
+    "m3": {
+      "p0_mse": 0.09911148284230187
+    },
+    "fixed": {
+      "p0_mse": 0.5120950630031209,
+      "pair_accuracy": 0.96875,
+      "polarity_accuracy": 1.0,
+      "mean_run_age": 200.0,
+      "mean_recent_reset_peak": 0.0,
+      "alarm_rate_within_16_of_change": 0.0,
+      "median_alarm_delay_when_detected": null,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "polarity_32": {
+      "p0_mse": 0.043879883277451404,
+      "pair_accuracy": 0.9895833333333334,
+      "polarity_accuracy": 0.13541666666666666,
+      "mean_run_age": 16.000113918210673,
+      "mean_recent_reset_peak": 0.3029353042178859,
+      "alarm_rate_within_16_of_change": 0.6875,
+      "median_alarm_delay_when_detected": 2.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "polarity_96": {
+      "p0_mse": 0.054610473235499946,
+      "pair_accuracy": 1.0,
+      "polarity_accuracy": 0.16666666666666666,
+      "mean_run_age": 29.806572345202085,
+      "mean_recent_reset_peak": 0.14981762301415716,
+      "alarm_rate_within_16_of_change": 0.11458333333333333,
+      "median_alarm_delay_when_detected": 4.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "pair_32": {
+      "p0_mse": 0.23035840258684623,
+      "pair_accuracy": 0.09375,
+      "polarity_accuracy": 1.0,
+      "mean_run_age": 16.050390296454896,
+      "mean_recent_reset_peak": 0.1548960477583546,
+      "alarm_rate_within_16_of_change": 0.20833333333333334,
+      "median_alarm_delay_when_detected": 3.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "pair_96": {
+      "p0_mse": 0.24763247547698156,
+      "pair_accuracy": 0.14583333333333334,
+      "polarity_accuracy": 1.0,
+      "mean_run_age": 31.769199261190167,
+      "mean_recent_reset_peak": 0.07687924980750444,
+      "alarm_rate_within_16_of_change": 0.020833333333333332,
+      "median_alarm_delay_when_detected": 3.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "strength_96": {
+      "p0_mse": 0.37716345751195796,
+      "pair_accuracy": 1.0,
+      "polarity_accuracy": 1.0,
+      "mean_run_age": 48.402502659324306,
+      "mean_recent_reset_peak": 0.012170260335300128,
+      "alarm_rate_within_16_of_change": 0.0,
+      "median_alarm_delay_when_detected": null,
+      "stable_alarm_rate_after_warmup": null
+    }
+  },
+  "ramp_lead8_sparse": {
+    "m3": {
+      "p0_mse": 0.1123877713238803
+    },
+    "fixed": {
+      "p0_mse": 0.44575418947486983,
+      "pair_accuracy": 0.7083333333333334,
+      "polarity_accuracy": 0.9479166666666666,
+      "mean_run_age": 199.99999999999991,
+      "mean_recent_reset_peak": 0.0,
+      "alarm_rate_within_16_of_change": 0.0,
+      "median_alarm_delay_when_detected": null,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "polarity_32": {
+      "p0_mse": 0.05142738671450056,
+      "pair_accuracy": 0.8854166666666666,
+      "polarity_accuracy": 0.16666666666666666,
+      "mean_run_age": 11.256355527714279,
+      "mean_recent_reset_peak": 0.29472919065936676,
+      "alarm_rate_within_16_of_change": 0.625,
+      "median_alarm_delay_when_detected": 2.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "polarity_96": {
+      "p0_mse": 0.06231896887989604,
+      "pair_accuracy": 0.875,
+      "polarity_accuracy": 0.1875,
+      "mean_run_age": 23.09040488673872,
+      "mean_recent_reset_peak": 0.14492371315379035,
+      "alarm_rate_within_16_of_change": 0.11458333333333333,
+      "median_alarm_delay_when_detected": 5.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "pair_32": {
+      "p0_mse": 0.21945460326869182,
+      "pair_accuracy": 0.08333333333333333,
+      "polarity_accuracy": 0.9583333333333334,
+      "mean_run_age": 12.592259144369157,
+      "mean_recent_reset_peak": 0.15419215879664158,
+      "alarm_rate_within_16_of_change": 0.19791666666666666,
+      "median_alarm_delay_when_detected": 3.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "pair_96": {
+      "p0_mse": 0.23735034646246142,
+      "pair_accuracy": 0.13541666666666666,
+      "polarity_accuracy": 0.9479166666666666,
+      "mean_run_age": 26.768041498263234,
+      "mean_recent_reset_peak": 0.07490734343850906,
+      "alarm_rate_within_16_of_change": 0.010416666666666666,
+      "median_alarm_delay_when_detected": 6.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "strength_96": {
+      "p0_mse": 0.33453542258163416,
+      "pair_accuracy": 0.7708333333333334,
+      "polarity_accuracy": 0.9583333333333334,
+      "mean_run_age": 71.70766435488838,
+      "mean_recent_reset_peak": 0.011928402296049129,
+      "alarm_rate_within_16_of_change": 0.0,
+      "median_alarm_delay_when_detected": null,
+      "stable_alarm_rate_after_warmup": null
+    }
+  },
+  "ramp_lead16_full": {
+    "m3": {
+      "p0_mse": 0.00042728380897868816
+    },
+    "fixed": {
+      "p0_mse": 0.5175047721181409,
+      "pair_accuracy": 0.96875,
+      "polarity_accuracy": 1.0,
+      "mean_run_age": 200.0,
+      "mean_recent_reset_peak": 0.0,
+      "alarm_rate_within_16_of_change": 0.0,
+      "median_alarm_delay_when_detected": null,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "polarity_32": {
+      "p0_mse": 0.008498326054492973,
+      "pair_accuracy": 1.0,
+      "polarity_accuracy": 0.010416666666666666,
+      "mean_run_age": 13.990522373205147,
+      "mean_recent_reset_peak": 0.2422474338893433,
+      "alarm_rate_within_16_of_change": 0.7708333333333334,
+      "median_alarm_delay_when_detected": 1.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "polarity_96": {
+      "p0_mse": 0.0040709362772487125,
+      "pair_accuracy": 1.0,
+      "polarity_accuracy": 0.010416666666666666,
+      "mean_run_age": 15.203769162740942,
+      "mean_recent_reset_peak": 0.11548073944067273,
+      "alarm_rate_within_16_of_change": 0.16666666666666666,
+      "median_alarm_delay_when_detected": 2.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "pair_32": {
+      "p0_mse": 0.1789124742854662,
+      "pair_accuracy": 0.010416666666666666,
+      "polarity_accuracy": 1.0,
+      "mean_run_age": 13.59483230020848,
+      "mean_recent_reset_peak": 0.12286754217936702,
+      "alarm_rate_within_16_of_change": 0.23958333333333334,
+      "median_alarm_delay_when_detected": 3.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "pair_96": {
+      "p0_mse": 0.17432347830458061,
+      "pair_accuracy": 0.03125,
+      "polarity_accuracy": 1.0,
+      "mean_run_age": 20.623748629466828,
+      "mean_recent_reset_peak": 0.058376421146112356,
+      "alarm_rate_within_16_of_change": 0.010416666666666666,
+      "median_alarm_delay_when_detected": 5.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "strength_96": {
+      "p0_mse": 0.3542329582402126,
+      "pair_accuracy": 0.9791666666666666,
+      "polarity_accuracy": 1.0,
+      "mean_run_age": 37.224328638166476,
+      "mean_recent_reset_peak": 0.011946953379888629,
+      "alarm_rate_within_16_of_change": 0.0,
+      "median_alarm_delay_when_detected": null,
+      "stable_alarm_rate_after_warmup": null
+    }
+  },
+  "ramp_lead16_sparse": {
+    "m3": {
+      "p0_mse": 0.0177858442775328
+    },
+    "fixed": {
+      "p0_mse": 0.20457870197498298,
+      "pair_accuracy": 0.09375,
+      "polarity_accuracy": 0.6666666666666666,
+      "mean_run_age": 200.0,
+      "mean_recent_reset_peak": 0.0,
+      "alarm_rate_within_16_of_change": 0.0,
+      "median_alarm_delay_when_detected": null,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "polarity_32": {
+      "p0_mse": 0.013351739923662403,
+      "pair_accuracy": 0.90625,
+      "polarity_accuracy": 0.041666666666666664,
+      "mean_run_age": 15.046316511087639,
+      "mean_recent_reset_peak": 0.2223853823541467,
+      "alarm_rate_within_16_of_change": 0.6875,
+      "median_alarm_delay_when_detected": 2.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "polarity_96": {
+      "p0_mse": 0.011473454799209146,
+      "pair_accuracy": 0.90625,
+      "polarity_accuracy": 0.041666666666666664,
+      "mean_run_age": 19.93665065599292,
+      "mean_recent_reset_peak": 0.1045625314632848,
+      "alarm_rate_within_16_of_change": 0.125,
+      "median_alarm_delay_when_detected": 2.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "pair_32": {
+      "p0_mse": 0.098485908751615,
+      "pair_accuracy": 0.25,
+      "polarity_accuracy": 0.6666666666666666,
+      "mean_run_age": 15.247391513215073,
+      "mean_recent_reset_peak": 0.11907618784028466,
+      "alarm_rate_within_16_of_change": 0.25,
+      "median_alarm_delay_when_detected": 3.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "pair_96": {
+      "p0_mse": 0.0954317779058569,
+      "pair_accuracy": 0.21875,
+      "polarity_accuracy": 0.7083333333333334,
+      "mean_run_age": 28.332666908405276,
+      "mean_recent_reset_peak": 0.056920559982758134,
+      "alarm_rate_within_16_of_change": 0.010416666666666666,
+      "median_alarm_delay_when_detected": 5.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "strength_96": {
+      "p0_mse": 0.19341699567852536,
+      "pair_accuracy": 0.23958333333333334,
+      "polarity_accuracy": 0.7083333333333334,
+      "mean_run_age": 82.95324675844434,
+      "mean_recent_reset_peak": 0.011969653601269564,
+      "alarm_rate_within_16_of_change": 0.0,
+      "median_alarm_delay_when_detected": null,
+      "stable_alarm_rate_after_warmup": null
+    }
+  },
+  "ramp_lead40_full": {
+    "m3": {
+      "p0_mse": 0.00029780393501522656
+    },
+    "fixed": {
+      "p0_mse": 0.48391235809840993,
+      "pair_accuracy": 0.90625,
+      "polarity_accuracy": 1.0,
+      "mean_run_age": 200.0,
+      "mean_recent_reset_peak": 0.0,
+      "alarm_rate_within_16_of_change": 0.0,
+      "median_alarm_delay_when_detected": null,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "polarity_32": {
+      "p0_mse": 0.011957540975407096,
+      "pair_accuracy": 1.0,
+      "polarity_accuracy": 0.03125,
+      "mean_run_age": 34.428431691478494,
+      "mean_recent_reset_peak": 0.13986690593564363,
+      "alarm_rate_within_16_of_change": 0.8020833333333334,
+      "median_alarm_delay_when_detected": 2.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "polarity_96": {
+      "p0_mse": 0.004808196635859663,
+      "pair_accuracy": 1.0,
+      "polarity_accuracy": 0.020833333333333332,
+      "mean_run_age": 37.76890922980677,
+      "mean_recent_reset_peak": 0.056863169385248685,
+      "alarm_rate_within_16_of_change": 0.1875,
+      "median_alarm_delay_when_detected": 4.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "pair_32": {
+      "p0_mse": 0.25177245217008387,
+      "pair_accuracy": 0.052083333333333336,
+      "polarity_accuracy": 1.0,
+      "mean_run_age": 17.422964300825495,
+      "mean_recent_reset_peak": 0.08538909366766591,
+      "alarm_rate_within_16_of_change": 0.2604166666666667,
+      "median_alarm_delay_when_detected": 8.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "pair_96": {
+      "p0_mse": 0.2479417104691287,
+      "pair_accuracy": 0.0625,
+      "polarity_accuracy": 1.0,
+      "mean_run_age": 31.07665144783212,
+      "mean_recent_reset_peak": 0.03598404455763666,
+      "alarm_rate_within_16_of_change": 0.0,
+      "median_alarm_delay_when_detected": 20.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "strength_96": {
+      "p0_mse": 0.30281503537113014,
+      "pair_accuracy": 0.9375,
+      "polarity_accuracy": 1.0,
+      "mean_run_age": 56.425293060918364,
+      "mean_recent_reset_peak": 0.010845387450688788,
+      "alarm_rate_within_16_of_change": 0.0,
+      "median_alarm_delay_when_detected": null,
+      "stable_alarm_rate_after_warmup": null
+    }
+  },
+  "ramp_lead40_sparse": {
+    "m3": {
+      "p0_mse": 0.00016797789948884726
+    },
+    "fixed": {
+      "p0_mse": 6.014981403791687e-05,
+      "pair_accuracy": 0.9270833333333334,
+      "polarity_accuracy": 0.0,
+      "mean_run_age": 200.0,
+      "mean_recent_reset_peak": 0.0,
+      "alarm_rate_within_16_of_change": 0.0,
+      "median_alarm_delay_when_detected": null,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "polarity_32": {
+      "p0_mse": 0.012283048965709384,
+      "pair_accuracy": 0.9166666666666666,
+      "polarity_accuracy": 0.03125,
+      "mean_run_age": 50.74731215802037,
+      "mean_recent_reset_peak": 0.13830070075273404,
+      "alarm_rate_within_16_of_change": 0.19791666666666666,
+      "median_alarm_delay_when_detected": 19.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "polarity_96": {
+      "p0_mse": 0.005127602911465349,
+      "pair_accuracy": 0.9479166666666666,
+      "polarity_accuracy": 0.020833333333333332,
+      "mean_run_age": 91.03913792999693,
+      "mean_recent_reset_peak": 0.05598231506024367,
+      "alarm_rate_within_16_of_change": 0.020833333333333332,
+      "median_alarm_delay_when_detected": 21.5,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "pair_32": {
+      "p0_mse": 0.010688939433842554,
+      "pair_accuracy": 0.9270833333333334,
+      "polarity_accuracy": 0.0,
+      "mean_run_age": 42.10477171665741,
+      "mean_recent_reset_peak": 0.07645791781307516,
+      "alarm_rate_within_16_of_change": 0.03125,
+      "median_alarm_delay_when_detected": 24.5,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "pair_96": {
+      "p0_mse": 0.005017873938510507,
+      "pair_accuracy": 0.9270833333333334,
+      "polarity_accuracy": 0.0,
+      "mean_run_age": 85.18514882916351,
+      "mean_recent_reset_peak": 0.029684135549521956,
+      "alarm_rate_within_16_of_change": 0.0,
+      "median_alarm_delay_when_detected": null,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "strength_96": {
+      "p0_mse": 0.0008074542035914684,
+      "pair_accuracy": 0.9270833333333334,
+      "polarity_accuracy": 0.0,
+      "mean_run_age": 82.01128300714659,
+      "mean_recent_reset_peak": 0.01128133525693325,
+      "alarm_rate_within_16_of_change": 0.0,
+      "median_alarm_delay_when_detected": null,
+      "stable_alarm_rate_after_warmup": null
+    }
+  },
+  "pair_swap_lead8_full": {
+    "m3": {
+      "p0_mse": 0.1930714467072295
+    },
+    "fixed": {
+      "p0_mse": 0.24983538862109103,
+      "pair_accuracy": 0.010416666666666666,
+      "polarity_accuracy": 1.0,
+      "mean_run_age": 200.0,
+      "mean_recent_reset_peak": 0.0,
+      "alarm_rate_within_16_of_change": 0.0,
+      "median_alarm_delay_when_detected": null,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "polarity_32": {
+      "p0_mse": 0.16653435405452774,
+      "pair_accuracy": 0.0,
+      "polarity_accuracy": 0.5833333333333334,
+      "mean_run_age": 69.56884890448485,
+      "mean_recent_reset_peak": 0.23272922023230938,
+      "alarm_rate_within_16_of_change": 0.7395833333333334,
+      "median_alarm_delay_when_detected": 2.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "polarity_96": {
+      "p0_mse": 0.17496233678988315,
+      "pair_accuracy": 0.0,
+      "polarity_accuracy": 0.6354166666666666,
+      "mean_run_age": 109.77947341390286,
+      "mean_recent_reset_peak": 0.11069233324131274,
+      "alarm_rate_within_16_of_change": 0.13541666666666666,
+      "median_alarm_delay_when_detected": 4.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "pair_32": {
+      "p0_mse": 0.03287668667585592,
+      "pair_accuracy": 0.6354166666666666,
+      "polarity_accuracy": 1.0,
+      "mean_run_age": 29.09890734535902,
+      "mean_recent_reset_peak": 0.11399349296618057,
+      "alarm_rate_within_16_of_change": 0.15625,
+      "median_alarm_delay_when_detected": 1.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "pair_96": {
+      "p0_mse": 0.04673856131836538,
+      "pair_accuracy": 0.5833333333333334,
+      "polarity_accuracy": 1.0,
+      "mean_run_age": 60.21737130780051,
+      "mean_recent_reset_peak": 0.05747678173282239,
+      "alarm_rate_within_16_of_change": 0.010416666666666666,
+      "median_alarm_delay_when_detected": 2.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "strength_96": {
+      "p0_mse": 0.2194304487191577,
+      "pair_accuracy": 0.010416666666666666,
+      "polarity_accuracy": 1.0,
+      "mean_run_age": 72.24589208165972,
+      "mean_recent_reset_peak": 0.011910504292601815,
+      "alarm_rate_within_16_of_change": 0.0,
+      "median_alarm_delay_when_detected": null,
+      "stable_alarm_rate_after_warmup": null
+    }
+  },
+  "pair_swap_lead8_sparse": {
+    "m3": {
+      "p0_mse": 0.19041883757209674
+    },
+    "fixed": {
+      "p0_mse": 0.23465705989579358,
+      "pair_accuracy": 0.041666666666666664,
+      "polarity_accuracy": 0.9791666666666666,
+      "mean_run_age": 200.0,
+      "mean_recent_reset_peak": 0.0,
+      "alarm_rate_within_16_of_change": 0.0,
+      "median_alarm_delay_when_detected": null,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "polarity_32": {
+      "p0_mse": 0.1578488959649805,
+      "pair_accuracy": 0.052083333333333336,
+      "polarity_accuracy": 0.6145833333333334,
+      "mean_run_age": 30.549514612019454,
+      "mean_recent_reset_peak": 0.22707224204744814,
+      "alarm_rate_within_16_of_change": 0.7291666666666666,
+      "median_alarm_delay_when_detected": 2.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "polarity_96": {
+      "p0_mse": 0.1674223141131792,
+      "pair_accuracy": 0.041666666666666664,
+      "polarity_accuracy": 0.6458333333333334,
+      "mean_run_age": 68.75520927403865,
+      "mean_recent_reset_peak": 0.10798696563244863,
+      "alarm_rate_within_16_of_change": 0.13541666666666666,
+      "median_alarm_delay_when_detected": 4.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "pair_32": {
+      "p0_mse": 0.03324631551512466,
+      "pair_accuracy": 0.65625,
+      "polarity_accuracy": 1.0,
+      "mean_run_age": 18.077094964512977,
+      "mean_recent_reset_peak": 0.11293235547959164,
+      "alarm_rate_within_16_of_change": 0.14583333333333334,
+      "median_alarm_delay_when_detected": 1.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "pair_96": {
+      "p0_mse": 0.0475490311874175,
+      "pair_accuracy": 0.6041666666666666,
+      "polarity_accuracy": 1.0,
+      "mean_run_age": 41.98199658393623,
+      "mean_recent_reset_peak": 0.05646069439836088,
+      "alarm_rate_within_16_of_change": 0.010416666666666666,
+      "median_alarm_delay_when_detected": 2.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "strength_96": {
+      "p0_mse": 0.2074725855701224,
+      "pair_accuracy": 0.0625,
+      "polarity_accuracy": 0.9791666666666666,
+      "mean_run_age": 77.79341429934009,
+      "mean_recent_reset_peak": 0.01173849959441906,
+      "alarm_rate_within_16_of_change": 0.0,
+      "median_alarm_delay_when_detected": null,
+      "stable_alarm_rate_after_warmup": null
+    }
+  },
+  "pair_swap_lead16_full": {
+    "m3": {
+      "p0_mse": 0.22823654803749194
+    },
+    "fixed": {
+      "p0_mse": 0.24404960436427783,
+      "pair_accuracy": 0.010416666666666666,
+      "polarity_accuracy": 1.0,
+      "mean_run_age": 200.0,
+      "mean_recent_reset_peak": 0.0,
+      "alarm_rate_within_16_of_change": 0.0,
+      "median_alarm_delay_when_detected": null,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "polarity_32": {
+      "p0_mse": 0.19784104833689978,
+      "pair_accuracy": 0.010416666666666666,
+      "polarity_accuracy": 0.53125,
+      "mean_run_age": 42.135162238814566,
+      "mean_recent_reset_peak": 0.24973140720877152,
+      "alarm_rate_within_16_of_change": 0.8333333333333334,
+      "median_alarm_delay_when_detected": 1.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "polarity_96": {
+      "p0_mse": 0.21220651548609928,
+      "pair_accuracy": 0.010416666666666666,
+      "polarity_accuracy": 0.4791666666666667,
+      "mean_run_age": 72.28204311157178,
+      "mean_recent_reset_peak": 0.11374164187346582,
+      "alarm_rate_within_16_of_change": 0.11458333333333333,
+      "median_alarm_delay_when_detected": 4.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "pair_32": {
+      "p0_mse": 0.010569303518036997,
+      "pair_accuracy": 0.84375,
+      "polarity_accuracy": 1.0,
+      "mean_run_age": 18.691607973358426,
+      "mean_recent_reset_peak": 0.11615696660336354,
+      "alarm_rate_within_16_of_change": 0.2604166666666667,
+      "median_alarm_delay_when_detected": 1.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "pair_96": {
+      "p0_mse": 0.00737171777342292,
+      "pair_accuracy": 0.84375,
+      "polarity_accuracy": 1.0,
+      "mean_run_age": 32.25356342676734,
+      "mean_recent_reset_peak": 0.055313257816917705,
+      "alarm_rate_within_16_of_change": 0.0,
+      "median_alarm_delay_when_detected": null,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "strength_96": {
+      "p0_mse": 0.18749595487557813,
+      "pair_accuracy": 0.010416666666666666,
+      "polarity_accuracy": 1.0,
+      "mean_run_age": 53.59750023751448,
+      "mean_recent_reset_peak": 0.012056815808595037,
+      "alarm_rate_within_16_of_change": 0.0,
+      "median_alarm_delay_when_detected": null,
+      "stable_alarm_rate_after_warmup": null
+    }
+  },
+  "pair_swap_lead16_sparse": {
+    "m3": {
+      "p0_mse": 0.12198535553030836
+    },
+    "fixed": {
+      "p0_mse": 0.1859176566438827,
+      "pair_accuracy": 0.25,
+      "polarity_accuracy": 0.96875,
+      "mean_run_age": 199.99999999999991,
+      "mean_recent_reset_peak": 0.0,
+      "alarm_rate_within_16_of_change": 0.0,
+      "median_alarm_delay_when_detected": null,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "polarity_32": {
+      "p0_mse": 0.11396422666256771,
+      "pair_accuracy": 0.3645833333333333,
+      "polarity_accuracy": 0.7604166666666666,
+      "mean_run_age": 24.47026955551833,
+      "mean_recent_reset_peak": 0.2241362840458978,
+      "alarm_rate_within_16_of_change": 0.7708333333333334,
+      "median_alarm_delay_when_detected": 1.5,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "polarity_96": {
+      "p0_mse": 0.11816076809738303,
+      "pair_accuracy": 0.3229166666666667,
+      "polarity_accuracy": 0.71875,
+      "mean_run_age": 50.96050006507267,
+      "mean_recent_reset_peak": 0.10196160795752666,
+      "alarm_rate_within_16_of_change": 0.08333333333333333,
+      "median_alarm_delay_when_detected": 5.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "pair_32": {
+      "p0_mse": 0.010552717712317644,
+      "pair_accuracy": 0.84375,
+      "polarity_accuracy": 1.0,
+      "mean_run_age": 17.02429524963427,
+      "mean_recent_reset_peak": 0.11534875203931087,
+      "alarm_rate_within_16_of_change": 0.25,
+      "median_alarm_delay_when_detected": 1.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "pair_96": {
+      "p0_mse": 0.007808998891462335,
+      "pair_accuracy": 0.8541666666666666,
+      "polarity_accuracy": 1.0,
+      "mean_run_age": 29.028474766266495,
+      "mean_recent_reset_peak": 0.054035011570272885,
+      "alarm_rate_within_16_of_change": 0.0,
+      "median_alarm_delay_when_detected": null,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "strength_96": {
+      "p0_mse": 0.1359049626073158,
+      "pair_accuracy": 0.28125,
+      "polarity_accuracy": 0.9895833333333334,
+      "mean_run_age": 74.42233806009317,
+      "mean_recent_reset_peak": 0.011800374089088456,
+      "alarm_rate_within_16_of_change": 0.0,
+      "median_alarm_delay_when_detected": null,
+      "stable_alarm_rate_after_warmup": null
+    }
+  },
+  "pair_swap_lead40_full": {
+    "m3": {
+      "p0_mse": 0.18768232582787925
+    },
+    "fixed": {
+      "p0_mse": 0.2351630582502561,
+      "pair_accuracy": 0.010416666666666666,
+      "polarity_accuracy": 1.0,
+      "mean_run_age": 200.00000000000003,
+      "mean_recent_reset_peak": 0.0,
+      "alarm_rate_within_16_of_change": 0.0,
+      "median_alarm_delay_when_detected": null,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "polarity_32": {
+      "p0_mse": 0.16520673548403655,
+      "pair_accuracy": 0.020833333333333332,
+      "polarity_accuracy": 0.5208333333333334,
+      "mean_run_age": 30.29101143124592,
+      "mean_recent_reset_peak": 0.2360058323719956,
+      "alarm_rate_within_16_of_change": 0.84375,
+      "median_alarm_delay_when_detected": 1.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "polarity_96": {
+      "p0_mse": 0.18262060572995475,
+      "pair_accuracy": 0.010416666666666666,
+      "polarity_accuracy": 0.53125,
+      "mean_run_age": 49.54915851408108,
+      "mean_recent_reset_peak": 0.10929401337771356,
+      "alarm_rate_within_16_of_change": 0.14583333333333334,
+      "median_alarm_delay_when_detected": 7.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "pair_32": {
+      "p0_mse": 0.0036949464488345066,
+      "pair_accuracy": 0.8854166666666666,
+      "polarity_accuracy": 1.0,
+      "mean_run_age": 32.545981304360055,
+      "mean_recent_reset_peak": 0.08226152419174076,
+      "alarm_rate_within_16_of_change": 0.3125,
+      "median_alarm_delay_when_detected": 7.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "pair_96": {
+      "p0_mse": 0.0010039611347186876,
+      "pair_accuracy": 0.8958333333333334,
+      "polarity_accuracy": 1.0,
+      "mean_run_age": 44.45719664995448,
+      "mean_recent_reset_peak": 0.034037753873494225,
+      "alarm_rate_within_16_of_change": 0.010416666666666666,
+      "median_alarm_delay_when_detected": 0.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "strength_96": {
+      "p0_mse": 0.1584754433510822,
+      "pair_accuracy": 0.010416666666666666,
+      "polarity_accuracy": 1.0,
+      "mean_run_age": 55.19306082960501,
+      "mean_recent_reset_peak": 0.012931028639158168,
+      "alarm_rate_within_16_of_change": 0.0,
+      "median_alarm_delay_when_detected": null,
+      "stable_alarm_rate_after_warmup": null
+    }
+  },
+  "pair_swap_lead40_sparse": {
+    "m3": {
+      "p0_mse": 0.00023048869049026736
+    },
+    "fixed": {
+      "p0_mse": 0.00017165107519620583,
+      "pair_accuracy": 0.90625,
+      "polarity_accuracy": 1.0,
+      "mean_run_age": 200.0,
+      "mean_recent_reset_peak": 0.0,
+      "alarm_rate_within_16_of_change": 0.0,
+      "median_alarm_delay_when_detected": null,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "polarity_32": {
+      "p0_mse": 0.006964648531377455,
+      "pair_accuracy": 0.9166666666666666,
+      "polarity_accuracy": 1.0,
+      "mean_run_age": 55.11079423471855,
+      "mean_recent_reset_peak": 0.14136497472237822,
+      "alarm_rate_within_16_of_change": 0.28125,
+      "median_alarm_delay_when_detected": 18.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "polarity_96": {
+      "p0_mse": 0.0015286703855153282,
+      "pair_accuracy": 0.90625,
+      "polarity_accuracy": 1.0,
+      "mean_run_age": 107.1374372962447,
+      "mean_recent_reset_peak": 0.060002987263468636,
+      "alarm_rate_within_16_of_change": 0.010416666666666666,
+      "median_alarm_delay_when_detected": 20.5,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "pair_32": {
+      "p0_mse": 0.0038397684337678106,
+      "pair_accuracy": 0.9166666666666666,
+      "polarity_accuracy": 1.0,
+      "mean_run_age": 45.53633682560934,
+      "mean_recent_reset_peak": 0.08178973277307862,
+      "alarm_rate_within_16_of_change": 0.07291666666666667,
+      "median_alarm_delay_when_detected": 23.5,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "pair_96": {
+      "p0_mse": 0.001057205897363184,
+      "pair_accuracy": 0.9166666666666666,
+      "polarity_accuracy": 1.0,
+      "mean_run_age": 95.22898142098875,
+      "mean_recent_reset_peak": 0.03387916883974073,
+      "alarm_rate_within_16_of_change": 0.0,
+      "median_alarm_delay_when_detected": null,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "strength_96": {
+      "p0_mse": 0.001144183118185207,
+      "pair_accuracy": 0.90625,
+      "polarity_accuracy": 1.0,
+      "mean_run_age": 82.83580932610948,
+      "mean_recent_reset_peak": 0.01124797240851961,
+      "alarm_rate_within_16_of_change": 0.0,
+      "median_alarm_delay_when_detected": null,
+      "stable_alarm_rate_after_warmup": null
+    }
+  },
+  "double_flip_lead8_full": {
+    "m3": {
+      "p0_mse": 0.44034440820669873
+    },
+    "fixed": {
+      "p0_mse": 0.011640614992886123,
+      "pair_accuracy": 0.9166666666666666,
+      "polarity_accuracy": 1.0,
+      "mean_run_age": 200.0,
+      "mean_recent_reset_peak": 0.0,
+      "alarm_rate_within_16_of_change": 0.0,
+      "median_alarm_delay_when_detected": null,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "polarity_32": {
+      "p0_mse": 0.012618717902539262,
+      "pair_accuracy": 1.0,
+      "polarity_accuracy": 0.96875,
+      "mean_run_age": 7.84431954600095,
+      "mean_recent_reset_peak": 0.24635068598171875,
+      "alarm_rate_within_16_of_change": 0.8020833333333334,
+      "median_alarm_delay_when_detected": 0.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "polarity_96": {
+      "p0_mse": 0.010881309804215422,
+      "pair_accuracy": 1.0,
+      "polarity_accuracy": 0.9791666666666666,
+      "mean_run_age": 8.700602104449304,
+      "mean_recent_reset_peak": 0.12371669150560156,
+      "alarm_rate_within_16_of_change": 0.16666666666666666,
+      "median_alarm_delay_when_detected": 0.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "pair_32": {
+      "p0_mse": 0.034734236235933934,
+      "pair_accuracy": 0.6354166666666666,
+      "polarity_accuracy": 1.0,
+      "mean_run_age": 19.631333768606705,
+      "mean_recent_reset_peak": 0.09569593173808671,
+      "alarm_rate_within_16_of_change": 0.0625,
+      "median_alarm_delay_when_detected": 2.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "pair_96": {
+      "p0_mse": 0.0465331592600244,
+      "pair_accuracy": 0.5520833333333334,
+      "polarity_accuracy": 1.0,
+      "mean_run_age": 35.03663151524891,
+      "mean_recent_reset_peak": 0.0440660074423278,
+      "alarm_rate_within_16_of_change": 0.0,
+      "median_alarm_delay_when_detected": null,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "strength_96": {
+      "p0_mse": 0.025807467807705497,
+      "pair_accuracy": 0.9270833333333334,
+      "polarity_accuracy": 1.0,
+      "mean_run_age": 45.31471003620998,
+      "mean_recent_reset_peak": 0.01399281245393067,
+      "alarm_rate_within_16_of_change": 0.0,
+      "median_alarm_delay_when_detected": null,
+      "stable_alarm_rate_after_warmup": null
+    }
+  },
+  "double_flip_lead8_sparse": {
+    "m3": {
+      "p0_mse": 0.055937397561029355
+    },
+    "fixed": {
+      "p0_mse": 0.2916800187284943,
+      "pair_accuracy": 0.40625,
+      "polarity_accuracy": 0.28125,
+      "mean_run_age": 200.0,
+      "mean_recent_reset_peak": 0.0,
+      "alarm_rate_within_16_of_change": 0.0,
+      "median_alarm_delay_when_detected": null,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "polarity_32": {
+      "p0_mse": 0.014290522581685639,
+      "pair_accuracy": 0.9895833333333334,
+      "polarity_accuracy": 0.96875,
+      "mean_run_age": 8.37142566646488,
+      "mean_recent_reset_peak": 0.23918300259862427,
+      "alarm_rate_within_16_of_change": 0.7291666666666666,
+      "median_alarm_delay_when_detected": 0.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "polarity_96": {
+      "p0_mse": 0.013164977113076437,
+      "pair_accuracy": 0.9791666666666666,
+      "polarity_accuracy": 0.96875,
+      "mean_run_age": 12.338687793730477,
+      "mean_recent_reset_peak": 0.11955984221465937,
+      "alarm_rate_within_16_of_change": 0.16666666666666666,
+      "median_alarm_delay_when_detected": 0.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "pair_32": {
+      "p0_mse": 0.1871863716893036,
+      "pair_accuracy": 0.11458333333333333,
+      "polarity_accuracy": 0.16666666666666666,
+      "mean_run_age": 13.65094075397617,
+      "mean_recent_reset_peak": 0.11957242667438943,
+      "alarm_rate_within_16_of_change": 0.20833333333333334,
+      "median_alarm_delay_when_detected": 0.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "pair_96": {
+      "p0_mse": 0.19202570814225609,
+      "pair_accuracy": 0.13541666666666666,
+      "polarity_accuracy": 0.17708333333333334,
+      "mean_run_age": 29.417486191426534,
+      "mean_recent_reset_peak": 0.05598969573363535,
+      "alarm_rate_within_16_of_change": 0.010416666666666666,
+      "median_alarm_delay_when_detected": 0.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "strength_96": {
+      "p0_mse": 0.22806976055986947,
+      "pair_accuracy": 0.5520833333333334,
+      "polarity_accuracy": 0.23958333333333334,
+      "mean_run_age": 87.29203381077828,
+      "mean_recent_reset_peak": 0.011601651101314689,
+      "alarm_rate_within_16_of_change": 0.0,
+      "median_alarm_delay_when_detected": null,
+      "stable_alarm_rate_after_warmup": null
+    }
+  },
+  "double_flip_lead16_full": {
+    "m3": {
+      "p0_mse": 0.39185316489901806
+    },
+    "fixed": {
+      "p0_mse": 6.939228814497804e-05,
+      "pair_accuracy": 0.9583333333333334,
+      "polarity_accuracy": 1.0,
+      "mean_run_age": 200.0,
+      "mean_recent_reset_peak": 0.0,
+      "alarm_rate_within_16_of_change": 0.0,
+      "median_alarm_delay_when_detected": null,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "polarity_32": {
+      "p0_mse": 0.006101524972938611,
+      "pair_accuracy": 1.0,
+      "polarity_accuracy": 0.9895833333333334,
+      "mean_run_age": 14.840867142605758,
+      "mean_recent_reset_peak": 0.23831159055966764,
+      "alarm_rate_within_16_of_change": 0.8958333333333334,
+      "median_alarm_delay_when_detected": 0.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "polarity_96": {
+      "p0_mse": 0.0014523078619014115,
+      "pair_accuracy": 1.0,
+      "polarity_accuracy": 1.0,
+      "mean_run_age": 15.945977715821115,
+      "mean_recent_reset_peak": 0.11100813685347428,
+      "alarm_rate_within_16_of_change": 0.125,
+      "median_alarm_delay_when_detected": 0.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "pair_32": {
+      "p0_mse": 0.007569831842088012,
+      "pair_accuracy": 0.9166666666666666,
+      "polarity_accuracy": 1.0,
+      "mean_run_age": 15.753755641370873,
+      "mean_recent_reset_peak": 0.10627389068351197,
+      "alarm_rate_within_16_of_change": 0.17708333333333334,
+      "median_alarm_delay_when_detected": 4.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "pair_96": {
+      "p0_mse": 0.006016947659665483,
+      "pair_accuracy": 0.90625,
+      "polarity_accuracy": 1.0,
+      "mean_run_age": 21.790824881998716,
+      "mean_recent_reset_peak": 0.049318780927974926,
+      "alarm_rate_within_16_of_change": 0.0,
+      "median_alarm_delay_when_detected": null,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "strength_96": {
+      "p0_mse": 0.01649338479633341,
+      "pair_accuracy": 0.9791666666666666,
+      "polarity_accuracy": 1.0,
+      "mean_run_age": 40.409399833000954,
+      "mean_recent_reset_peak": 0.01368007939568522,
+      "alarm_rate_within_16_of_change": 0.0,
+      "median_alarm_delay_when_detected": null,
+      "stable_alarm_rate_after_warmup": null
+    }
+  },
+  "double_flip_lead16_sparse": {
+    "m3": {
+      "p0_mse": 0.0019324416232941021
+    },
+    "fixed": {
+      "p0_mse": 0.22524728258194435,
+      "pair_accuracy": 0.041666666666666664,
+      "polarity_accuracy": 0.4895833333333333,
+      "mean_run_age": 200.0,
+      "mean_recent_reset_peak": 0.0,
+      "alarm_rate_within_16_of_change": 0.0,
+      "median_alarm_delay_when_detected": null,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "polarity_32": {
+      "p0_mse": 0.0061663844112591825,
+      "pair_accuracy": 1.0,
+      "polarity_accuracy": 0.9895833333333334,
+      "mean_run_age": 14.909028397465427,
+      "mean_recent_reset_peak": 0.23146996726498822,
+      "alarm_rate_within_16_of_change": 0.84375,
+      "median_alarm_delay_when_detected": 0.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "polarity_96": {
+      "p0_mse": 0.0017997415803539746,
+      "pair_accuracy": 1.0,
+      "polarity_accuracy": 1.0,
+      "mean_run_age": 16.34987421507725,
+      "mean_recent_reset_peak": 0.10690940700099445,
+      "alarm_rate_within_16_of_change": 0.11458333333333333,
+      "median_alarm_delay_when_detected": 0.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "pair_32": {
+      "p0_mse": 0.11393986498409885,
+      "pair_accuracy": 0.3958333333333333,
+      "polarity_accuracy": 0.4166666666666667,
+      "mean_run_age": 13.5764424030316,
+      "mean_recent_reset_peak": 0.12285787309148466,
+      "alarm_rate_within_16_of_change": 0.25,
+      "median_alarm_delay_when_detected": 0.5,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "pair_96": {
+      "p0_mse": 0.11294876541986422,
+      "pair_accuracy": 0.3645833333333333,
+      "polarity_accuracy": 0.40625,
+      "mean_run_age": 21.873754931646634,
+      "mean_recent_reset_peak": 0.056977380104143216,
+      "alarm_rate_within_16_of_change": 0.0,
+      "median_alarm_delay_when_detected": null,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "strength_96": {
+      "p0_mse": 0.1778941816017501,
+      "pair_accuracy": 0.20833333333333334,
+      "polarity_accuracy": 0.4583333333333333,
+      "mean_run_age": 84.24377118217505,
+      "mean_recent_reset_peak": 0.011970548399380903,
+      "alarm_rate_within_16_of_change": 0.0,
+      "median_alarm_delay_when_detected": null,
+      "stable_alarm_rate_after_warmup": null
+    }
+  },
+  "double_flip_lead40_full": {
+    "m3": {
+      "p0_mse": 0.009630281887408375
+    },
+    "fixed": {
+      "p0_mse": 0.00028803835139050806,
+      "pair_accuracy": 0.9375,
+      "polarity_accuracy": 1.0,
+      "mean_run_age": 200.0,
+      "mean_recent_reset_peak": 0.0,
+      "alarm_rate_within_16_of_change": 0.0,
+      "median_alarm_delay_when_detected": null,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "polarity_32": {
+      "p0_mse": 0.007210103219171315,
+      "pair_accuracy": 1.0,
+      "polarity_accuracy": 0.9791666666666666,
+      "mean_run_age": 35.05023481557955,
+      "mean_recent_reset_peak": 0.16318157871765385,
+      "alarm_rate_within_16_of_change": 0.8541666666666666,
+      "median_alarm_delay_when_detected": 0.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "polarity_96": {
+      "p0_mse": 0.0017976776861091265,
+      "pair_accuracy": 1.0,
+      "polarity_accuracy": 1.0,
+      "mean_run_age": 38.56960722382236,
+      "mean_recent_reset_peak": 0.07177182171706105,
+      "alarm_rate_within_16_of_change": 0.09375,
+      "median_alarm_delay_when_detected": 1.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "pair_32": {
+      "p0_mse": 0.007491057832614091,
+      "pair_accuracy": 0.8854166666666666,
+      "polarity_accuracy": 1.0,
+      "mean_run_age": 30.54635976794226,
+      "mean_recent_reset_peak": 0.09440727118154167,
+      "alarm_rate_within_16_of_change": 0.17708333333333334,
+      "median_alarm_delay_when_detected": 16.5,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "pair_96": {
+      "p0_mse": 0.0024584830119634186,
+      "pair_accuracy": 0.8958333333333334,
+      "polarity_accuracy": 1.0,
+      "mean_run_age": 39.96042697018693,
+      "mean_recent_reset_peak": 0.03936273622805329,
+      "alarm_rate_within_16_of_change": 0.0,
+      "median_alarm_delay_when_detected": 27.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "strength_96": {
+      "p0_mse": 0.004864487691834119,
+      "pair_accuracy": 0.96875,
+      "polarity_accuracy": 1.0,
+      "mean_run_age": 42.01049387970199,
+      "mean_recent_reset_peak": 0.011917824628995167,
+      "alarm_rate_within_16_of_change": 0.0,
+      "median_alarm_delay_when_detected": null,
+      "stable_alarm_rate_after_warmup": null
+    }
+  },
+  "double_flip_lead40_sparse": {
+    "m3": {
+      "p0_mse": 0.0001805148886041915
+    },
+    "fixed": {
+      "p0_mse": 8.516031583346185e-05,
+      "pair_accuracy": 0.9270833333333334,
+      "polarity_accuracy": 1.0,
+      "mean_run_age": 200.0,
+      "mean_recent_reset_peak": 0.0,
+      "alarm_rate_within_16_of_change": 0.0,
+      "median_alarm_delay_when_detected": null,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "polarity_32": {
+      "p0_mse": 0.0071034041963586895,
+      "pair_accuracy": 0.9166666666666666,
+      "polarity_accuracy": 0.9791666666666666,
+      "mean_run_age": 56.00028755529423,
+      "mean_recent_reset_peak": 0.1643152816577987,
+      "alarm_rate_within_16_of_change": 0.2708333333333333,
+      "median_alarm_delay_when_detected": 20.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "polarity_96": {
+      "p0_mse": 0.0021672236473459627,
+      "pair_accuracy": 0.9270833333333334,
+      "polarity_accuracy": 1.0,
+      "mean_run_age": 110.88187177264126,
+      "mean_recent_reset_peak": 0.0727922380745729,
+      "alarm_rate_within_16_of_change": 0.010416666666666666,
+      "median_alarm_delay_when_detected": 26.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "pair_32": {
+      "p0_mse": 0.007417612099807868,
+      "pair_accuracy": 0.8854166666666666,
+      "polarity_accuracy": 1.0,
+      "mean_run_age": 45.91010511346216,
+      "mean_recent_reset_peak": 0.09404762391617243,
+      "alarm_rate_within_16_of_change": 0.07291666666666667,
+      "median_alarm_delay_when_detected": 24.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "pair_96": {
+      "p0_mse": 0.0022966767786119866,
+      "pair_accuracy": 0.90625,
+      "polarity_accuracy": 1.0,
+      "mean_run_age": 100.0494442530105,
+      "mean_recent_reset_peak": 0.03885655662185172,
+      "alarm_rate_within_16_of_change": 0.0,
+      "median_alarm_delay_when_detected": 27.0,
+      "stable_alarm_rate_after_warmup": null
+    },
+    "strength_96": {
+      "p0_mse": 0.0007875781085402529,
+      "pair_accuracy": 0.9270833333333334,
+      "polarity_accuracy": 1.0,
+      "mean_run_age": 83.44341218253247,
+      "mean_recent_reset_peak": 0.011398595496462058,
+      "alarm_rate_within_16_of_change": 0.0,
+      "median_alarm_delay_when_detected": null,
+      "stable_alarm_rate_after_warmup": null
+    }
+  },
+  "synthetic_shift_prior": {
+    "train_episodes": 24,
+    "held_episodes": 12,
+    "full_carry_main": {
+      "p0_mse": 0.002633985652076489,
+      "pair_accuracy": 0.9375
+    },
+    "full_refit_prior": {
+      "p0_mse": 0.0039422086759918805,
+      "pair_accuracy": 0.96875
+    },
+    "sparse_carry_main": {
+      "p0_mse": 0.006305311845820056,
+      "pair_accuracy": 0.8333333333333334
+    },
+    "sparse_refit_prior": {
+      "p0_mse": 0.005709255599014242,
+      "pair_accuracy": 0.8958333333333334
+    }
+  }
+}

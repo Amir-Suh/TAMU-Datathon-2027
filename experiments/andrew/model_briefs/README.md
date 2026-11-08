@@ -1,0 +1,40 @@
+# House Edge experiment briefs
+
+Each numbered file is a standalone assignment to hand to an implementation agent. The briefs can run independently. The final combination experiment can start with the two models already trained and ingest new forecasts as they become available.
+
+| Order | Assignment | What it tests | Implementation effort |
+| --- | --- | --- | --- |
+| 1 | [Signed lag motifs](01-signed-lag-motifs.md) | Learn whether a lag or interaction pushes a specific machine toward or away from a win. | Medium |
+| 2 | [Online regime filter](02-online-regime-filter.md) | Track changes in win-rate level or the direction of a lag effect. | Medium |
+| 3 | [Lagged peer effects](03-lagged-peer-effects.md) | Find useful peer/tick relationships that pooled peer averages can wash out. | Medium |
+| 4 | [Boosted correction](04-boosted-correction.md) | Learn when and how much to adjust the current adaptive forecast. | Medium |
+| 5 | [Retrieval of matching transitions](05-transition-retrieval.md) | Learn which observations in a machine's past are comparable to its current context. | Higher |
+| 6 | [Combine win and payout forecasts](06-combine-forecasts.md) | Keep the strongest win forecast and separately choose how to distribute positive payout mass. | Low |
+
+If handing out three assignments first, use **01, 02, and 04**. Brief 06 is a short parallel check using saved predictions. Brief 03 directly tests the peer hypothesis with a stronger design than the previous pooled features. Brief 05 is the higher-risk architecture experiment.
+
+## Current evidence
+
+The original adaptive control scored **33.224516 / 60** on 48 tuning episodes, with `R = 0.805895`. The fixed-weight lag model scored 31.237 and the recency baseline scored 31.133. The adaptive model helped across all conditions. Its condition loss ratios were 0.6866 stable, 0.8854 short history, 0.8497 drift, and 0.8018 shared change. The two-stage logistic model scored 31.444 with self history and 31.306 with pooled peer features. [Existing tuning report](../runs/model-comparison/comparison.json).
+
+A 35-point main score requires `R <= 0.714286`, about 11.4% less normalized error than the current tuning control. Track smaller gains as well, especially if they improve different conditions or different payout components.
+
+The adaptive model's 10th and 90th percentiles for `p_0` were **35.1% and 90.8%** on the tuning queries. The true odds had percentiles of **3.9% and 98.9%**. No-payout errors account for **66.3%** of the adaptive model's raw squared probability error across these queries. This motivates looking for better discriminating features and checking calibration. Hidden simulator state can make observed-history forecasts less extreme than the true odds, so compare paired probability error before accepting any sharpening.
+
+A head swap on those same tuning queries kept the adaptive model's win probability and used the self-only logistic model's conditional positive probabilities. It scored **33.374**. A simple 90% adaptive / 10% logistic whole-distribution blend scored **33.149**. These are exploratory tuning comparisons from the saved CSVs. [Adaptive predictions](../runs/model-comparison/adaptive_lag.csv), [two-stage predictions](../runs/model-comparison/two_stage_self.csv), [tuning loader](../run_model_comparison.py).
+
+There are 96 independent training episodes with eight machines each, 139,944 observed historical spins, and 768 cutoff labels. A balanced endpoint training set uses the last 32 observed spins per machine as earlier labels, plus the cutoff label, for 25,344 rows. Short histories have 40 consecutive recent observations and 24 scattered older observations. There are only 12 observed 20× cutoff outcomes, so start with a pooled or existing positive payout head and preserve natural class frequencies. The kit says delays up to eight ticks matter and effects can vary in direction by machine. [Data dictionary](../main-participants-60-40/DATA.md), [data audit](../ML_TRAINING_PLAN.md).
+
+## Shared experiment contract
+
+- **Own one lane.** Add the brief's named module, runner, and any targeted tests under its own names. Write outputs under its own `runs/` subdirectory. Treat the current model code, comparison outputs, and `public/` as shared read-only inputs. Coordinate any common refactor through the person issuing the briefs.
+- **Fit on train.** Use organizer-released `public/train` histories and labels. Build historical features at time `t` from observations at times strictly below `t` on every machine. Keep missing ticks distinct from 0×. IDs are grouping and output keys. Use type and signal as observed predictors. Use condition labels for splitting and evaluation only. Keep the natural payout frequencies in probability losses.
+- **Select with grouped evidence.** Use the four condition-stratified training episode folds from `run_model_comparison._train_folds` for configuration selection where possible. Every row from an episode stays in the same fold. Fit priors, feature transforms and learned base predictors on training episodes inside each fold. Record train-fold one-hot Brier and log loss on historical labels and actual cutoff labels separately. The one-hot Brier loss has the same population minimizer as the contest's squared error against true probabilities. [Proper scoring rules](https://sites.stat.washington.edu/people/raftery/Research/PDF/Gneiting2007jasa.pdf).
+- **Score only tuning.** Call `run_model_comparison.tuning_data(public / "validation")` and `slot_forecasting.contest.contest_score(..., max_points=metadata["max_points"], version=VERSION)`. Use exactly 48 episodes and 384 query IDs for this main kit. The loader selects tuning IDs before converting history or answer values. The existing `run_experiments.py`, `run_starter.py`, and validation checker score beyond this subset. Keep audit and test outside these assignments.
+- **Use a matched control.** Score the saved adaptive tuning CSV and the new forecast through the same scorer. Verify the control reproduces 33.224516 on main. Join by query ID, average squared errors over machines within episodes, then episodes within conditions, then average the four reference-normalized ratios. Report points and `R`, every condition ratio, the `p_0` error contribution, and runtime. Score comparisons against the recency baseline are secondary.
+- **Measure uncertainty by episode.** For the lead candidate, resample whole episodes within each condition, pairing the candidate, adaptive control and frozen reference in each draw. Recompute condition denominators in each draw. Report the 95% interval for `R(candidate) - R(adaptive)` with a fixed seed. A useful shortlist threshold is `ΔR <= -0.01` and no condition more than 0.05 worse than the adaptive control. Report diagnostics for niche wins and inconclusive results too.
+- **Return evidence that can be replayed.** Provide a command, config, seeds and dependency versions, checks performed, output hashes, the tuning prediction CSV with the five exact payout columns, and a JSON report with the tuning episode IDs and scores. Save a checkpoint or the deterministic fit command. Validate finite, nonnegative probabilities, sum within `1e-6`, and exactly one row per tuning query. Repeat the prediction command in a fresh output directory and require a maximum normalized probability difference of `1e-8`. Target two CPU threads, no network in the prediction run, and comfortably under the organizer's 30-minute inference budget.
+
+For adaptation, accept a configurable public data directory and derive round points and split sizes from that release. Freeze the main configuration before comparing it with adaptation-only training or recalibration on adaptation tuning. Preserve a separate adaptation audit. [Round rules](../main-participants-60-40/RULES.md), [round scorer](../slot_forecasting/rounds.py).
+
+These briefs live at the repository root. Provide the original participant kit and local experiment outputs when a separate checkout needs to replay the comparisons. See the [latest results](../EXPERIMENT_RESULTS.md).

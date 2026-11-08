@@ -1,0 +1,75 @@
+{
+  "data": "/Users/andrewvong/Documents/Projects/tamudatathon27/main-participants-60-40/public/validation",
+  "episodes": 96,
+  "queries": 768,
+  "points_max": 60,
+  "bootstrap_draws": 10000,
+  "input_hashes": {
+    "queries.csv": "168b7f6365a4f51084437c0071636b102ca3fb4bf0347b912778c51714fc48f2",
+    "targets.csv": "93b6e978f6818d2456dcb677fddb6ba243e864cef56e33a4bf94bde5ba4b51f3",
+    "conditions.csv": "ebcca7597bbdfa532c5254b92903e66522a710502a6f70689c3de311f75c29b1",
+    "reference.csv": "bb396d9e4d20bf4004374f9ab781f41aaa8b730e61887c1969be534efeb1e6c6"
+  },
+  "models": {
+    "control": {
+      "path": "signal_experiments/03_signal_calibration/results/fredy_gru_mean/raw.csv",
+      "sha256": "9d94f2da72c03a7b61233a12d620c25769045ea96047085629e30d5515516da7",
+      "points": 55.419190906610424,
+      "R": 0.08265745165982151,
+      "delta_R": 0.0,
+      "delta_R_95": [
+        0.0,
+        0.0
+      ],
+      "condition_R": {
+        "stable": 0.06441322617070433,
+        "short_history": 0.11504928437746129,
+        "drift": 0.08170921074075593,
+        "shared_change": 0.06945808535036448
+      },
+      "p0_mse": 0.006782967035855371,
+      "conditional_payout_sse": 0.017488613860018726,
+      "win_mass_weighted_conditional_payout_sse": 0.006545839403950364
+    },
+    "intercept": {
+      "path": "signal_experiments/03_signal_calibration/results/fredy_gru_mean/intercept.csv",
+      "sha256": "8d248d8e608bf52423c1f21295cee467fd913ce801412723e0ec46990a8f3a9b",
+      "points": 55.232942082476995,
+      "R": 0.08630823812362852,
+      "delta_R": 0.0036507864638070098,
+      "delta_R_95": [
+        0.0008710048929202322,
+        0.006396091471432868
+      ],
+      "condition_R": {
+        "stable": 0.06684814647105058,
+        "short_history": 0.11263277343758989,
+        "drift": 0.08954150884719106,
+        "shared_change": 0.07621052373868255
+      },
+      "p0_mse": 0.0073318116296677,
+      "conditional_payout_sse": 0.017488613860018723,
+      "win_mass_weighted_conditional_payout_sse": 0.006545839403950364
+    },
+    "intercept_signal": {
+      "path": "signal_experiments/03_signal_calibration/results/fredy_gru_mean/intercept_signal.csv",
+      "sha256": "278cf0531a2ffd8b224a3d0c7fa6640b3f3cd5f5d10500a731ea1011fb8c53e9",
+      "points": 55.242386878003764,
+      "R": 0.08612251191286963,
+      "delta_R": 0.003465060253048116,
+      "delta_R_95": [
+        -0.0004407760640283506,
+        0.00745151767469696
+      ],
+      "condition_R": {
+        "stable": 0.06614299656026852,
+        "short_history": 0.11183084175575753,
+        "drift": 0.08774100825000189,
+        "shared_change": 0.07877520108545054
+      },
+      "p0_mse": 0.0072991665263992395,
+      "conditional_payout_sse": 0.017488613860018723,
+      "win_mass_weighted_conditional_payout_sse": 0.006545839403950364
+    }
+  }
+}

@@ -1,0 +1,46 @@
+$ ~/.venvs/tdx/bin/python -m pytest -q tests
+................                                                         [100%]
+16 passed in 5.41s
+exit=0
+
+$ ~/.venvs/tdx/bin/python -m tdx.run --arm pooled --variant pooled_recent --mode dev
+pooled/pooled_recent dev: 30.825854 points (0.060s)
+exit=0
+
+$ ~/.venvs/tdx/bin/python -m tdx.run --arm pooled --variant pooled --mode dev
+pooled/pooled dev: 30.000000 points (0.057s)
+exit=0
+
+$ ~/.venvs/tdx/bin/python -m tdx.tools.leak_test --arm pooled --variant pooled_recent
+PASS pooled/pooled_recent: 5 episodes, cutoff reduced by 4, max abs difference 0.0; forbidden dev opens 0
+exit=0
+
+$ ~/.venvs/tdx/bin/python -m tdx.tools.compare runs/
+Baseline: pooled/pooled_recent; main; 2000 paired episode resamples, seed 20261107
+arm     variant        points  stable  short  drift  shared  seconds  Δpoints  95% interval    
+pooled  pooled_recent  30.826  0.958   1.001  0.946  0.880   0.06     +0.000   [+0.000, +0.000]
+pooled  recent         30.743  0.986   1.018  0.938  0.865   0.05     -0.083   [-0.291, +0.142]
+pooled  pooled         30.000  1.000   1.000  1.000  1.000   0.06     -0.826   [-1.138, -0.512]
+pooled  context        29.685  0.990   1.080  1.030  0.985   0.05     -1.141   [-1.520, -0.773]
+PROPOSED reading rule: intervals containing zero are ties; prefer simpler or faster models.
+exit=0
+
+$ ~/.venvs/tdx/bin/python kit/check_submission.py runs/pooled/pooled_recent/test_pred.csv
+VALID FORMAT: 1536 queries | main | test
+Season: 5fffdc4d0c700bbf61c3f911
+SHA-256: 472aa925258d797f2220b2c786ad80a20a7e936485c84835795f8c427aa18532
+Test answers are private; this check does not calculate your event score.
+Local check only. Nothing was uploaded. Acceptance and code reproduction are separate.
+exit=0
+
+$ ~/.venvs/tdx/bin/python kit/check_submission.py runs/pooled/pooled_recent/val_pred.csv --split validation
+VALID FORMAT: 768 queries | main | validation
+Season: 5fffdc4d0c700bbf61c3f911
+SHA-256: cb24abcf50aefb23a9ac9e8a068787564c2b1865946bee3634dcb40a798420cc
+Validation points: 30.825854 / 60
+  stable: loss ratio 0.958227 (lower is better)
+  short_history: loss ratio 1.000561 (lower is better)
+  drift: loss ratio 0.946405 (lower is better)
+  shared_change: loss ratio 0.880479 (lower is better)
+Local check only. Nothing was uploaded. Acceptance and code reproduction are separate.
+exit=0

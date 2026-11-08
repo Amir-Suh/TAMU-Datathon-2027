@@ -1,0 +1,12 @@
+{
+  "byte_identical_forecast_replay": true,
+  "modified_forecast_rejected_before_scoring": true,
+  "prediction_sha256": {
+    "win_only": "016b65ca9079248a78c3a734bee49d3902985482411430b7bb80fdd479d3230c"
+  },
+  "replay_commands": [
+    "python -B run_bayesian_lag_pair_tuning.py prepare --out runs/bayesian-lag-pair-tuning/fresh",
+    "python -B run_bayesian_lag_pair_tuning.py score --out runs/bayesian-lag-pair-tuning/fresh"
+  ],
+  "unit_tests_passed": 19
+}

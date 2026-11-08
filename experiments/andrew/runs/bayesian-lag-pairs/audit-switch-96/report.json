@@ -1,0 +1,92 @@
+{
+  "episodes": 48,
+  "freeze_sha256": "96170c1c48fd0fc9bca562665c8fbf5038c076920155bc7efe758d6c8b7d805f",
+  "paired_delta_r": {
+    "delta_r": -0.07992840483736507,
+    "lower": -0.12437987240298858,
+    "repeats": 2000,
+    "seed": 314159,
+    "upper": -0.04197857717503367
+  },
+  "points_delta": 3.4526176133078224,
+  "prediction_sha256": {
+    "bayesian": "8520ba7cb33ed78a37b3a29d4e328ceb6864560c6a384278d626ad91ab3ef980",
+    "previous_lead": "ae7e62632390ec022c0834a2c12ef634b57f16339ffc966e3cc0ddba2fb94ad5"
+  },
+  "queries": 384,
+  "scores": {
+    "bayesian": {
+      "by_condition": {
+        "drift": {
+          "episodes": 12,
+          "error": 0.02026922152813589,
+          "loss_ratio": 0.11405799762703028,
+          "queries": 96,
+          "reference_error": 0.17770977879531302
+        },
+        "shared_change": {
+          "episodes": 12,
+          "error": 0.024656568657052878,
+          "loss_ratio": 0.1234826031762793,
+          "queries": 96,
+          "reference_error": 0.19967645662485792
+        },
+        "short_history": {
+          "episodes": 12,
+          "error": 0.037471488605710764,
+          "loss_ratio": 0.22593774763062338,
+          "queries": 96,
+          "reference_error": 0.1658487304519447
+        },
+        "stable": {
+          "episodes": 12,
+          "error": 0.01731168366084537,
+          "loss_ratio": 0.09361720393052153,
+          "queries": 96,
+          "reference_error": 0.18491989649352614
+        }
+      },
+      "contest_version": "temporal-adaptation-v3-60-40",
+      "max_points": 60.0,
+      "mean_loss_ratio": 0.13927388809111363,
+      "technical_points": 52.66512348539097
+    },
+    "previous_lead": {
+      "by_condition": {
+        "drift": {
+          "episodes": 12,
+          "error": 0.04818105166451749,
+          "loss_ratio": 0.2711221182713454,
+          "queries": 96,
+          "reference_error": 0.17770977879531302
+        },
+        "shared_change": {
+          "episodes": 12,
+          "error": 0.0501877856783021,
+          "loss_ratio": 0.25134553430398854,
+          "queries": 96,
+          "reference_error": 0.19967645662485792
+        },
+        "short_history": {
+          "episodes": 12,
+          "error": 0.0460237113622425,
+          "loss_ratio": 0.27750415234910736,
+          "queries": 96,
+          "reference_error": 0.1658487304519447
+        },
+        "stable": {
+          "episodes": 12,
+          "error": 0.014208757913544546,
+          "loss_ratio": 0.07683736678947352,
+          "queries": 96,
+          "reference_error": 0.18491989649352614
+        }
+      },
+      "contest_version": "temporal-adaptation-v3-60-40",
+      "max_points": 60.0,
+      "mean_loss_ratio": 0.2192022929284787,
+      "technical_points": 49.21250587208315
+    }
+  },
+  "split": "audit"
+}

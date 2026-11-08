@@ -1,0 +1,3 @@
+variant,fold,fit_episodes,fit_cutoff_labels,held_episodes,intercept,signal_slope,odds_multiplier_per_signal_step
+intercept,held_validation,96,768,96,0.14541164267553772,0.0,1.0
+intercept_signal,held_validation,96,768,96,0.14391799863520338,0.10531948588286578,1.111065523407499

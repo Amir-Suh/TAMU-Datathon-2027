@@ -1,0 +1,29 @@
+{
+  "byte_identical_replay_files": [
+    "signed_control.csv",
+    "standalone.csv",
+    "fixed_blend.csv",
+    "crossfit_blend.csv",
+    "population_prior.json"
+  ],
+  "command": "python -B -m unittest discover -v",
+  "saved_prior_reload_max_abs_delta": 1.1102230246251565e-16,
+  "synthetic_reversal": {
+    "selected_switch_96": {
+      "median_ticks_to_sustained_recovery": 5.0,
+      "post_change_brier": 0.12398446375406173,
+      "recovered": 32
+    },
+    "static": {
+      "median_ticks_to_sustained_recovery": 49.0,
+      "post_change_brier": 0.438568922608513,
+      "recovered": 1
+    },
+    "switch": {
+      "median_ticks_to_sustained_recovery": 4.0,
+      "post_change_brier": 0.12338187180607152,
+      "recovered": 32
+    }
+  },
+  "unit_tests_passed": 14
+}

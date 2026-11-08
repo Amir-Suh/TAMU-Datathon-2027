@@ -1,0 +1,2 @@
+{"args": ["--model", "w1a_p0", "--data", "/private/tmp/house-edge-package.OS2Dy0/data", "--out", "/private/tmp/house-edge-package.OS2Dy0/output/w1a_p0.csv"], "event": "start", "observed_roots": ["/Users/andrewvong/Documents/Projects/tamudatathon27/main-participants-60-40"], "script": "/private/tmp/house-edge-package.OS2Dy0/w1a_p0/predict.py", "stage": "fit-predict", "utc": "2026-11-07T23:46:31.818001+00:00"}
+{"event": "end", "exit": 0}

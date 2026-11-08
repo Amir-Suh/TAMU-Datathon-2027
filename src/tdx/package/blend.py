@@ -42,6 +42,14 @@ def validate(config, arm_ids):
     if config.get('calibrator') is not None:
         raise ValueError('Calibrator export is not supported by blend version 1')
     weights = np.asarray(config['weights'], dtype=np.float64)
+    if config.get('kind') == 'factored':
+        # win probability is blended with `weights`; the conditional size mix with `size_weights`
+        size_weights = np.asarray(config['size_weights'], dtype=np.float64)
+        for w in (weights, size_weights):
+            if (w.shape != (len(arm_ids),) or not np.isfinite(w).all() or np.any(w < 0)
+                    or abs(w.sum() - 1) > 1e-12):
+                raise ValueError('Factored blend needs two nonnegative simplex vectors of length arms')
+        return dict(config, version=1, arms=arm_ids, weights=weights.tolist(), size_weights=size_weights.tolist())
     if weights.shape not in ((len(arm_ids),), (4, len(arm_ids))):
         raise ValueError('Blend weights must have shape (arms,) or (4, arms)')
     if not np.isfinite(weights).all() or np.any(weights < 0):
@@ -54,6 +62,13 @@ def validate(config, arm_ids):
 def apply(config, predictions, split, cond_posterior=None):
     weights = np.asarray(config['weights'], dtype=np.float64)
     values = np.stack([probabilities(p, (*split.query_ids.shape, 5)) for p in predictions])
+    if config.get('kind') == 'factored':
+        size_weights = np.asarray(config['size_weights'], dtype=np.float64)
+        p_win = 1.0 - values[..., 0]
+        mix = values[..., 1:] / p_win[..., None]
+        win = np.einsum('k,kem->em', weights, p_win)
+        size = np.einsum('k,kemc->emc', size_weights, mix)
+        return probabilities(np.concatenate([(1.0 - win)[..., None], win[..., None] * size], axis=-1))
     if weights.ndim == 1:
         result = np.einsum('k,kemc->emc', weights, values)
     else:

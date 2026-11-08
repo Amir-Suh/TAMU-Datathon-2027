@@ -1,0 +1,2 @@
+# Merge into the submission package's requirements.txt when including this arm.
+lightgbm==4.7.0

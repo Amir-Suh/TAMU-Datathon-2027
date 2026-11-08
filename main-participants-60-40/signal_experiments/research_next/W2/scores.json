@@ -1,0 +1,540 @@
+{
+  "bootstrap_draws": 10000,
+  "comparison_vs_frozen_hybrid": {
+    "W1a": {
+      "R": 0.06419833407527273,
+      "condition_R": {
+        "drift": 0.0553019560575057,
+        "shared_change": 0.060270668163337905,
+        "short_history": 0.09230467986051255,
+        "stable": 0.04891603221973475
+      },
+      "conditional_payout_sse": 0.018921580024474416,
+      "delta_R": -0.0007450698491053703,
+      "delta_R_95": [
+        -0.001434262870050044,
+        -0.00012378954177970296
+      ],
+      "p0_mse": 0.0043601953218977705,
+      "path": "/Users/andrewvong/Documents/Projects/tamudatathon27/main-participants-60-40/signal_experiments/research_next/W1/W1a_validation_predictions.csv",
+      "points": 56.380467887253886,
+      "sha256": "a0c057a67e15244d47856435b43b105c167db56265e81ec48517262cde52a538",
+      "win_mass_weighted_conditional_payout_sse": 0.006448433389233892
+    },
+    "W2": {
+      "R": 0.06417829954634421,
+      "condition_R": {
+        "drift": 0.05529369749477368,
+        "shared_change": 0.06027730975507029,
+        "short_history": 0.09225119507696686,
+        "stable": 0.04889099585856604
+      },
+      "conditional_payout_sse": 0.01892158002447442,
+      "delta_R": -0.0007651043780338845,
+      "delta_R_95": [
+        -0.0014538339487901522,
+        -0.00014364197671557868
+      ],
+      "p0_mse": 0.004357343674255576,
+      "path": "/Users/andrewvong/Documents/Projects/tamudatathon27/main-participants-60-40/signal_experiments/research_next/W2/validation_predictions.csv",
+      "points": 56.381529322274105,
+      "sha256": "db8ed3e841ff0c7a32947badc15e1598f391585e192501e86a6a619308a9a097",
+      "win_mass_weighted_conditional_payout_sse": 0.006448433389233892
+    },
+    "control": {
+      "R": 0.0649434039243781,
+      "condition_R": {
+        "drift": 0.05531415455351391,
+        "shared_change": 0.060449112177098134,
+        "short_history": 0.09293615471880542,
+        "stable": 0.05107419424809494
+      },
+      "conditional_payout_sse": 0.018921580024474416,
+      "delta_R": 0.0,
+      "delta_R_95": [
+        0.0,
+        0.0
+      ],
+      "p0_mse": 0.00446809666869068,
+      "path": "/Users/andrewvong/Documents/Projects/tamudatathon27/main-participants-60-40/signal_experiments/combined/m3_match_split_win_pair_l31_factor_gru_size.csv",
+      "points": 56.34102223545075,
+      "sha256": "ac6fae2e924da0bb5f1b7638480572373a87a192d4891c1315ffc11f714aeea6",
+      "win_mass_weighted_conditional_payout_sse": 0.006448433389233892
+    }
+  },
+  "data": "/Users/andrewvong/Documents/Projects/tamudatathon27/main-participants-60-40/public/validation",
+  "episodes": 96,
+  "input_hashes": {
+    "conditions.csv": "ebcca7597bbdfa532c5254b92903e66522a710502a6f70689c3de311f75c29b1",
+    "queries.csv": "168b7f6365a4f51084437c0071636b102ca3fb4bf0347b912778c51714fc48f2",
+    "reference.csv": "bb396d9e4d20bf4004374f9ab781f41aaa8b730e61887c1969be534efeb1e6c6",
+    "targets.csv": "93b6e978f6818d2456dcb677fddb6ba243e864cef56e33a4bf94bde5ba4b51f3"
+  },
+  "models": {
+    "W2": {
+      "R": 0.06417829954634421,
+      "condition_R": {
+        "drift": 0.05529369749477368,
+        "shared_change": 0.06027730975507029,
+        "short_history": 0.09225119507696686,
+        "stable": 0.04889099585856604
+      },
+      "conditional_payout_sse": 0.01892158002447442,
+      "delta_R": -2.0034528928514206e-05,
+      "delta_R_95": [
+        -4.5929868274311635e-05,
+        2.33495683022209e-06
+      ],
+      "p0_mse": 0.004357343674255576,
+      "path": "/Users/andrewvong/Documents/Projects/tamudatathon27/main-participants-60-40/signal_experiments/research_next/W2/validation_predictions.csv",
+      "points": 56.381529322274105,
+      "sha256": "db8ed3e841ff0c7a32947badc15e1598f391585e192501e86a6a619308a9a097",
+      "win_mass_weighted_conditional_payout_sse": 0.006448433389233892
+    },
+    "control": {
+      "R": 0.06419833407527273,
+      "condition_R": {
+        "drift": 0.0553019560575057,
+        "shared_change": 0.060270668163337905,
+        "short_history": 0.09230467986051255,
+        "stable": 0.04891603221973475
+      },
+      "conditional_payout_sse": 0.018921580024474416,
+      "delta_R": 0.0,
+      "delta_R_95": [
+        0.0,
+        0.0
+      ],
+      "p0_mse": 0.0043601953218977705,
+      "path": "/Users/andrewvong/Documents/Projects/tamudatathon27/main-participants-60-40/signal_experiments/research_next/W1/W1a_validation_predictions.csv",
+      "points": 56.380467887253886,
+      "sha256": "a0c057a67e15244d47856435b43b105c167db56265e81ec48517262cde52a538",
+      "win_mass_weighted_conditional_payout_sse": 0.006448433389233892
+    }
+  },
+  "points_max": 60,
+  "queries": 768,
+  "slice_R_definition": "Equal-weight available condition ratios using forecast and reference episode means within the slice.",
+  "slices_vs_W1a": {
+    "other_top_pairs": {
+      "episodes": 96,
+      "models": {
+        "W1a": {
+          "R": 0.053092907777888845,
+          "condition_R": {
+            "drift": 0.04517892461135364,
+            "shared_change": 0.046159640714899516,
+            "short_history": 0.07796077346241327,
+            "stable": 0.04307229232288893
+          },
+          "delta_R": 0.0,
+          "delta_R_95": [
+            0.0,
+            0.0
+          ],
+          "p0_mse": 0.0034780555038177027
+        },
+        "W2": {
+          "R": 0.05308016805764354,
+          "condition_R": {
+            "drift": 0.04517339395874153,
+            "shared_change": 0.046164987325931224,
+            "short_history": 0.07792740841393846,
+            "stable": 0.04305488253196294
+          },
+          "delta_R": -1.2739720245305564e-05,
+          "delta_R_95": [
+            -3.564129778404997e-05,
+            6.365151945363529e-06
+          ],
+          "p0_mse": 0.003476241032688959
+        }
+      },
+      "queries": 520
+    },
+    "short_history": {
+      "episodes": 24,
+      "models": {
+        "W1a": {
+          "R": 0.09230467986051255,
+          "condition_R": {
+            "short_history": 0.09230467986051255
+          },
+          "delta_R": 0.0,
+          "delta_R_95": [
+            0.0,
+            0.0
+          ],
+          "p0_mse": 0.006691177333430494
+        },
+        "W2": {
+          "R": 0.09225119507696686,
+          "condition_R": {
+            "short_history": 0.09225119507696686
+          },
+          "delta_R": -5.348478354569308e-05,
+          "delta_R_95": [
+            -0.0001416514025372499,
+            1.9522971329765735e-05
+          ],
+          "p0_mse": 0.006684311918621667
+        }
+      },
+      "queries": 192
+    },
+    "short_history_top_pair_4_7": {
+      "episodes": 21,
+      "models": {
+        "W1a": {
+          "R": 0.11720104206898946,
+          "condition_R": {
+            "short_history": 0.11720104206898946
+          },
+          "delta_R": 0.0,
+          "delta_R_95": [
+            0.0,
+            0.0
+          ],
+          "p0_mse": 0.008710360074231541
+        },
+        "W2": {
+          "R": 0.11712182033150792,
+          "condition_R": {
+            "short_history": 0.11712182033150792
+          },
+          "delta_R": -7.922173748153849e-05,
+          "delta_R_95": [
+            -0.00024722443353318493,
+            2.7900460256173794e-05
+          ],
+          "p0_mse": 0.008695875338293054
+        }
+      },
+      "queries": 63
+    },
+    "top_cell_00": {
+      "episodes": 92,
+      "models": {
+        "W1a": {
+          "R": 0.05123305380500369,
+          "condition_R": {
+            "drift": 0.034383782157405784,
+            "shared_change": 0.04624247845741192,
+            "short_history": 0.0710948758851111,
+            "stable": 0.05321107872008595
+          },
+          "delta_R": 0.0,
+          "delta_R_95": [
+            0.0,
+            0.0
+          ],
+          "p0_mse": 0.004166487032713601
+        },
+        "W2": {
+          "R": 0.05119184850949632,
+          "condition_R": {
+            "drift": 0.03437414271301341,
+            "shared_change": 0.046243581223209436,
+            "short_history": 0.07105434739928196,
+            "stable": 0.053095322702480456
+          },
+          "delta_R": -4.1205295507371065e-05,
+          "delta_R_95": [
+            -9.926515874427028e-05,
+            3.1749676610431695e-06
+          ],
+          "p0_mse": 0.0041606536234780325
+        }
+      },
+      "queries": 288
+    },
+    "top_cell_01": {
+      "episodes": 83,
+      "models": {
+        "W1a": {
+          "R": 0.04704320958711959,
+          "condition_R": {
+            "drift": 0.03888347935710533,
+            "shared_change": 0.032550472666981294,
+            "short_history": 0.08989245498200725,
+            "stable": 0.0268464313423845
+          },
+          "delta_R": 0.0,
+          "delta_R_95": [
+            0.0,
+            0.0
+          ],
+          "p0_mse": 0.0031008545766950915
+        },
+        "W2": {
+          "R": 0.0470511011565891,
+          "condition_R": {
+            "drift": 0.038890729017134966,
+            "shared_change": 0.03254292471650222,
+            "short_history": 0.08990018011295302,
+            "stable": 0.026870570779766196
+          },
+          "delta_R": 7.891569469509196e-06,
+          "delta_R_95": [
+            -5.4813992496871376e-06,
+            2.402654352422507e-05
+          ],
+          "p0_mse": 0.003102556855732192
+        }
+      },
+      "queries": 170
+    },
+    "top_cell_10": {
+      "episodes": 77,
+      "models": {
+        "W1a": {
+          "R": 0.0721130232169145,
+          "condition_R": {
+            "drift": 0.08315785348005093,
+            "shared_change": 0.05512609467715323,
+            "short_history": 0.09628097724444752,
+            "stable": 0.053887167466006275
+          },
+          "delta_R": 0.0,
+          "delta_R_95": [
+            0.0,
+            0.0
+          ],
+          "p0_mse": 0.005262602952901868
+        },
+        "W2": {
+          "R": 0.0720921950818398,
+          "condition_R": {
+            "drift": 0.083168145177124,
+            "shared_change": 0.055139163440637254,
+            "short_history": 0.09617588922197166,
+            "stable": 0.05388558248762628
+          },
+          "delta_R": -2.0828135074701937e-05,
+          "delta_R_95": [
+            -8.569764368936784e-05,
+            1.2953660536078126e-05
+          ],
+          "p0_mse": 0.005257927725888079
+        }
+      },
+      "queries": 132
+    },
+    "top_cell_11": {
+      "episodes": 81,
+      "models": {
+        "W1a": {
+          "R": 0.07712780658482893,
+          "condition_R": {
+            "drift": 0.076195919597444,
+            "shared_change": 0.07832963082780266,
+            "short_history": 0.09482856716684117,
+            "stable": 0.059157108747227904
+          },
+          "delta_R": 0.0,
+          "delta_R_95": [
+            0.0,
+            0.0
+          ],
+          "p0_mse": 0.0052071509773862846
+        },
+        "W2": {
+          "R": 0.07712130107249264,
+          "condition_R": {
+            "drift": 0.07615497698794596,
+            "shared_change": 0.07834793485950428,
+            "short_history": 0.0948251038483114,
+            "stable": 0.05915718859420893
+          },
+          "delta_R": -6.505512336288377e-06,
+          "delta_R_95": [
+            -2.7073157741180598e-05,
+            6.605801767187896e-06
+          ],
+          "p0_mse": 0.005206126814465791
+        }
+      },
+      "queries": 178
+    },
+    "top_pair_4_7": {
+      "episodes": 86,
+      "models": {
+        "W1a": {
+          "R": 0.0831491490641556,
+          "condition_R": {
+            "drift": 0.07390815583614592,
+            "shared_change": 0.09166423291419461,
+            "short_history": 0.11720104206898946,
+            "stable": 0.0498231654372924
+          },
+          "delta_R": 0.0,
+          "delta_R_95": [
+            0.0,
+            0.0
+          ],
+          "p0_mse": 0.006209843327549527
+        },
+        "W2": {
+          "R": 0.08312080493946636,
+          "condition_R": {
+            "drift": 0.07389553812044918,
+            "shared_change": 0.09166341653766517,
+            "short_history": 0.11712182033150792,
+            "stable": 0.04980244476824313
+          },
+          "delta_R": -2.8344124689244632e-05,
+          "delta_R_95": [
+            -7.267983608828937e-05,
+            2.5664878287476152e-06
+          ],
+          "p0_mse": 0.0062048169549597755
+        }
+      },
+      "queries": 248
+    },
+    "top_pair_4_7_cell_00": {
+      "episodes": 58,
+      "models": {
+        "W1a": {
+          "R": 0.0663806537349931,
+          "condition_R": {
+            "drift": 0.0693827766092544,
+            "shared_change": 0.08207633866056765,
+            "short_history": 0.06455809921281822,
+            "stable": 0.04950540045733219
+          },
+          "delta_R": 0.0,
+          "delta_R_95": [
+            0.0,
+            0.0
+          ],
+          "p0_mse": 0.004271848355341756
+        },
+        "W2": {
+          "R": 0.06634142782511579,
+          "condition_R": {
+            "drift": 0.06939092345405844,
+            "shared_change": 0.08206444749519318,
+            "short_history": 0.06450542012040021,
+            "stable": 0.04940492023081135
+          },
+          "delta_R": -3.922590987731622e-05,
+          "delta_R_95": [
+            -9.781834555088061e-05,
+            1.8646572892403883e-06
+          ],
+          "p0_mse": 0.00426475069621133
+        }
+      },
+      "queries": 85
+    },
+    "top_pair_4_7_cell_01": {
+      "episodes": 39,
+      "models": {
+        "W1a": {
+          "R": 0.04729561825202255,
+          "condition_R": {
+            "drift": 0.0585744668127031,
+            "shared_change": 0.03524165767365431,
+            "short_history": 0.06074523253084697,
+            "stable": 0.03462111599088584
+          },
+          "delta_R": 0.0,
+          "delta_R_95": [
+            0.0,
+            0.0
+          ],
+          "p0_mse": 0.003682908158284094
+        },
+        "W2": {
+          "R": 0.04729846810283944,
+          "condition_R": {
+            "drift": 0.05858522748864498,
+            "shared_change": 0.035221807604864985,
+            "short_history": 0.06076573351889114,
+            "stable": 0.034621103798956665
+          },
+          "delta_R": 2.8498508168883774e-06,
+          "delta_R_95": [
+            -2.9719544468387813e-05,
+            4.267468380086488e-05
+          ],
+          "p0_mse": 0.0036842153127410343
+        }
+      },
+      "queries": 50
+    },
+    "top_pair_4_7_cell_10": {
+      "episodes": 39,
+      "models": {
+        "W1a": {
+          "R": 0.12595918562117225,
+          "condition_R": {
+            "drift": 0.10560148578438051,
+            "shared_change": 0.08014873298386826,
+            "short_history": 0.25423977694418937,
+            "stable": 0.06384674677225086
+          },
+          "delta_R": 0.0,
+          "delta_R_95": [
+            0.0,
+            0.0
+          ],
+          "p0_mse": 0.01041538712549325
+        },
+        "W2": {
+          "R": 0.12587374505278243,
+          "condition_R": {
+            "drift": 0.10561102477383169,
+            "shared_change": 0.08021125057598238,
+            "short_history": 0.25382526775417646,
+            "stable": 0.06384743710713912
+          },
+          "delta_R": -8.544056838982739e-05,
+          "delta_R_95": [
+            -0.0004128397745021476,
+            3.6506759740569256e-05
+          ],
+          "p0_mse": 0.010403401937780651
+        }
+      },
+      "queries": 42
+    },
+    "top_pair_4_7_cell_11": {
+      "episodes": 49,
+      "models": {
+        "W1a": {
+          "R": 0.10662781770030139,
+          "condition_R": {
+            "drift": 0.07465644490833084,
+            "shared_change": 0.12829225008455883,
+            "short_history": 0.16553999949351192,
+            "stable": 0.05802257631480397
+          },
+          "delta_R": 0.0,
+          "delta_R_95": [
+            0.0,
+            0.0
+          ],
+          "p0_mse": 0.007821723490750877
+        },
+        "W2": {
+          "R": 0.10661199872426849,
+          "condition_R": {
+            "drift": 0.07458864396192673,
+            "shared_change": 0.12829215804266864,
+            "short_history": 0.16554451648120108,
+            "stable": 0.058022676411277535
+          },
+          "delta_R": -1.5818976032894172e-05,
+          "delta_R_95": [
+            -5.3947221202194843e-05,
+            3.298184968951586e-06
+          ],
+          "p0_mse": 0.007818833079270737
+        }
+      },
+      "queries": 71
+    }
+  }
+}

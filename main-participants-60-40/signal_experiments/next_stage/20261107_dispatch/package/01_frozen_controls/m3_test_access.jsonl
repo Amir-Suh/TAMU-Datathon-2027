@@ -1,0 +1,29 @@
+{"command": ["predict.py", "--model", "m3", "--data", "/data", "--out", "/output/test_audited.csv", "--split", "test"], "event": "start", "split": "test"}
+{"allowed": true, "event": "open", "flags": 524288, "mode": "r", "path": "/submission/predict.py"}
+{"allowed": true, "event": "open", "flags": 524288, "mode": "r", "path": "/submission/__pycache__/input_only.cpython-313.pyc"}
+{"allowed": true, "event": "open", "flags": 524288, "mode": "r", "path": "/submission/input_only.py"}
+{"allowed": true, "event": "open", "flags": 524288, "mode": "r", "path": "/submission/models/__pycache__/__init__.cpython-313.pyc"}
+{"allowed": true, "event": "open", "flags": 524288, "mode": "r", "path": "/submission/models/__init__.py"}
+{"allowed": true, "event": "open", "flags": 524288, "mode": "r", "path": "/submission/models/common/__pycache__/__init__.cpython-313.pyc"}
+{"allowed": true, "event": "open", "flags": 524288, "mode": "r", "path": "/submission/models/common/__init__.py"}
+{"allowed": true, "event": "open", "flags": 524288, "mode": "r", "path": "/submission/models/common/__pycache__/data.cpython-313.pyc"}
+{"allowed": true, "event": "open", "flags": 524288, "mode": "r", "path": "/submission/models/common/data.py"}
+{"allowed": true, "event": "open", "flags": 524288, "mode": "r", "path": "/submission/models/m3_lag_pair_flip/__pycache__/__init__.cpython-313.pyc"}
+{"allowed": true, "event": "open", "flags": 524288, "mode": "r", "path": "/submission/models/m3_lag_pair_flip/__init__.py"}
+{"allowed": true, "event": "open", "flags": 524288, "mode": "r", "path": "/submission/models/m3_lag_pair_flip/__pycache__/model.cpython-313.pyc"}
+{"allowed": true, "event": "open", "flags": 524288, "mode": "r", "path": "/submission/models/m3_lag_pair_flip/model.py"}
+{"allowed": true, "event": "open", "flags": 524288, "mode": "r", "path": "/submission/models/common/__pycache__/components.cpython-313.pyc"}
+{"allowed": true, "event": "open", "flags": 524288, "mode": "r", "path": "/submission/models/common/components.py"}
+{"allowed": true, "event": "open", "flags": 524288, "mode": "r", "path": "/submission/models/common/__pycache__/selection.cpython-313.pyc"}
+{"allowed": true, "event": "open", "flags": 524288, "mode": "r", "path": "/submission/models/common/selection.py"}
+{"allowed": true, "event": "open", "flags": 524288, "mode": "r", "path": "/submission/slot_forecasting/__pycache__/__init__.cpython-313.pyc"}
+{"allowed": true, "event": "open", "flags": 524288, "mode": "r", "path": "/submission/slot_forecasting/__init__.py"}
+{"allowed": true, "event": "open", "flags": 524288, "mode": "r", "path": "/submission/slot_forecasting/__pycache__/io.cpython-313.pyc"}
+{"allowed": true, "event": "open", "flags": 524288, "mode": "r", "path": "/submission/slot_forecasting/io.py"}
+{"allowed": true, "event": "open", "flags": 524288, "mode": "r", "path": "/submission/slot_forecasting/__pycache__/schema.cpython-313.pyc"}
+{"allowed": true, "event": "open", "flags": 524288, "mode": "r", "path": "/submission/slot_forecasting/schema.py"}
+{"allowed": true, "event": "open", "flags": 524288, "mode": "r", "path": "/submission/weights/m3.json"}
+{"allowed": true, "event": "open", "flags": 524288, "mode": "r", "path": "/data/test/queries.csv"}
+{"allowed": true, "event": "open", "flags": 524288, "mode": "r", "path": "/data/test/history.csv"}
+{"allowed": true, "event": "open", "flags": 524865, "mode": "w", "path": "/output/test_audited.csv"}
+{"data_inputs": ["/data/test/history.csv", "/data/test/queries.csv"], "event": "end"}

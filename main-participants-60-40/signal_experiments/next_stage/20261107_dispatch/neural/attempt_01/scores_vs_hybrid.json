@@ -1,0 +1,435 @@
+{
+  "bootstrap_draws": 10000,
+  "data": "/Users/andrewvong/Documents/Projects/tamudatathon27/main-participants-60-40/public/validation",
+  "episodes": 96,
+  "input_hashes": {
+    "conditions.csv": "ebcca7597bbdfa532c5254b92903e66522a710502a6f70689c3de311f75c29b1",
+    "queries.csv": "168b7f6365a4f51084437c0071636b102ca3fb4bf0347b912778c51714fc48f2",
+    "reference.csv": "bb396d9e4d20bf4004374f9ab781f41aaa8b730e61887c1969be534efeb1e6c6",
+    "targets.csv": "93b6e978f6818d2456dcb677fddb6ba243e864cef56e33a4bf94bde5ba4b51f3"
+  },
+  "models": {
+    "archived_factored_gru": {
+      "R": 0.08291069737374758,
+      "condition_R": {
+        "drift": 0.08132567921023215,
+        "shared_change": 0.06575083489722784,
+        "short_history": 0.12124228222606577,
+        "stable": 0.06332399316146457
+      },
+      "conditional_payout_sse": 0.01683183672100445,
+      "delta_R": 0.01796729344936948,
+      "delta_R_95": [
+        0.01003508968045964,
+        0.026522014675771182
+      ],
+      "p0_mse": 0.0071028442005114075,
+      "path": "/Users/andrewvong/Documents/Projects/tamudatathon27/main-participants-60-40/signal_experiments/01_fredy_replay/forecasts/gru128_factor_mean_3.csv",
+      "points": 55.40623076816098,
+      "sha256": "31234e47b508c9ccf258841e088bf26a06f2100ca65916ecf81040aaf6abbbb2",
+      "win_mass_weighted_conditional_payout_sse": 0.006144692947351093
+    },
+    "control": {
+      "R": 0.0649434039243781,
+      "condition_R": {
+        "drift": 0.05531415455351391,
+        "shared_change": 0.060449112177098134,
+        "short_history": 0.09293615471880542,
+        "stable": 0.05107419424809494
+      },
+      "conditional_payout_sse": 0.018921580024474416,
+      "delta_R": 0.0,
+      "delta_R_95": [
+        0.0,
+        0.0
+      ],
+      "p0_mse": 0.00446809666869068,
+      "path": "/Users/andrewvong/Documents/Projects/tamudatathon27/main-participants-60-40/signal_experiments/combined/m3_match_split_win_pair_l31_factor_gru_size.csv",
+      "points": 56.34102223545075,
+      "sha256": "ac6fae2e924da0bb5f1b7638480572373a87a192d4891c1315ffc11f714aeea6",
+      "win_mass_weighted_conditional_payout_sse": 0.006448433389233892
+    },
+    "factored": {
+      "R": 0.8662597236840254,
+      "condition_R": {
+        "drift": 0.9097669504081883,
+        "shared_change": 0.7841564896269273,
+        "short_history": 0.9140075330921702,
+        "stable": 0.8571079216088157
+      },
+      "conditional_payout_sse": 0.026343045679606155,
+      "delta_R": 0.8013163197596472,
+      "delta_R_95": [
+        0.7628994710922711,
+        0.8420630772809734
+      ],
+      "p0_mse": 0.11136659596230873,
+      "path": "signal_experiments/next_stage/20261107_dispatch/neural/attempt_01/full/validation_factored.csv",
+      "points": 32.14986597983215,
+      "sha256": "977e49a6c688876833c3ed0d3e00ab2f1475807d6d866ec2855b7e728faa50c3",
+      "win_mass_weighted_conditional_payout_sse": 0.01012186856281267
+    },
+    "factored_hybrid_size": {
+      "R": 0.07450704593234003,
+      "condition_R": {
+        "drift": 0.06498310946082297,
+        "shared_change": 0.06880511792632069,
+        "short_history": 0.10033315014865854,
+        "stable": 0.06390680619355796
+      },
+      "conditional_payout_sse": 0.02321195868933198,
+      "delta_R": 0.009563642007961934,
+      "delta_R_95": [
+        0.007163845076612315,
+        0.012006089747063398
+      ],
+      "p0_mse": 0.00446809666869068,
+      "path": "signal_experiments/next_stage/20261107_dispatch/neural/attempt_01/full/validation_factored_hybrid_size.csv",
+      "points": 55.839559384125344,
+      "sha256": "52684ef55b832f953afa4281559124402f6c7ea4a3bc1ba33cf126e2413d8fbe",
+      "win_mass_weighted_conditional_payout_sse": 0.008339266369038997
+    },
+    "factored_hybrid_win": {
+      "R": 0.8468270173279168,
+      "condition_R": {
+        "drift": 0.8896624961739077,
+        "shared_change": 0.7715612599960749,
+        "short_history": 0.8945525205030606,
+        "stable": 0.8315317926386238
+      },
+      "conditional_payout_sse": 0.018921580024474416,
+      "delta_R": 0.7818836134035386,
+      "delta_R_95": [
+        0.7441356991040748,
+        0.8218529780541255
+      ],
+      "p0_mse": 0.11136659596230873,
+      "path": "signal_experiments/next_stage/20261107_dispatch/neural/attempt_01/full/validation_factored_hybrid_win.csv",
+      "points": 32.48815370202406,
+      "sha256": "9dc139f36519536223e123639630e57ead023f1176bc977621d3f87a43ee0ee7",
+      "win_mass_weighted_conditional_payout_sse": 0.0064484333892338925
+    },
+    "factored_seed101": {
+      "R": 0.8705481595835503,
+      "condition_R": {
+        "drift": 0.9148475436377718,
+        "shared_change": 0.7884881047376965,
+        "short_history": 0.9289930269892561,
+        "stable": 0.8498639629694764
+      },
+      "conditional_payout_sse": 0.027504000498650743,
+      "delta_R": 0.8056047556591721,
+      "delta_R_95": [
+        0.7624667523213997,
+        0.8514582123680469
+      ],
+      "p0_mse": 0.11155937987959863,
+      "path": "signal_experiments/next_stage/20261107_dispatch/neural/attempt_01/full/validation_factored_seed101.csv",
+      "points": 32.07615890165486,
+      "sha256": "15224b85c35d0ece4bb1191f1d908ec327fb39b9ef3ac6512aa879d2b6d0ecda",
+      "win_mass_weighted_conditional_payout_sse": 0.010698757799881562
+    },
+    "factored_seed202": {
+      "R": 0.8740659103970589,
+      "condition_R": {
+        "drift": 0.9137324124295674,
+        "shared_change": 0.7976665861796249,
+        "short_history": 0.9164441353235543,
+        "stable": 0.8684205076554891
+      },
+      "conditional_payout_sse": 0.026447063503606625,
+      "delta_R": 0.8091225064726808,
+      "delta_R_95": [
+        0.7720419928945502,
+        0.8490553369097097
+      ],
+      "p0_mse": 0.11251218183513671,
+      "path": "signal_experiments/next_stage/20261107_dispatch/neural/attempt_01/full/validation_factored_seed202.csv",
+      "points": 32.015949741750426,
+      "sha256": "1f4f194bf38313097a9271dd8ff4526b7aa92a2ffa7f8105fd8b6652ff72fa5f",
+      "win_mass_weighted_conditional_payout_sse": 0.01006950559046784
+    },
+    "factored_seed303": {
+      "R": 0.8720158923604172,
+      "condition_R": {
+        "drift": 0.9205797626639872,
+        "shared_change": 0.7819142348762316,
+        "short_history": 0.9136837985715974,
+        "stable": 0.8718857733298526
+      },
+      "conditional_payout_sse": 0.027925002459856196,
+      "delta_R": 0.8070724884360391,
+      "delta_R_95": [
+        0.7687669120139357,
+        0.8483456715566069
+      ],
+      "p0_mse": 0.1119726368537924,
+      "path": "signal_experiments/next_stage/20261107_dispatch/neural/attempt_01/full/validation_factored_seed303.csv",
+      "points": 32.05100995395196,
+      "sha256": "cc5e72ed2db09dcfe8a82bdf3e77127ef45bbcc46b06f416026696b214e3e909",
+      "win_mass_weighted_conditional_payout_sse": 0.010731898246414068
+    },
+    "signal_offset": {
+      "R": 0.08611941352188038,
+      "condition_R": {
+        "drift": 0.07886998427849484,
+        "shared_change": 0.077868334876017,
+        "short_history": 0.11393876722878275,
+        "stable": 0.07380056770422694
+      },
+      "conditional_payout_sse": 0.02459398139349365,
+      "delta_R": 0.02117600959750228,
+      "delta_R_95": [
+        0.014542585958672095,
+        0.028069638132171414
+      ],
+      "p0_mse": 0.005276969105907039,
+      "path": "signal_experiments/next_stage/20261107_dispatch/neural/attempt_01/full/validation_signal_offset.csv",
+      "points": 55.24254446888337,
+      "sha256": "badcd106ac88f734b090e92bc5932282200f189ba5c6d164d52d41de248523c9",
+      "win_mass_weighted_conditional_payout_sse": 0.009577062313166214
+    },
+    "signal_offset_hybrid_size": {
+      "R": 0.0740028156388365,
+      "condition_R": {
+        "drift": 0.06547830613014789,
+        "shared_change": 0.06909718543008316,
+        "short_history": 0.10001363580651997,
+        "stable": 0.061422135188594996
+      },
+      "conditional_payout_sse": 0.023097019359859538,
+      "delta_R": 0.009059411714458399,
+      "delta_R_95": [
+        0.006717966621818131,
+        0.011434062682481058
+      ],
+      "p0_mse": 0.00446809666869068,
+      "path": "signal_experiments/next_stage/20261107_dispatch/neural/attempt_01/full/validation_signal_offset_hybrid_size.csv",
+      "points": 55.86577532788952,
+      "sha256": "c2a813e44db33a347d84a549433856a31fcf83f3becaa3cb2177373cc8bdc71f",
+      "win_mass_weighted_conditional_payout_sse": 0.00825045846100274
+    },
+    "signal_offset_hybrid_win": {
+      "R": 0.07033868062631314,
+      "condition_R": {
+        "drift": 0.05747759351935717,
+        "shared_change": 0.06666285587115063,
+        "short_history": 0.10119279484774103,
+        "stable": 0.056021478267003745
+      },
+      "conditional_payout_sse": 0.018921580024474416,
+      "delta_R": 0.005395276701935042,
+      "delta_R_95": [
+        0.0003343303634530507,
+        0.010778242996488697
+      ],
+      "p0_mse": 0.005276969105907039,
+      "path": "signal_experiments/next_stage/20261107_dispatch/neural/attempt_01/full/validation_signal_offset_hybrid_win.csv",
+      "points": 56.057022964815914,
+      "sha256": "5b0d402e8da3ebbd62f1399c4321f4fc9b18b3d0ce7d4a1b59e01115739bc448",
+      "win_mass_weighted_conditional_payout_sse": 0.006448433389233892
+    },
+    "signal_offset_mask": {
+      "R": 0.08702061901149465,
+      "condition_R": {
+        "drift": 0.0805930763685799,
+        "shared_change": 0.07799231999295107,
+        "short_history": 0.11534888050414756,
+        "stable": 0.07414819918030005
+      },
+      "conditional_payout_sse": 0.02484642474581943,
+      "delta_R": 0.022077215087116547,
+      "delta_R_95": [
+        0.015303256222660095,
+        0.029154234784309622
+      ],
+      "p0_mse": 0.0053016186822894456,
+      "path": "signal_experiments/next_stage/20261107_dispatch/neural/attempt_01/full/validation_signal_offset_mask.csv",
+      "points": 55.19674507606146,
+      "sha256": "480ffe7a5b19cd977385c18445f46ad2da4d0b865efaa9cb9d8a0f78cc4e0368",
+      "win_mass_weighted_conditional_payout_sse": 0.009743161508860393
+    },
+    "signal_offset_mask_hybrid_size": {
+      "R": 0.07425092867050642,
+      "condition_R": {
+        "drift": 0.06607170634608912,
+        "shared_change": 0.06906184453124509,
+        "short_history": 0.10024208459179326,
+        "stable": 0.06162807921289823
+      },
+      "conditional_payout_sse": 0.02314004972210523,
+      "delta_R": 0.009307524746128323,
+      "delta_R_95": [
+        0.006871656478406844,
+        0.011741601883249611
+      ],
+      "p0_mse": 0.00446809666869068,
+      "path": "signal_experiments/next_stage/20261107_dispatch/neural/attempt_01/full/validation_signal_offset_mask_hybrid_size.csv",
+      "points": 55.85287235846846,
+      "sha256": "9ddfa17322c3c311460ea4951a77bf33000fc32a5592a5e88b6ebab870bba5e4",
+      "win_mass_weighted_conditional_payout_sse": 0.008306419617972663
+    },
+    "signal_offset_mask_hybrid_win": {
+      "R": 0.0705114167895973,
+      "condition_R": {
+        "drift": 0.057582038232623534,
+        "shared_change": 0.06672184071627382,
+        "short_history": 0.10171524031403963,
+        "stable": 0.056026547895452194
+      },
+      "conditional_payout_sse": 0.01892158002447442,
+      "delta_R": 0.005568012865219199,
+      "delta_R_95": [
+        0.00038188595221363405,
+        0.011033830041366332
+      ],
+      "p0_mse": 0.0053016186822894456,
+      "path": "signal_experiments/next_stage/20261107_dispatch/neural/attempt_01/full/validation_signal_offset_mask_hybrid_win.csv",
+      "points": 56.04797768522318,
+      "sha256": "805b0f4045432fe0841a334a16e5a513e76ec9a6e0d431948440173cad00788f",
+      "win_mass_weighted_conditional_payout_sse": 0.006448433389233892
+    },
+    "signal_offset_mask_seed101": {
+      "R": 0.09491403883165944,
+      "condition_R": {
+        "drift": 0.09202297921693989,
+        "shared_change": 0.08298718056776627,
+        "short_history": 0.1223687071758199,
+        "stable": 0.08227728836611174
+      },
+      "conditional_payout_sse": 0.028217369193039177,
+      "delta_R": 0.029970634907281343,
+      "delta_R_95": [
+        0.022086774060018854,
+        0.03827369786107226
+      ],
+      "p0_mse": 0.005415986679193387,
+      "path": "signal_experiments/next_stage/20261107_dispatch/neural/attempt_01/full/validation_signal_offset_mask_seed101.csv",
+      "points": 54.79882243908726,
+      "sha256": "2859d74f3ff35a64179c7d8d27329735e8722eb76b1046143c54f8ab5ea4366f",
+      "win_mass_weighted_conditional_payout_sse": 0.01110041530983389
+    },
+    "signal_offset_mask_seed202": {
+      "R": 0.0822221615630819,
+      "condition_R": {
+        "drift": 0.07303030507398343,
+        "shared_change": 0.07976124750143798,
+        "short_history": 0.10978712693599889,
+        "stable": 0.06630996674090728
+      },
+      "conditional_payout_sse": 0.024252288982009294,
+      "delta_R": 0.017278757638703804,
+      "delta_R_95": [
+        0.011075737562158242,
+        0.023446340628645004
+      ],
+      "p0_mse": 0.005310112261055963,
+      "path": "signal_experiments/next_stage/20261107_dispatch/neural/attempt_01/full/validation_signal_offset_mask_seed202.csv",
+      "points": 55.44148154695005,
+      "sha256": "87988327cbec44725f0a9a9ca41c48a2d533a14f08b1585724babfee0a626528",
+      "win_mass_weighted_conditional_payout_sse": 0.008832542325886072
+    },
+    "signal_offset_mask_seed303": {
+      "R": 0.09302221087323029,
+      "condition_R": {
+        "drift": 0.08723295273294293,
+        "shared_change": 0.08061767429523435,
+        "short_history": 0.12234553451390437,
+        "stable": 0.08189268195083949
+      },
+      "conditional_payout_sse": 0.02680648792347504,
+      "delta_R": 0.02807880694885219,
+      "delta_R_95": [
+        0.020309305318006052,
+        0.03644457340788659
+      ],
+      "p0_mse": 0.005455984267637291,
+      "path": "signal_experiments/next_stage/20261107_dispatch/neural/attempt_01/full/validation_signal_offset_mask_seed303.csv",
+      "points": 54.893669500151496,
+      "sha256": "af92312df49354c6247130fa0af63701a6155f3c252b1b1e3afb95e6a2eae25c",
+      "win_mass_weighted_conditional_payout_sse": 0.010757502714796049
+    },
+    "signal_offset_seed101": {
+      "R": 0.09464024865778514,
+      "condition_R": {
+        "drift": 0.09190031712416144,
+        "shared_change": 0.08273065663882499,
+        "short_history": 0.12137630062726971,
+        "stable": 0.08255372024088439
+      },
+      "conditional_payout_sse": 0.028146394309449554,
+      "delta_R": 0.029696844733407043,
+      "delta_R_95": [
+        0.021838079869043438,
+        0.03801032833430881
+      ],
+      "p0_mse": 0.005410193786546486,
+      "path": "signal_experiments/next_stage/20261107_dispatch/neural/attempt_01/full/validation_signal_offset_seed101.csv",
+      "points": 54.812528658223734,
+      "sha256": "7425d9172420a0c876c82d42eecfea200d15e5898fc446d838697809c8a37658",
+      "win_mass_weighted_conditional_payout_sse": 0.011048496203158086
+    },
+    "signal_offset_seed202": {
+      "R": 0.08235962750114034,
+      "condition_R": {
+        "drift": 0.0716866622792139,
+        "shared_change": 0.08044348668851325,
+        "short_history": 0.1110386857168391,
+        "stable": 0.0662696753199951
+      },
+      "conditional_payout_sse": 0.024539897499705584,
+      "delta_R": 0.017416223576762244,
+      "delta_R_95": [
+        0.011170006241196807,
+        0.02355254824379457
+      ],
+      "p0_mse": 0.0052842443808471746,
+      "path": "signal_experiments/next_stage/20261107_dispatch/neural/attempt_01/full/validation_signal_offset_seed202.csv",
+      "points": 55.43444015786407,
+      "sha256": "2b5acfa52d840d85344afa3ef15b300e4499733a1cf7ce4939ff778e87780463",
+      "win_mass_weighted_conditional_payout_sse": 0.008845002288986901
+    },
+    "signal_offset_seed303": {
+      "R": 0.09131744514679456,
+      "condition_R": {
+        "drift": 0.08410381235908523,
+        "shared_change": 0.08020865212783225,
+        "short_history": 0.11999718915830342,
+        "stable": 0.08096012694195732
+      },
+      "conditional_payout_sse": 0.026076239961818976,
+      "delta_R": 0.02637404122241646,
+      "delta_R_95": [
+        0.018918885700725512,
+        0.03436325279508864
+      ],
+      "p0_mse": 0.005430439434059352,
+      "path": "signal_experiments/next_stage/20261107_dispatch/neural/attempt_01/full/validation_signal_offset_seed303.csv",
+      "points": 54.979419844176796,
+      "sha256": "b8666c9d194aa8b291de720569065a98c95997f600fe2844832f2fc21b3475ac",
+      "win_mass_weighted_conditional_payout_sse": 0.010424311708892972
+    },
+    "structural": {
+      "R": 0.09549651936939038,
+      "condition_R": {
+        "drift": 0.0892386666571087,
+        "shared_change": 0.09292087060220258,
+        "short_history": 0.11608303471278769,
+        "stable": 0.08374350550546257
+      },
+      "conditional_payout_sse": 0.026620692261386348,
+      "delta_R": 0.030553115445012283,
+      "delta_R_95": [
+        0.024857569876353475,
+        0.036650086184292836
+      ],
+      "p0_mse": 0.005970629757760275,
+      "path": "signal_experiments/next_stage/20261107_dispatch/neural/attempt_01/full/validation_structural.csv",
+      "points": 54.769685653166924,
+      "sha256": "2143a759246d74a7b929da59e6ee453920595f34808ad0497a7e72793251932c",
+      "win_mass_weighted_conditional_payout_sse": 0.010441491767261115
+    }
+  },
+  "points_max": 60,
+  "queries": 768
+}

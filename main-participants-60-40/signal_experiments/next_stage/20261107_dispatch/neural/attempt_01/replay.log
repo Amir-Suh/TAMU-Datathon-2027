@@ -1,0 +1,5 @@
+validation inference, all arms, 24.24s
+test inference, all arms, 12.24s
+E6 finished in 36.49s
+       37.25 real        36.60 user         0.34 sys
+time: sysctl kern.clockrate: Operation not permitted

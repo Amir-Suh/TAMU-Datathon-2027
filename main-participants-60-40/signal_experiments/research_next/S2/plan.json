@@ -1,0 +1,308 @@
+{
+  "checks_passed": {
+    "brute_force_paths": 60,
+    "equal_complete_history_likelihood_and_forecasts": true,
+    "hybrid_payout_mix_invariance": true,
+    "nested_masks_and_fixed_cutoffs": true,
+    "permutation_padding_and_future_injection": true
+  },
+  "elapsed_seconds": 57.667152707999996,
+  "emissions": {
+    "null_weight": 0.05,
+    "one_flip_ages": [
+      8,
+      16,
+      40,
+      80,
+      120
+    ],
+    "pairs": [
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        6
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        7,
+        8
+      ]
+    ],
+    "train_only_flip_mass": 0.6233418699594968,
+    "train_only_high": [
+      0.9253904282115869,
+      0.9408272506082725,
+      0.9622330623306233,
+      0.7809820501409287,
+      0.8345539906103286,
+      0.8659284497444635,
+      0.4977114939573155,
+      0.5939829366861248,
+      0.644568868980963
+    ],
+    "train_only_low": [
+      0.11468459152016547,
+      0.15077204920177964,
+      0.2143343741129719,
+      0.03809063444108761,
+      0.05354859681438942,
+      0.07096774193548387,
+      0.011148999258710155,
+      0.015109993714644878,
+      0.01980078478720193
+    ],
+    "train_only_pair_prior": [
+      0.004202462343591117,
+      0.32799419138677943,
+      0.004058811152424422,
+      0.0038446246601395112,
+      0.0037548712455541654,
+      0.003779331967908776,
+      0.0037034313771884663,
+      0.0037487259654901753,
+      0.0038321058373445333,
+      0.29251011314791525,
+      0.0037020966310301667,
+      0.0037160216802372805,
+      0.003679641908484593,
+      0.0037818158511798688,
+      0.0037235973102527674,
+      0.0037293908317656893,
+      0.0037200650754180475,
+      0.0036712018784704685,
+      0.0038259303525245993,
+      0.003689793514470781,
+      0.28455200062135577,
+      0.0036915638395971138,
+      0.0036808864449239084,
+      0.003695277185587406,
+      0.0036630867384514834,
+      0.004719310195712931,
+      0.00365427414488375,
+      0.0036753767113175176
+    ],
+    "train_only_win_prior": [
+      0.5277123690904477,
+      0.5638567772923512,
+      0.6400091033803289,
+      0.366873326182514,
+      0.40064070663563306,
+      0.45764677804953907,
+      0.1710377422702321,
+      0.20933656099627984,
+      0.2955554337548245
+    ]
+  },
+  "input_sha256": {
+    "m5_m6_repair/results/repaired-m5-m6/freeze.json": "a9eb3738ff1537254a6277687b28805a40790041f2807f51654d705299083e04",
+    "m5_m6_repair/results/repaired-m5-m6/models.joblib": "9dbc6ff51e85c4758f22d4835b366b203e69d927cf796fdee7ace51b67c12bbf",
+    "m5_m6_repair/results/repaired-m5-m6/plan.json": "8429d206e62afbf92346e14cbf96f4a455ae49aead0bb6114dbf685be3a88b70",
+    "public/metadata.json": "7979323052df471e6b8b2c985cb48faa89e287ac6b0fd7789f24bccd544ce7bf",
+    "public/train/history.csv": "46a1e783a1b222dc2de33bc72259207e3d013135d1229af9669ffcd454116217",
+    "public/train/labels.csv": "f6b3a2ca73888b91bb9a38d0ca52f449062ce70534bef9776ad4f53fc713b46a",
+    "public/train/queries.csv": "96cbf59fe0b340981f3f2958dde3305162215ae911d0559d6f34764e74460846",
+    "public/validation/conditions.csv": "ebcca7597bbdfa532c5254b92903e66522a710502a6f70689c3de311f75c29b1",
+    "public/validation/history.csv": "4b7ef4789750b7459eb085be3449ea8bd9dfd31441a928ad391a1376a44f8fe4",
+    "public/validation/queries.csv": "168b7f6365a4f51084437c0071636b102ca3fb4bf0347b912778c51714fc48f2",
+    "public/validation/reference.csv": "bb396d9e4d20bf4004374f9ab781f41aaa8b730e61887c1969be534efeb1e6c6",
+    "public/validation/targets.csv": "93b6e978f6818d2456dcb677fddb6ba243e864cef56e33a4bf94bde5ba4b51f3",
+    "signal_experiments/combined/m3_match_split_win_pair_l31_factor_gru_size.csv": "ac6fae2e924da0bb5f1b7638480572373a87a192d4891c1315ffc11f714aeea6",
+    "signal_experiments/folds.csv": "df85f54a091a88b1961ed69d29d4884718bf7c2ce809d7793ee80bb529f5bac2"
+  },
+  "metadata": {
+    "conditions": [
+      "stable",
+      "short_history",
+      "drift",
+      "shared_change"
+    ],
+    "counts_per_condition": {
+      "test": 48,
+      "train": 24,
+      "validation": 24
+    },
+    "history": "Machine-specific interactions, lags up to 8, missing observations and changing regimes.",
+    "machines_per_episode": 8,
+    "max_points": 60,
+    "mode": "event",
+    "reference": "Pooled, strength=20, fitted separately on this round's training observations.",
+    "round": "main",
+    "season_id": "5fffdc4d0c700bbf61c3f911",
+    "suite_version": "experimentation-suite-v3",
+    "target": "Next-spin probabilities for 0x, 1x, 2x, 5x, 20x.",
+    "test_policy": "Test targets, conditions and reference predictions stay private.",
+    "warning": "Public demo seeds are reconstructable; event seeds are private."
+  },
+  "paired_bootstrap_draws": 10000,
+  "paired_bootstrap_seed": 20261107,
+  "payout_order": [
+    0,
+    1,
+    2,
+    5,
+    20
+  ],
+  "runtime": {
+    "compiler": "Apple clang version 21.0.0 (clang-2100.1.1.101)",
+    "joblib": "1.5.3",
+    "numerical_threads": 2,
+    "numpy": "1.26.4",
+    "python": "3.9.6",
+    "scikit-learn": "1.6.1",
+    "scipy": "1.13.1",
+    "threadpoolctl": "3.6.0"
+  },
+  "scope": "Train-only frozen M3 win emissions and priors. Main validation conditions, reference and targets enter scoring after writing the predictions. Full forecasts retain the hybrid payout head with transductive Fredy components.",
+  "smoke_12_episodes_seconds": 0.8216519169999998,
+  "source_sha256": {
+    "m5_m6_repair/models/m3_lag_pair_flip/model.py": "547ab43d704fe7c6c3933f15bdadeeb3ae0c223b452bae6b3cd0ec163e3600a3",
+    "m5_m6_repair/run_repaired_comparison.py": "9f6ef0a7d6faefc369c5e835db187f7cee852d74963772abc340b0ba34bc4951",
+    "signal_experiments/research_next/S2/forward.c": "d21afe26ba8048d364804188886fc3ab8710ff59a66a5d3223a3a991a3d970c5",
+    "signal_experiments/research_next/S2/run.py": "220c4eaae015434835ac9b49fefacf25800f5061e1100f8caecf857cf1e2ebe1",
+    "signal_experiments/research_next/synthetic.py": "aa4caa31f9582106906adea2bdf36da02bd62ce2f7e13ef9f3aa99336863529c",
+    "signal_experiments/score.py": "8f1559eaa94bf1224094abc8ffe33695ce9438a4cc586b186f3e7608c6da6264",
+    "slot_forecasting/contest.py": "411c7586b26cbc579ac32489b5306a4e87942aac58738cdec0e7e8ce7d3cc442",
+    "slot_forecasting/scoring.py": "477c66c6c5449ca65f77ec4867a9b80934a52c892b045abe32e6471d2c8d4edd"
+  },
+  "synthetic": {
+    "episodes_per_scenario": 24,
+    "older_budgets": [
+      0,
+      12,
+      24,
+      48,
+      "all"
+    ],
+    "recent_ticks": 40,
+    "scenarios": [
+      "stable",
+      "flip"
+    ],
+    "seeds": [
+      20261107,
+      20261108
+    ],
+    "type_payout_mix": [
+      [
+        0.6168124892777492,
+        0.30289929662034654,
+        0.07867558757934466,
+        0.0016126265225596156
+      ],
+      [
+        0.35231774960380347,
+        0.44745443740095087,
+        0.17100832012678288,
+        0.029219492868462756
+      ],
+      [
+        0.21070831009481317,
+        0.29682097044060235,
+        0.3637479085331846,
+        0.1287228109313999
+      ]
+    ]
+  }
+}

@@ -1,0 +1,47 @@
+[
+  {
+    "path": "signal_experiments/next_stage/20261107_dispatch/neural/attempt_01/full_access.jsonl",
+    "stage": "fit-predict",
+    "script": "/Users/andrewvong/Documents/Projects/tamudatathon27/main-participants-60-40/signal_experiments/next_stage/20261107_dispatch/neural/attempt_01/run.py",
+    "audited_paths_read": 92,
+    "data_reads": [
+      "public/test/history.csv",
+      "public/test/queries.csv",
+      "public/train/history.csv",
+      "public/train/labels.csv",
+      "public/train/queries.csv",
+      "public/validation/history.csv",
+      "public/validation/queries.csv",
+      "signal_experiments/folds.csv"
+    ],
+    "child_processes": []
+  },
+  {
+    "path": "signal_experiments/next_stage/20261107_dispatch/neural/attempt_01/score_access.jsonl",
+    "stage": "score",
+    "script": "/Users/andrewvong/Documents/Projects/tamudatathon27/main-participants-60-40/signal_experiments/next_stage/20261107_dispatch/neural/attempt_01/score_e6.py",
+    "audited_paths_read": 83,
+    "data_reads": [
+      "public/validation/conditions.csv",
+      "public/validation/history.csv",
+      "public/validation/queries.csv",
+      "public/validation/reference.csv",
+      "public/validation/targets.csv"
+    ],
+    "child_processes": []
+  },
+  {
+    "path": "signal_experiments/next_stage/20261107_dispatch/coordinator/e6_score_audit.jsonl",
+    "stage": "score",
+    "script": "/Users/andrewvong/Documents/Projects/tamudatathon27/main-participants-60-40/signal_experiments/score.py",
+    "audited_paths_read": 15,
+    "data_reads": [
+      "public/metadata.json",
+      "public/validation/conditions.csv",
+      "public/validation/queries.csv",
+      "public/validation/reference.csv",
+      "public/validation/targets.csv"
+    ],
+    "child_processes": []
+  }
+]

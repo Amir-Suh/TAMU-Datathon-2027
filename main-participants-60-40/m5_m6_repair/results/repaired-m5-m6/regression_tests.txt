@@ -1,0 +1,5 @@
+Installed-checkout validation:
+/Users/andrewvong/ml_env/bin/python3 -B -m unittest discover -s tests -p test_*.py -v
+Ran 10 tests in 0.301s: OK
+The installed comparison runner --help also exited successfully.
+All 26 installed source, dependency, and test files match source_install_manifest.json.

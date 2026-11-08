@@ -1,0 +1,90 @@
+{
+  "arms": [
+    "static_payout",
+    "static_joint",
+    "sticky_16_payout",
+    "sticky_16_joint",
+    "sticky_64_payout",
+    "sticky_64_joint",
+    "sticky_128_payout",
+    "sticky_128_joint"
+  ],
+  "bootstrap": {
+    "draws": 10000,
+    "seed": 20261107,
+    "unit": "condition-stratified episode"
+  },
+  "experiment": "Z2",
+  "git": {
+    "branch": "main",
+    "commit": null
+  },
+  "input_sha256": {
+    "public/metadata.json": "7979323052df471e6b8b2c985cb48faa89e287ac6b0fd7789f24bccd544ce7bf",
+    "public/train/history.csv": "46a1e783a1b222dc2de33bc72259207e3d013135d1229af9669ffcd454116217",
+    "public/train/queries.csv": "96cbf59fe0b340981f3f2958dde3305162215ae911d0559d6f34764e74460846",
+    "public/validation/conditions.csv": "ebcca7597bbdfa532c5254b92903e66522a710502a6f70689c3de311f75c29b1",
+    "public/validation/history.csv": "4b7ef4789750b7459eb085be3449ea8bd9dfd31441a928ad391a1376a44f8fe4",
+    "public/validation/queries.csv": "168b7f6365a4f51084437c0071636b102ca3fb4bf0347b912778c51714fc48f2",
+    "public/validation/reference.csv": "bb396d9e4d20bf4004374f9ab781f41aaa8b730e61887c1969be534efeb1e6c6",
+    "public/validation/targets.csv": "93b6e978f6818d2456dcb677fddb6ba243e864cef56e33a4bf94bde5ba4b51f3",
+    "signal_experiments/ceiling_analysis/analyze.py": "9ca40388e8a0472592498311beeeb93daca48944bd443e0c759e18cf74d7ff55",
+    "signal_experiments/combined/m3_match_split_win_pair_l31_factor_gru_size.csv": "ac6fae2e924da0bb5f1b7638480572373a87a192d4891c1315ffc11f714aeea6",
+    "signal_experiments/folds.csv": "df85f54a091a88b1961ed69d29d4884718bf7c2ce809d7793ee80bb529f5bac2",
+    "signal_experiments/research_next/W1/run.py": "0979b86fe5eca2419ab45da60c12091f23c77a93444b644a6331efdbdb7ac92c",
+    "signal_experiments/research_next/Z2/run.py": "22075bf66d9f0a993ea1744f9ffc8dc77064620a2b358cab8b26c4c119848a3d",
+    "signal_experiments/research_next/Z2/state.py": "4c1e94996f6a83556ea0c5c6ab58b15803d113f21be5ae43dae42c97ffea8767",
+    "signal_experiments/research_next/synthetic.py": "aa4caa31f9582106906adea2bdf36da02bd62ce2f7e13ef9f3aa99336863529c",
+    "signal_experiments/score.py": "8f1559eaa94bf1224094abc8ffe33695ce9438a4cc586b186f3e7608c6da6264"
+  },
+  "max_cpu_threads": 2,
+  "payout_order": [
+    0,
+    1,
+    2,
+    5,
+    20
+  ],
+  "round": "main",
+  "scope": "Main-development cutoff comparison after fit and dwell selection on train histories. History likelihood conditions on a prefix plug-in pair, direction, and flip estimate.",
+  "season_id": "5fffdc4d0c700bbf61c3f911",
+  "simulation": {
+    "episodes_each": 24,
+    "modes": [
+      "static",
+      "sticky",
+      "iid"
+    ],
+    "test_seed": 4927,
+    "train_seed": 4721
+  },
+  "training": {
+    "gaussian_prior_sd_in_parameter_order": [
+      0.35,
+      0.35,
+      0.35,
+      1.0,
+      1.0,
+      1.0,
+      0.75,
+      0.75,
+      0.75,
+      0.5
+    ],
+    "historical_signal": "Zeroed, because only the actual cutoff signal is available.",
+    "initialization": "Type-pooled 1x rates from fitting wins and a 1.0 ordered logit gap.",
+    "selection": "Held-episode mean history negative log likelihood, per observed tick. Upstream M3 parameters are refit in each train fold.",
+    "symmetric_dwell_ticks": [
+      null,
+      16,
+      64,
+      128
+    ]
+  },
+  "versions": {
+    "numpy": "1.26.4",
+    "python": "3.9.6",
+    "scikit_learn": "1.6.1",
+    "scipy": "1.13.1"
+  }
+}

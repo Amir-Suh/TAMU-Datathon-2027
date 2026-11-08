@@ -1,0 +1,21 @@
+{
+  "direction_order": [
+    "match_high",
+    "match_low"
+  ],
+  "effective_paired_count": [
+    3907.6529146145604,
+    3187.270202106201
+  ],
+  "global_zero_contrast_pseudocount": 200.0,
+  "learned_contrast_11_minus_00": [
+    -0.023676041492855838,
+    -0.0020949786027218372
+  ],
+  "local_contrast_pseudocount": 20.0,
+  "local_history_pseudocount": 8.0,
+  "raw_contrast_11_minus_00": [
+    -0.024887819611854472,
+    -0.0022264377178817284
+  ]
+}

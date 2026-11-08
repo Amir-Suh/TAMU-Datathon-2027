@@ -1,0 +1,658 @@
+{
+  "0": {
+    "entropy": {
+      "bins": [
+        {
+          "curvature": 0.013665806502771362,
+          "episodes": 72,
+          "fit_range": [
+            1.7370680826868396e-45,
+            0.00950847816880306
+          ],
+          "queries": 527,
+          "weight": 0.3212575312096257
+        },
+        {
+          "curvature": 0.001511291177987778,
+          "episodes": 23,
+          "fit_range": [
+            0.011104161988690001,
+            0.46073887659947343
+          ],
+          "queries": 49,
+          "weight": 0.5124167089800737
+        }
+      ],
+      "boundary": 0.01
+    },
+    "fit_episodes": [
+      "main-validation-e00000",
+      "main-validation-e00001",
+      "main-validation-e00002",
+      "main-validation-e00003",
+      "main-validation-e00004",
+      "main-validation-e00005",
+      "main-validation-e00006",
+      "main-validation-e00008",
+      "main-validation-e00009",
+      "main-validation-e00010",
+      "main-validation-e00011",
+      "main-validation-e00015",
+      "main-validation-e00016",
+      "main-validation-e00017",
+      "main-validation-e00018",
+      "main-validation-e00020",
+      "main-validation-e00021",
+      "main-validation-e00022",
+      "main-validation-e00025",
+      "main-validation-e00026",
+      "main-validation-e00027",
+      "main-validation-e00028",
+      "main-validation-e00029",
+      "main-validation-e00030",
+      "main-validation-e00031",
+      "main-validation-e00036",
+      "main-validation-e00037",
+      "main-validation-e00039",
+      "main-validation-e00040",
+      "main-validation-e00041",
+      "main-validation-e00042",
+      "main-validation-e00043",
+      "main-validation-e00045",
+      "main-validation-e00046",
+      "main-validation-e00047",
+      "main-validation-e00049",
+      "main-validation-e00050",
+      "main-validation-e00051",
+      "main-validation-e00052",
+      "main-validation-e00053",
+      "main-validation-e00054",
+      "main-validation-e00055",
+      "main-validation-e00056",
+      "main-validation-e00057",
+      "main-validation-e00059",
+      "main-validation-e00060",
+      "main-validation-e00061",
+      "main-validation-e00063",
+      "main-validation-e00064",
+      "main-validation-e00065",
+      "main-validation-e00068",
+      "main-validation-e00069",
+      "main-validation-e00070",
+      "main-validation-e00071",
+      "main-validation-e00072",
+      "main-validation-e00073",
+      "main-validation-e00074",
+      "main-validation-e00076",
+      "main-validation-e00077",
+      "main-validation-e00078",
+      "main-validation-e00082",
+      "main-validation-e00084",
+      "main-validation-e00085",
+      "main-validation-e00086",
+      "main-validation-e00087",
+      "main-validation-e00088",
+      "main-validation-e00090",
+      "main-validation-e00091",
+      "main-validation-e00092",
+      "main-validation-e00093",
+      "main-validation-e00094",
+      "main-validation-e00095"
+    ],
+    "fit_reference_scales": {
+      "drift": 0.19060654022274506,
+      "shared_change": 0.1995839361522957,
+      "short_history": 0.17612769296048217,
+      "stable": 0.19565488710284984
+    },
+    "global_weight": 0.354209789814935,
+    "held_episodes": [
+      "main-validation-e00007",
+      "main-validation-e00012",
+      "main-validation-e00013",
+      "main-validation-e00014",
+      "main-validation-e00019",
+      "main-validation-e00023",
+      "main-validation-e00024",
+      "main-validation-e00032",
+      "main-validation-e00033",
+      "main-validation-e00034",
+      "main-validation-e00035",
+      "main-validation-e00038",
+      "main-validation-e00044",
+      "main-validation-e00048",
+      "main-validation-e00058",
+      "main-validation-e00062",
+      "main-validation-e00066",
+      "main-validation-e00067",
+      "main-validation-e00075",
+      "main-validation-e00079",
+      "main-validation-e00080",
+      "main-validation-e00081",
+      "main-validation-e00083",
+      "main-validation-e00089"
+    ],
+    "held_fallback": {
+      "entropy": 2,
+      "support": 0
+    },
+    "penalty_curvature": 0.0016863441867510155,
+    "support": {
+      "bins": [
+        {
+          "curvature": 0.004993458522837137,
+          "episodes": 18,
+          "fit_range": [
+            33.0,
+            39.0
+          ],
+          "queries": 143,
+          "weight": 0.5027040083649011
+        },
+        {
+          "curvature": 0.010183639157922003,
+          "episodes": 55,
+          "fit_range": [
+            40.0,
+            253.0
+          ],
+          "queries": 433,
+          "weight": 0.27064504885231294
+        }
+      ],
+      "boundary": 40
+    }
+  },
+  "1": {
+    "entropy": {
+      "bins": [
+        {
+          "curvature": 0.012460523792812653,
+          "episodes": 72,
+          "fit_range": [
+            1.7370680826868396e-45,
+            0.009580214684499816
+          ],
+          "queries": 535,
+          "weight": 0.2870878399093355
+        },
+        {
+          "curvature": 0.0017948593968706357,
+          "episodes": 21,
+          "fit_range": [
+            0.011925167570583211,
+            0.48202126498815673
+          ],
+          "queries": 41,
+          "weight": 0.2615802124393152
+        }
+      ],
+      "boundary": 0.01
+    },
+    "fit_episodes": [
+      "main-validation-e00002",
+      "main-validation-e00003",
+      "main-validation-e00005",
+      "main-validation-e00006",
+      "main-validation-e00007",
+      "main-validation-e00008",
+      "main-validation-e00009",
+      "main-validation-e00012",
+      "main-validation-e00013",
+      "main-validation-e00014",
+      "main-validation-e00015",
+      "main-validation-e00016",
+      "main-validation-e00017",
+      "main-validation-e00018",
+      "main-validation-e00019",
+      "main-validation-e00020",
+      "main-validation-e00022",
+      "main-validation-e00023",
+      "main-validation-e00024",
+      "main-validation-e00025",
+      "main-validation-e00026",
+      "main-validation-e00027",
+      "main-validation-e00029",
+      "main-validation-e00030",
+      "main-validation-e00031",
+      "main-validation-e00032",
+      "main-validation-e00033",
+      "main-validation-e00034",
+      "main-validation-e00035",
+      "main-validation-e00038",
+      "main-validation-e00039",
+      "main-validation-e00040",
+      "main-validation-e00041",
+      "main-validation-e00043",
+      "main-validation-e00044",
+      "main-validation-e00046",
+      "main-validation-e00047",
+      "main-validation-e00048",
+      "main-validation-e00050",
+      "main-validation-e00052",
+      "main-validation-e00055",
+      "main-validation-e00058",
+      "main-validation-e00059",
+      "main-validation-e00060",
+      "main-validation-e00061",
+      "main-validation-e00062",
+      "main-validation-e00063",
+      "main-validation-e00064",
+      "main-validation-e00065",
+      "main-validation-e00066",
+      "main-validation-e00067",
+      "main-validation-e00068",
+      "main-validation-e00069",
+      "main-validation-e00071",
+      "main-validation-e00072",
+      "main-validation-e00073",
+      "main-validation-e00074",
+      "main-validation-e00075",
+      "main-validation-e00076",
+      "main-validation-e00077",
+      "main-validation-e00079",
+      "main-validation-e00080",
+      "main-validation-e00081",
+      "main-validation-e00082",
+      "main-validation-e00083",
+      "main-validation-e00084",
+      "main-validation-e00087",
+      "main-validation-e00089",
+      "main-validation-e00091",
+      "main-validation-e00092",
+      "main-validation-e00093",
+      "main-validation-e00095"
+    ],
+    "fit_reference_scales": {
+      "drift": 0.18651641794728252,
+      "shared_change": 0.20619234111919432,
+      "short_history": 0.1778148785284283,
+      "stable": 0.20271679780093504
+    },
+    "global_weight": 0.28214129102746754,
+    "held_episodes": [
+      "main-validation-e00000",
+      "main-validation-e00001",
+      "main-validation-e00004",
+      "main-validation-e00010",
+      "main-validation-e00011",
+      "main-validation-e00021",
+      "main-validation-e00028",
+      "main-validation-e00036",
+      "main-validation-e00037",
+      "main-validation-e00042",
+      "main-validation-e00045",
+      "main-validation-e00049",
+      "main-validation-e00051",
+      "main-validation-e00053",
+      "main-validation-e00054",
+      "main-validation-e00056",
+      "main-validation-e00057",
+      "main-validation-e00070",
+      "main-validation-e00078",
+      "main-validation-e00085",
+      "main-validation-e00086",
+      "main-validation-e00088",
+      "main-validation-e00090",
+      "main-validation-e00094"
+    ],
+    "held_fallback": {
+      "entropy": 1,
+      "support": 0
+    },
+    "penalty_curvature": 0.0015839314655203653,
+    "support": {
+      "bins": [
+        {
+          "curvature": 0.005138820278557247,
+          "episodes": 18,
+          "fit_range": [
+            33.0,
+            39.0
+          ],
+          "queries": 143,
+          "weight": 0.3617605808738193
+        },
+        {
+          "curvature": 0.009116562911126043,
+          "episodes": 55,
+          "fit_range": [
+            40.0,
+            253.0
+          ],
+          "queries": 433,
+          "weight": 0.23211923589280212
+        }
+      ],
+      "boundary": 40
+    }
+  },
+  "2": {
+    "entropy": {
+      "bins": [
+        {
+          "curvature": 0.013741072337961258,
+          "episodes": 72,
+          "fit_range": [
+            1.9078335008122723e-44,
+            0.009580214684499816
+          ],
+          "queries": 528,
+          "weight": 0.2901432004250792
+        },
+        {
+          "curvature": 0.0019132900512791066,
+          "episodes": 22,
+          "fit_range": [
+            0.011104161988690001,
+            0.48202126498815673
+          ],
+          "queries": 48,
+          "weight": 0.45026071027728404
+        }
+      ],
+      "boundary": 0.01
+    },
+    "fit_episodes": [
+      "main-validation-e00000",
+      "main-validation-e00001",
+      "main-validation-e00003",
+      "main-validation-e00004",
+      "main-validation-e00007",
+      "main-validation-e00008",
+      "main-validation-e00010",
+      "main-validation-e00011",
+      "main-validation-e00012",
+      "main-validation-e00013",
+      "main-validation-e00014",
+      "main-validation-e00015",
+      "main-validation-e00016",
+      "main-validation-e00017",
+      "main-validation-e00019",
+      "main-validation-e00021",
+      "main-validation-e00023",
+      "main-validation-e00024",
+      "main-validation-e00026",
+      "main-validation-e00027",
+      "main-validation-e00028",
+      "main-validation-e00029",
+      "main-validation-e00032",
+      "main-validation-e00033",
+      "main-validation-e00034",
+      "main-validation-e00035",
+      "main-validation-e00036",
+      "main-validation-e00037",
+      "main-validation-e00038",
+      "main-validation-e00039",
+      "main-validation-e00041",
+      "main-validation-e00042",
+      "main-validation-e00043",
+      "main-validation-e00044",
+      "main-validation-e00045",
+      "main-validation-e00046",
+      "main-validation-e00047",
+      "main-validation-e00048",
+      "main-validation-e00049",
+      "main-validation-e00051",
+      "main-validation-e00053",
+      "main-validation-e00054",
+      "main-validation-e00055",
+      "main-validation-e00056",
+      "main-validation-e00057",
+      "main-validation-e00058",
+      "main-validation-e00059",
+      "main-validation-e00062",
+      "main-validation-e00065",
+      "main-validation-e00066",
+      "main-validation-e00067",
+      "main-validation-e00069",
+      "main-validation-e00070",
+      "main-validation-e00072",
+      "main-validation-e00073",
+      "main-validation-e00074",
+      "main-validation-e00075",
+      "main-validation-e00077",
+      "main-validation-e00078",
+      "main-validation-e00079",
+      "main-validation-e00080",
+      "main-validation-e00081",
+      "main-validation-e00083",
+      "main-validation-e00085",
+      "main-validation-e00086",
+      "main-validation-e00087",
+      "main-validation-e00088",
+      "main-validation-e00089",
+      "main-validation-e00090",
+      "main-validation-e00093",
+      "main-validation-e00094",
+      "main-validation-e00095"
+    ],
+    "fit_reference_scales": {
+      "drift": 0.18158783339262852,
+      "shared_change": 0.2099041231444887,
+      "short_history": 0.16855406044277,
+      "stable": 0.19358101342102277
+    },
+    "global_weight": 0.3207109137036899,
+    "held_episodes": [
+      "main-validation-e00002",
+      "main-validation-e00005",
+      "main-validation-e00006",
+      "main-validation-e00009",
+      "main-validation-e00018",
+      "main-validation-e00020",
+      "main-validation-e00022",
+      "main-validation-e00025",
+      "main-validation-e00030",
+      "main-validation-e00031",
+      "main-validation-e00040",
+      "main-validation-e00050",
+      "main-validation-e00052",
+      "main-validation-e00060",
+      "main-validation-e00061",
+      "main-validation-e00063",
+      "main-validation-e00064",
+      "main-validation-e00068",
+      "main-validation-e00071",
+      "main-validation-e00076",
+      "main-validation-e00082",
+      "main-validation-e00084",
+      "main-validation-e00091",
+      "main-validation-e00092"
+    ],
+    "held_fallback": {
+      "entropy": 1,
+      "support": 8
+    },
+    "penalty_curvature": 0.0017393735988044852,
+    "support": {
+      "bins": [
+        {
+          "curvature": 0.005278760887275857,
+          "episodes": 18,
+          "fit_range": [
+            33.0,
+            39.0
+          ],
+          "queries": 143,
+          "weight": 0.4911916586468691
+        },
+        {
+          "curvature": 0.010375601501964506,
+          "episodes": 55,
+          "fit_range": [
+            40.0,
+            248.0
+          ],
+          "queries": 433,
+          "weight": 0.22195241149080075
+        }
+      ],
+      "boundary": 40
+    }
+  },
+  "3": {
+    "entropy": {
+      "bins": [
+        {
+          "curvature": 0.012685156602136436,
+          "episodes": 72,
+          "fit_range": [
+            1.7370680826868396e-45,
+            0.009580214684499816
+          ],
+          "queries": 537,
+          "weight": 0.2599529591000201
+        },
+        {
+          "curvature": 0.0015318957734274717,
+          "episodes": 21,
+          "fit_range": [
+            0.011104161988690001,
+            0.48202126498815673
+          ],
+          "queries": 39,
+          "weight": 0.6498414043399254
+        }
+      ],
+      "boundary": 0.01
+    },
+    "fit_episodes": [
+      "main-validation-e00000",
+      "main-validation-e00001",
+      "main-validation-e00002",
+      "main-validation-e00004",
+      "main-validation-e00005",
+      "main-validation-e00006",
+      "main-validation-e00007",
+      "main-validation-e00009",
+      "main-validation-e00010",
+      "main-validation-e00011",
+      "main-validation-e00012",
+      "main-validation-e00013",
+      "main-validation-e00014",
+      "main-validation-e00018",
+      "main-validation-e00019",
+      "main-validation-e00020",
+      "main-validation-e00021",
+      "main-validation-e00022",
+      "main-validation-e00023",
+      "main-validation-e00024",
+      "main-validation-e00025",
+      "main-validation-e00028",
+      "main-validation-e00030",
+      "main-validation-e00031",
+      "main-validation-e00032",
+      "main-validation-e00033",
+      "main-validation-e00034",
+      "main-validation-e00035",
+      "main-validation-e00036",
+      "main-validation-e00037",
+      "main-validation-e00038",
+      "main-validation-e00040",
+      "main-validation-e00042",
+      "main-validation-e00044",
+      "main-validation-e00045",
+      "main-validation-e00048",
+      "main-validation-e00049",
+      "main-validation-e00050",
+      "main-validation-e00051",
+      "main-validation-e00052",
+      "main-validation-e00053",
+      "main-validation-e00054",
+      "main-validation-e00056",
+      "main-validation-e00057",
+      "main-validation-e00058",
+      "main-validation-e00060",
+      "main-validation-e00061",
+      "main-validation-e00062",
+      "main-validation-e00063",
+      "main-validation-e00064",
+      "main-validation-e00066",
+      "main-validation-e00067",
+      "main-validation-e00068",
+      "main-validation-e00070",
+      "main-validation-e00071",
+      "main-validation-e00075",
+      "main-validation-e00076",
+      "main-validation-e00078",
+      "main-validation-e00079",
+      "main-validation-e00080",
+      "main-validation-e00081",
+      "main-validation-e00082",
+      "main-validation-e00083",
+      "main-validation-e00084",
+      "main-validation-e00085",
+      "main-validation-e00086",
+      "main-validation-e00088",
+      "main-validation-e00089",
+      "main-validation-e00090",
+      "main-validation-e00091",
+      "main-validation-e00092",
+      "main-validation-e00094"
+    ],
+    "fit_reference_scales": {
+      "drift": 0.20062493100454007,
+      "shared_change": 0.20657019790337405,
+      "short_history": 0.18686916001978687,
+      "stable": 0.19305051324680012
+    },
+    "global_weight": 0.3297697621290773,
+    "held_episodes": [
+      "main-validation-e00003",
+      "main-validation-e00008",
+      "main-validation-e00015",
+      "main-validation-e00016",
+      "main-validation-e00017",
+      "main-validation-e00026",
+      "main-validation-e00027",
+      "main-validation-e00029",
+      "main-validation-e00039",
+      "main-validation-e00041",
+      "main-validation-e00043",
+      "main-validation-e00046",
+      "main-validation-e00047",
+      "main-validation-e00055",
+      "main-validation-e00059",
+      "main-validation-e00065",
+      "main-validation-e00069",
+      "main-validation-e00072",
+      "main-validation-e00073",
+      "main-validation-e00074",
+      "main-validation-e00077",
+      "main-validation-e00087",
+      "main-validation-e00093",
+      "main-validation-e00095"
+    ],
+    "held_fallback": {
+      "entropy": 0,
+      "support": 8
+    },
+    "penalty_curvature": 0.0015796724861737675,
+    "support": {
+      "bins": [
+        {
+          "curvature": 0.00410874443720419,
+          "episodes": 18,
+          "fit_range": [
+            33.0,
+            39.0
+          ],
+          "queries": 144,
+          "weight": 0.5824639701355456
+        },
+        {
+          "curvature": 0.010108307938359717,
+          "episodes": 54,
+          "fit_range": [
+            189.0,
+            253.0
+          ],
+          "queries": 432,
+          "weight": 0.20678615357970231
+        }
+      ],
+      "boundary": 40
+    }
+  }
+}

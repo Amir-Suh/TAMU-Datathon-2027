@@ -1,0 +1,364 @@
+{
+  "folds": [
+    {
+      "fit_episode_sha256": "ab13c3ead7ac7c9fa692de415f5b0485dd46a3531417c307b73b95f97a8ebd38",
+      "fit_episodes": 72,
+      "fold": 0,
+      "held_episode_sha256": "0bdb288da89c13c06252e4ebaa71d972ba8b6da7a1e5b115ed4f83d7c0e83fc7",
+      "held_episodes": 24,
+      "m3_kappa": 120.0,
+      "m3_kappa_selection": [
+        {
+          "kappa": 8.0,
+          "train_logloss": 0.31577695957656027
+        },
+        {
+          "kappa": 20.0,
+          "train_logloss": 0.3124526583034217
+        },
+        {
+          "kappa": 50.0,
+          "train_logloss": 0.3107874996950244
+        },
+        {
+          "kappa": 120.0,
+          "train_logloss": 0.31051539167302056
+        }
+      ],
+      "pooled_contrasts": [
+        [
+          -0.024699580045533905,
+          0.0015766042854532733
+        ],
+        [
+          -0.006904294737922975,
+          -0.018230189334287997
+        ]
+      ]
+    },
+    {
+      "fit_episode_sha256": "f50f4d4f6e01d2cbb9c18c97c6b3f515e78e190343d561c49cc34fe206638b12",
+      "fit_episodes": 72,
+      "fold": 1,
+      "held_episode_sha256": "5e476206b78cb283e7578ca9671a39e1e992e8138f49b152f26b9a6f40ce3142",
+      "held_episodes": 24,
+      "m3_kappa": 50.0,
+      "m3_kappa_selection": [
+        {
+          "kappa": 8.0,
+          "train_logloss": 0.3167441133545191
+        },
+        {
+          "kappa": 20.0,
+          "train_logloss": 0.3141597804706458
+        },
+        {
+          "kappa": 50.0,
+          "train_logloss": 0.3129669563754736
+        },
+        {
+          "kappa": 120.0,
+          "train_logloss": 0.3130371166822788
+        }
+      ],
+      "pooled_contrasts": [
+        [
+          -0.02804586247529183,
+          -0.006521154098827997
+        ],
+        [
+          -0.002105446848034481,
+          -0.007357017338586563
+        ]
+      ]
+    },
+    {
+      "fit_episode_sha256": "2447867b5f4039a54208d2482e4b6ed78ee3044b45a6ea55825d8cf39e722d87",
+      "fit_episodes": 72,
+      "fold": 2,
+      "held_episode_sha256": "2862917ef963845641b0d04846de8ba970fdae4522597340af365a734198ccee",
+      "held_episodes": 24,
+      "m3_kappa": 50.0,
+      "m3_kappa_selection": [
+        {
+          "kappa": 8.0,
+          "train_logloss": 0.30268575614440585
+        },
+        {
+          "kappa": 20.0,
+          "train_logloss": 0.30009533864814353
+        },
+        {
+          "kappa": 50.0,
+          "train_logloss": 0.2990862361679428
+        },
+        {
+          "kappa": 120.0,
+          "train_logloss": 0.29943146488270056
+        }
+      ],
+      "pooled_contrasts": [
+        [
+          -0.025912864291850343,
+          -0.0030622406263066206
+        ],
+        [
+          -0.0024099873837014523,
+          -0.01489425288657503
+        ]
+      ]
+    },
+    {
+      "fit_episode_sha256": "3f49059aa1037c6c2bf5baf8f8165837ab0dc7a7e654d9e49e8228476afddc64",
+      "fit_episodes": 72,
+      "fold": 3,
+      "held_episode_sha256": "0623ba1f3049a927a9185776926a89bb53d4d57848264fe44bff701dee2a8589",
+      "held_episodes": 24,
+      "m3_kappa": 50.0,
+      "m3_kappa_selection": [
+        {
+          "kappa": 8.0,
+          "train_logloss": 0.3002735417915584
+        },
+        {
+          "kappa": 20.0,
+          "train_logloss": 0.29757152009277704
+        },
+        {
+          "kappa": 50.0,
+          "train_logloss": 0.29668964131582065
+        },
+        {
+          "kappa": 120.0,
+          "train_logloss": 0.29713619354200554
+        }
+      ],
+      "pooled_contrasts": [
+        [
+          -0.014085112406363044,
+          -0.0002752341346035633
+        ],
+        [
+          -0.000704209326174957,
+          -0.012846977986490968
+        ]
+      ]
+    }
+  ],
+  "gate": "Strictly lower episode-averaged Brier overall and in frozen top-pair (4,7).",
+  "metrics": {
+    "M3": {
+      "actual_cutoff": {
+        "binary_brier": 0.07663982346302176,
+        "binary_logloss": 0.26725273603346117,
+        "episodes": 96,
+        "rows": 768
+      },
+      "all": {
+        "binary_brier": 0.09016649000173417,
+        "binary_logloss": 0.305291086131565,
+        "episodes": 96,
+        "rows": 6144
+      },
+      "earlier_cutoffs": {
+        "binary_brier": 0.09209887093583595,
+        "binary_logloss": 0.3107251361455799,
+        "episodes": 96,
+        "rows": 5376
+      },
+      "top_pair_4_7": {
+        "binary_brier": 0.09108299765488798,
+        "binary_logloss": 0.3037244987646185,
+        "episodes": 88,
+        "rows": 1871
+      }
+    },
+    "W0": {
+      "actual_cutoff": {
+        "binary_brier": 0.07646636224252322,
+        "binary_logloss": 0.267095692253611,
+        "episodes": 96,
+        "rows": 768
+      },
+      "all": {
+        "binary_brier": 0.08990470216333939,
+        "binary_logloss": 0.30487275723240764,
+        "episodes": 96,
+        "rows": 6144
+      },
+      "earlier_cutoffs": {
+        "binary_brier": 0.09182446500917028,
+        "binary_logloss": 0.3102694808008072,
+        "episodes": 96,
+        "rows": 5376
+      },
+      "top_pair_4_7": {
+        "binary_brier": 0.09060637624457978,
+        "binary_logloss": 0.3023077767042441,
+        "episodes": 88,
+        "rows": 1871
+      }
+    },
+    "W1a_20": {
+      "actual_cutoff": {
+        "binary_brier": 0.07665013722507505,
+        "binary_logloss": 0.2667351089230474,
+        "episodes": 96,
+        "rows": 768
+      },
+      "all": {
+        "binary_brier": 0.08981639619278063,
+        "binary_logloss": 0.3046227324039858,
+        "episodes": 96,
+        "rows": 6144
+      },
+      "earlier_cutoffs": {
+        "binary_brier": 0.09169729033102429,
+        "binary_logloss": 0.31003525004411986,
+        "episodes": 96,
+        "rows": 5376
+      },
+      "top_pair_4_7": {
+        "binary_brier": 0.0905704691343081,
+        "binary_logloss": 0.3023040577361423,
+        "episodes": 88,
+        "rows": 1871
+      }
+    },
+    "W1a_50": {
+      "actual_cutoff": {
+        "binary_brier": 0.07652049538243497,
+        "binary_logloss": 0.26669593731886043,
+        "episodes": 96,
+        "rows": 768
+      },
+      "all": {
+        "binary_brier": 0.089836206658318,
+        "binary_logloss": 0.3046270689921407,
+        "episodes": 96,
+        "rows": 6144
+      },
+      "earlier_cutoffs": {
+        "binary_brier": 0.0917384511263013,
+        "binary_logloss": 0.3100458020883236,
+        "episodes": 96,
+        "rows": 5376
+      },
+      "top_pair_4_7": {
+        "binary_brier": 0.0905602465151449,
+        "binary_logloss": 0.302176808091651,
+        "episodes": 88,
+        "rows": 1871
+      }
+    },
+    "W1a_8": {
+      "actual_cutoff": {
+        "binary_brier": 0.07691121475525618,
+        "binary_logloss": 0.2669936488091609,
+        "episodes": 96,
+        "rows": 768
+      },
+      "all": {
+        "binary_brier": 0.08983674311462264,
+        "binary_logloss": 0.3048531965122803,
+        "episodes": 96,
+        "rows": 6144
+      },
+      "earlier_cutoffs": {
+        "binary_brier": 0.0916832471659607,
+        "binary_logloss": 0.31026170332701164,
+        "episodes": 96,
+        "rows": 5376
+      },
+      "top_pair_4_7": {
+        "binary_brier": 0.09064996721636899,
+        "binary_logloss": 0.3027062253169216,
+        "episodes": 88,
+        "rows": 1871
+      }
+    },
+    "W1b_20": {
+      "actual_cutoff": {
+        "binary_brier": 0.07670194642713674,
+        "binary_logloss": 0.26897807131279805,
+        "episodes": 96,
+        "rows": 768
+      },
+      "all": {
+        "binary_brier": 0.08983539678788133,
+        "binary_logloss": 0.30501088749302735,
+        "episodes": 96,
+        "rows": 6144
+      },
+      "earlier_cutoffs": {
+        "binary_brier": 0.09171160398227345,
+        "binary_logloss": 0.31015843266163157,
+        "episodes": 96,
+        "rows": 5376
+      },
+      "top_pair_4_7": {
+        "binary_brier": 0.09061400429460865,
+        "binary_logloss": 0.3023210293891898,
+        "episodes": 88,
+        "rows": 1871
+      }
+    },
+    "W1b_50": {
+      "actual_cutoff": {
+        "binary_brier": 0.07658944488278628,
+        "binary_logloss": 0.2822007212772618,
+        "episodes": 96,
+        "rows": 768
+      },
+      "all": {
+        "binary_brier": 0.08986166992233531,
+        "binary_logloss": 0.3067344200177468,
+        "episodes": 96,
+        "rows": 6144
+      },
+      "earlier_cutoffs": {
+        "binary_brier": 0.09175770207084233,
+        "binary_logloss": 0.3102392341235303,
+        "episodes": 96,
+        "rows": 5376
+      },
+      "top_pair_4_7": {
+        "binary_brier": 0.0906096757173343,
+        "binary_logloss": 0.3022037823011993,
+        "episodes": 88,
+        "rows": 1871
+      }
+    },
+    "W1b_8": {
+      "actual_cutoff": {
+        "binary_brier": 0.07694403270720135,
+        "binary_logloss": 0.2679568486281496,
+        "episodes": 96,
+        "rows": 768
+      },
+      "all": {
+        "binary_brier": 0.08984929507532292,
+        "binary_logloss": 0.30502691553072175,
+        "episodes": 96,
+        "rows": 6144
+      },
+      "earlier_cutoffs": {
+        "binary_brier": 0.09169290398505459,
+        "binary_logloss": 0.31032263937394644,
+        "episodes": 96,
+        "rows": 5376
+      },
+      "top_pair_4_7": {
+        "binary_brier": 0.09068644455012291,
+        "binary_logloss": 0.3027178030251796,
+        "episodes": 88,
+        "rows": 1871
+      }
+    }
+  },
+  "selected_strength": 20,
+  "selection": "Lowest episode-averaged Bernoulli Brier for W1a across all held prequential rows.",
+  "stage_gate": true,
+  "train_selected_win_head": "W1a",
+  "type_gate": false
+}

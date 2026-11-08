@@ -1,0 +1,236 @@
+{
+  "cases": {
+    "ordered_flip_older_24": {
+      "E3Frozen": {
+        "direction_recovery": 0.9895833333333334,
+        "five_class_sse": 0.012940980269930777,
+        "map_flip_share": 1.0,
+        "map_flip_within_4": 1.0,
+        "p0_mse": 0.009672894469594817,
+        "pair_recovery": 0.96875
+      },
+      "E3Full": {
+        "direction_recovery": 0.9895833333333334,
+        "five_class_sse": 0.014215218936188103,
+        "map_flip_share": 1.0,
+        "map_flip_within_4": 1.0,
+        "p0_mse": 0.01060506764701663,
+        "pair_recovery": 0.9583333333333334
+      },
+      "E3Shared": {
+        "five_class_sse": 0.012434435675178684,
+        "p0_mse": 0.009196683967006854
+      },
+      "M3": {
+        "direction_recovery": 0.9895833333333334,
+        "five_class_sse": 0.01207885079162114,
+        "map_flip_share": 1.0,
+        "map_flip_within_4": 1.0,
+        "p0_mse": 0.0090091027968752,
+        "pair_recovery": 0.96875
+      }
+    },
+    "ordered_flip_older_None": {
+      "E3Frozen": {
+        "direction_recovery": 1.0,
+        "five_class_sse": 0.0067580701589358685,
+        "map_flip_share": 1.0,
+        "map_flip_within_4": 1.0,
+        "p0_mse": 0.005051054229911501,
+        "pair_recovery": 1.0
+      },
+      "E3Full": {
+        "direction_recovery": 1.0,
+        "five_class_sse": 0.0071681143595842866,
+        "map_flip_share": 1.0,
+        "map_flip_within_4": 1.0,
+        "p0_mse": 0.005368560723297823,
+        "pair_recovery": 0.9895833333333334
+      },
+      "E3Shared": {
+        "five_class_sse": 0.006064677783133895,
+        "p0_mse": 0.004543358854758748
+      },
+      "M3": {
+        "direction_recovery": 1.0,
+        "five_class_sse": 0.004144600984088716,
+        "map_flip_share": 1.0,
+        "map_flip_within_4": 1.0,
+        "p0_mse": 0.0030666066708254992,
+        "pair_recovery": 1.0
+      }
+    },
+    "ordered_stable_older_24": {
+      "E3Frozen": {
+        "direction_recovery": 0.9895833333333334,
+        "five_class_sse": 0.007245038809897397,
+        "map_flip_share": 0.125,
+        "p0_mse": 0.005514183915586114,
+        "pair_recovery": 0.84375
+      },
+      "E3Full": {
+        "direction_recovery": 0.9895833333333334,
+        "five_class_sse": 0.008569925784509392,
+        "map_flip_share": 0.10416666666666667,
+        "p0_mse": 0.006486145873062864,
+        "pair_recovery": 0.84375
+      },
+      "E3Shared": {
+        "five_class_sse": 0.0040579805149157655,
+        "p0_mse": 0.00302692387544456
+      },
+      "M3": {
+        "direction_recovery": 0.9895833333333334,
+        "five_class_sse": 0.007900467915013127,
+        "map_flip_share": 0.125,
+        "p0_mse": 0.005978129371976115,
+        "pair_recovery": 0.84375
+      }
+    },
+    "ordered_stable_older_None": {
+      "E3Frozen": {
+        "direction_recovery": 0.9791666666666666,
+        "five_class_sse": 0.006577356322745898,
+        "map_flip_share": 0.052083333333333336,
+        "p0_mse": 0.005075106595880892,
+        "pair_recovery": 0.9479166666666666
+      },
+      "E3Full": {
+        "direction_recovery": 0.9791666666666666,
+        "five_class_sse": 0.006120756224810605,
+        "map_flip_share": 0.052083333333333336,
+        "p0_mse": 0.00471942069596463,
+        "pair_recovery": 0.9375
+      },
+      "E3Shared": {
+        "five_class_sse": 0.0014135908386229915,
+        "p0_mse": 0.0010457327161922597
+      },
+      "M3": {
+        "direction_recovery": 0.9791666666666666,
+        "five_class_sse": 0.007088270988726279,
+        "map_flip_share": 0.052083333333333336,
+        "p0_mse": 0.005455260545085914,
+        "pair_recovery": 0.9479166666666666
+      }
+    },
+    "parity_flip_older_24": {
+      "E3Frozen": {
+        "direction_recovery": 1.0,
+        "five_class_sse": 0.009923068577090926,
+        "map_flip_share": 1.0,
+        "map_flip_within_4": 1.0,
+        "p0_mse": 0.007590590422610603,
+        "pair_recovery": 0.9895833333333334
+      },
+      "E3Full": {
+        "direction_recovery": 1.0,
+        "five_class_sse": 0.010605748505457452,
+        "map_flip_share": 1.0,
+        "map_flip_within_4": 0.9895833333333334,
+        "p0_mse": 0.008109019030931556,
+        "pair_recovery": 0.9895833333333334
+      },
+      "E3Shared": {
+        "five_class_sse": 0.005944751355855894,
+        "p0_mse": 0.004518493120006288
+      },
+      "M3": {
+        "direction_recovery": 1.0,
+        "five_class_sse": 0.00985237623759143,
+        "map_flip_share": 1.0,
+        "map_flip_within_4": 1.0,
+        "p0_mse": 0.007523245891603571,
+        "pair_recovery": 0.9895833333333334
+      }
+    },
+    "parity_flip_older_None": {
+      "E3Frozen": {
+        "direction_recovery": 1.0,
+        "five_class_sse": 0.0033444111778081153,
+        "map_flip_share": 1.0,
+        "map_flip_within_4": 1.0,
+        "p0_mse": 0.002539495884189974,
+        "pair_recovery": 1.0
+      },
+      "E3Full": {
+        "direction_recovery": 1.0,
+        "five_class_sse": 0.0034123131555122634,
+        "map_flip_share": 1.0,
+        "map_flip_within_4": 0.9895833333333334,
+        "p0_mse": 0.0025909004432813957,
+        "pair_recovery": 1.0
+      },
+      "E3Shared": {
+        "five_class_sse": 0.0026811042681522527,
+        "p0_mse": 0.0020338170981750313
+      },
+      "M3": {
+        "direction_recovery": 1.0,
+        "five_class_sse": 0.0025870682054204837,
+        "map_flip_share": 1.0,
+        "map_flip_within_4": 1.0,
+        "p0_mse": 0.0019477033252185288,
+        "pair_recovery": 1.0
+      }
+    },
+    "parity_stable_older_24": {
+      "E3Frozen": {
+        "direction_recovery": 0.96875,
+        "five_class_sse": 0.012025811242956395,
+        "map_flip_share": 0.17708333333333334,
+        "p0_mse": 0.009277759955998643,
+        "pair_recovery": 0.8645833333333334
+      },
+      "E3Full": {
+        "direction_recovery": 0.96875,
+        "five_class_sse": 0.01203443873130629,
+        "map_flip_share": 0.17708333333333334,
+        "p0_mse": 0.009287980177495124,
+        "pair_recovery": 0.8645833333333334
+      },
+      "E3Shared": {
+        "five_class_sse": 0.005302817254911192,
+        "p0_mse": 0.004037437738128108
+      },
+      "M3": {
+        "direction_recovery": 0.96875,
+        "five_class_sse": 0.01140814490811122,
+        "map_flip_share": 0.17708333333333334,
+        "p0_mse": 0.008795907471402227,
+        "pair_recovery": 0.8645833333333334
+      }
+    },
+    "parity_stable_older_None": {
+      "E3Frozen": {
+        "direction_recovery": 0.9583333333333334,
+        "five_class_sse": 0.012351602780843239,
+        "map_flip_share": 0.041666666666666664,
+        "p0_mse": 0.009583863734690891,
+        "pair_recovery": 0.9895833333333334
+      },
+      "E3Full": {
+        "direction_recovery": 0.9583333333333334,
+        "five_class_sse": 0.012700055121577588,
+        "map_flip_share": 0.041666666666666664,
+        "p0_mse": 0.009855761496023277,
+        "pair_recovery": 0.9895833333333334
+      },
+      "E3Shared": {
+        "five_class_sse": 0.0021481424853550895,
+        "p0_mse": 0.001621346392645314
+      },
+      "M3": {
+        "direction_recovery": 0.9583333333333334,
+        "five_class_sse": 0.01099464753802023,
+        "map_flip_share": 0.041666666666666664,
+        "p0_mse": 0.008543179255190466,
+        "pair_recovery": 0.9895833333333334
+      }
+    }
+  },
+  "fit_seed": 38102,
+  "fixture_scope": "Repository four_cells=True adds raw-bit offsets in both segments; chronological XOR law is checked separately by exhaustive enumeration.",
+  "held_seed": 38104,
+  "rows_per_case": 96
+}

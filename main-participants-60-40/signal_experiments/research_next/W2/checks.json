@@ -1,0 +1,21 @@
+{
+  "earlier_forecast_ignores_at_cutoff_and_future": true,
+  "exact_padding_and_row_order_invariance": true,
+  "fixed_design_explicit_outcome_distributions": 69,
+  "max_normalization_or_oracle_error": 8.881784197001252e-16,
+  "smoke_12_episode_seconds": 0.47218808300000004,
+  "test": {
+    "W1a_max_abs_replay_delta": 2.220446049250313e-16,
+    "conditional_payout_mix_max_abs_delta": 2.220446049250313e-16,
+    "max_abs_single_group_log_tilt": 16.415311425932543,
+    "mean_abs_win_change_vs_W1a": 8.905761670735897e-05
+  },
+  "validation": {
+    "W1a_max_abs_replay_delta": 2.220446049250313e-16,
+    "conditional_payout_mix_max_abs_delta": 2.220446049250313e-16,
+    "max_abs_single_group_log_tilt": 14.849300415739108,
+    "mean_abs_win_change_vs_W1a": 6.587065560517257e-05
+  },
+  "validation_preloaded_forecast_seconds": 3.3079661669999965,
+  "zero_contrast_exact_posterior_replay": true
+}

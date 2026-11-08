@@ -1,0 +1,75 @@
+{
+  "bootstrap_draws": 10000,
+  "data": "public/validation",
+  "episodes": 96,
+  "input_hashes": {
+    "conditions.csv": "ebcca7597bbdfa532c5254b92903e66522a710502a6f70689c3de311f75c29b1",
+    "queries.csv": "168b7f6365a4f51084437c0071636b102ca3fb4bf0347b912778c51714fc48f2",
+    "reference.csv": "bb396d9e4d20bf4004374f9ab781f41aaa8b730e61887c1969be534efeb1e6c6",
+    "targets.csv": "93b6e978f6818d2456dcb677fddb6ba243e864cef56e33a4bf94bde5ba4b51f3"
+  },
+  "models": {
+    "control": {
+      "R": 0.08561188818556766,
+      "condition_R": {
+        "drift": 0.0798170735058101,
+        "shared_change": 0.07849326924209539,
+        "short_history": 0.1068936280578193,
+        "stable": 0.07724358193654585
+      },
+      "conditional_payout_sse": 0.02553387751625018,
+      "delta_R": 0.0,
+      "delta_R_95": [
+        0.0,
+        0.0
+      ],
+      "p0_mse": 0.004710977573980388,
+      "path": "signal_experiments/05_adaptation_stress/results/main_proxy/m3_normal.csv",
+      "points": 55.268370448927854,
+      "sha256": "b8230a96456ac4d9915a8758f53c9a8cd3e89309ce28c8f4507b84a511b7abe1",
+      "win_mass_weighted_conditional_payout_sse": 0.01019842803180975
+    },
+    "m3_sparse16": {
+      "R": 0.19920999581883628,
+      "condition_R": {
+        "drift": 0.18652511848570844,
+        "shared_change": 0.24188958598184987,
+        "short_history": 0.2393415361974844,
+        "stable": 0.1290837426103024
+      },
+      "conditional_payout_sse": 0.027152369736990912,
+      "delta_R": 0.11359810763326862,
+      "delta_R_95": [
+        0.08359833183457477,
+        0.14793910772765753
+      ],
+      "p0_mse": 0.020484933517862798,
+      "path": "signal_experiments/05_adaptation_stress/results/main_proxy/m3_sparse16.csv",
+      "points": 50.03293852552589,
+      "sha256": "eda5a58dc7f1e66969cec46de6e1e8d74bac2f0c80fcfa3004039a815efb8a5a",
+      "win_mass_weighted_conditional_payout_sse": 0.01065505796094549
+    },
+    "m3_sparse8": {
+      "R": 0.5680764639230182,
+      "condition_R": {
+        "drift": 0.6132315350567393,
+        "shared_change": 0.5482817316207437,
+        "short_history": 0.6102626483715043,
+        "stable": 0.5005299406430856
+      },
+      "conditional_payout_sse": 0.027459061630771442,
+      "delta_R": 0.4824645757374506,
+      "delta_R_95": [
+        0.43446982752277147,
+        0.5319285111548163
+      ],
+      "p0_mse": 0.07062818054232751,
+      "path": "signal_experiments/05_adaptation_stress/results/main_proxy/m3_sparse8.csv",
+      "points": 38.26344019595309,
+      "sha256": "22024f540a140f749020eded78cd1636b746df7f44880371f24673e1940de3ca",
+      "win_mass_weighted_conditional_payout_sse": 0.010770831995796088
+    }
+  },
+  "points_max": 60,
+  "queries": 768
+}

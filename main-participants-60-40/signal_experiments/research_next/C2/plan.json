@@ -1,0 +1,13 @@
+{
+  "conditional_payout_mix": "Frozen hybrid in every arm.",
+  "marginal_prior_hazard": 0.010416666666666666,
+  "shared_prior_hazard": 0.005221967807223171,
+  "individual_prior_hazard": 0.005221967807223171,
+  "shift_ticks": 11,
+  "signal": "Cutoff only.",
+  "source_sha256": "35c9c49441ca2af9ad65113e232a7bb276126e56a41287582837f13e2f49bc67",
+  "checks": {
+    "reverse_rows": true,
+    "padding": true
+  }
+}

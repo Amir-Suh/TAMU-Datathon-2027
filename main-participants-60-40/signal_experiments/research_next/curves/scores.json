@@ -1,0 +1,95 @@
+{
+  "data": "/Users/andrewvong/Documents/Projects/tamudatathon27/main-participants-60-40/public/validation",
+  "episodes": 96,
+  "queries": 768,
+  "points_max": 60,
+  "bootstrap_draws": 10000,
+  "input_hashes": {
+    "queries.csv": "168b7f6365a4f51084437c0071636b102ca3fb4bf0347b912778c51714fc48f2",
+    "targets.csv": "93b6e978f6818d2456dcb677fddb6ba243e864cef56e33a4bf94bde5ba4b51f3",
+    "conditions.csv": "ebcca7597bbdfa532c5254b92903e66522a710502a6f70689c3de311f75c29b1",
+    "reference.csv": "bb396d9e4d20bf4004374f9ab781f41aaa8b730e61887c1969be534efeb1e6c6"
+  },
+  "models": {
+    "control": {
+      "path": "/Users/andrewvong/Documents/Projects/tamudatathon27/main-participants-60-40/signal_experiments/combined/m3_match_split_win_pair_l31_factor_gru_size.csv",
+      "sha256": "ac6fae2e924da0bb5f1b7638480572373a87a192d4891c1315ffc11f714aeea6",
+      "points": 56.34102223545075,
+      "R": 0.0649434039243781,
+      "delta_R": 0.0,
+      "delta_R_95": [
+        0.0,
+        0.0
+      ],
+      "condition_R": {
+        "stable": 0.05107419424809494,
+        "short_history": 0.09293615471880542,
+        "drift": 0.05531415455351391,
+        "shared_change": 0.060449112177098134
+      },
+      "p0_mse": 0.00446809666869068,
+      "conditional_payout_sse": 0.018921580024474416,
+      "win_mass_weighted_conditional_payout_sse": 0.006448433389233892
+    },
+    "train_24": {
+      "path": "/Users/andrewvong/Documents/Projects/tamudatathon27/main-participants-60-40/signal_experiments/research_next/curves/train_24.csv",
+      "sha256": "36552ec0273c493cf9d5ca1632af7112e43cff0acc32cffcc168ac67a52f5d0f",
+      "points": 56.15654339704639,
+      "R": 0.06844183011370589,
+      "delta_R": 0.0034984261893277885,
+      "delta_R_95": [
+        0.0009690231171570545,
+        0.006466306164703572
+      ],
+      "condition_R": {
+        "stable": 0.05526163626319175,
+        "short_history": 0.1018972284182776,
+        "drift": 0.05588005748633018,
+        "shared_change": 0.060728398287024046
+      },
+      "p0_mse": 0.004958404150892101,
+      "conditional_payout_sse": 0.018921580024474416,
+      "win_mass_weighted_conditional_payout_sse": 0.006448433389233892
+    },
+    "train_48": {
+      "path": "/Users/andrewvong/Documents/Projects/tamudatathon27/main-participants-60-40/signal_experiments/research_next/curves/train_48.csv",
+      "sha256": "9dc1171f8f54dcee06c04aaf4e9afc8dcef1408f3435c933dcfd35bc716a31cd",
+      "points": 56.212744609009036,
+      "R": 0.06737360748587233,
+      "delta_R": 0.002430203561494232,
+      "delta_R_95": [
+        0.0006087475599042213,
+        0.004432176042228624
+      ],
+      "condition_R": {
+        "stable": 0.05565266204875089,
+        "short_history": 0.09847572850472784,
+        "drift": 0.05493510030052103,
+        "shared_change": 0.06043093908948955
+      },
+      "p0_mse": 0.004819994896471553,
+      "conditional_payout_sse": 0.018921580024474416,
+      "win_mass_weighted_conditional_payout_sse": 0.006448433389233892
+    },
+    "train_96": {
+      "path": "/Users/andrewvong/Documents/Projects/tamudatathon27/main-participants-60-40/signal_experiments/research_next/curves/train_96.csv",
+      "sha256": "492c855f8ad2d29ab560a7cb0faea21930f87b535b0e3d8f131f345469759e62",
+      "points": 56.259032053274304,
+      "R": 0.06649541967204847,
+      "delta_R": 0.0015520157476703739,
+      "delta_R_95": [
+        0.0003092062074915535,
+        0.0029690519314678255
+      ],
+      "condition_R": {
+        "stable": 0.055460300230148356,
+        "short_history": 0.09410271833234951,
+        "drift": 0.05572098315682762,
+        "shared_change": 0.06069767696886841
+      },
+      "p0_mse": 0.004710977573980388,
+      "conditional_payout_sse": 0.018921580024474416,
+      "win_mass_weighted_conditional_payout_sse": 0.006448433389233892
+    }
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "fit_episodes": 24,
+  "fitted_kappa": 120.0,
+  "metrics": {
+    "normal": {
+      "carry_main_prior": {
+        "distribution_sse": 0.000604718187531307,
+        "p0_mse": 0.00018781359341902312
+      },
+      "paired_refit_minus_carry": {
+        "distribution_sse_delta": -2.981555974335137e-19,
+        "paired_ci95": [
+          -6.998073272488729e-18,
+          4.80211212230038e-18
+        ]
+      },
+      "target_refit_prior": {
+        "distribution_sse": 0.0006047181875313065,
+        "p0_mse": 0.0001878135934190229
+      }
+    },
+    "sparse16": {
+      "carry_main_prior": {
+        "distribution_sse": 0.2125946717595905,
+        "p0_mse": 0.16042885679756647
+      },
+      "paired_refit_minus_carry": {
+        "distribution_sse_delta": -0.15641934490007206,
+        "paired_ci95": [
+          -0.192852794816927,
+          -0.12049860811236246
+        ]
+      },
+      "target_refit_prior": {
+        "distribution_sse": 0.05617532685951845,
+        "p0_mse": 0.042959356718291035
+      }
+    },
+    "sparse8": {
+      "carry_main_prior": {
+        "distribution_sse": 0.2841132774268424,
+        "p0_mse": 0.21313331573008928
+      },
+      "paired_refit_minus_carry": {
+        "distribution_sse_delta": -0.07866691461191572,
+        "paired_ci95": [
+          -0.10857147326763668,
+          -0.04881625051872879
+        ]
+      },
+      "target_refit_prior": {
+        "distribution_sse": 0.20544636281492665,
+        "p0_mse": 0.15380825398272627
+      }
+    }
+  },
+  "pairs": [
+    {
+      "lag_a": 6,
+      "lag_b": 8,
+      "main_prior": 0.00365427414488375,
+      "refit_prior": 0.2941964285714286,
+      "train_machines": 62,
+      "validation_machines": 53
+    },
+    {
+      "lag_a": 5,
+      "lag_b": 8,
+      "main_prior": 0.0036630867384514834,
+      "refit_prior": 0.15825892857142856,
+      "train_machines": 33,
+      "validation_machines": 46
+    },
+    {
+      "lag_a": 3,
+      "lag_b": 8,
+      "main_prior": 0.0036712018784704685,
+      "refit_prior": 0.26607142857142857,
+      "train_machines": 56,
+      "validation_machines": 53
+    },
+    {
+      "lag_a": 7,
+      "lag_b": 8,
+      "main_prior": 0.0036753767113175176,
+      "refit_prior": 0.19575892857142854,
+      "train_machines": 41,
+      "validation_machines": 40
+    }
+  ],
+  "scope": "Generated stable histories and exact target law, a deliberate shift to the four least-weighted main pairs.",
+  "validation_episodes": 24
+}

@@ -1,0 +1,12 @@
+{
+  "fit_sha256": "5538e3d2c281cfe2365a87dd7297bc155b7ad4f6593133eb1539126ed3d0269f",
+  "forecast_sha256": {
+    "test_E3Frozen.csv": "6e6d3f9994485a8b766f873c3a185d8eb2afc83a4c6206929d9688a65c0d9ea8",
+    "test_E3Full.csv": "e590efe8e8265c7c0d92e6331ba744e1017be9960eadc5d7f8f0d9061f7abc5e",
+    "test_E3Shared.csv": "cd40eaa17370d307caee67351470f0ea44af1bcb7fbf478191f397b3ea955f62",
+    "validation_E3Frozen.csv": "b6a1533b87c547a7b511619b895132bab9204d3259508e0941921a36b4c370d7",
+    "validation_E3Full.csv": "63ebfaa079ffcc0e39bcf752dcbdf4969440b9050a8abf5b9582430d6ffa0656",
+    "validation_E3Shared.csv": "d3abf1d78ee60b646be3db72915c03a3c927c25eb0a6d9fee08f7cd291c30a12"
+  },
+  "runtime_seconds": 54.190474707999996
+}

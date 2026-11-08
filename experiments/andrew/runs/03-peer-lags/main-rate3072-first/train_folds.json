@@ -1,0 +1,1029 @@
+{
+  "held_out_episodes": [
+    [
+      "main-train-e00001",
+      "main-train-e00007",
+      "main-train-e00013",
+      "main-train-e00014",
+      "main-train-e00016",
+      "main-train-e00022",
+      "main-train-e00024",
+      "main-train-e00027",
+      "main-train-e00030",
+      "main-train-e00036",
+      "main-train-e00038",
+      "main-train-e00042",
+      "main-train-e00047",
+      "main-train-e00048",
+      "main-train-e00052",
+      "main-train-e00065",
+      "main-train-e00067",
+      "main-train-e00073",
+      "main-train-e00075",
+      "main-train-e00083",
+      "main-train-e00084",
+      "main-train-e00089",
+      "main-train-e00090",
+      "main-train-e00091"
+    ],
+    [
+      "main-train-e00005",
+      "main-train-e00015",
+      "main-train-e00020",
+      "main-train-e00025",
+      "main-train-e00028",
+      "main-train-e00029",
+      "main-train-e00035",
+      "main-train-e00039",
+      "main-train-e00040",
+      "main-train-e00041",
+      "main-train-e00051",
+      "main-train-e00053",
+      "main-train-e00055",
+      "main-train-e00056",
+      "main-train-e00060",
+      "main-train-e00066",
+      "main-train-e00068",
+      "main-train-e00069",
+      "main-train-e00072",
+      "main-train-e00077",
+      "main-train-e00082",
+      "main-train-e00093",
+      "main-train-e00094",
+      "main-train-e00095"
+    ],
+    [
+      "main-train-e00006",
+      "main-train-e00008",
+      "main-train-e00009",
+      "main-train-e00010",
+      "main-train-e00018",
+      "main-train-e00019",
+      "main-train-e00034",
+      "main-train-e00043",
+      "main-train-e00044",
+      "main-train-e00050",
+      "main-train-e00058",
+      "main-train-e00059",
+      "main-train-e00061",
+      "main-train-e00062",
+      "main-train-e00063",
+      "main-train-e00074",
+      "main-train-e00076",
+      "main-train-e00078",
+      "main-train-e00079",
+      "main-train-e00081",
+      "main-train-e00085",
+      "main-train-e00086",
+      "main-train-e00088",
+      "main-train-e00092"
+    ],
+    [
+      "main-train-e00000",
+      "main-train-e00002",
+      "main-train-e00003",
+      "main-train-e00004",
+      "main-train-e00011",
+      "main-train-e00012",
+      "main-train-e00017",
+      "main-train-e00021",
+      "main-train-e00023",
+      "main-train-e00026",
+      "main-train-e00031",
+      "main-train-e00032",
+      "main-train-e00033",
+      "main-train-e00037",
+      "main-train-e00045",
+      "main-train-e00046",
+      "main-train-e00049",
+      "main-train-e00054",
+      "main-train-e00057",
+      "main-train-e00064",
+      "main-train-e00070",
+      "main-train-e00071",
+      "main-train-e00080",
+      "main-train-e00087"
+    ]
+  ],
+  "results": {
+    "0:aligned_matched": {
+      "folds": [
+        {
+          "cutoffs": {
+            "brier": 0.4302902063197814,
+            "log_loss": 0.8596814836715118
+          },
+          "historical": {
+            "brier": 0.4592506112568102,
+            "log_loss": 0.9136359440193708
+          }
+        },
+        {
+          "cutoffs": {
+            "brier": 0.4426845897662419,
+            "log_loss": 0.9004131434342733
+          },
+          "historical": {
+            "brier": 0.4753908586036591,
+            "log_loss": 0.938958893838473
+          }
+        },
+        {
+          "cutoffs": {
+            "brier": 0.4327060971327046,
+            "log_loss": 0.9032811712640688
+          },
+          "historical": {
+            "brier": 0.4495037118897556,
+            "log_loss": 0.8967195825193995
+          }
+        },
+        {
+          "cutoffs": {
+            "brier": 0.4265589691761899,
+            "log_loss": 0.8543277984843302
+          },
+          "historical": {
+            "brier": 0.4560945901460054,
+            "log_loss": 0.9120231439697846
+          }
+        }
+      ],
+      "mean": {
+        "cutoffs": {
+          "brier": 0.43305996559872945,
+          "log_loss": 0.8794258992135461
+        },
+        "historical": {
+          "brier": 0.46005994297405756,
+          "log_loss": 0.915334391086757
+        }
+      }
+    },
+    "0:individual": {
+      "folds": [
+        {
+          "cutoffs": {
+            "brier": 0.43007322279847715,
+            "log_loss": 0.8593734660924435
+          },
+          "historical": {
+            "brier": 0.45894912245247693,
+            "log_loss": 0.9131781619930508
+          }
+        },
+        {
+          "cutoffs": {
+            "brier": 0.44356532286448064,
+            "log_loss": 0.9015228345792948
+          },
+          "historical": {
+            "brier": 0.47544585353889685,
+            "log_loss": 0.9389443141825554
+          }
+        },
+        {
+          "cutoffs": {
+            "brier": 0.4323584581082551,
+            "log_loss": 0.9028062831265645
+          },
+          "historical": {
+            "brier": 0.449558441484813,
+            "log_loss": 0.8967802057564197
+          }
+        },
+        {
+          "cutoffs": {
+            "brier": 0.4278919745932548,
+            "log_loss": 0.8571473171072862
+          },
+          "historical": {
+            "brier": 0.4560498987616874,
+            "log_loss": 0.9118249151908188
+          }
+        }
+      ],
+      "mean": {
+        "cutoffs": {
+          "brier": 0.43347224459111694,
+          "log_loss": 0.8802124752263972
+        },
+        "historical": {
+          "brier": 0.46000082905946854,
+          "log_loss": 0.9151818992807111
+        }
+      }
+    },
+    "0:pooled": {
+      "folds": [
+        {
+          "cutoffs": {
+            "brier": 0.4323733890037322,
+            "log_loss": 0.8634144996225298
+          },
+          "historical": {
+            "brier": 0.46018129044510275,
+            "log_loss": 0.9152943686872326
+          }
+        },
+        {
+          "cutoffs": {
+            "brier": 0.4454427576893632,
+            "log_loss": 0.9068437085621989
+          },
+          "historical": {
+            "brier": 0.47527955237813696,
+            "log_loss": 0.9391529439943801
+          }
+        },
+        {
+          "cutoffs": {
+            "brier": 0.43143246524094314,
+            "log_loss": 0.9009171678766842
+          },
+          "historical": {
+            "brier": 0.4494143657393377,
+            "log_loss": 0.8967895421269114
+          }
+        },
+        {
+          "cutoffs": {
+            "brier": 0.42679554597213304,
+            "log_loss": 0.8551587308335716
+          },
+          "historical": {
+            "brier": 0.4566275208568961,
+            "log_loss": 0.9126781063805259
+          }
+        }
+      ],
+      "mean": {
+        "cutoffs": {
+          "brier": 0.4340110394765429,
+          "log_loss": 0.8815835267237462
+        },
+        "historical": {
+          "brier": 0.4603756823548684,
+          "log_loss": 0.9159787402972625
+        }
+      }
+    },
+    "0:shifted_matched": {
+      "folds": [
+        {
+          "cutoffs": {
+            "brier": 0.4313165094154667,
+            "log_loss": 0.8616388504358815
+          },
+          "historical": {
+            "brier": 0.4598929110311835,
+            "log_loss": 0.914727725297514
+          }
+        },
+        {
+          "cutoffs": {
+            "brier": 0.4450609546318162,
+            "log_loss": 0.9055292630099956
+          },
+          "historical": {
+            "brier": 0.47543088957386015,
+            "log_loss": 0.9393503228077513
+          }
+        },
+        {
+          "cutoffs": {
+            "brier": 0.43169762502324266,
+            "log_loss": 0.9014243391535207
+          },
+          "historical": {
+            "brier": 0.44854512707707705,
+            "log_loss": 0.8952871517665374
+          }
+        },
+        {
+          "cutoffs": {
+            "brier": 0.42860904390369736,
+            "log_loss": 0.858657320486064
+          },
+          "historical": {
+            "brier": 0.45620290101039074,
+            "log_loss": 0.9121673300292383
+          }
+        }
+      ],
+      "mean": {
+        "cutoffs": {
+          "brier": 0.4341710332435557,
+          "log_loss": 0.8818124432713654
+        },
+        "historical": {
+          "brier": 0.4600179571731279,
+          "log_loss": 0.9153831324752603
+        }
+      }
+    },
+    "1:aligned_matched": {
+      "folds": [
+        {
+          "cutoffs": {
+            "brier": 0.4303859647746224,
+            "log_loss": 0.8600522484686083
+          },
+          "historical": {
+            "brier": 0.4596939543262699,
+            "log_loss": 0.913894933256581
+          }
+        },
+        {
+          "cutoffs": {
+            "brier": 0.4406680671799809,
+            "log_loss": 0.8955311443803425
+          },
+          "historical": {
+            "brier": 0.4763605795536492,
+            "log_loss": 0.940050602606247
+          }
+        },
+        {
+          "cutoffs": {
+            "brier": 0.43457855191960393,
+            "log_loss": 0.906621587823108
+          },
+          "historical": {
+            "brier": 0.45087606557108734,
+            "log_loss": 0.8986113889566386
+          }
+        },
+        {
+          "cutoffs": {
+            "brier": 0.42716991464220316,
+            "log_loss": 0.853782519909712
+          },
+          "historical": {
+            "brier": 0.45668463105444673,
+            "log_loss": 0.9127721060838686
+          }
+        }
+      ],
+      "mean": {
+        "cutoffs": {
+          "brier": 0.43320062462910264,
+          "log_loss": 0.8789968751454427
+        },
+        "historical": {
+          "brier": 0.4609038076263633,
+          "log_loss": 0.9163322577258338
+        }
+      }
+    },
+    "1:individual": {
+      "folds": [
+        {
+          "cutoffs": {
+            "brier": 0.4299766228494162,
+            "log_loss": 0.8594604821125209
+          },
+          "historical": {
+            "brier": 0.4593168053479985,
+            "log_loss": 0.913307273321348
+          }
+        },
+        {
+          "cutoffs": {
+            "brier": 0.44245093904220073,
+            "log_loss": 0.8977765113207283
+          },
+          "historical": {
+            "brier": 0.47662130957538434,
+            "log_loss": 0.9402499646951313
+          }
+        },
+        {
+          "cutoffs": {
+            "brier": 0.433867138028067,
+            "log_loss": 0.9056355653347691
+          },
+          "historical": {
+            "brier": 0.45116276495866287,
+            "log_loss": 0.899004393458679
+          }
+        },
+        {
+          "cutoffs": {
+            "brier": 0.4298108832373206,
+            "log_loss": 0.8594110300440939
+          },
+          "historical": {
+            "brier": 0.4568149848257681,
+            "log_loss": 0.9127019580888134
+          }
+        }
+      ],
+      "mean": {
+        "cutoffs": {
+          "brier": 0.4340263957892511,
+          "log_loss": 0.8805708972030281
+        },
+        "historical": {
+          "brier": 0.46097896617695344,
+          "log_loss": 0.916315897390993
+        }
+      }
+    },
+    "1:pooled": {
+      "folds": [
+        {
+          "cutoffs": {
+            "brier": 0.43369562726587435,
+            "log_loss": 0.8663061367459116
+          },
+          "historical": {
+            "brier": 0.46079362839703375,
+            "log_loss": 0.91613921525341
+          }
+        },
+        {
+          "cutoffs": {
+            "brier": 0.4452842605320814,
+            "log_loss": 0.9071994425138201
+          },
+          "historical": {
+            "brier": 0.4754988025048475,
+            "log_loss": 0.9394924459031264
+          }
+        },
+        {
+          "cutoffs": {
+            "brier": 0.43134332831878536,
+            "log_loss": 0.9008643730519923
+          },
+          "historical": {
+            "brier": 0.4501583960782674,
+            "log_loss": 0.8979536909323217
+          }
+        },
+        {
+          "cutoffs": {
+            "brier": 0.4268785837463371,
+            "log_loss": 0.8543382890921819
+          },
+          "historical": {
+            "brier": 0.45716992746074253,
+            "log_loss": 0.9132514570130041
+          }
+        }
+      ],
+      "mean": {
+        "cutoffs": {
+          "brier": 0.43430044996576955,
+          "log_loss": 0.8821770603509765
+        },
+        "historical": {
+          "brier": 0.4609051886102228,
+          "log_loss": 0.9167092022754656
+        }
+      }
+    },
+    "1:shifted_matched": {
+      "folds": [
+        {
+          "cutoffs": {
+            "brier": 0.432590484305958,
+            "log_loss": 0.8640535193149047
+          },
+          "historical": {
+            "brier": 0.46084539746958675,
+            "log_loss": 0.9159238416726664
+          }
+        },
+        {
+          "cutoffs": {
+            "brier": 0.44529660952064704,
+            "log_loss": 0.9056537091486998
+          },
+          "historical": {
+            "brier": 0.47643644269520297,
+            "log_loss": 0.940848037487001
+          }
+        },
+        {
+          "cutoffs": {
+            "brier": 0.43265510418847536,
+            "log_loss": 0.9029328587410417
+          },
+          "historical": {
+            "brier": 0.4489800605676999,
+            "log_loss": 0.8957682669604367
+          }
+        },
+        {
+          "cutoffs": {
+            "brier": 0.4313030797125839,
+            "log_loss": 0.862526011767601
+          },
+          "historical": {
+            "brier": 0.4569667675299082,
+            "log_loss": 0.9131379340104679
+          }
+        }
+      ],
+      "mean": {
+        "cutoffs": {
+          "brier": 0.43546131943191607,
+          "log_loss": 0.8837915247430618
+        },
+        "historical": {
+          "brier": 0.4608071670655995,
+          "log_loss": 0.916419520032643
+        }
+      }
+    },
+    "2:aligned_matched": {
+      "folds": [
+        {
+          "cutoffs": {
+            "brier": 0.4306268120668353,
+            "log_loss": 0.8605193329556856
+          },
+          "historical": {
+            "brier": 0.45952207189900457,
+            "log_loss": 0.9141190559885249
+          }
+        },
+        {
+          "cutoffs": {
+            "brier": 0.44434571591793287,
+            "log_loss": 0.9035615660134383
+          },
+          "historical": {
+            "brier": 0.47517369844675655,
+            "log_loss": 0.938733890412478
+          }
+        },
+        {
+          "cutoffs": {
+            "brier": 0.4327734307150446,
+            "log_loss": 0.9036089701227681
+          },
+          "historical": {
+            "brier": 0.4492633953100989,
+            "log_loss": 0.8964348527584933
+          }
+        },
+        {
+          "cutoffs": {
+            "brier": 0.4262118395776356,
+            "log_loss": 0.8545673214980242
+          },
+          "historical": {
+            "brier": 0.4562667365903746,
+            "log_loss": 0.9122295426305138
+          }
+        }
+      ],
+      "mean": {
+        "cutoffs": {
+          "brier": 0.4334894495693621,
+          "log_loss": 0.880564297647479
+        },
+        "historical": {
+          "brier": 0.46005647556155865,
+          "log_loss": 0.9153793354475025
+        }
+      }
+    },
+    "2:individual": {
+      "folds": [
+        {
+          "cutoffs": {
+            "brier": 0.43110914483060164,
+            "log_loss": 0.8611798051612375
+          },
+          "historical": {
+            "brier": 0.4593793765892915,
+            "log_loss": 0.9138702013507034
+          }
+        },
+        {
+          "cutoffs": {
+            "brier": 0.44428589095384924,
+            "log_loss": 0.9032692856498006
+          },
+          "historical": {
+            "brier": 0.47522008776721436,
+            "log_loss": 0.938770530100319
+          }
+        },
+        {
+          "cutoffs": {
+            "brier": 0.4323539054023258,
+            "log_loss": 0.9027651035491218
+          },
+          "historical": {
+            "brier": 0.44914607337667634,
+            "log_loss": 0.8962033045679428
+          }
+        },
+        {
+          "cutoffs": {
+            "brier": 0.4268216119121065,
+            "log_loss": 0.8553065897019866
+          },
+          "historical": {
+            "brier": 0.4561623439615987,
+            "log_loss": 0.9119920956107395
+          }
+        }
+      ],
+      "mean": {
+        "cutoffs": {
+          "brier": 0.43364263827472077,
+          "log_loss": 0.8806301960155366
+        },
+        "historical": {
+          "brier": 0.45997697042369523,
+          "log_loss": 0.9152090329074262
+        }
+      }
+    },
+    "2:pooled": {
+      "folds": [
+        {
+          "cutoffs": {
+            "brier": 0.43198728498451605,
+            "log_loss": 0.8623271492316351
+          },
+          "historical": {
+            "brier": 0.45990921863580825,
+            "log_loss": 0.9148675604197894
+          }
+        },
+        {
+          "cutoffs": {
+            "brier": 0.4455611525570781,
+            "log_loss": 0.9065399222938305
+          },
+          "historical": {
+            "brier": 0.47535144688488346,
+            "log_loss": 0.9392022021306219
+          }
+        },
+        {
+          "cutoffs": {
+            "brier": 0.43155859672669744,
+            "log_loss": 0.9008631546215744
+          },
+          "historical": {
+            "brier": 0.4492591625258413,
+            "log_loss": 0.8965199803945932
+          }
+        },
+        {
+          "cutoffs": {
+            "brier": 0.42649596316722027,
+            "log_loss": 0.8551262501797829
+          },
+          "historical": {
+            "brier": 0.45648339756802575,
+            "log_loss": 0.912597415702198
+          }
+        }
+      ],
+      "mean": {
+        "cutoffs": {
+          "brier": 0.43390074935887796,
+          "log_loss": 0.8812141190817058
+        },
+        "historical": {
+          "brier": 0.4602508064036397,
+          "log_loss": 0.9157967896618006
+        }
+      }
+    },
+    "2:shifted_matched": {
+      "folds": [
+        {
+          "cutoffs": {
+            "brier": 0.43097255614833846,
+            "log_loss": 0.8602813912046875
+          },
+          "historical": {
+            "brier": 0.4598148774091358,
+            "log_loss": 0.9147043686642293
+          }
+        },
+        {
+          "cutoffs": {
+            "brier": 0.4447728883885387,
+            "log_loss": 0.9045935754388577
+          },
+          "historical": {
+            "brier": 0.475296391641665,
+            "log_loss": 0.9390960895857381
+          }
+        },
+        {
+          "cutoffs": {
+            "brier": 0.4311362662848988,
+            "log_loss": 0.9001942664121757
+          },
+          "historical": {
+            "brier": 0.44872611939535156,
+            "log_loss": 0.8954869499136292
+          }
+        },
+        {
+          "cutoffs": {
+            "brier": 0.4277415013314145,
+            "log_loss": 0.8576406202602526
+          },
+          "historical": {
+            "brier": 0.45611306882088326,
+            "log_loss": 0.9120506297168421
+          }
+        }
+      ],
+      "mean": {
+        "cutoffs": {
+          "brier": 0.4336558030382976,
+          "log_loss": 0.8806774633289933
+        },
+        "historical": {
+          "brier": 0.4599876143167589,
+          "log_loss": 0.9153345094701096
+        }
+      }
+    },
+    "3:aligned_matched": {
+      "folds": [
+        {
+          "cutoffs": {
+            "brier": 0.43041816217255785,
+            "log_loss": 0.8607883079983009
+          },
+          "historical": {
+            "brier": 0.4595574620603949,
+            "log_loss": 0.9139071344143149
+          }
+        },
+        {
+          "cutoffs": {
+            "brier": 0.44325010154995464,
+            "log_loss": 0.9008826133679172
+          },
+          "historical": {
+            "brier": 0.4753300081611311,
+            "log_loss": 0.9387362744597727
+          }
+        },
+        {
+          "cutoffs": {
+            "brier": 0.43402048371815966,
+            "log_loss": 0.9063256641902937
+          },
+          "historical": {
+            "brier": 0.44985446759262865,
+            "log_loss": 0.8972363834714455
+          }
+        },
+        {
+          "cutoffs": {
+            "brier": 0.42585286467157574,
+            "log_loss": 0.8533622535636369
+          },
+          "historical": {
+            "brier": 0.45645916008457005,
+            "log_loss": 0.9123691946686271
+          }
+        }
+      ],
+      "mean": {
+        "cutoffs": {
+          "brier": 0.433385403028062,
+          "log_loss": 0.8803397097800372
+        },
+        "historical": {
+          "brier": 0.46030027447468114,
+          "log_loss": 0.91556224675354
+        }
+      }
+    },
+    "3:individual": {
+      "folds": [
+        {
+          "cutoffs": {
+            "brier": 0.4313796950220785,
+            "log_loss": 0.8621086454183434
+          },
+          "historical": {
+            "brier": 0.4593668804692897,
+            "log_loss": 0.9135561778156801
+          }
+        },
+        {
+          "cutoffs": {
+            "brier": 0.4431296223872945,
+            "log_loss": 0.900305758309956
+          },
+          "historical": {
+            "brier": 0.47549004082638807,
+            "log_loss": 0.9389107826324453
+          }
+        },
+        {
+          "cutoffs": {
+            "brier": 0.43317702742603803,
+            "log_loss": 0.9046234969337887
+          },
+          "historical": {
+            "brier": 0.4497105900073026,
+            "log_loss": 0.8969106186751232
+          }
+        },
+        {
+          "cutoffs": {
+            "brier": 0.4270563005156281,
+            "log_loss": 0.8548150838140903
+          },
+          "historical": {
+            "brier": 0.4563397390152833,
+            "log_loss": 0.9120287005095123
+          }
+        }
+      ],
+      "mean": {
+        "cutoffs": {
+          "brier": 0.43368566133775976,
+          "log_loss": 0.8804632461190446
+        },
+        "historical": {
+          "brier": 0.46022681257956594,
+          "log_loss": 0.9153515699081903
+        }
+      }
+    },
+    "3:pooled": {
+      "folds": [
+        {
+          "cutoffs": {
+            "brier": 0.432732175522146,
+            "log_loss": 0.8638477291195289
+          },
+          "historical": {
+            "brier": 0.4599970778285957,
+            "log_loss": 0.9149299045545307
+          }
+        },
+        {
+          "cutoffs": {
+            "brier": 0.4452328493277749,
+            "log_loss": 0.9062264446053598
+          },
+          "historical": {
+            "brier": 0.47540286929786557,
+            "log_loss": 0.9392477146021511
+          }
+        },
+        {
+          "cutoffs": {
+            "brier": 0.4314030669737166,
+            "log_loss": 0.9005005464838098
+          },
+          "historical": {
+            "brier": 0.4495991021636387,
+            "log_loss": 0.8970486039182805
+          }
+        },
+        {
+          "cutoffs": {
+            "brier": 0.426024958984466,
+            "log_loss": 0.8539317654192867
+          },
+          "historical": {
+            "brier": 0.45665777965812354,
+            "log_loss": 0.912755609792506
+          }
+        }
+      ],
+      "mean": {
+        "cutoffs": {
+          "brier": 0.43384826270202587,
+          "log_loss": 0.8811266214069964
+        },
+        "historical": {
+          "brier": 0.4604142072370559,
+          "log_loss": 0.9159954582168671
+        }
+      }
+    },
+    "3:shifted_matched": {
+      "folds": [
+        {
+          "cutoffs": {
+            "brier": 0.43110190965371925,
+            "log_loss": 0.860269850809829
+          },
+          "historical": {
+            "brier": 0.4600948938192262,
+            "log_loss": 0.9150152128047614
+          }
+        },
+        {
+          "cutoffs": {
+            "brier": 0.44396961589602374,
+            "log_loss": 0.9027703727083765
+          },
+          "historical": {
+            "brier": 0.47557127246633196,
+            "log_loss": 0.9394535810367332
+          }
+        },
+        {
+          "cutoffs": {
+            "brier": 0.4308135578508295,
+            "log_loss": 0.8995342131517798
+          },
+          "historical": {
+            "brier": 0.44880238949445816,
+            "log_loss": 0.8953761726403147
+          }
+        },
+        {
+          "cutoffs": {
+            "brier": 0.4287696543931186,
+            "log_loss": 0.859390306755754
+          },
+          "historical": {
+            "brier": 0.4561921997081871,
+            "log_loss": 0.9120432798510828
+          }
+        }
+      ],
+      "mean": {
+        "cutoffs": {
+          "brier": 0.43366368444842274,
+          "log_loss": 0.8804911858564348
+        },
+        "historical": {
+          "brier": 0.4601651888720508,
+          "log_loss": 0.915472061583223
+        }
+      }
+    },
+    "self_only": {
+      "folds": [
+        {
+          "cutoffs": {
+            "brier": 0.43145082335174695,
+            "log_loss": 0.8611167610671169
+          },
+          "historical": {
+            "brier": 0.46002934511794713,
+            "log_loss": 0.9151096747120117
+          }
+        },
+        {
+          "cutoffs": {
+            "brier": 0.44608032876757225,
+            "log_loss": 0.9070967753405107
+          },
+          "historical": {
+            "brier": 0.4754940661563534,
+            "log_loss": 0.9394352550730382
+          }
+        },
+        {
+          "cutoffs": {
+            "brier": 0.43193456473834263,
+            "log_loss": 0.9015149345119525
+          },
+          "historical": {
+            "brier": 0.44910040767826825,
+            "log_loss": 0.8962614679979978
+          }
+        },
+        {
+          "cutoffs": {
+            "brier": 0.4270977462319599,
+            "log_loss": 0.8565080724369102
+          },
+          "historical": {
+            "brier": 0.45650189321769696,
+            "log_loss": 0.9127213594847078
+          }
+        }
+      ],
+      "mean": {
+        "cutoffs": {
+          "brier": 0.4341408657724054,
+          "log_loss": 0.8815591358391225
+        },
+        "historical": {
+          "brier": 0.46028142804256644,
+          "log_loss": 0.9158819393169388
+        }
+      }
+    }
+  },
+  "selected_index": 0
+}

@@ -1,0 +1,448 @@
+signal_experiments/next_stage/20261107_dispatch/sparse_filter/attempt_01/validation_released_frozen_payout_drop.csv
+VALID FORMAT: 768 queries | main | validation
+Season: 5fffdc4d0c700bbf61c3f911
+SHA-256: bc48bc94acd8741c4e957d10fa3bce35260547a7daf02a920c2db84d6ba6a0dd
+Validation points: 55.864158 / 60
+  stable: loss ratio 0.059986 (lower is better)
+  short_history: loss ratio 0.107089 (lower is better)
+  drift: loss ratio 0.060257 (lower is better)
+  shared_change: loss ratio 0.068803 (lower is better)
+Local check only. Nothing was uploaded. Acceptance and code reproduction are separate.
+signal_experiments/next_stage/20261107_dispatch/sparse_filter/attempt_01/validation_released_frozen_payout_forward.csv
+VALID FORMAT: 768 queries | main | validation
+Season: 5fffdc4d0c700bbf61c3f911
+SHA-256: a4416be8fcee2d43b406deadd8c8f265c99b84ebd5086484a62fa85cd8614f78
+Validation points: 55.927330 / 60
+  stable: loss ratio 0.059986 (lower is better)
+  short_history: loss ratio 0.102237 (lower is better)
+  drift: loss ratio 0.060257 (lower is better)
+  shared_change: loss ratio 0.068803 (lower is better)
+Local check only. Nothing was uploaded. Acceptance and code reproduction are separate.
+signal_experiments/next_stage/20261107_dispatch/sparse_filter/attempt_01/validation_released_frozen_payout_constant.csv
+VALID FORMAT: 768 queries | main | validation
+Season: 5fffdc4d0c700bbf61c3f911
+SHA-256: 6cad4bf0e452aa097c0570ac074a00f6d230d6d8721d102991aa2fc4a0ebbcbe
+Validation points: 56.267897 / 60
+  stable: loss ratio 0.055255 (lower is better)
+  short_history: loss ratio 0.091288 (lower is better)
+  drift: loss ratio 0.057629 (lower is better)
+  shared_change: loss ratio 0.061138 (lower is better)
+Local check only. Nothing was uploaded. Acceptance and code reproduction are separate.
+signal_experiments/next_stage/20261107_dispatch/sparse_filter/attempt_01/validation_released_frozen_payout_gated.csv
+VALID FORMAT: 768 queries | main | validation
+Season: 5fffdc4d0c700bbf61c3f911
+SHA-256: c29fecb928b81af98de0a1573f795799478aa7596bfec944ccae1181dee41498
+Validation points: 55.870309 / 60
+  stable: loss ratio 0.070984 (lower is better)
+  short_history: loss ratio 0.091198 (lower is better)
+  drift: loss ratio 0.066561 (lower is better)
+  shared_change: loss ratio 0.066920 (lower is better)
+Local check only. Nothing was uploaded. Acceptance and code reproduction are separate.
+signal_experiments/next_stage/20261107_dispatch/sparse_filter/attempt_01/validation_released_frozen_payout_hybrid.csv
+VALID FORMAT: 768 queries | main | validation
+Season: 5fffdc4d0c700bbf61c3f911
+SHA-256: d685d5d0f2ce1265b48caf04c44dc9433fb6a5db472417ba1c41d0e9fcac15d8
+Validation points: 56.341022 / 60
+  stable: loss ratio 0.051074 (lower is better)
+  short_history: loss ratio 0.092936 (lower is better)
+  drift: loss ratio 0.055314 (lower is better)
+  shared_change: loss ratio 0.060449 (lower is better)
+Local check only. Nothing was uploaded. Acceptance and code reproduction are separate.
+signal_experiments/next_stage/20261107_dispatch/sparse_filter/attempt_01/validation_released_frozen_payout_m3.csv
+VALID FORMAT: 768 queries | main | validation
+Season: 5fffdc4d0c700bbf61c3f911
+SHA-256: 492c855f8ad2d29ab560a7cb0faea21930f87b535b0e3d8f131f345469759e62
+Validation points: 56.259032 / 60
+  stable: loss ratio 0.055460 (lower is better)
+  short_history: loss ratio 0.094103 (lower is better)
+  drift: loss ratio 0.055721 (lower is better)
+  shared_change: loss ratio 0.060698 (lower is better)
+Local check only. Nothing was uploaded. Acceptance and code reproduction are separate.
+signal_experiments/next_stage/20261107_dispatch/sparse_filter/attempt_01/validation_released_frozen_payout_m4.csv
+VALID FORMAT: 768 queries | main | validation
+Season: 5fffdc4d0c700bbf61c3f911
+SHA-256: 4b6d98882134ecaa1109be296e3ec1a30addcac98e18942d1f942b91dbf46f4f
+Validation points: 56.274094 / 60
+  stable: loss ratio 0.055531 (lower is better)
+  short_history: loss ratio 0.093034 (lower is better)
+  drift: loss ratio 0.055722 (lower is better)
+  shared_change: loss ratio 0.060553 (lower is better)
+Local check only. Nothing was uploaded. Acceptance and code reproduction are separate.
+signal_experiments/next_stage/20261107_dispatch/sparse_filter/attempt_01/validation_released_frozen_payout_donor.csv
+VALID FORMAT: 768 queries | main | validation
+Season: 5fffdc4d0c700bbf61c3f911
+SHA-256: eb9c8863bb1ca1b48876e195bdcd1bab54bc369c87ac5d1ce96bbb54b026ad78
+Validation points: 55.724087 / 60
+  stable: loss ratio 0.071360 (lower is better)
+  short_history: loss ratio 0.101796 (lower is better)
+  drift: loss ratio 0.066723 (lower is better)
+  shared_change: loss ratio 0.067054 (lower is better)
+Local check only. Nothing was uploaded. Acceptance and code reproduction are separate.
+signal_experiments/next_stage/20261107_dispatch/sparse_filter/attempt_01/validation_24plus16_frozen_payout_drop.csv
+VALID FORMAT: 768 queries | main | validation
+Season: 5fffdc4d0c700bbf61c3f911
+SHA-256: 1923bd7f307640b5d1c4002f6e1b5eb19591af1a3454705fe9baf562d459a5af
+Validation points: 51.408770 / 60
+  stable: loss ratio 0.108071 (lower is better)
+  short_history: loss ratio 0.187771 (lower is better)
+  drift: loss ratio 0.157110 (lower is better)
+  shared_change: loss ratio 0.215512 (lower is better)
+Local check only. Nothing was uploaded. Acceptance and code reproduction are separate.
+signal_experiments/next_stage/20261107_dispatch/sparse_filter/attempt_01/validation_24plus16_frozen_payout_forward.csv
+VALID FORMAT: 768 queries | main | validation
+Season: 5fffdc4d0c700bbf61c3f911
+SHA-256: 5f9b6b3157278e34e06758caa33d08dd6fc8fabb8afad2888a534ddde478c0db
+Validation points: 52.226468 / 60
+  stable: loss ratio 0.114135 (lower is better)
+  short_history: loss ratio 0.140541 (lower is better)
+  drift: loss ratio 0.135487 (lower is better)
+  shared_change: loss ratio 0.205208 (lower is better)
+Local check only. Nothing was uploaded. Acceptance and code reproduction are separate.
+signal_experiments/next_stage/20261107_dispatch/sparse_filter/attempt_01/validation_24plus16_frozen_payout_constant.csv
+VALID FORMAT: 768 queries | main | validation
+Season: 5fffdc4d0c700bbf61c3f911
+SHA-256: cfca56a7892ad7650d13d5f772444b9ea0ab3367c064c861d541057e59f3dc1d
+Validation points: 51.854116 / 60
+  stable: loss ratio 0.117958 (lower is better)
+  short_history: loss ratio 0.148360 (lower is better)
+  drift: loss ratio 0.150943 (lower is better)
+  shared_change: loss ratio 0.211109 (lower is better)
+Local check only. Nothing was uploaded. Acceptance and code reproduction are separate.
+signal_experiments/next_stage/20261107_dispatch/sparse_filter/attempt_01/validation_24plus16_frozen_payout_gated.csv
+VALID FORMAT: 768 queries | main | validation
+Season: 5fffdc4d0c700bbf61c3f911
+SHA-256: c0c8cc906cb1f99e9e031b94c49ff086598ed166ec8b1fdde0da2da9ac59bcfe
+Validation points: 52.140654 / 60
+  stable: loss ratio 0.113184 (lower is better)
+  short_history: loss ratio 0.140518 (lower is better)
+  drift: loss ratio 0.142456 (lower is better)
+  shared_change: loss ratio 0.206777 (lower is better)
+Local check only. Nothing was uploaded. Acceptance and code reproduction are separate.
+signal_experiments/next_stage/20261107_dispatch/sparse_filter/attempt_01/validation_24plus16_frozen_payout_hybrid.csv
+VALID FORMAT: 768 queries | main | validation
+Season: 5fffdc4d0c700bbf61c3f911
+SHA-256: 542358b7de59ce2ee43c63d323513b38f739469e3f7f99c2a9a24bbc0dd91134
+Validation points: 52.158483 / 60
+  stable: loss ratio 0.089164 (lower is better)
+  short_history: loss ratio 0.147393 (lower is better)
+  drift: loss ratio 0.149320 (lower is better)
+  shared_change: loss ratio 0.215484 (lower is better)
+Local check only. Nothing was uploaded. Acceptance and code reproduction are separate.
+signal_experiments/next_stage/20261107_dispatch/sparse_filter/attempt_01/validation_24plus16_frozen_payout_m3.csv
+VALID FORMAT: 768 queries | main | validation
+Season: 5fffdc4d0c700bbf61c3f911
+SHA-256: f59c6a071cf3d49f51d1c0b122ddfe002cf99d54204a4e25048bb45b679148b2
+Validation points: 52.153753 / 60
+  stable: loss ratio 0.089223 (lower is better)
+  short_history: loss ratio 0.147243 (lower is better)
+  drift: loss ratio 0.150218 (lower is better)
+  shared_change: loss ratio 0.215094 (lower is better)
+Local check only. Nothing was uploaded. Acceptance and code reproduction are separate.
+signal_experiments/next_stage/20261107_dispatch/sparse_filter/attempt_01/validation_24plus16_frozen_payout_m4.csv
+VALID FORMAT: 768 queries | main | validation
+Season: 5fffdc4d0c700bbf61c3f911
+SHA-256: 9a63dbc76e2b67c97037fe0c6a3f4313753cff32f2d40a16d404170c5538a973
+Validation points: 52.206071 / 60
+  stable: loss ratio 0.089749 (lower is better)
+  short_history: loss ratio 0.143819 (lower is better)
+  drift: loss ratio 0.146689 (lower is better)
+  shared_change: loss ratio 0.216909 (lower is better)
+Local check only. Nothing was uploaded. Acceptance and code reproduction are separate.
+signal_experiments/next_stage/20261107_dispatch/sparse_filter/attempt_01/validation_24plus16_frozen_payout_donor.csv
+VALID FORMAT: 768 queries | main | validation
+Season: 5fffdc4d0c700bbf61c3f911
+SHA-256: 0abe4c9cf852a8e2b7ca30d71bf50dc6d00ef41ff5c93593722e2ff8b7561195
+Validation points: 50.282727 / 60
+  stable: loss ratio 0.146153 (lower is better)
+  short_history: loss ratio 0.196479 (lower is better)
+  drift: loss ratio 0.194319 (lower is better)
+  shared_change: loss ratio 0.236060 (lower is better)
+Local check only. Nothing was uploaded. Acceptance and code reproduction are separate.
+signal_experiments/next_stage/20261107_dispatch/sparse_filter/attempt_01/validation_24plus16_recomputed_drop.csv
+VALID FORMAT: 768 queries | main | validation
+Season: 5fffdc4d0c700bbf61c3f911
+SHA-256: 1462f4544830f0850badf5c97254ad8e3ba5e9ad924d4f305f50d5e696791ad2
+Validation points: 50.760017 / 60
+  stable: loss ratio 0.126726 (lower is better)
+  short_history: loss ratio 0.197772 (lower is better)
+  drift: loss ratio 0.175018 (lower is better)
+  shared_change: loss ratio 0.228615 (lower is better)
+Local check only. Nothing was uploaded. Acceptance and code reproduction are separate.
+signal_experiments/next_stage/20261107_dispatch/sparse_filter/attempt_01/validation_24plus16_recomputed_forward.csv
+VALID FORMAT: 768 queries | main | validation
+Season: 5fffdc4d0c700bbf61c3f911
+SHA-256: 3295e6931131c310e61571b3a671e49aeb91ef21dc7159eba7e72e9fb183e076
+Validation points: 51.566969 / 60
+  stable: loss ratio 0.132644 (lower is better)
+  short_history: loss ratio 0.149969 (lower is better)
+  drift: loss ratio 0.153430 (lower is better)
+  shared_change: loss ratio 0.218099 (lower is better)
+Local check only. Nothing was uploaded. Acceptance and code reproduction are separate.
+signal_experiments/next_stage/20261107_dispatch/sparse_filter/attempt_01/validation_24plus16_recomputed_constant.csv
+VALID FORMAT: 768 queries | main | validation
+Season: 5fffdc4d0c700bbf61c3f911
+SHA-256: c333ec4a693fec860de454880476706ff95a6fef1991a815d75ad039c68db560
+Validation points: 51.192263 / 60
+  stable: loss ratio 0.136962 (lower is better)
+  short_history: loss ratio 0.158242 (lower is better)
+  drift: loss ratio 0.169097 (lower is better)
+  shared_change: loss ratio 0.223907 (lower is better)
+Local check only. Nothing was uploaded. Acceptance and code reproduction are separate.
+signal_experiments/next_stage/20261107_dispatch/sparse_filter/attempt_01/validation_24plus16_recomputed_gated.csv
+VALID FORMAT: 768 queries | main | validation
+Season: 5fffdc4d0c700bbf61c3f911
+SHA-256: 6f516b29e40eb8199207613d9e5e5198478c1b2522d68614908b03bcc98c880c
+Validation points: 51.474559 / 60
+  stable: loss ratio 0.132053 (lower is better)
+  short_history: loss ratio 0.150299 (lower is better)
+  drift: loss ratio 0.160557 (lower is better)
+  shared_change: loss ratio 0.219589 (lower is better)
+Local check only. Nothing was uploaded. Acceptance and code reproduction are separate.
+signal_experiments/next_stage/20261107_dispatch/sparse_filter/attempt_01/validation_24plus16_recomputed_hybrid.csv
+VALID FORMAT: 768 queries | main | validation
+Season: 5fffdc4d0c700bbf61c3f911
+SHA-256: 07bc5b90c91225863503b22e10eedb09ae8866f2ca591759252dde1cbd183723
+Validation points: 51.490239 / 60
+  stable: loss ratio 0.108283 (lower is better)
+  short_history: loss ratio 0.157264 (lower is better)
+  drift: loss ratio 0.167260 (lower is better)
+  shared_change: loss ratio 0.228271 (lower is better)
+Local check only. Nothing was uploaded. Acceptance and code reproduction are separate.
+signal_experiments/next_stage/20261107_dispatch/sparse_filter/attempt_01/validation_24plus16_recomputed_m3.csv
+VALID FORMAT: 768 queries | main | validation
+Season: 5fffdc4d0c700bbf61c3f911
+SHA-256: 6496eb4b5ad127aae2c112254d90147644a906cde54b7009839236c04aa504ca
+Validation points: 51.486269 / 60
+  stable: loss ratio 0.108301 (lower is better)
+  short_history: loss ratio 0.157133 (lower is better)
+  drift: loss ratio 0.168144 (lower is better)
+  shared_change: loss ratio 0.227859 (lower is better)
+Local check only. Nothing was uploaded. Acceptance and code reproduction are separate.
+signal_experiments/next_stage/20261107_dispatch/sparse_filter/attempt_01/validation_24plus16_recomputed_m4.csv
+VALID FORMAT: 768 queries | main | validation
+Season: 5fffdc4d0c700bbf61c3f911
+SHA-256: e060fcba66cfcad88f83499108e514345c9fa97a0595d2bb6440fba8d45a6d5a
+Validation points: 51.537639 / 60
+  stable: loss ratio 0.108824 (lower is better)
+  short_history: loss ratio 0.153731 (lower is better)
+  drift: loss ratio 0.164551 (lower is better)
+  shared_change: loss ratio 0.229684 (lower is better)
+Local check only. Nothing was uploaded. Acceptance and code reproduction are separate.
+signal_experiments/next_stage/20261107_dispatch/sparse_filter/attempt_01/validation_24plus16_recomputed_donor.csv
+VALID FORMAT: 768 queries | main | validation
+Season: 5fffdc4d0c700bbf61c3f911
+SHA-256: ced502906da102971f4f0cf5f3dcc24d11b94ed0b3713b10bddd27de267f5ba0
+Validation points: 49.653322 / 60
+  stable: loss ratio 0.165466 (lower is better)
+  short_history: loss ratio 0.206671 (lower is better)
+  drift: loss ratio 0.212552 (lower is better)
+  shared_change: loss ratio 0.248825 (lower is better)
+Local check only. Nothing was uploaded. Acceptance and code reproduction are separate.
+signal_experiments/next_stage/20261107_dispatch/sparse_filter/attempt_01/validation_24plus8_frozen_payout_drop.csv
+VALID FORMAT: 768 queries | main | validation
+Season: 5fffdc4d0c700bbf61c3f911
+SHA-256: bf17c960c86856374799f6dc5d9865a3e4d1823c5bb97ad5a219c642ab9c3716
+Validation points: 39.669618 / 60
+  stable: loss ratio 0.480050 (lower is better)
+  short_history: loss ratio 0.477699 (lower is better)
+  drift: loss ratio 0.572502 (lower is better)
+  shared_change: loss ratio 0.519719 (lower is better)
+Local check only. Nothing was uploaded. Acceptance and code reproduction are separate.
+signal_experiments/next_stage/20261107_dispatch/sparse_filter/attempt_01/validation_24plus8_frozen_payout_forward.csv
+VALID FORMAT: 768 queries | main | validation
+Season: 5fffdc4d0c700bbf61c3f911
+SHA-256: b1128bc7ddd77b7b2aec37e7cf17ca02231b7e3894f252cef7e3c93cb30df693
+Validation points: 41.559047 / 60
+  stable: loss ratio 0.448262 (lower is better)
+  short_history: loss ratio 0.388989 (lower is better)
+  drift: loss ratio 0.495387 (lower is better)
+  shared_change: loss ratio 0.442278 (lower is better)
+Local check only. Nothing was uploaded. Acceptance and code reproduction are separate.
+signal_experiments/next_stage/20261107_dispatch/sparse_filter/attempt_01/validation_24plus8_frozen_payout_constant.csv
+VALID FORMAT: 768 queries | main | validation
+Season: 5fffdc4d0c700bbf61c3f911
+SHA-256: 627b2dd06cc9b6f86578bedf340f71d93f4cf4119646bed881cbf3aa40d376e0
+Validation points: 40.862960 / 60
+  stable: loss ratio 0.464301 (lower is better)
+  short_history: loss ratio 0.391366 (lower is better)
+  drift: loss ratio 0.538497 (lower is better)
+  shared_change: loss ratio 0.479125 (lower is better)
+Local check only. Nothing was uploaded. Acceptance and code reproduction are separate.
+signal_experiments/next_stage/20261107_dispatch/sparse_filter/attempt_01/validation_24plus8_frozen_payout_gated.csv
+VALID FORMAT: 768 queries | main | validation
+Season: 5fffdc4d0c700bbf61c3f911
+SHA-256: 64ceabbe23609837a0d2bcbcce31880f7cd21b185f1d38238a2f279f7ed3ffa3
+Validation points: 41.315506 / 60
+  stable: loss ratio 0.452368 (lower is better)
+  short_history: loss ratio 0.378791 (lower is better)
+  drift: loss ratio 0.517327 (lower is better)
+  shared_change: loss ratio 0.460472 (lower is better)
+Local check only. Nothing was uploaded. Acceptance and code reproduction are separate.
+signal_experiments/next_stage/20261107_dispatch/sparse_filter/attempt_01/validation_24plus8_frozen_payout_hybrid.csv
+VALID FORMAT: 768 queries | main | validation
+Season: 5fffdc4d0c700bbf61c3f911
+SHA-256: b247d24d191568edcae919db5c0dc2aad3ffe1084e96397ab0e576d7605daece
+Validation points: 40.003399 / 60
+  stable: loss ratio 0.477089 (lower is better)
+  short_history: loss ratio 0.406819 (lower is better)
+  drift: loss ratio 0.587615 (lower is better)
+  shared_change: loss ratio 0.527968 (lower is better)
+Local check only. Nothing was uploaded. Acceptance and code reproduction are separate.
+signal_experiments/next_stage/20261107_dispatch/sparse_filter/attempt_01/validation_24plus8_frozen_payout_m3.csv
+VALID FORMAT: 768 queries | main | validation
+Season: 5fffdc4d0c700bbf61c3f911
+SHA-256: 544a1a58638895419e214b6e2fdb11480ecb7099244d0ff1ca4ad44f6656ed23
+Validation points: 40.002984 / 60
+  stable: loss ratio 0.476873 (lower is better)
+  short_history: loss ratio 0.407406 (lower is better)
+  drift: loss ratio 0.587509 (lower is better)
+  shared_change: loss ratio 0.527764 (lower is better)
+Local check only. Nothing was uploaded. Acceptance and code reproduction are separate.
+signal_experiments/next_stage/20261107_dispatch/sparse_filter/attempt_01/validation_24plus8_frozen_payout_m4.csv
+VALID FORMAT: 768 queries | main | validation
+Season: 5fffdc4d0c700bbf61c3f911
+SHA-256: dd6fb70abf07a79af7c9591fabe0f45f9a297597624ea8affcf4af03359d2c20
+Validation points: 40.208085 / 60
+  stable: loss ratio 0.474486 (lower is better)
+  short_history: loss ratio 0.394814 (lower is better)
+  drift: loss ratio 0.579297 (lower is better)
+  shared_change: loss ratio 0.520352 (lower is better)
+Local check only. Nothing was uploaded. Acceptance and code reproduction are separate.
+signal_experiments/next_stage/20261107_dispatch/sparse_filter/attempt_01/validation_24plus8_frozen_payout_donor.csv
+VALID FORMAT: 768 queries | main | validation
+Season: 5fffdc4d0c700bbf61c3f911
+SHA-256: 8820127e8be8ae33b19188c90a804c81cdda593e215f10f42a6315a0d110e9fe
+Validation points: 39.170774 / 60
+  stable: loss ratio 0.513789 (lower is better)
+  short_history: loss ratio 0.465893 (lower is better)
+  drift: loss ratio 0.607316 (lower is better)
+  shared_change: loss ratio 0.540019 (lower is better)
+Local check only. Nothing was uploaded. Acceptance and code reproduction are separate.
+signal_experiments/next_stage/20261107_dispatch/sparse_filter/attempt_01/validation_24plus8_recomputed_drop.csv
+VALID FORMAT: 768 queries | main | validation
+Season: 5fffdc4d0c700bbf61c3f911
+SHA-256: 93aed66e08b4642d0887f0c9c089401dc1252868703b9d9f971dd28738cc3688
+Validation points: 39.172168 / 60
+  stable: loss ratio 0.504799 (lower is better)
+  short_history: loss ratio 0.488390 (lower is better)
+  drift: loss ratio 0.595052 (lower is better)
+  shared_change: loss ratio 0.538558 (lower is better)
+Local check only. Nothing was uploaded. Acceptance and code reproduction are separate.
+signal_experiments/next_stage/20261107_dispatch/sparse_filter/attempt_01/validation_24plus8_recomputed_forward.csv
+VALID FORMAT: 768 queries | main | validation
+Season: 5fffdc4d0c700bbf61c3f911
+SHA-256: 091272ccaad1203cd2e09e6dbc7e1286f8285f5b9f329fda5d993f532a8362c8
+Validation points: 41.013555 / 60
+  stable: loss ratio 0.472869 (lower is better)
+  short_history: loss ratio 0.399711 (lower is better)
+  drift: loss ratio 0.518013 (lower is better)
+  shared_change: loss ratio 0.461131 (lower is better)
+Local check only. Nothing was uploaded. Acceptance and code reproduction are separate.
+signal_experiments/next_stage/20261107_dispatch/sparse_filter/attempt_01/validation_24plus8_recomputed_constant.csv
+VALID FORMAT: 768 queries | main | validation
+Season: 5fffdc4d0c700bbf61c3f911
+SHA-256: 2246992069c296aab2ece6d2c17e25aa111b4ef3beffabd1bfc9058f89475222
+Validation points: 40.329760 / 60
+  stable: loss ratio 0.488892 (lower is better)
+  short_history: loss ratio 0.402666 (lower is better)
+  drift: loss ratio 0.561257 (lower is better)
+  shared_change: loss ratio 0.498125 (lower is better)
+Local check only. Nothing was uploaded. Acceptance and code reproduction are separate.
+signal_experiments/next_stage/20261107_dispatch/sparse_filter/attempt_01/validation_24plus8_recomputed_gated.csv
+VALID FORMAT: 768 queries | main | validation
+Season: 5fffdc4d0c700bbf61c3f911
+SHA-256: 357ef26faa955602349be64c601d23fbeaa01ba327e65265872d6f1eea2bfd86
+Validation points: 40.772072 / 60
+  stable: loss ratio 0.477019 (lower is better)
+  short_history: loss ratio 0.389856 (lower is better)
+  drift: loss ratio 0.540080 (lower is better)
+  shared_change: loss ratio 0.479427 (lower is better)
+Local check only. Nothing was uploaded. Acceptance and code reproduction are separate.
+signal_experiments/next_stage/20261107_dispatch/sparse_filter/attempt_01/validation_24plus8_recomputed_hybrid.csv
+VALID FORMAT: 768 queries | main | validation
+Season: 5fffdc4d0c700bbf61c3f911
+SHA-256: 60049e6e02c063b633f0f6bfed09b7c330fa96bb933aeef09e62841594929d6c
+Validation points: 39.495888 / 60
+  stable: loss ratio 0.502098 (lower is better)
+  short_history: loss ratio 0.417351 (lower is better)
+  drift: loss ratio 0.610279 (lower is better)
+  shared_change: loss ratio 0.546854 (lower is better)
+Local check only. Nothing was uploaded. Acceptance and code reproduction are separate.
+signal_experiments/next_stage/20261107_dispatch/sparse_filter/attempt_01/validation_24plus8_recomputed_m3.csv
+VALID FORMAT: 768 queries | main | validation
+Season: 5fffdc4d0c700bbf61c3f911
+SHA-256: 0afbf539d844e1e4802d9761230dd8f852c58144685c72363e02c164295cdeff
+Validation points: 39.495609 / 60
+  stable: loss ratio 0.501893 (lower is better)
+  short_history: loss ratio 0.417910 (lower is better)
+  drift: loss ratio 0.610180 (lower is better)
+  shared_change: loss ratio 0.546641 (lower is better)
+Local check only. Nothing was uploaded. Acceptance and code reproduction are separate.
+signal_experiments/next_stage/20261107_dispatch/sparse_filter/attempt_01/validation_24plus8_recomputed_m4.csv
+VALID FORMAT: 768 queries | main | validation
+Season: 5fffdc4d0c700bbf61c3f911
+SHA-256: 9a4413010496e2611ef96c49d3720383616176b6eb6d3261acff2de933bb88e7
+Validation points: 39.694677 / 60
+  stable: loss ratio 0.499600 (lower is better)
+  short_history: loss ratio 0.405196 (lower is better)
+  drift: loss ratio 0.602076 (lower is better)
+  shared_change: loss ratio 0.539279 (lower is better)
+Local check only. Nothing was uploaded. Acceptance and code reproduction are separate.
+signal_experiments/next_stage/20261107_dispatch/sparse_filter/attempt_01/validation_24plus8_recomputed_donor.csv
+VALID FORMAT: 768 queries | main | validation
+Season: 5fffdc4d0c700bbf61c3f911
+SHA-256: d1d162451b8c964dbb1fccd3757227f8bc6c05e9a1554cd4c21dc847028bb3f4
+Validation points: 38.680104 / 60
+  stable: loss ratio 0.538046 (lower is better)
+  short_history: loss ratio 0.477702 (lower is better)
+  drift: loss ratio 0.629936 (lower is better)
+  shared_change: loss ratio 0.559057 (lower is better)
+Local check only. Nothing was uploaded. Acceptance and code reproduction are separate.
+signal_experiments/next_stage/20261107_dispatch/sparse_filter/attempt_01/test_released_frozen_payout_constant.csv
+VALID FORMAT: 1536 queries | main | test
+Season: 5fffdc4d0c700bbf61c3f911
+SHA-256: efe4fdce141fee559cb96007e95b8191d6e78b9193ebec84a17cefc31fe1ea3a
+Test answers are private; this check does not calculate your event score.
+Local check only. Nothing was uploaded. Acceptance and code reproduction are separate.
+signal_experiments/next_stage/20261107_dispatch/sparse_filter/attempt_01/test_released_frozen_payout_donor.csv
+VALID FORMAT: 1536 queries | main | test
+Season: 5fffdc4d0c700bbf61c3f911
+SHA-256: 9e68f7c5c70a2df3ea19c7791e8384d3e25054d5e06fbad07d34cc183e4ebec8
+Test answers are private; this check does not calculate your event score.
+Local check only. Nothing was uploaded. Acceptance and code reproduction are separate.
+signal_experiments/next_stage/20261107_dispatch/sparse_filter/attempt_01/test_released_frozen_payout_drop.csv
+VALID FORMAT: 1536 queries | main | test
+Season: 5fffdc4d0c700bbf61c3f911
+SHA-256: 2950bad5e9019bd336bcc53067306882206c5159825c3b0a2bf6c78284de17c9
+Test answers are private; this check does not calculate your event score.
+Local check only. Nothing was uploaded. Acceptance and code reproduction are separate.
+signal_experiments/next_stage/20261107_dispatch/sparse_filter/attempt_01/test_released_frozen_payout_forward.csv
+VALID FORMAT: 1536 queries | main | test
+Season: 5fffdc4d0c700bbf61c3f911
+SHA-256: c36dda0fd2cf292802592e85996f3bc53e5b1316172b58e55406b69e0394f0f8
+Test answers are private; this check does not calculate your event score.
+Local check only. Nothing was uploaded. Acceptance and code reproduction are separate.
+signal_experiments/next_stage/20261107_dispatch/sparse_filter/attempt_01/test_released_frozen_payout_gated.csv
+VALID FORMAT: 1536 queries | main | test
+Season: 5fffdc4d0c700bbf61c3f911
+SHA-256: 02c7f3fd8a78f3139ff375e209301e56e607d5500e7b02de36fdc84ed3670309
+Test answers are private; this check does not calculate your event score.
+Local check only. Nothing was uploaded. Acceptance and code reproduction are separate.
+signal_experiments/next_stage/20261107_dispatch/sparse_filter/attempt_01/test_released_frozen_payout_hybrid.csv
+VALID FORMAT: 1536 queries | main | test
+Season: 5fffdc4d0c700bbf61c3f911
+SHA-256: 07a58cb5eac6dabc3863b1cd3e12943908a494e74c514724a4812f051583872a
+Test answers are private; this check does not calculate your event score.
+Local check only. Nothing was uploaded. Acceptance and code reproduction are separate.
+signal_experiments/next_stage/20261107_dispatch/sparse_filter/attempt_01/test_released_frozen_payout_m3.csv
+VALID FORMAT: 1536 queries | main | test
+Season: 5fffdc4d0c700bbf61c3f911
+SHA-256: abb975c56783bdfa1bc6b6aaa2093dae7c316078eec942cfa05ce511481a0ac3
+Test answers are private; this check does not calculate your event score.
+Local check only. Nothing was uploaded. Acceptance and code reproduction are separate.
+signal_experiments/next_stage/20261107_dispatch/sparse_filter/attempt_01/test_released_frozen_payout_m4.csv
+VALID FORMAT: 1536 queries | main | test
+Season: 5fffdc4d0c700bbf61c3f911
+SHA-256: 410326057141d9f7d76d3165a80467bd65125847f931071b24a0afe91196d867
+Test answers are private; this check does not calculate your event score.
+Local check only. Nothing was uploaded. Acceptance and code reproduction are separate.

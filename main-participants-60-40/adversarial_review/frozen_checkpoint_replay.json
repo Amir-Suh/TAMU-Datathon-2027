@@ -1,0 +1,10 @@
+{
+  "bayesian": {
+    "maximum_absolute_probability_difference": 1.1102230246251565e-16,
+    "queries": 384
+  },
+  "previous_lead": {
+    "maximum_absolute_probability_difference": 1.1102230246251565e-16,
+    "queries": 384
+  }
+}

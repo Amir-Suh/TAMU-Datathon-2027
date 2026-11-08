@@ -1,0 +1,175 @@
+{
+  "data": "/Users/andrewvong/Documents/Projects/tamudatathon27/main-participants-60-40/public/validation",
+  "episodes": 96,
+  "queries": 768,
+  "points_max": 60,
+  "bootstrap_draws": 10000,
+  "input_hashes": {
+    "queries.csv": "168b7f6365a4f51084437c0071636b102ca3fb4bf0347b912778c51714fc48f2",
+    "targets.csv": "93b6e978f6818d2456dcb677fddb6ba243e864cef56e33a4bf94bde5ba4b51f3",
+    "conditions.csv": "ebcca7597bbdfa532c5254b92903e66522a710502a6f70689c3de311f75c29b1",
+    "reference.csv": "bb396d9e4d20bf4004374f9ab781f41aaa8b730e61887c1969be534efeb1e6c6"
+  },
+  "models": {
+    "control": {
+      "path": "combined/m3_match_split_win_pair_l31_factor_gru_size.csv",
+      "sha256": "ac6fae2e924da0bb5f1b7638480572373a87a192d4891c1315ffc11f714aeea6",
+      "points": 56.34102223545075,
+      "R": 0.0649434039243781,
+      "delta_R": 0.0,
+      "delta_R_95": [
+        0.0,
+        0.0
+      ],
+      "condition_R": {
+        "stable": 0.05107419424809494,
+        "short_history": 0.09293615471880542,
+        "drift": 0.05531415455351391,
+        "shared_change": 0.060449112177098134
+      },
+      "p0_mse": 0.00446809666869068,
+      "conditional_payout_sse": 0.018921580024474416,
+      "win_mass_weighted_conditional_payout_sse": 0.006448433389233892
+    },
+    "m3": {
+      "path": "../m5_m6_repair/results/repaired-m5-m6/m3/validation_predictions.csv",
+      "sha256": "36cbb8ddb8f7cc5d1ee4273a2d7fc50b3d976530c1b0f56dc84f4282dab1bd5c",
+      "points": 55.268370448927854,
+      "R": 0.08561188818556766,
+      "delta_R": 0.020668484261189557,
+      "delta_R_95": [
+        0.016367214248696135,
+        0.025110258470340933
+      ],
+      "condition_R": {
+        "stable": 0.07724358193654585,
+        "short_history": 0.1068936280578193,
+        "drift": 0.0798170735058101,
+        "shared_change": 0.07849326924209539
+      },
+      "p0_mse": 0.004710977573980388,
+      "conditional_payout_sse": 0.02553387751625018,
+      "win_mass_weighted_conditional_payout_sse": 0.01019842803180975
+    },
+    "m4": {
+      "path": "../m5_m6_repair/results/repaired-m5-m6/m4/validation_predictions.csv",
+      "sha256": "530ff50d95b7ac46d18514a88b68378ec67cc645794e1df21cc73c1e2ad157af",
+      "points": 55.28299011428302,
+      "R": 0.08532479657785887,
+      "delta_R": 0.020381392653480768,
+      "delta_R_95": [
+        0.0159826767866583,
+        0.02485855059330105
+      ],
+      "condition_R": {
+        "stable": 0.0773137013051802,
+        "short_history": 0.10582030875297167,
+        "drift": 0.07981797904495704,
+        "shared_change": 0.07834719720832654
+      },
+      "p0_mse": 0.004672667770414464,
+      "conditional_payout_sse": 0.025533877516250178,
+      "win_mass_weighted_conditional_payout_sse": 0.01019842803180975
+    },
+    "m6": {
+      "path": "../m5_m6_repair/results/repaired-m5-m6/m6/validation_predictions.csv",
+      "sha256": "2b5e22c3bafbcc147f759853ef9b53a28b3738b74186febf3e1fd385911c2d69",
+      "points": 55.28204278308506,
+      "R": 0.08534339505917309,
+      "delta_R": 0.020399991134794987,
+      "delta_R_95": [
+        0.015936337851361716,
+        0.024984819015227092
+      ],
+      "condition_R": {
+        "stable": 0.07715049230967488,
+        "short_history": 0.10668109086236544,
+        "drift": 0.07953384505183518,
+        "shared_change": 0.07800815201281684
+      },
+      "p0_mse": 0.004674215930919209,
+      "conditional_payout_sse": 0.025533877516250178,
+      "win_mass_weighted_conditional_payout_sse": 0.01019842803180975
+    },
+    "pair_l31": {
+      "path": "01_fredy_replay/forecasts/pair_l31.csv",
+      "sha256": "893d24e38a2ea4b1bce8fbeb880fce38e57a5aeef8ef9920fbc9e450eb6fc00d",
+      "points": 54.28988837059725,
+      "R": 0.10517817959808665,
+      "delta_R": 0.04023477567370855,
+      "delta_R_95": [
+        0.028855375632881902,
+        0.053045656477740386
+      ],
+      "condition_R": {
+        "stable": 0.12028378996864317,
+        "short_history": 0.12610882134492554,
+        "drift": 0.07963803346088132,
+        "shared_change": 0.09468207361789656
+      },
+      "p0_mse": 0.008842477368747046,
+      "conditional_payout_sse": 0.026721500373549128,
+      "win_mass_weighted_conditional_payout_sse": 0.008381784341210856
+    },
+    "factored_gru": {
+      "path": "01_fredy_replay/forecasts/gru128_factor_mean_3.csv",
+      "sha256": "31234e47b508c9ccf258841e088bf26a06f2100ca65916ecf81040aaf6abbbb2",
+      "points": 55.40623076816098,
+      "R": 0.08291069737374758,
+      "delta_R": 0.01796729344936948,
+      "delta_R_95": [
+        0.01003508968045964,
+        0.026522014675771182
+      ],
+      "condition_R": {
+        "stable": 0.06332399316146457,
+        "short_history": 0.12124228222606577,
+        "drift": 0.08132567921023215,
+        "shared_change": 0.06575083489722784
+      },
+      "p0_mse": 0.0071028442005114075,
+      "conditional_payout_sse": 0.01683183672100445,
+      "win_mass_weighted_conditional_payout_sse": 0.006144692947351093
+    },
+    "full_blend": {
+      "path": "01_fredy_replay/forecasts/pair_l31_factor_gru_m6_repaired.csv",
+      "sha256": "52ce50fdd18bad4bfc533d11f30a8af5e81156b14c22fd6aa035da2b84b39211",
+      "points": 56.06408541320981,
+      "R": 0.07020384900210663,
+      "delta_R": 0.005260445077728534,
+      "delta_R_95": [
+        0.0008130096775135627,
+        0.00955414101440157
+      ],
+      "condition_R": {
+        "stable": 0.061924399943991,
+        "short_history": 0.09177642142167265,
+        "drift": 0.06336954386221888,
+        "shared_change": 0.06374503078054403
+      },
+      "p0_mse": 0.004668323040020129,
+      "conditional_payout_sse": 0.01959264170036324,
+      "win_mass_weighted_conditional_payout_sse": 0.007158721161433508
+    },
+    "split_match_tree": {
+      "path": "combined/m3_match_split_win_pair_l31_size.csv",
+      "sha256": "0f466407b3003813449b52f95f76f8826b72d256ad58263f64f6f73c7fbc6a99",
+      "points": 55.83326805987042,
+      "R": 0.07462812199460667,
+      "delta_R": 0.009684718070228568,
+      "delta_R_95": [
+        0.007012565301148931,
+        0.01237958772270608
+      ],
+      "condition_R": {
+        "stable": 0.06284944325405613,
+        "short_history": 0.10068889876950991,
+        "drift": 0.06357629889932338,
+        "shared_change": 0.07139784705553721
+      },
+      "p0_mse": 0.00446809666869068,
+      "conditional_payout_sse": 0.026721500373549128,
+      "win_mass_weighted_conditional_payout_sse": 0.008381784341210856
+    }
+  }
+}

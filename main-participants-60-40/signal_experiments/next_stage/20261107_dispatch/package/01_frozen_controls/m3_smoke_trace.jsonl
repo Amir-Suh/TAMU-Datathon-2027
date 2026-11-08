@@ -1,0 +1,2 @@
+{"args": ["--model", "m3", "--data", "/private/tmp/house-edge-package.OS2Dy0/data", "--out", "/private/tmp/house-edge-package.OS2Dy0/output/m3.csv"], "event": "start", "script": "/private/tmp/house-edge-package.OS2Dy0/m3/predict.py", "stage": "fit-predict", "utc": "2026-11-07T23:45:06.372354+00:00"}
+{"error": "ModuleNotFoundError", "event": "end", "message": "No module named 'numpy'"}

@@ -1,0 +1,5 @@
+# Preserve the organizer files included in frozen experiment input hashes.
+/main-participants-60-40/public/** -text
+/main-participants-60-40/README.md -text
+/main-participants-60-40/RULES.md -text
+/main-participants-60-40/SUBMISSION_README.md -text

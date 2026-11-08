@@ -1,0 +1,122 @@
+0.0s Read train only for model fitting and selection
+0.2s Begin whole-pipeline outer training evaluation
+0.2s m6: outer assessment fold 1/2: refit complete ensemble
+0.2s m6: meta fold 1/4: fit members on 36 episodes
+11.6s m5: selection fold 1/4: crossfit M4 training features (3 folds)
+21.4s m5: selection fold 2/4: crossfit M4 training features (3 folds)
+29.0s m5: selection fold 3/4: crossfit M4 training features (3 folds)
+34.9s m5: selection fold 4/4: crossfit M4 training features (3 folds)
+38.8s m5: selected 50 rounds; crossfit final M4 features
+39.6s m5: complete
+41.1s m6: meta fold 2/4: fit members on 36 episodes
+52.6s m5: selection fold 1/4: crossfit M4 training features (3 folds)
+62.3s m5: selection fold 2/4: crossfit M4 training features (3 folds)
+70.0s m5: selection fold 3/4: crossfit M4 training features (3 folds)
+75.8s m5: selection fold 4/4: crossfit M4 training features (3 folds)
+79.6s m5: selected 50 rounds; crossfit final M4 features
+80.4s m5: complete
+82.1s m6: meta fold 3/4: fit members on 36 episodes
+93.6s m5: selection fold 1/4: crossfit M4 training features (3 folds)
+103.4s m5: selection fold 2/4: crossfit M4 training features (3 folds)
+111.3s m5: selection fold 3/4: crossfit M4 training features (3 folds)
+117.2s m5: selection fold 4/4: crossfit M4 training features (3 folds)
+121.5s m5: selected 50 rounds; crossfit final M4 features
+122.3s m5: complete
+123.8s m6: meta fold 4/4: fit members on 36 episodes
+135.4s m5: selection fold 1/4: crossfit M4 training features (3 folds)
+145.4s m5: selection fold 2/4: crossfit M4 training features (3 folds)
+153.5s m5: selection fold 3/4: crossfit M4 training features (3 folds)
+159.7s m5: selection fold 4/4: crossfit M4 training features (3 folds)
+164.0s m5: selected 100 rounds; crossfit final M4 features
+165.0s m5: complete
+166.9s m6: weights fit; fit final members on all episodes
+182.4s m5: selection fold 1/4: crossfit M4 training features (3 folds)
+191.5s m5: selection fold 2/4: crossfit M4 training features (3 folds)
+198.1s m5: selection fold 3/4: crossfit M4 training features (3 folds)
+202.1s m5: selection fold 4/4: crossfit M4 training features (3 folds)
+203.8s m5: selected 50 rounds; crossfit final M4 features
+204.9s m5: complete
+204.9s m6: complete
+217.4s m6: outer assessment fold 2/2: refit complete ensemble
+217.4s m6: meta fold 1/4: fit members on 36 episodes
+229.0s m5: selection fold 1/4: crossfit M4 training features (3 folds)
+238.8s m5: selection fold 2/4: crossfit M4 training features (3 folds)
+246.6s m5: selection fold 3/4: crossfit M4 training features (3 folds)
+252.5s m5: selection fold 4/4: crossfit M4 training features (3 folds)
+256.5s m5: selected 50 rounds; crossfit final M4 features
+257.3s m5: complete
+258.9s m6: meta fold 2/4: fit members on 36 episodes
+270.5s m5: selection fold 1/4: crossfit M4 training features (3 folds)
+280.2s m5: selection fold 2/4: crossfit M4 training features (3 folds)
+288.1s m5: selection fold 3/4: crossfit M4 training features (3 folds)
+294.0s m5: selection fold 4/4: crossfit M4 training features (3 folds)
+298.1s m5: selected 50 rounds; crossfit final M4 features
+298.9s m5: complete
+300.5s m6: meta fold 3/4: fit members on 36 episodes
+312.1s m5: selection fold 1/4: crossfit M4 training features (3 folds)
+321.8s m5: selection fold 2/4: crossfit M4 training features (3 folds)
+329.6s m5: selection fold 3/4: crossfit M4 training features (3 folds)
+335.5s m5: selection fold 4/4: crossfit M4 training features (3 folds)
+339.7s m5: selected 100 rounds; crossfit final M4 features
+340.4s m5: complete
+342.1s m6: meta fold 4/4: fit members on 36 episodes
+353.8s m5: selection fold 1/4: crossfit M4 training features (3 folds)
+363.6s m5: selection fold 2/4: crossfit M4 training features (3 folds)
+371.4s m5: selection fold 3/4: crossfit M4 training features (3 folds)
+377.3s m5: selection fold 4/4: crossfit M4 training features (3 folds)
+381.3s m5: selected 50 rounds; crossfit final M4 features
+382.1s m5: complete
+383.7s m6: weights fit; fit final members on all episodes
+399.2s m5: selection fold 1/4: crossfit M4 training features (3 folds)
+408.4s m5: selection fold 2/4: crossfit M4 training features (3 folds)
+414.9s m5: selection fold 3/4: crossfit M4 training features (3 folds)
+418.9s m5: selection fold 4/4: crossfit M4 training features (3 folds)
+420.3s m5: selected 100 rounds; crossfit final M4 features
+421.4s m5: complete
+421.4s m6: complete
+434.1s Begin final fit on all training episodes
+434.1s m6: meta fold 1/4: fit members on 72 episodes
+457.5s m5: selection fold 1/4: crossfit M4 training features (3 folds)
+476.8s m5: selection fold 2/4: crossfit M4 training features (3 folds)
+492.4s m5: selection fold 3/4: crossfit M4 training features (3 folds)
+504.2s m5: selection fold 4/4: crossfit M4 training features (3 folds)
+512.6s m5: selected 100 rounds; crossfit final M4 features
+514.2s m5: complete
+517.5s m6: meta fold 2/4: fit members on 72 episodes
+541.3s m5: selection fold 1/4: crossfit M4 training features (3 folds)
+561.4s m5: selection fold 2/4: crossfit M4 training features (3 folds)
+576.8s m5: selection fold 3/4: crossfit M4 training features (3 folds)
+588.4s m5: selection fold 4/4: crossfit M4 training features (3 folds)
+596.3s m5: selected 100 rounds; crossfit final M4 features
+597.8s m5: complete
+600.8s m6: meta fold 3/4: fit members on 72 episodes
+624.5s m5: selection fold 1/4: crossfit M4 training features (3 folds)
+643.7s m5: selection fold 2/4: crossfit M4 training features (3 folds)
+658.8s m5: selection fold 3/4: crossfit M4 training features (3 folds)
+670.3s m5: selection fold 4/4: crossfit M4 training features (3 folds)
+678.1s m5: selected 100 rounds; crossfit final M4 features
+679.6s m5: complete
+682.8s m6: meta fold 4/4: fit members on 72 episodes
+705.9s m5: selection fold 1/4: crossfit M4 training features (3 folds)
+724.8s m5: selection fold 2/4: crossfit M4 training features (3 folds)
+739.9s m5: selection fold 3/4: crossfit M4 training features (3 folds)
+751.3s m5: selection fold 4/4: crossfit M4 training features (3 folds)
+758.9s m5: selected 100 rounds; crossfit final M4 features
+760.4s m5: complete
+763.7s m6: weights fit; fit final members on all episodes
+794.7s m5: selection fold 1/4: crossfit M4 training features (3 folds)
+807.4s m5: selection fold 2/4: crossfit M4 training features (3 folds)
+814.9s m5: selection fold 3/4: crossfit M4 training features (3 folds)
+822.4s m5: selection fold 4/4: crossfit M4 training features (3 folds)
+825.1s m5: selected 100 rounds; crossfit final M4 features
+827.0s m5: complete
+827.0s m6: complete
+827.4s Predict m3 on validation inputs without answers
+827.6s Predict m4 on validation inputs without answers
+827.9s Predict m5 on validation inputs without answers
+828.1s Predict m6 on validation inputs without answers
+830.2s Predict m3 on test inputs without answers
+830.7s Predict m4 on test inputs without answers
+831.2s Predict m5 on test inputs without answers
+831.7s Predict m6 on test inputs without answers
+837.7s Frozen forecasts and checkpoints; ready for score phase

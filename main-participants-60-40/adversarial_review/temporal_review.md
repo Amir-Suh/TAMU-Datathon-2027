@@ -1,0 +1,48 @@
+Temporal and Bayesian adversarial review, 2026-11-07. Sources are the parent repository's implementations and existing run reports. No validation audit targets or competition test data were loaded or scored. No model training was run; the only fresh execution was twelve small synthetic unit tests, artifact hashing, and the synthetic prior stress check described below.
+
+Recommendation: retain the uniform-pair Bayesian switch-96 win model with the frozen self-only logistic positive-payout head as the primary submission candidate. It has stronger held-out evidence than boosted3072 plus the same payout head. Keep the learned rho=0.8 pair prior as an experimental challenger, not a confirmed replacement.
+
+| Model | Existing tuning points / 60 | Existing audit points / 60 | Interpretation |
+| --- | ---: | ---: | --- |
+| Uniform Bayesian switch-96 + logistic payout | 53.382758 | 52.665123 | Best confirmed model reviewed |
+| Learned rho=0.8 pair prior, same switch/head | 53.799644 | Not evaluated | Small development gain; failed its advancement threshold |
+| Boosted3072 + logistic payout | 50.273957 | 49.212506 | Confirmed runner-up among these two audited candidates |
+| Signed motifs + logistic payout | 42.401934 | Not evaluated | Strong stable/short-history bias, weak drift adaptation |
+| Learned transition retrieval | 41.232587 | Not evaluated | Credible lower-tier model; clear grouped-CV gain over its old adaptive48 control |
+| Temporal CNN | 31.597320 | Not evaluated | Tested configuration fails grouped CV and tuning |
+| Fixed transition retrieval | 31.438348 | Not evaluated | Weak retrieval kernel |
+
+The audited Bayesian improvement is delta R=-0.0799284, paired episode-bootstrap interval [-0.1243799,-0.0419786]. It improves drift, shared-change and short-history audit conditions, while stable R worsens from 0.0768374 to 0.0936172. These are already-produced audit results, not a fresh audit. The Bayesian tuning gain is delta R=-0.0695025, interval [-0.1037530,-0.0381878], and improves all four tuning conditions. The tuning cross-fitted blend is only 0.01004 points above standalone and is fitted using tuning targets; it has no independent advantage sufficient to displace the audited standalone.
+
+Concrete review findings:
+
+1. The latest model does not satisfy the frozen advancement rule. `run_bayesian_lag_pair_tuning.py:344` requires delta R <= -0.01; `runs/bayesian-lag-pair-tuning/replay/report.json:3` records `win_only: false`. Observed delta R is -0.00870938 (interval [-0.01417346,-0.00437183]), with most benefit in short history (-0.03147250 condition R), slight regressions in stable (+0.00023647) and shared change (+0.00013847), and a small drift gain (-0.00373997). Treating its higher tuning score as automatic promotion would contradict the recorded rule.
+
+2. The nested result is much weaker than the selected CV result. Saved `train_cv.json` outer-fold metrics average cutoff win Brier 0.08281191 for control versus 0.08245183 for the selected procedure; win-only joint Brier is 0.37213232 versus 0.37168536. Two outer folds improve, one worsens, one is unchanged, and one outer selection retains rho=0. The full-training selected CV win Brier 0.08137062 is a selection statistic and should not replace the outer estimate. The source performs nested selection correctly (`run_bayesian_lag_pair_tuning.py:166`, `:233`).
+
+3. The implementation changes the planned selection protocol. `MIN_TRAIN_GAIN=.001` at `run_bayesian_lag_pair_tuning.py:32`, plus the majority-fold gate at `:91`, is absent from `BAYESIAN_LAG_PAIR_TUNING_PLAN.md:28`, `:36`, and `:54`, which specify minimum Brier with 1e-6 ties and eligibility for a combined Stage B candidate when each change improves by >1e-6. In final training CV, reset144 improves Brier by 0.00074012 and expanded amplitudes by 0.00077628, both over the plan's threshold; the stricter implemented gate rejects both and prevents the combined test (`:134`). This does not invalidate the frozen forecast, but the experiment is not a complete execution of the written plan. Do not retrospectively loosen the rule after seeing tuning.
+
+4. The learned prior introduces a distributional assumption concentrated on recurring pairs. `bayesian_pair_tuning.py:45` mixes 80% pooled inferred prevalence into the pair prior; the saved vector gives about 0.8063 total mass to (1,3), (2,5), (4,7), leaving roughly 0.0074-0.0085 each for other pairs. Rare-pair evidence must overcome much worse starting odds. The existing test at `test_bayesian_pair_tuning.py:101` checks recovery only at t=256. A fresh synthetic check on 128 machines (seed 91821), matched recency offset, constant +2 effect and full observations found at t=40: common pair (2,5) win-probability MSE uniform 0.00685990 versus learned 0.00318567; rare pair (1,8) uniform 0.01008597 versus learned 0.01918710. At t=128 both converge. This is a structural stress test, not a validation or test estimate.
+
+5. Switching is limited to amplitude within a fixed pair, not pair identity or singleton effects. `_log_pair_transition` preserves pair mass (`bayesian_lag_pairs.py:50`) and is applied only to the pair block (`:135`). The model also has no zero-amplitude state inside a pair. Persistent pair identity, binary parity structure, and the recency offset are useful inductive assumptions supported by current results, but pair changes or prolonged absent effects would remain failure modes. Static conjugate tables (`:180`) lack recency adaptation in win-table counts and are poor challengers: grouped cutoff win Brier 0.19487/0.19904 versus switch96 0.08281.
+
+6. The current CNN is not evidence against all temporal learning. It sees only payout/mask inputs (`temporal_cnn.py:18`), no type/signal or population-prior input. Its receptive field is 31 ticks despite a 40-slot window (`:12`, `:15`, `:39`). It cannot use older evidence to identify a machine's pair/effect. Four fixed training epochs (`run_temporal_cnn.py:36`) still show decreasing training loss, without an epoch/seed search. Its grouped cutoff Brier 0.55668 is worse than adaptive48 0.53238; tuning 31.597 is therefore consistent with its CV result. Reject this configuration, rather than claiming a tuned neural model was exhausted.
+
+7. The retrieval experiment bypassed its stated training gate. `run_transition_retrieval.py:147` computes fixed competitiveness, but learns the MLP unconditionally at `:163`; `report.json:122` records competitiveness false and trained true. The learned version nevertheless has a real grouped-CV improvement (joint cutoff Brier 0.46195 versus old adaptive48 0.53238) and 41.233 tuning points. It remains below the newer Bayesian model. Fixed retrieval averages agreement across all eight lags (`transition_retrieval.py:54`), diluting evidence when only a pair matters. All retrieval weights are positive and bounded, so this model is a smoothed same-machine outcome average.
+
+No material causal-alignment defect found in these predictors. Lag slots are absolute ticks; cutoff remains missing (`causal.py:16`); rollout emits before updating outcomes (`bayesian_lag_pairs.py:147`, `:169`; `signed_motifs.py:95`, `:99`). Missing outcomes add no emission evidence, missing lags fall back to baseline, and hazard/recency advance on every tick. Retrieval uses `searchsorted(..., side='left')` semantics to exclude same-tick support (`transition_retrieval.py:40`), and the CNN ends inputs at t-1. Pair payout smoothing excludes outcomes at or after each endpoint (`bayesian_pair_tuning.py:124`). Episode-grouped CV refits shared state inside partitions; preparation freezes latest candidate CSVs before target loading (`run_bayesian_lag_pair_tuning.py:238`, `:306`).
+
+Verification: `python -B -m unittest test_bayesian_lag_pairs test_bayesian_pair_tuning` passed 12 tests in 0.909s. Read-only SHA-256 checks match the audit model checkpoint, both audit CSVs, audit freeze-to-report linkage, frozen logistic checkpoint, latest three source files, latest forecast CSV, latest freeze-to-report linkage, control CSV, and logistic CSV. Existing audit freeze records tuning replay differences <=1.11e-16. No source files were modified.
+
+Synthetic stress method: for each of planted pairs (2,5) and (1,8), initialize a fresh NumPy `default_rng(91821)`, 128 machines and 129 ticks. Set population prior to `[.55,.31,.09,.04,.01]`. At each tick use `b=(8*.45+discounted_wins)/(8+discounted_count)` with decay `2**(-1/12)`; until both planted lags exist, use zero contrast; otherwise use contrast `2*(2*y[t-i]-1)*(2*y[t-j]-1)`. Generate binary outcomes from `sigmoid(logit(b)+contrast)`, then update the discounted win/count state. Run `lag_pair_rollout` on these histories with `LagPairConfig(evidence_half_life=None,hazard=1/96)`, first with uniform pair priors, then the exact learned prior from the saved freeze. Compare the pre-update predicted win probability with its known generating probability, averaged over machines. This evaluates the prior in its intended model family, with no missingness and no learned parameters refitted.
+
+| Planted pair | Tick | Uniform true-probability MSE | Learned-prior true-probability MSE |
+| --- | ---: | ---: | ---: |
+| (2,5), common | 40 | 0.0068599005 | 0.0031856705 |
+| (2,5), common | 64 | 0.0023934144 | 0.0018608816 |
+| (2,5), common | 96 | 0.0014287605 | 0.0013935516 |
+| (2,5), common | 128 | 0.0017325098 | 0.0017325235 |
+| (1,8), rare | 40 | 0.0100859733 | 0.0191871035 |
+| (1,8), rare | 64 | 0.0029502170 | 0.0032957192 |
+| (1,8), rare | 96 | 0.0012119531 | 0.0015198194 |
+| (1,8), rare | 128 | 0.0023696535 | 0.0023696628 |

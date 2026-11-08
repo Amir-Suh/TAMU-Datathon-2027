@@ -1,0 +1,6 @@
+Grouped fold 0: 72 fit episodes, 24 held
+Grouped fold 1: 72 fit episodes, 24 held
+Grouped fold 2: 72 fit episodes, 24 held
+Grouped fold 3: 72 fit episodes, 24 held
+Froze rates; grouped full-arm metrics: {'all': {'episodes': 96, 'rows': 6144, 'binary_brier': 0.0902659663076888, 'binary_logloss': 0.30591633908165505}, 'actual_cutoff': {'episodes': 96, 'rows': 768, 'binary_brier': 0.07638212396306295, 'binary_logloss': 0.26548580933782845}, 'earlier_cutoffs': {'episodes': 96, 'rows': 5376, 'binary_brier': 0.09224937235692106, 'binary_logloss': 0.3116921290450589}, 'top_pair_4_7': {'episodes': 88, 'rows': 1871, 'binary_brier': 0.09131907105655693, 'binary_logloss': 0.30515346355575973}, 'high_pair_mass': {'episodes': 96, 'rows': 5655, 'binary_brier': 0.0907676022620769, 'binary_logloss': 0.30876494673916816}}
+Wrote frozen validation and test forecasts

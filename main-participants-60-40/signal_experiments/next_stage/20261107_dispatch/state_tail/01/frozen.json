@@ -1,0 +1,22 @@
+{
+  "phase": "forecasts_frozen_before_scoring",
+  "at_utc": "2026-11-07T23:49:51.112555+00:00",
+  "sha256": {
+    "validation_e1_coupled.csv": "d880c86b3841523d49fa37ecb08974960badeea68c79231e5b6ee738bebb2f22",
+    "validation_e1_coupled_e2_finite.csv": "b8d713b4e3349b8cccbd193b2c0736af22e2ea6168f85d7cb1e9035367e3e5ab",
+    "validation_e1_decoupled.csv": "0024b4e5bd88595cd9d57c3e5f0587a5471c7a5dc24640391e9870632fb4ad0a",
+    "validation_e1_payout.csv": "3c517be7f0872668ac5c5fbb55f9ba70ffd4c8f3e33fae6137186ab6887a5925",
+    "validation_e2_finite.csv": "86dbbde8153b244b66c33ae605a056367137be63d58535c133ffdc956f34d2ff",
+    "validation_hybrid.csv": "a99b5e6bbbd8d6c72dbede19833d1fecac2c9b5aac60845d758e9f9e586dedb6",
+    "validation_p0.csv": "7ac1391eade2639f1439dd81b274fe8bec291744cac73bcf3779c87411967c25",
+    "validation_state.csv": "3e8818cf1ddfd093072467130caca334d232751dd3270ccc75c34521e71ee4ed",
+    "test_e1_coupled.csv": "bf7797fabe805c959b7c88b3683e2f0fc15d8b95648e91927ab24cc56c5eb606",
+    "test_e1_coupled_e2_finite.csv": "f59f374a149b5700856c2398541afe0028e23516d1bc1cb866574ee04a1272df",
+    "test_e1_decoupled.csv": "a6f6d247de591f52a087a2e308a8274406abc3a5844e931ce40ee9f863973ab2",
+    "test_e1_payout.csv": "b7e6dd7bfa9a44e8416dfc35a2617b2ac98799b8713a15a5d60af635997beb3f",
+    "test_e2_finite.csv": "06b108610c749afcf4a3799967588c9f8547044febe32aadc89f38b6b5c8c241",
+    "test_hybrid.csv": "23c422628715e6350e82f0cba54fa3f76177f4a4daae22ba037ef58185023aae",
+    "test_p0.csv": "3acccde94b920f9ca97f476427763f3c700c58fe6aeb1f2fbe15f60ed4604067",
+    "test_state.csv": "ca20b0a4fe283a978311fdf3045f30b054249181bc84f0414d1c06bee151437e"
+  }
+}

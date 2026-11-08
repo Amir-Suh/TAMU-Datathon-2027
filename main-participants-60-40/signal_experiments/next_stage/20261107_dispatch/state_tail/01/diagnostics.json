@@ -1,0 +1,270 @@
+{
+  "known_law": {
+    "win_centering_max_abs": 3.3306690738754696e-16,
+    "log_odds_offset_max_abs": 1.1102230246251565e-16,
+    "one_x_covariance_max_abs": 5.811323644522304e-17,
+    "zero_count_finite_equals_hard_projection": true,
+    "zero_count_alpha_zero_identity": true,
+    "zero_win_all_tails_zero": true
+  },
+  "known_law_recovery": {
+    "seed": 20261107,
+    "queries": 60000,
+    "true_kappa": -0.75,
+    "recovered_kappa": -0.75,
+    "sampled_logloss_by_kappa": {
+      "-0.85": 1.0532146295035347,
+      "-0.75": 1.0529837043101227,
+      "-0.6": 1.0530435112418997,
+      "-0.45": 1.0536021471045887,
+      "0.0": 1.0583455366288788
+    },
+    "coupled_probability_sse": 1.5544886419270938e-32,
+    "decoupled_probability_sse": 6.85615149884135e-05
+  },
+  "pseudo_future_tick": {
+    "gru_future_tick_max_abs": 0.0,
+    "gru_historical_signal_max_abs": 0.0,
+    "historical_count_max_abs": 0
+  },
+  "training": {
+    "kappa": -0.45,
+    "finite_alpha": 512,
+    "beta_weights": [
+      1.0562423702015904,
+      0.3120432944264441
+    ],
+    "cv_logloss": {
+      "kappa": {
+        "-0.85": 0.7500386654633834,
+        "-0.75": 0.7488681563187053,
+        "-0.6": 0.7473336360753906,
+        "-0.45": 0.7460737281497009,
+        "0.0": 0.7440064397694852
+      },
+      "unconstrained_best_kappa": 0.0,
+      "alpha": {
+        "0": 0.7701183774999146,
+        "32": 0.7654466853091075,
+        "64": 0.7642849369496697,
+        "128": 0.7634140814680717,
+        "256": 0.7628766509459761,
+        "512": 0.762593568251201,
+        "inf": 0.7623380933605841
+      },
+      "unconstrained_best_alpha": "inf"
+    },
+    "tail_type_order": [
+      "steady",
+      "balanced",
+      "jackpot"
+    ],
+    "beta_binomial_columns": [
+      "mu_low",
+      "mu_high",
+      "pi_high",
+      "concentration_low",
+      "concentration_high"
+    ],
+    "beta_binomial": [
+      [
+        0.5435118136254237,
+        0.7054830744016591,
+        0.47328708454122276,
+        8102.730238945273,
+        432.68479665969176
+      ],
+      [
+        0.2961894867091399,
+        0.4263269450510146,
+        0.45316248055615793,
+        5560.796152249575,
+        306.88121103445104
+      ],
+      [
+        0.18741457050348542,
+        0.3322148649079925,
+        0.1768191868467608,
+        563.6478446312638,
+        8103.083803138663
+      ]
+    ],
+    "tail_counts": [
+      [
+        8828,
+        2293,
+        47
+      ],
+      [
+        9035,
+        3453,
+        590
+      ],
+      [
+        2661,
+        3261,
+        1154
+      ]
+    ],
+    "tail_ratios": [
+      [
+        0.7904727793696275,
+        0.20531876790830947,
+        0.0042084527220630375
+      ],
+      [
+        0.6908548707753479,
+        0.26403119743079984,
+        0.04511393179385227
+      ],
+      [
+        0.3760599208592425,
+        0.4608535895986433,
+        0.1630864895421142
+      ]
+    ],
+    "pseudo_shifts": [
+      0,
+      4,
+      8,
+      16,
+      24,
+      32
+    ],
+    "actual_cutoff_label_weight": 4
+  },
+  "validation": {
+    "episodes": 96,
+    "queries": 768,
+    "fit_episode_overlap": [],
+    "champion_replay_max_abs": 1.1102230246251565e-16,
+    "p0_replay_max_abs": 1.1102230246251565e-16,
+    "forecast_future_tick_invariance": {
+      "hybrid": 0.0,
+      "p0": 0.0,
+      "e1_payout": 0.0,
+      "e1_decoupled": 0.0,
+      "e1_coupled": 0.0,
+      "e2_finite": 0.0,
+      "e1_coupled_e2_finite": 0.0,
+      "gru": 0.0
+    },
+    "invariants": {
+      "sum_to_one_max_abs": {
+        "hybrid": 2.220446049250313e-16,
+        "p0": 2.220446049250313e-16,
+        "e1_payout": 2.220446049250313e-16,
+        "e1_decoupled": 2.220446049250313e-16,
+        "e1_coupled": 2.220446049250313e-16,
+        "e2_finite": 2.220446049250313e-16,
+        "e1_coupled_e2_finite": 2.220446049250313e-16
+      },
+      "payout_only_p0_max_abs": 1.249000902703301e-16,
+      "coupled_vs_decoupled_p0_max_abs": 0.0,
+      "tail": {
+        "p0": {
+          "p0_p1_max_abs": 0.0,
+          "total_tail_max_abs": 1.1102230246251565e-16
+        },
+        "e2_finite": {
+          "p0_p1_max_abs": 0.0,
+          "total_tail_max_abs": 1.1102230246251565e-16
+        },
+        "e1_coupled_e2_finite": {
+          "p0_p1_max_abs": 0.0,
+          "total_tail_max_abs": 1.1102230246251565e-16
+        }
+      }
+    },
+    "gamma_by_type": {
+      "steady": [
+        5.233381977723116e-08,
+        0.00032825359750106694,
+        0.07473987024537102,
+        0.9799200931789145,
+        0.9999999809410923
+      ],
+      "balanced": [
+        3.878465609353767e-05,
+        0.025856428246724388,
+        0.22054587782676888,
+        0.8524084441715043,
+        0.9999876835548598
+      ],
+      "jackpot": [
+        1.5889962112337951e-06,
+        0.006835641949088747,
+        0.07236285440553271,
+        0.23222112139416906,
+        0.9999129077973247
+      ]
+    }
+  },
+  "test": {
+    "episodes": 192,
+    "queries": 1536,
+    "fit_episode_overlap": [],
+    "champion_replay_max_abs": 2.220446049250313e-16,
+    "p0_replay_max_abs": 2.220446049250313e-16,
+    "forecast_future_tick_invariance": {
+      "hybrid": 0.0,
+      "p0": 0.0,
+      "e1_payout": 0.0,
+      "e1_decoupled": 0.0,
+      "e1_coupled": 0.0,
+      "e2_finite": 0.0,
+      "e1_coupled_e2_finite": 0.0,
+      "gru": 0.0
+    },
+    "invariants": {
+      "sum_to_one_max_abs": {
+        "hybrid": 2.220446049250313e-16,
+        "p0": 3.3306690738754696e-16,
+        "e1_payout": 2.220446049250313e-16,
+        "e1_decoupled": 2.220446049250313e-16,
+        "e1_coupled": 2.220446049250313e-16,
+        "e2_finite": 2.220446049250313e-16,
+        "e1_coupled_e2_finite": 3.3306690738754696e-16
+      },
+      "payout_only_p0_max_abs": 1.3877787807814457e-16,
+      "coupled_vs_decoupled_p0_max_abs": 0.0,
+      "tail": {
+        "p0": {
+          "p0_p1_max_abs": 0.0,
+          "total_tail_max_abs": 1.1102230246251565e-16
+        },
+        "e2_finite": {
+          "p0_p1_max_abs": 0.0,
+          "total_tail_max_abs": 1.1102230246251565e-16
+        },
+        "e1_coupled_e2_finite": {
+          "p0_p1_max_abs": 0.0,
+          "total_tail_max_abs": 1.1102230246251565e-16
+        }
+      }
+    },
+    "gamma_by_type": {
+      "steady": [
+        3.665903685916038e-08,
+        0.0005262785123226357,
+        0.20325051160166177,
+        0.991310545346663,
+        0.9999999953591547
+      ],
+      "balanced": [
+        4.077144432944564e-05,
+        0.03875353943820158,
+        0.3500291066164893,
+        0.9255772592697676,
+        0.9999938353800125
+      ],
+      "jackpot": [
+        5.493262219850725e-06,
+        0.010483944250672648,
+        0.10721053054678006,
+        0.3252354413107918,
+        0.9998572190116533
+      ]
+    }
+  }
+}

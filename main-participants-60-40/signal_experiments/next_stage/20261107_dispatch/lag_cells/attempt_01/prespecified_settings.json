@@ -1,0 +1,38 @@
+{
+  "S0": "Inherited train-fitted M3 kappa in each fold",
+  "comparison": {
+    "E3Frozen": "new posterior cell means with M3 hypothesis weights",
+    "E3Full": "same predictions with full four-cell evidence",
+    "E3Shared": "same full evidence plus separate episode sharing"
+  },
+  "direction": [
+    "match_high",
+    "differ_high"
+  ],
+  "earlier_signal": 0,
+  "held_shifts": [
+    0,
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    28
+  ],
+  "high_pair_mass": 0.9,
+  "null": "M3 likelihood and prediction",
+  "pair_pseudocount": 150,
+  "pool_pseudocount": 200,
+  "production_preflip": "XOR raw code with 2, flipping lag t-a",
+  "raw_cell_order": [
+    "00",
+    "01",
+    "10",
+    "11"
+  ],
+  "selection": "Prespecified fixed primary XOR and pseudo-counts. The B-XOR sensitivity stays in grouped train.",
+  "shared_episode_prior": 0.3,
+  "train_only_sensitivity": "XOR raw code with 1, flipping lag t-b",
+  "unavailable": "M3 context-prior beta evidence over incomplete observed triples and matched M3 all-history cutoff fallback"
+}

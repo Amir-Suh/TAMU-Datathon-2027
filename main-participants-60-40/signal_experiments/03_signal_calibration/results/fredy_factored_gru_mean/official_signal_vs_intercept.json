@@ -1,0 +1,55 @@
+{
+  "data": "/Users/andrewvong/Documents/Projects/tamudatathon27/main-participants-60-40/public/validation",
+  "episodes": 96,
+  "queries": 768,
+  "points_max": 60,
+  "bootstrap_draws": 10000,
+  "input_hashes": {
+    "queries.csv": "168b7f6365a4f51084437c0071636b102ca3fb4bf0347b912778c51714fc48f2",
+    "targets.csv": "93b6e978f6818d2456dcb677fddb6ba243e864cef56e33a4bf94bde5ba4b51f3",
+    "conditions.csv": "ebcca7597bbdfa532c5254b92903e66522a710502a6f70689c3de311f75c29b1",
+    "reference.csv": "bb396d9e4d20bf4004374f9ab781f41aaa8b730e61887c1969be534efeb1e6c6"
+  },
+  "models": {
+    "control": {
+      "path": "signal_experiments/03_signal_calibration/results/fredy_factored_gru_mean/intercept.csv",
+      "sha256": "96174b60c7bd7b9f653d8fc2641d3dc033a113b497ff84aae1145988d3b89b24",
+      "points": 55.227612296361,
+      "R": 0.0864130731929807,
+      "delta_R": 0.0,
+      "delta_R_95": [
+        0.0,
+        0.0
+      ],
+      "condition_R": {
+        "stable": 0.06666091370149581,
+        "short_history": 0.12076092444010987,
+        "drift": 0.08672128837595416,
+        "shared_change": 0.0715091662543629
+      },
+      "p0_mse": 0.007615687137711012,
+      "conditional_payout_sse": 0.01683183672100445,
+      "win_mass_weighted_conditional_payout_sse": 0.006144692947351094
+    },
+    "intercept_signal": {
+      "path": "signal_experiments/03_signal_calibration/results/fredy_factored_gru_mean/intercept_signal.csv",
+      "sha256": "46dabdad2074d1dae10c185e42cd2faf62e785d64c38ba29cbbae09fd39e5d27",
+      "points": 55.28019774765151,
+      "R": 0.08537961955009467,
+      "delta_R": -0.0010334536428860258,
+      "delta_R_95": [
+        -0.004215700207915807,
+        0.0021524520937475857
+      ],
+      "condition_R": {
+        "stable": 0.06528974730766195,
+        "short_history": 0.11924616414996346,
+        "drift": 0.08539084376521096,
+        "shared_change": 0.0715917229775423
+      },
+      "p0_mse": 0.007457677585695083,
+      "conditional_payout_sse": 0.01683183672100445,
+      "win_mass_weighted_conditional_payout_sse": 0.006144692947351093
+    }
+  }
+}

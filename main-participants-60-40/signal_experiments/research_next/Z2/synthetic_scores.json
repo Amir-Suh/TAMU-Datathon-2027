@@ -1,0 +1,1242 @@
+{
+  "checks": {
+    "brute_force_likelihood_abs_error": 1.3877787807814457e-17,
+    "joint_normalization": true,
+    "label_swap": true,
+    "likelihood_gradient_finite_difference_error": 1.2347141868831333e-06,
+    "missing_tick_transition": true,
+    "payout_only_win_invariance": true
+  },
+  "results": {
+    "iid": {
+      "static_joint": {
+        "64_observed": {
+          "cutoff_five_class_sse": 0.011535063972921032,
+          "cutoff_p0_mse": 0.0017810168547097553,
+          "cutoff_state_auc": 0.5432608695652172,
+          "history_nll_per_observation": 0.7162639636927581,
+          "queries": 192
+        },
+        "fit": {
+          "conditional_1x_by_type_low_high": {
+            "balanced": [
+              0.3329017276503001,
+              0.3845519974188145
+            ],
+            "jackpot": [
+              0.18887525165226235,
+              0.22955355366698102
+            ],
+            "steady": [
+              0.5688510466572531,
+              0.6118503519177135
+            ]
+          },
+          "history_win_intercept_by_type": {
+            "balanced": -0.051765116962050696,
+            "jackpot": 0.005279804090874747,
+            "steady": 0.0462270822591267
+          },
+          "optimizer_iterations": 36,
+          "parameter_vector": [
+            0.0462270822591267,
+            -0.051765116962050696,
+            0.005279804090874747,
+            0.36613088126995724,
+            -0.5826807420419028,
+            -1.33408445269713,
+            -1.7263550365914695,
+            -1.492461480990043,
+            -1.400387954669097,
+            0.0115388445166471
+          ],
+          "state_high_vs_low_win_logit_shift": 0.0115388445166471
+        },
+        "full": {
+          "cutoff_five_class_sse": 0.01144080533557997,
+          "cutoff_p0_mse": 0.001785041072725409,
+          "cutoff_state_auc": 0.6355434782608695,
+          "history_nll_per_observation": 0.5719476334908243,
+          "queries": 192
+        }
+      },
+      "static_payout": {
+        "64_observed": {
+          "cutoff_five_class_sse": 0.011521387293956376,
+          "cutoff_p0_mse": 0.0017806200093909454,
+          "cutoff_state_auc": 0.5435326086956521,
+          "history_nll_per_observation": 0.7162761931725243,
+          "queries": 192
+        },
+        "fit": {
+          "conditional_1x_by_type_low_high": {
+            "balanced": [
+              0.33293560955350376,
+              0.38460925318853173
+            ],
+            "jackpot": [
+              0.1890374426911222,
+              0.22968160015687444
+            ],
+            "steady": [
+              0.5689035989997807,
+              0.611900508732072
+            ]
+          },
+          "history_win_intercept_by_type": {
+            "balanced": -0.05173264173345349,
+            "jackpot": 0.005392674495130389,
+            "steady": 0.04622876884572205
+          },
+          "optimizer_iterations": 37,
+          "parameter_vector": [
+            0.04622876884572205,
+            -0.05173264173345349,
+            0.005392674495130389,
+            0.3663436194954853,
+            -0.5824835033399848,
+            -1.3331933562848786,
+            -1.7263723165173452,
+            -1.4920641272794013,
+            -1.4017457347139666,
+            0.0
+          ],
+          "state_high_vs_low_win_logit_shift": 0.0
+        },
+        "full": {
+          "cutoff_five_class_sse": 0.011422425824248414,
+          "cutoff_p0_mse": 0.0017806200093909454,
+          "cutoff_state_auc": 0.633586956521739,
+          "history_nll_per_observation": 0.5719371138509708,
+          "queries": 192
+        }
+      },
+      "sticky_128_joint": {
+        "64_observed": {
+          "cutoff_five_class_sse": 0.011753086155563428,
+          "cutoff_p0_mse": 0.001779319123888235,
+          "cutoff_state_auc": 0.48,
+          "history_nll_per_observation": 0.716196160790112,
+          "queries": 192
+        },
+        "fit": {
+          "conditional_1x_by_type_low_high": {
+            "balanced": [
+              0.32456010984440115,
+              0.3936526911282302
+            ],
+            "jackpot": [
+              0.1814405393471931,
+              0.23615177270011775
+            ],
+            "steady": [
+              0.5521465248321834,
+              0.627414620228611
+            ]
+          },
+          "history_win_intercept_by_type": {
+            "balanced": -0.051566641485229596,
+            "jackpot": 0.004897354016442465,
+            "steady": 0.0462327717911749
+          },
+          "optimizer_iterations": 32,
+          "parameter_vector": [
+            0.0462327717911749,
+            -0.051566641485229596,
+            0.004897354016442465,
+            0.36524435970087066,
+            -0.58243866164581,
+            -1.3402562290032292,
+            -1.1654124394665641,
+            -1.200945732202655,
+            -1.1004430559690195,
+            0.04269553491174463
+          ],
+          "state_high_vs_low_win_logit_shift": 0.04269553491174463
+        },
+        "full": {
+          "cutoff_five_class_sse": 0.011705917724057163,
+          "cutoff_p0_mse": 0.0017842717727255604,
+          "cutoff_state_auc": 0.535108695652174,
+          "history_nll_per_observation": 0.5719915607060512,
+          "queries": 192
+        }
+      },
+      "sticky_128_payout": {
+        "64_observed": {
+          "cutoff_five_class_sse": 0.011725515603542342,
+          "cutoff_p0_mse": 0.0017806200093909458,
+          "cutoff_state_auc": 0.4835869565217391,
+          "history_nll_per_observation": 0.716261035256828,
+          "queries": 192
+        },
+        "fit": {
+          "conditional_1x_by_type_low_high": {
+            "balanced": [
+              0.32417511440507935,
+              0.39448653975162307
+            ],
+            "jackpot": [
+              0.18205685872373387,
+              0.23649152767968407
+            ],
+            "steady": [
+              0.5525867563264887,
+              0.6274571972850077
+            ]
+          },
+          "history_win_intercept_by_type": {
+            "balanced": -0.051742323082383274,
+            "jackpot": 0.005397737785797748,
+            "steady": 0.046229879584237306
+          },
+          "optimizer_iterations": 26,
+          "parameter_vector": [
+            0.046229879584237306,
+            -0.051742323082383274,
+            0.005397737785797748,
+            0.3662256577009189,
+            -0.5815709619716238,
+            -1.337242806822995,
+            -1.1705518152803807,
+            -1.183652734526876,
+            -1.1072637908312593,
+            0.0
+          ],
+          "state_high_vs_low_win_logit_shift": 0.0
+        },
+        "full": {
+          "cutoff_five_class_sse": 0.011671870026055886,
+          "cutoff_p0_mse": 0.0017806200093909458,
+          "cutoff_state_auc": 0.5416304347826086,
+          "history_nll_per_observation": 0.5719607027148665,
+          "queries": 192
+        }
+      },
+      "sticky_16_joint": {
+        "64_observed": {
+          "cutoff_five_class_sse": 0.012034426913080223,
+          "cutoff_p0_mse": 0.0017880653915324802,
+          "cutoff_state_auc": 0.4525,
+          "history_nll_per_observation": 0.7160707794614068,
+          "queries": 192
+        },
+        "fit": {
+          "conditional_1x_by_type_low_high": {
+            "balanced": [
+              0.31866831630398457,
+              0.4029242210777534
+            ],
+            "jackpot": [
+              0.17544051562563615,
+              0.2485320847807185
+            ],
+            "steady": [
+              0.5206416091879112,
+              0.6633213689754622
+            ]
+          },
+          "history_win_intercept_by_type": {
+            "balanced": -0.050879112918827,
+            "jackpot": 0.005386552969808948,
+            "steady": 0.043614673063384464
+          },
+          "optimizer_iterations": 30,
+          "parameter_vector": [
+            0.043614673063384464,
+            -0.050879112918827,
+            0.005386552969808948,
+            0.3803720624082666,
+            -0.5765969856872555,
+            -1.327002902600412,
+            -0.5183247670955119,
+            -1.0034760073316422,
+            -0.8185002684917602,
+            -0.25166541558952016
+          ],
+          "state_high_vs_low_win_logit_shift": -0.25166541558952016
+        },
+        "full": {
+          "cutoff_five_class_sse": 0.012033892839290935,
+          "cutoff_p0_mse": 0.001787980226661129,
+          "cutoff_state_auc": 0.4535869565217391,
+          "history_nll_per_observation": 0.5718938468560542,
+          "queries": 192
+        }
+      },
+      "sticky_16_payout": {
+        "64_observed": {
+          "cutoff_five_class_sse": 0.01197214096949683,
+          "cutoff_p0_mse": 0.0017806200093909447,
+          "cutoff_state_auc": 0.4433695652173913,
+          "history_nll_per_observation": 0.7162685807485559,
+          "queries": 192
+        },
+        "fit": {
+          "conditional_1x_by_type_low_high": {
+            "balanced": [
+              0.3154307888671515,
+              0.40311401346848785
+            ],
+            "jackpot": [
+              0.16980811085903813,
+              0.24972132589894272
+            ],
+            "steady": [
+              0.5200754137668513,
+              0.660831977591109
+            ]
+          },
+          "history_win_intercept_by_type": {
+            "balanced": -0.05174838418509769,
+            "jackpot": 0.005397880525273724,
+            "steady": 0.046234493139331014
+          },
+          "optimizer_iterations": 27,
+          "parameter_vector": [
+            0.046234493139331014,
+            -0.05174838418509769,
+            0.005397880525273724,
+            0.37367441767491316,
+            -0.5836785736921662,
+            -1.3435434646003228,
+            -0.5333113103219765,
+            -0.9614351293281356,
+            -0.7197196775439466,
+            0.0
+          ],
+          "state_high_vs_low_win_logit_shift": 0.0
+        },
+        "full": {
+          "cutoff_five_class_sse": 0.01197198571520755,
+          "cutoff_p0_mse": 0.0017806200093909458,
+          "cutoff_state_auc": 0.44489130434782603,
+          "history_nll_per_observation": 0.5719688506640964,
+          "queries": 192
+        }
+      },
+      "sticky_64_joint": {
+        "64_observed": {
+          "cutoff_five_class_sse": 0.011836246259390379,
+          "cutoff_p0_mse": 0.0017800530132891946,
+          "cutoff_state_auc": 0.4582608695652174,
+          "history_nll_per_observation": 0.7162402758236737,
+          "queries": 192
+        },
+        "fit": {
+          "conditional_1x_by_type_low_high": {
+            "balanced": [
+              0.32180863256932524,
+              0.3967725498319055
+            ],
+            "jackpot": [
+              0.17711041982618236,
+              0.24135847399336877
+            ],
+            "steady": [
+              0.5437618435486465,
+              0.6364305890223296
+            ]
+          },
+          "history_win_intercept_by_type": {
+            "balanced": -0.051715444824493646,
+            "jackpot": 0.005311688233852075,
+            "steady": 0.046291829872251555
+          },
+          "optimizer_iterations": 31,
+          "parameter_vector": [
+            0.046291829872251555,
+            -0.051715444824493646,
+            0.005311688233852075,
+            0.367700773896516,
+            -0.5822017849724191,
+            -1.3406473705473831,
+            -0.9560489351869738,
+            -1.119198808972923,
+            -0.9395528349428562,
+            0.013108538032352552
+          ],
+          "state_high_vs_low_win_logit_shift": 0.013108538032352552
+        },
+        "full": {
+          "cutoff_five_class_sse": 0.011813988840869755,
+          "cutoff_p0_mse": 0.0017805463631249895,
+          "cutoff_state_auc": 0.47630434782608694,
+          "history_nll_per_observation": 0.5719589364190292,
+          "queries": 192
+        }
+      },
+      "sticky_64_payout": {
+        "64_observed": {
+          "cutoff_five_class_sse": 0.011832224091700191,
+          "cutoff_p0_mse": 0.0017806200093909458,
+          "cutoff_state_auc": 0.45999999999999996,
+          "history_nll_per_observation": 0.7162491587395542,
+          "queries": 192
+        },
+        "fit": {
+          "conditional_1x_by_type_low_high": {
+            "balanced": [
+              0.3217706807231519,
+              0.3969738247392695
+            ],
+            "jackpot": [
+              0.1773712233856804,
+              0.2413875615973981
+            ],
+            "steady": [
+              0.5438673066081013,
+              0.6364734210422391
+            ]
+          },
+          "history_win_intercept_by_type": {
+            "balanced": -0.05173465799211075,
+            "jackpot": 0.005394561153573088,
+            "steady": 0.046230875791480046
+          },
+          "optimizer_iterations": 28,
+          "parameter_vector": [
+            0.046230875791480046,
+            -0.05173465799211075,
+            0.005394561153573088,
+            0.3680058896238144,
+            -0.5818682989620394,
+            -1.3396737192768664,
+            -0.9566734704744996,
+            -1.1160959979485432,
+            -0.9437314333440132,
+            0.0
+          ],
+          "state_high_vs_low_win_logit_shift": 0.0
+        },
+        "full": {
+          "cutoff_five_class_sse": 0.011808725641982813,
+          "cutoff_p0_mse": 0.0017806200093909454,
+          "cutoff_state_auc": 0.47771739130434787,
+          "history_nll_per_observation": 0.5719514733974745,
+          "queries": 192
+        }
+      }
+    },
+    "static": {
+      "static_joint": {
+        "64_observed": {
+          "cutoff_five_class_sse": 0.002032293369757645,
+          "cutoff_p0_mse": 0.0006242814852773444,
+          "cutoff_state_auc": 0.9356077226853883,
+          "history_nll_per_observation": 0.6866472724886674,
+          "queries": 192
+        },
+        "fit": {
+          "conditional_1x_by_type_low_high": {
+            "balanced": [
+              0.21635415557971213,
+              0.5126600115996547
+            ],
+            "jackpot": [
+              0.12445109610541732,
+              0.3304577005307295
+            ],
+            "steady": [
+              0.4515790008670835,
+              0.7552905716610908
+            ]
+          },
+          "history_win_intercept_by_type": {
+            "balanced": -0.0045612587050789495,
+            "jackpot": 0.04318653680568702,
+            "steady": 0.026277543027529708
+          },
+          "optimizer_iterations": 12,
+          "parameter_vector": [
+            0.026277543027529708,
+            -0.0045612587050789495,
+            0.04318653680568702,
+            0.46636906581427956,
+            -0.6181948213374796,
+            -1.3285269255262233,
+            0.27863422275782584,
+            0.290945282992653,
+            0.21899294387117,
+            -0.8018957539662264
+          ],
+          "state_high_vs_low_win_logit_shift": -0.8018957539662264
+        },
+        "full": {
+          "cutoff_five_class_sse": 2.8932134262020382e-05,
+          "cutoff_p0_mse": 9.62866445481775e-06,
+          "cutoff_state_auc": 0.9987933304080737,
+          "history_nll_per_observation": 0.538288349874025,
+          "queries": 192
+        }
+      },
+      "static_payout": {
+        "64_observed": {
+          "cutoff_five_class_sse": 0.0025828320283128622,
+          "cutoff_p0_mse": 0.001634314472423809,
+          "cutoff_state_auc": 0.9716981132075472,
+          "history_nll_per_observation": 0.7025206543424894,
+          "queries": 192
+        },
+        "fit": {
+          "conditional_1x_by_type_low_high": {
+            "balanced": [
+              0.21711051021202923,
+              0.5130489909843128
+            ],
+            "jackpot": [
+              0.1216127725823828,
+              0.3200386524180806
+            ],
+            "steady": [
+              0.4516047447711274,
+              0.7553346686757779
+            ]
+          },
+          "history_win_intercept_by_type": {
+            "balanced": -0.09890167012680472,
+            "jackpot": 0.13752516873115517,
+            "steady": 0.0301885701976895
+          },
+          "optimizer_iterations": 12,
+          "parameter_vector": [
+            0.0301885701976895,
+            -0.09890167012680472,
+            0.13752516873115517,
+            0.466540340924731,
+            -0.6151886212292651,
+            -1.3654198528355141,
+            0.2787361231296861,
+            0.28877613422256976,
+            0.20183929936091205,
+            0.0
+          ],
+          "state_high_vs_low_win_logit_shift": 0.0
+        },
+        "full": {
+          "cutoff_five_class_sse": 0.0022916876414371973,
+          "cutoff_p0_mse": 0.0016343144724238088,
+          "cutoff_state_auc": 0.9982448442299254,
+          "history_nll_per_observation": 0.545962862423591,
+          "queries": 192
+        }
+      },
+      "sticky_128_joint": {
+        "64_observed": {
+          "cutoff_five_class_sse": 0.0023304249632036408,
+          "cutoff_p0_mse": 0.0003299711389867863,
+          "cutoff_state_auc": 0.949319877139096,
+          "history_nll_per_observation": 0.6898491134607547,
+          "queries": 192
+        },
+        "fit": {
+          "conditional_1x_by_type_low_high": {
+            "balanced": [
+              0.2196645354972021,
+              0.5262623246078847
+            ],
+            "jackpot": [
+              0.11316506292101668,
+              0.3307353651416326
+            ],
+            "steady": [
+              0.4470539062106836,
+              0.7621230581987878
+            ]
+          },
+          "history_win_intercept_by_type": {
+            "balanced": -0.022030571383914108,
+            "jackpot": 0.07586032138703717,
+            "steady": 0.02601602259443588
+          },
+          "optimizer_iterations": 12,
+          "parameter_vector": [
+            0.02601602259443588,
+            -0.022030571383914108,
+            0.07586032138703717,
+            0.4758866066773699,
+            -0.5812381513084077,
+            -1.3818361911294277,
+            0.3198606550760537,
+            0.3168294521945989,
+            0.3030265356212617,
+            -0.8315449368881972
+          ],
+          "state_high_vs_low_win_logit_shift": -0.8315449368881972
+        },
+        "full": {
+          "cutoff_five_class_sse": 0.0020370872918537776,
+          "cutoff_p0_mse": 0.0003173625609451356,
+          "cutoff_state_auc": 0.9589732338745063,
+          "history_nll_per_observation": 0.5413598656827054,
+          "queries": 192
+        }
+      },
+      "sticky_128_payout": {
+        "64_observed": {
+          "cutoff_five_class_sse": 0.005563329609762901,
+          "cutoff_p0_mse": 0.0016343144724238086,
+          "cutoff_state_auc": 0.9046182536200087,
+          "history_nll_per_observation": 0.7048507825819156,
+          "queries": 192
+        },
+        "fit": {
+          "conditional_1x_by_type_low_high": {
+            "balanced": [
+              0.2205948995319687,
+              0.5320142635695573
+            ],
+            "jackpot": [
+              0.10032176303207953,
+              0.30809175909859754
+            ],
+            "steady": [
+              0.4495995581187333,
+              0.76925235332404
+            ]
+          },
+          "history_win_intercept_by_type": {
+            "balanced": -0.09891104643849191,
+            "jackpot": 0.13752911732901912,
+            "steady": 0.030197007121632428
+          },
+          "optimizer_iterations": 13,
+          "parameter_vector": [
+            0.030197007121632428,
+            -0.09891104643849191,
+            0.13752911732901912,
+            0.5009028124951301,
+            -0.5669852344262362,
+            -1.5013551116615347,
+            0.3410212828651717,
+            0.3296169597971521,
+            0.3254104550063979,
+            0.0
+          ],
+          "state_high_vs_low_win_logit_shift": 0.0
+        },
+        "full": {
+          "cutoff_five_class_sse": 0.0052026269748141575,
+          "cutoff_p0_mse": 0.0016343144724238086,
+          "cutoff_state_auc": 0.9209082931110135,
+          "history_nll_per_observation": 0.5483081493098909,
+          "queries": 192
+        }
+      },
+      "sticky_16_joint": {
+        "64_observed": {
+          "cutoff_five_class_sse": 0.0084700135491482,
+          "cutoff_p0_mse": 0.0010723930268438083,
+          "cutoff_state_auc": 0.7928916191311979,
+          "history_nll_per_observation": 0.7042305627698923,
+          "queries": 192
+        },
+        "fit": {
+          "conditional_1x_by_type_low_high": {
+            "balanced": [
+              0.22632429182399827,
+              0.5746373468911377
+            ],
+            "jackpot": [
+              0.09083634956741238,
+              0.32643665369489805
+            ],
+            "steady": [
+              0.42672265240286444,
+              0.784738603809883
+            ]
+          },
+          "history_win_intercept_by_type": {
+            "balanced": -0.08032632642300351,
+            "jackpot": 0.13380814682074257,
+            "steady": 0.01884676887632828
+          },
+          "optimizer_iterations": 15,
+          "parameter_vector": [
+            0.01884676887632828,
+            -0.08032632642300351,
+            0.13380814682074257,
+            0.4991311185241165,
+            -0.4641934397564522,
+            -1.5139058567474344,
+            0.46293680439097296,
+            0.425255283061447,
+            0.45686737975189645,
+            -0.9015862330630379
+          ],
+          "state_high_vs_low_win_logit_shift": -0.9015862330630379
+        },
+        "full": {
+          "cutoff_five_class_sse": 0.008468418448074376,
+          "cutoff_p0_mse": 0.0010721336043810637,
+          "cutoff_state_auc": 0.7919043440105309,
+          "history_nll_per_observation": 0.5515856853719001,
+          "queries": 192
+        }
+      },
+      "sticky_16_payout": {
+        "64_observed": {
+          "cutoff_five_class_sse": 0.010346586628759013,
+          "cutoff_p0_mse": 0.0016343144724238086,
+          "cutoff_state_auc": 0.7480802983764809,
+          "history_nll_per_observation": 0.7105025755339268,
+          "queries": 192
+        },
+        "fit": {
+          "conditional_1x_by_type_low_high": {
+            "balanced": [
+              0.20995689722085312,
+              0.5653555769373741
+            ],
+            "jackpot": [
+              0.07460659510363693,
+              0.2954665260470407
+            ],
+            "steady": [
+              0.41739797252343697,
+              0.7803758361686219
+            ]
+          },
+          "history_win_intercept_by_type": {
+            "balanced": -0.09890646697322487,
+            "jackpot": 0.13752351089619128,
+            "steady": 0.030194296026534326
+          },
+          "optimizer_iterations": 18,
+          "parameter_vector": [
+            0.030194296026534326,
+            -0.09890646697322487,
+            0.13752351089619128,
+            0.4671968591507988,
+            -0.5311293258986663,
+            -1.6934851667310138,
+            0.4708295961443146,
+            0.46254578884963815,
+            0.5001749543416478,
+            0.0
+          ],
+          "state_high_vs_low_win_logit_shift": 0.0
+        },
+        "full": {
+          "cutoff_five_class_sse": 0.010345429279375644,
+          "cutoff_p0_mse": 0.0016343144724238086,
+          "cutoff_state_auc": 0.7479157525230364,
+          "history_nll_per_observation": 0.5557528622685498,
+          "queries": 192
+        }
+      },
+      "sticky_64_joint": {
+        "64_observed": {
+          "cutoff_five_class_sse": 0.0038601026301172078,
+          "cutoff_p0_mse": 0.0005171354926304135,
+          "cutoff_state_auc": 0.9236507240017552,
+          "history_nll_per_observation": 0.6935627899668896,
+          "queries": 192
+        },
+        "fit": {
+          "conditional_1x_by_type_low_high": {
+            "balanced": [
+              0.22275931534930676,
+              0.5376496570106357
+            ],
+            "jackpot": [
+              0.10698962906697294,
+              0.3310598441020495
+            ],
+            "steady": [
+              0.44395620039856654,
+              0.7679197628517386
+            ]
+          },
+          "history_win_intercept_by_type": {
+            "balanced": -0.038024411003345956,
+            "jackpot": 0.09090866707960457,
+            "steady": 0.021986466264788746
+          },
+          "optimizer_iterations": 13,
+          "parameter_vector": [
+            0.021986466264788746,
+            -0.038024411003345956,
+            0.09090866707960457,
+            0.4857404664954943,
+            -0.5493869737990924,
+            -1.4126308676862194,
+            0.35186969090637754,
+            0.33685959706048774,
+            0.34957942031878964,
+            -0.8482160007061399
+          ],
+          "state_high_vs_low_win_logit_shift": -0.8482160007061399
+        },
+        "full": {
+          "cutoff_five_class_sse": 0.003713138124382835,
+          "cutoff_p0_mse": 0.000509646512797971,
+          "cutoff_state_auc": 0.929245283018868,
+          "history_nll_per_observation": 0.5438871642990047,
+          "queries": 192
+        }
+      },
+      "sticky_64_payout": {
+        "64_observed": {
+          "cutoff_five_class_sse": 0.007095802279335511,
+          "cutoff_p0_mse": 0.0016343144724238088,
+          "cutoff_state_auc": 0.8603005704256252,
+          "history_nll_per_observation": 0.7065188324065265,
+          "queries": 192
+        },
+        "fit": {
+          "conditional_1x_by_type_low_high": {
+            "balanced": [
+              0.22132804460148087,
+              0.5431100559242414
+            ],
+            "jackpot": [
+              0.08969605454648062,
+              0.30078277327693387
+            ],
+            "steady": [
+              0.44441884626014,
+              0.7743297029022772
+            ]
+          },
+          "history_win_intercept_by_type": {
+            "balanced": -0.09888473226360622,
+            "jackpot": 0.13748485878826283,
+            "steady": 0.03018598267730337
+          },
+          "optimizer_iterations": 14,
+          "parameter_vector": [
+            0.03018598267730337,
+            -0.09888473226360622,
+            0.13748485878826283,
+            0.5048377296881074,
+            -0.5425372201430877,
+            -1.580462453841425,
+            0.37580963835891645,
+            0.35824303993277884,
+            0.3878295963095785,
+            0.0
+          ],
+          "state_high_vs_low_win_logit_shift": 0.0
+        },
+        "full": {
+          "cutoff_five_class_sse": 0.006923207304833781,
+          "cutoff_p0_mse": 0.0016343144724238086,
+          "cutoff_state_auc": 0.8661693725318121,
+          "history_nll_per_observation": 0.5502539942131621,
+          "queries": 192
+        }
+      }
+    },
+    "sticky": {
+      "static_joint": {
+        "64_observed": {
+          "cutoff_five_class_sse": 0.010813799060881951,
+          "cutoff_p0_mse": 0.001505200732994165,
+          "cutoff_state_auc": 0.7624183006535947,
+          "history_nll_per_observation": 0.7175350642753365,
+          "queries": 192
+        },
+        "fit": {
+          "conditional_1x_by_type_low_high": {
+            "balanced": [
+              0.27612915793332116,
+              0.40377667251079297
+            ],
+            "jackpot": [
+              0.1647779748182084,
+              0.26563923307218024
+            ],
+            "steady": [
+              0.5260287867734651,
+              0.6719892985163124
+            ]
+          },
+          "history_win_intercept_by_type": {
+            "balanced": -0.027352766694876726,
+            "jackpot": 0.06540952228707611,
+            "steady": -0.029243226063307294
+          },
+          "optimizer_iterations": 20,
+          "parameter_vector": [
+            -0.029243226063307294,
+            -0.027352766694876726,
+            0.06540952228707611,
+            0.41070276596401195,
+            -0.6767488174415819,
+            -1.3199799608489236,
+            -0.48941182686935736,
+            -0.5551417562678372,
+            -0.5004837310267648,
+            -0.3610467640101096
+          ],
+          "state_high_vs_low_win_logit_shift": -0.3610467640101096
+        },
+        "full": {
+          "cutoff_five_class_sse": 0.012666039488748495,
+          "cutoff_p0_mse": 0.0017281964078583126,
+          "cutoff_state_auc": 0.6055555555555555,
+          "history_nll_per_observation": 0.5711643935723267,
+          "queries": 192
+        }
+      },
+      "static_payout": {
+        "64_observed": {
+          "cutoff_five_class_sse": 0.011543197436291322,
+          "cutoff_p0_mse": 0.0018956320330672735,
+          "cutoff_state_auc": 0.6936274509803921,
+          "history_nll_per_observation": 0.7222302088952665,
+          "queries": 192
+        },
+        "fit": {
+          "conditional_1x_by_type_low_high": {
+            "balanced": [
+              0.26621220373790033,
+              0.39650429429645245
+            ],
+            "jackpot": [
+              0.16573852748190182,
+              0.26745149969175275
+            ],
+            "steady": [
+              0.5224529587063382,
+              0.6712829260938239
+            ]
+          },
+          "history_win_intercept_by_type": {
+            "balanced": -0.023508849258886196,
+            "jackpot": 0.0476538482587136,
+            "steady": -0.032959238416164625
+          },
+          "optimizer_iterations": 20,
+          "parameter_vector": [
+            -0.032959238416164625,
+            -0.023508849258886196,
+            0.0476538482587136,
+            0.40193277560326446,
+            -0.7169890925429049,
+            -1.3118633844734182,
+            -0.47141102598628826,
+            -0.521087971291892,
+            -0.4966858167355486,
+            0.0
+          ],
+          "state_high_vs_low_win_logit_shift": 0.0
+        },
+        "full": {
+          "cutoff_five_class_sse": 0.013277689004946061,
+          "cutoff_p0_mse": 0.0018956320330672741,
+          "cutoff_state_auc": 0.5449891067538126,
+          "history_nll_per_observation": 0.5723303246338903,
+          "queries": 192
+        }
+      },
+      "sticky_128_joint": {
+        "64_observed": {
+          "cutoff_five_class_sse": 0.007584483606418518,
+          "cutoff_p0_mse": 0.0011852865258341811,
+          "cutoff_state_auc": 0.8435729847494553,
+          "history_nll_per_observation": 0.7107465511833221,
+          "queries": 192
+        },
+        "fit": {
+          "conditional_1x_by_type_low_high": {
+            "balanced": [
+              0.22399708631899778,
+              0.4904672976442828
+            ],
+            "jackpot": [
+              0.13065317318585754,
+              0.32311995192270737
+            ],
+            "steady": [
+              0.45390619424469864,
+              0.7657317042809351
+            ]
+          },
+          "history_win_intercept_by_type": {
+            "balanced": -0.03310723755927333,
+            "jackpot": 0.06663666583945742,
+            "steady": -0.02617985260851621
+          },
+          "optimizer_iterations": 15,
+          "parameter_vector": [
+            -0.02617985260851621,
+            -0.03310723755927333,
+            0.06663666583945742,
+            0.49973231055287054,
+            -0.6403293305680535,
+            -1.3173331648622422,
+            0.31427413000397575,
+            0.1859713881913898,
+            0.14472821899650412,
+            -0.7402123222625866
+          ],
+          "state_high_vs_low_win_logit_shift": -0.7402123222625866
+        },
+        "full": {
+          "cutoff_five_class_sse": 0.007315467926390482,
+          "cutoff_p0_mse": 0.0011510477733878918,
+          "cutoff_state_auc": 0.8368191721132898,
+          "history_nll_per_observation": 0.5644184511183261,
+          "queries": 192
+        }
+      },
+      "sticky_128_payout": {
+        "64_observed": {
+          "cutoff_five_class_sse": 0.009003581227889752,
+          "cutoff_p0_mse": 0.0018956320330672741,
+          "cutoff_state_auc": 0.8075163398692811,
+          "history_nll_per_observation": 0.7205186213728366,
+          "queries": 192
+        },
+        "fit": {
+          "conditional_1x_by_type_low_high": {
+            "balanced": [
+              0.2190114666465977,
+              0.47464873174143885
+            ],
+            "jackpot": [
+              0.12598923158441416,
+              0.3128665125702453
+            ],
+            "steady": [
+              0.4548816046448656,
+              0.7662998043291657
+            ]
+          },
+          "history_win_intercept_by_type": {
+            "balanced": -0.023500239051963388,
+            "jackpot": 0.04765895178940255,
+            "steady": -0.032957306495122976
+          },
+          "optimizer_iterations": 15,
+          "parameter_vector": [
+            -0.032957306495122976,
+            -0.023500239051963388,
+            0.04765895178940255,
+            0.5032842845391102,
+            -0.6864642415394948,
+            -1.3618241063853715,
+            0.3137154238124003,
+            0.15695612139144227,
+            0.13988741337708246,
+            0.0
+          ],
+          "state_high_vs_low_win_logit_shift": 0.0
+        },
+        "full": {
+          "cutoff_five_class_sse": 0.008888458482570848,
+          "cutoff_p0_mse": 0.0018956320330672748,
+          "cutoff_state_auc": 0.8059912854030501,
+          "history_nll_per_observation": 0.5684080088721618,
+          "queries": 192
+        }
+      },
+      "sticky_16_joint": {
+        "64_observed": {
+          "cutoff_five_class_sse": 0.008453931864215293,
+          "cutoff_p0_mse": 0.0013086862688133343,
+          "cutoff_state_auc": 0.8034858387799564,
+          "history_nll_per_observation": 0.716146712617575,
+          "queries": 192
+        },
+        "fit": {
+          "conditional_1x_by_type_low_high": {
+            "balanced": [
+              0.19366065018178633,
+              0.5224577563650356
+            ],
+            "jackpot": [
+              0.10514863559332796,
+              0.3797359979190298
+            ],
+            "steady": [
+              0.4327326255119031,
+              0.7977494959528654
+            ]
+          },
+          "history_win_intercept_by_type": {
+            "balanced": -0.014532801876152104,
+            "jackpot": 0.05498273815685056,
+            "steady": -0.041147649640946374
+          },
+          "optimizer_iterations": 17,
+          "parameter_vector": [
+            -0.041147649640946374,
+            -0.014532801876152104,
+            0.05498273815685056,
+            0.5507884384486305,
+            -0.668252887390119,
+            -1.31597581660073,
+            0.4965228003931549,
+            0.41626576320159653,
+            0.5011472046115723,
+            -0.9023143926371389
+          ],
+          "state_high_vs_low_win_logit_shift": -0.9023143926371389
+        },
+        "full": {
+          "cutoff_five_class_sse": 0.00845254005199092,
+          "cutoff_p0_mse": 0.0013084439937556893,
+          "cutoff_state_auc": 0.8038126361655774,
+          "history_nll_per_observation": 0.5656779887944414,
+          "queries": 192
+        }
+      },
+      "sticky_16_payout": {
+        "64_observed": {
+          "cutoff_five_class_sse": 0.009228416670828027,
+          "cutoff_p0_mse": 0.0018956320330672735,
+          "cutoff_state_auc": 0.786165577342048,
+          "history_nll_per_observation": 0.7211435050720411,
+          "queries": 192
+        },
+        "fit": {
+          "conditional_1x_by_type_low_high": {
+            "balanced": [
+              0.18123438552130094,
+              0.5036018918680134
+            ],
+            "jackpot": [
+              0.08339757247084974,
+              0.3568570117117377
+            ],
+            "steady": [
+              0.4267885624963736,
+              0.7921976508594084
+            ]
+          },
+          "history_win_intercept_by_type": {
+            "balanced": -0.023516709403413678,
+            "jackpot": 0.04765421909527042,
+            "steady": -0.03295250248456858
+          },
+          "optimizer_iterations": 17,
+          "parameter_vector": [
+            -0.03295250248456858,
+            -0.023516709403413678,
+            0.04765421909527042,
+            0.5216288038467546,
+            -0.746799450003275,
+            -1.493043260398244,
+            0.49053483001691933,
+            0.42029758333835704,
+            0.5922338262744298,
+            0.0
+          ],
+          "state_high_vs_low_win_logit_shift": 0.0
+        },
+        "full": {
+          "cutoff_five_class_sse": 0.009228273752540027,
+          "cutoff_p0_mse": 0.0018956320330672741,
+          "cutoff_state_auc": 0.7845315904139433,
+          "history_nll_per_observation": 0.5689536680200533,
+          "queries": 192
+        }
+      },
+      "sticky_64_joint": {
+        "64_observed": {
+          "cutoff_five_class_sse": 0.007073869666581943,
+          "cutoff_p0_mse": 0.0011432665272086892,
+          "cutoff_state_auc": 0.8493464052287582,
+          "history_nll_per_observation": 0.7109366506805888,
+          "queries": 192
+        },
+        "fit": {
+          "conditional_1x_by_type_low_high": {
+            "balanced": [
+              0.21689586832853355,
+              0.5015779784742592
+            ],
+            "jackpot": [
+              0.12473151223053541,
+              0.34670644734270256
+            ],
+            "steady": [
+              0.44727928486385743,
+              0.7716712715871511
+            ]
+          },
+          "history_win_intercept_by_type": {
+            "balanced": -0.03056350523112459,
+            "jackpot": 0.04994681876948626,
+            "steady": -0.024557676438297236
+          },
+          "optimizer_iterations": 14,
+          "parameter_vector": [
+            -0.024557676438297236,
+            -0.03056350523112459,
+            0.04994681876948626,
+            0.5030513116555568,
+            -0.6387681870117096,
+            -1.2909576407192798,
+            0.35728409092271385,
+            0.25476643060397824,
+            0.2736990388826216,
+            -0.7986350097117046
+          ],
+          "state_high_vs_low_win_logit_shift": -0.7986350097117046
+        },
+        "full": {
+          "cutoff_five_class_sse": 0.006985421911842396,
+          "cutoff_p0_mse": 0.0011255630414508213,
+          "cutoff_state_auc": 0.8449891067538126,
+          "history_nll_per_observation": 0.5636156139300306,
+          "queries": 192
+        }
+      },
+      "sticky_64_payout": {
+        "64_observed": {
+          "cutoff_five_class_sse": 0.008240748806366114,
+          "cutoff_p0_mse": 0.0018956320330672741,
+          "cutoff_state_auc": 0.8212418300653594,
+          "history_nll_per_observation": 0.7201883424195064,
+          "queries": 192
+        },
+        "fit": {
+          "conditional_1x_by_type_low_high": {
+            "balanced": [
+              0.20929083337712168,
+              0.4846529573488375
+            ],
+            "jackpot": [
+              0.1132215395010151,
+              0.3298910403108749
+            ],
+            "steady": [
+              0.4471468957637771,
+              0.7724840761227323
+            ]
+          },
+          "history_win_intercept_by_type": {
+            "balanced": -0.02350221448544678,
+            "jackpot": 0.04765790321100386,
+            "steady": -0.03295531639696835
+          },
+          "optimizer_iterations": 15,
+          "parameter_vector": [
+            -0.03295531639696835,
+            -0.02350221448544678,
+            0.04765790321100386,
+            0.5050929993373081,
+            -0.6953064250648502,
+            -1.3834633344925615,
+            0.36088350619918474,
+            0.23728148223285012,
+            0.2997866574562783,
+            0.0
+          ],
+          "state_high_vs_low_win_logit_shift": 0.0
+        },
+        "full": {
+          "cutoff_five_class_sse": 0.008236781396008227,
+          "cutoff_p0_mse": 0.0018956320330672735,
+          "cutoff_state_auc": 0.8258169934640524,
+          "history_nll_per_observation": 0.5677654742051513,
+          "queries": 192
+        }
+      }
+    }
+  }
+}

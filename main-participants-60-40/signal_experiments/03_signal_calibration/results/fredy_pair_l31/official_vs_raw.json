@@ -1,0 +1,75 @@
+{
+  "data": "/Users/andrewvong/Documents/Projects/tamudatathon27/main-participants-60-40/public/validation",
+  "episodes": 96,
+  "queries": 768,
+  "points_max": 60,
+  "bootstrap_draws": 10000,
+  "input_hashes": {
+    "queries.csv": "168b7f6365a4f51084437c0071636b102ca3fb4bf0347b912778c51714fc48f2",
+    "targets.csv": "93b6e978f6818d2456dcb677fddb6ba243e864cef56e33a4bf94bde5ba4b51f3",
+    "conditions.csv": "ebcca7597bbdfa532c5254b92903e66522a710502a6f70689c3de311f75c29b1",
+    "reference.csv": "bb396d9e4d20bf4004374f9ab781f41aaa8b730e61887c1969be534efeb1e6c6"
+  },
+  "models": {
+    "control": {
+      "path": "signal_experiments/03_signal_calibration/results/fredy_pair_l31/raw.csv",
+      "sha256": "5ae33e5fa0e59f358069599d481fcfeeb025ed7abab6a21e0f935192a8d98331",
+      "points": 54.28988837059725,
+      "R": 0.10517817959808665,
+      "delta_R": 0.0,
+      "delta_R_95": [
+        0.0,
+        0.0
+      ],
+      "condition_R": {
+        "stable": 0.12028378996864317,
+        "short_history": 0.12610882134492554,
+        "drift": 0.07963803346088132,
+        "shared_change": 0.09468207361789656
+      },
+      "p0_mse": 0.008842477368747046,
+      "conditional_payout_sse": 0.026721500373549128,
+      "win_mass_weighted_conditional_payout_sse": 0.008381784341210856
+    },
+    "intercept": {
+      "path": "signal_experiments/03_signal_calibration/results/fredy_pair_l31/intercept.csv",
+      "sha256": "702f9df337477a2a6453f6fa34dee6f737e52d95a2edf099e8bff3009d1f5802",
+      "points": 54.097491196647816,
+      "R": 0.10910873448634031,
+      "delta_R": 0.003930554888253668,
+      "delta_R_95": [
+        0.0017311440346101494,
+        0.006243645908452751
+      ],
+      "condition_R": {
+        "stable": 0.1257973973815945,
+        "short_history": 0.12979281953744934,
+        "drift": 0.08318713887879314,
+        "shared_change": 0.09765758214752429
+      },
+      "p0_mse": 0.009438278883645209,
+      "conditional_payout_sse": 0.026721500373549128,
+      "win_mass_weighted_conditional_payout_sse": 0.008381784341210856
+    },
+    "intercept_signal": {
+      "path": "signal_experiments/03_signal_calibration/results/fredy_pair_l31/intercept_signal.csv",
+      "sha256": "40f16532f815555382cc5d00f7d14370a89bd14d242c068983c5ab53230c9aa8",
+      "points": 54.037486273400305,
+      "R": 0.11034032368627618,
+      "delta_R": 0.0051621440881895325,
+      "delta_R_95": [
+        0.001596429194446858,
+        0.008868123942432561
+      ],
+      "condition_R": {
+        "stable": 0.12573677570480726,
+        "short_history": 0.12890448203684796,
+        "drift": 0.08526229974463759,
+        "shared_change": 0.10145773725881192
+      },
+      "p0_mse": 0.009646252200327424,
+      "conditional_payout_sse": 0.026721500373549128,
+      "win_mass_weighted_conditional_payout_sse": 0.008381784341210854
+    }
+  }
+}

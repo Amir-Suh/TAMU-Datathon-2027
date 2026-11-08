@@ -1,0 +1,370 @@
+{
+  "evaluation": "4-fold episode OOF on reused public validation",
+  "feature_windows_in_ticks": [
+    16,
+    40,
+    96,
+    "all"
+  ],
+  "folds": {
+    "0": {
+      "held_episodes": 24,
+      "templates": {
+        "balanced": {
+          "high_state_frequency": 0.5777777777777777,
+          "p_1_given_win_high": 0.49985310846893866,
+          "p_1_given_win_low": 0.21406614714577224,
+          "tail_2_5_20": [
+            0.6956521739130443,
+            0.2608695652173904,
+            0.04347826086956528
+          ]
+        },
+        "jackpot": {
+          "high_state_frequency": 0.5422885572139303,
+          "p_1_given_win_high": 0.33514603190130376,
+          "p_1_given_win_low": 0.12078673011007349,
+          "tail_2_5_20": [
+            0.3684210526315796,
+            0.473684210526315,
+            0.15789473684210545
+          ]
+        },
+        "steady": {
+          "high_state_frequency": 0.517948717948718,
+          "p_1_given_win_high": 0.7539893896361463,
+          "p_1_given_win_low": 0.45512200762828225,
+          "tail_2_5_20": [
+            0.7999999999999999,
+            0.19600000000000017,
+            0.004000000000000001
+          ]
+        }
+      },
+      "training_episodes": 72
+    },
+    "1": {
+      "held_episodes": 24,
+      "templates": {
+        "balanced": {
+          "high_state_frequency": 0.5337423312883436,
+          "p_1_given_win_high": 0.4998531084689388,
+          "p_1_given_win_low": 0.21406614714577224,
+          "tail_2_5_20": [
+            0.6956521739130443,
+            0.2608695652173904,
+            0.04347826086956527
+          ]
+        },
+        "jackpot": {
+          "high_state_frequency": 0.5388349514563107,
+          "p_1_given_win_high": 0.33514603190130376,
+          "p_1_given_win_low": 0.12078673011007349,
+          "tail_2_5_20": [
+            0.36842105263157954,
+            0.47368421052631493,
+            0.15789473684210545
+          ]
+        },
+        "steady": {
+          "high_state_frequency": 0.5072463768115942,
+          "p_1_given_win_high": 0.7539893896361463,
+          "p_1_given_win_low": 0.4551220076282823,
+          "tail_2_5_20": [
+            0.8000000000000003,
+            0.19599999999999992,
+            0.003999999999999999
+          ]
+        }
+      },
+      "training_episodes": 72
+    },
+    "2": {
+      "held_episodes": 24,
+      "templates": {
+        "balanced": {
+          "high_state_frequency": 0.5819209039548022,
+          "p_1_given_win_high": 0.49985310846893877,
+          "p_1_given_win_low": 0.21406614714577224,
+          "tail_2_5_20": [
+            0.6956521739130442,
+            0.26086956521739035,
+            0.043478260869565265
+          ]
+        },
+        "jackpot": {
+          "high_state_frequency": 0.59375,
+          "p_1_given_win_high": 0.3351460319013039,
+          "p_1_given_win_low": 0.12078673011007346,
+          "tail_2_5_20": [
+            0.3684210526315797,
+            0.47368421052631476,
+            0.1578947368421054
+          ]
+        },
+        "steady": {
+          "high_state_frequency": 0.4975845410628019,
+          "p_1_given_win_high": 0.7539893896361463,
+          "p_1_given_win_low": 0.4551220076282822,
+          "tail_2_5_20": [
+            0.8000000000000003,
+            0.19599999999999992,
+            0.003999999999999999
+          ]
+        }
+      },
+      "training_episodes": 72
+    },
+    "3": {
+      "held_episodes": 24,
+      "templates": {
+        "balanced": {
+          "high_state_frequency": 0.5439560439560439,
+          "p_1_given_win_high": 0.4998531084689387,
+          "p_1_given_win_low": 0.2140661471457722,
+          "tail_2_5_20": [
+            0.6956521739130442,
+            0.26086956521739035,
+            0.043478260869565265
+          ]
+        },
+        "jackpot": {
+          "high_state_frequency": 0.5459183673469388,
+          "p_1_given_win_high": 0.3351460319013038,
+          "p_1_given_win_low": 0.12078673011007351,
+          "tail_2_5_20": [
+            0.3684210526315797,
+            0.4736842105263149,
+            0.15789473684210542
+          ]
+        },
+        "steady": {
+          "high_state_frequency": 0.5151515151515151,
+          "p_1_given_win_high": 0.7539893896361461,
+          "p_1_given_win_low": 0.45512200762828225,
+          "tail_2_5_20": [
+            0.7999999999999999,
+            0.19600000000000004,
+            0.004
+          ]
+        }
+      },
+      "training_episodes": 72
+    }
+  },
+  "official_scores": {
+    "constant_mixture": {
+      "by_condition": {
+        "drift": {
+          "episodes": 24,
+          "error": 0.016486063166245953,
+          "loss_ratio": 0.08684466001683222,
+          "queries": 192,
+          "reference_error": 0.18983393064179913
+        },
+        "shared_change": {
+          "episodes": 24,
+          "error": 0.01645685492308609,
+          "loss_ratio": 0.08005761239565283,
+          "queries": 192,
+          "reference_error": 0.20556264957983816
+        },
+        "short_history": {
+          "episodes": 24,
+          "error": 0.019003607530599487,
+          "loss_ratio": 0.10715829686864663,
+          "queries": 192,
+          "reference_error": 0.1773414479878668
+        },
+        "stable": {
+          "episodes": 24,
+          "error": 0.017325187347033973,
+          "loss_ratio": 0.08828084823932507,
+          "queries": 192,
+          "reference_error": 0.19625080289290195
+        }
+      },
+      "contest_version": "temporal-adaptation-v3-60-40",
+      "max_points": 60.0,
+      "mean_loss_ratio": 0.09058535438011418,
+      "round": "main",
+      "season_id": "5fffdc4d0c700bbf61c3f911",
+      "technical_points": 55.016326561714955
+    },
+    "m3": {
+      "by_condition": {
+        "drift": {
+          "episodes": 24,
+          "error": 0.015151988795933338,
+          "loss_ratio": 0.0798170735058101,
+          "queries": 192,
+          "reference_error": 0.18983393064179913
+        },
+        "shared_change": {
+          "episodes": 24,
+          "error": 0.016135284399588744,
+          "loss_ratio": 0.07849326924209539,
+          "queries": 192,
+          "reference_error": 0.20556264957983816
+        },
+        "short_history": {
+          "episodes": 24,
+          "error": 0.01895667078045014,
+          "loss_ratio": 0.1068936280578193,
+          "queries": 192,
+          "reference_error": 0.1773414479878668
+        },
+        "stable": {
+          "episodes": 24,
+          "error": 0.01515911497337078,
+          "loss_ratio": 0.07724358193654585,
+          "queries": 192,
+          "reference_error": 0.19625080289290195
+        }
+      },
+      "contest_version": "temporal-adaptation-v3-60-40",
+      "max_points": 60.0,
+      "mean_loss_ratio": 0.08561188818556766,
+      "round": "main",
+      "season_id": "5fffdc4d0c700bbf61c3f911",
+      "technical_points": 55.268370448927854
+    },
+    "payout_state": {
+      "by_condition": {
+        "drift": {
+          "episodes": 24,
+          "error": 0.014644384241786186,
+          "loss_ratio": 0.0771431334339219,
+          "queries": 192,
+          "reference_error": 0.18983393064179913
+        },
+        "shared_change": {
+          "episodes": 24,
+          "error": 0.01627105080913195,
+          "loss_ratio": 0.07915373168418158,
+          "queries": 192,
+          "reference_error": 0.20556264957983816
+        },
+        "short_history": {
+          "episodes": 24,
+          "error": 0.019595780208411805,
+          "loss_ratio": 0.11049746368233383,
+          "queries": 192,
+          "reference_error": 0.1773414479878668
+        },
+        "stable": {
+          "episodes": 24,
+          "error": 0.014697024670379985,
+          "loss_ratio": 0.07488899129956911,
+          "queries": 192,
+          "reference_error": 0.19625080289290195
+        }
+      },
+      "contest_version": "temporal-adaptation-v3-60-40",
+      "max_points": 60.0,
+      "mean_loss_ratio": 0.0854208300250016,
+      "round": "main",
+      "season_id": "5fffdc4d0c700bbf61c3f911",
+      "technical_points": 55.27809890898994
+    },
+    "weighted_secondary": {
+      "by_condition": {
+        "drift": {
+          "episodes": 24,
+          "error": 0.014760984138539412,
+          "loss_ratio": 0.0777573539600366,
+          "queries": 192,
+          "reference_error": 0.18983393064179913
+        },
+        "shared_change": {
+          "episodes": 24,
+          "error": 0.015745934741827547,
+          "loss_ratio": 0.07659920113897932,
+          "queries": 192,
+          "reference_error": 0.20556264957983816
+        },
+        "short_history": {
+          "episodes": 24,
+          "error": 0.019143822798312313,
+          "loss_ratio": 0.10794894828885168,
+          "queries": 192,
+          "reference_error": 0.1773414479878668
+        },
+        "stable": {
+          "episodes": 24,
+          "error": 0.01581474112058975,
+          "loss_ratio": 0.08058433844584155,
+          "queries": 192,
+          "reference_error": 0.19625080289290195
+        }
+      },
+      "contest_version": "temporal-adaptation-v3-60-40",
+      "max_points": 60.0,
+      "mean_loss_ratio": 0.08572246045842728,
+      "round": "main",
+      "season_id": "5fffdc4d0c700bbf61c3f911",
+      "technical_points": 55.26274180112849
+    }
+  },
+  "oof_constant_state_brier": 0.2501243354879503,
+  "oof_high_state_auc": 0.731021536571214,
+  "oof_high_state_brier": 0.20845770389544382,
+  "oof_weighted_secondary_state_auc": 0.6959964503907983,
+  "probability_checks": {
+    "constant_mixture": {
+      "p_0_after_official_normalization_equal": true,
+      "p_0_csv_text_copied": true,
+      "queries": 768
+    },
+    "payout_state": {
+      "p_0_after_official_normalization_equal": true,
+      "p_0_csv_text_copied": true,
+      "queries": 768
+    },
+    "weighted_secondary": {
+      "p_0_after_official_normalization_equal": true,
+      "p_0_csv_text_copied": true,
+      "queries": 768
+    }
+  },
+  "pseudo_wins": 8,
+  "ridge_c": 0.1,
+  "secondary_weights": "Frozen M3 p(win)^2, mean-normalized per training fold",
+  "test_forecast": {
+    "p_0_after_official_normalization_equal": true,
+    "p_0_csv_text_copied": true,
+    "queries": 1536,
+    "templates_fitted_on_all_public_validation": {
+      "balanced": {
+        "high_state_frequency": 0.5598290598290598,
+        "p_1_given_win_high": 0.49985310846893877,
+        "p_1_given_win_low": 0.2140661471457722,
+        "tail_2_5_20": [
+          0.6956521739130437,
+          0.26086956521739113,
+          0.04347826086956523
+        ]
+      },
+      "jackpot": {
+        "high_state_frequency": 0.5547169811320755,
+        "p_1_given_win_high": 0.3351460319013038,
+        "p_1_given_win_low": 0.12078673011007353,
+        "tail_2_5_20": [
+          0.3684210526315792,
+          0.47368421052631576,
+          0.1578947368421051
+        ]
+      },
+      "steady": {
+        "high_state_frequency": 0.5092936802973977,
+        "p_1_given_win_high": 0.7539893896361461,
+        "p_1_given_win_low": 0.45512200762828225,
+        "tail_2_5_20": [
+          0.800000000000001,
+          0.19599999999999904,
+          0.003999999999999991
+        ]
+      }
+    }
+  }
+}

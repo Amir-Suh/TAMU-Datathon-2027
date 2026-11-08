@@ -1,0 +1,202 @@
+{
+  "episode_count": 96,
+  "perturbations_in_order": [
+    "future_outcomes_and_signal_at_historical_endpoint",
+    "future_signal_all_historical_ticks",
+    "actual_cutoff_and_future_outcomes",
+    "masked_future_outcomes_and_signal"
+  ],
+  "runs": {
+    "factored_101": {
+      "future_logit_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "parameters": 58353,
+      "seconds_train_and_checks": 8.155510042,
+      "torch_numpy_logit_max_abs": 9.5367431640625e-07,
+      "weighted_training_objective": [
+        1.0951743271271415,
+        1.0447566814136775,
+        1.034843750512634,
+        1.0287273461155704,
+        1.023690970009787,
+        1.0174115292487633,
+        1.0139483787993744,
+        1.0093354964626267
+      ]
+    },
+    "factored_202": {
+      "future_logit_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "parameters": 58353,
+      "seconds_train_and_checks": 7.600497500000001,
+      "torch_numpy_logit_max_abs": 9.5367431640625e-07,
+      "weighted_training_objective": [
+        1.0860962049197043,
+        1.046528429810926,
+        1.0353964576270722,
+        1.0294813435369865,
+        1.024926092351823,
+        1.0196937656458567,
+        1.014232604131025,
+        1.0107860892491294
+      ]
+    },
+    "factored_303": {
+      "future_logit_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "parameters": 58353,
+      "seconds_train_and_checks": 7.487946459,
+      "torch_numpy_logit_max_abs": 1.430511474609375e-06,
+      "weighted_training_objective": [
+        1.0934820430206709,
+        1.0482118526523316,
+        1.0378873160814874,
+        1.0325026907045944,
+        1.0277843613325033,
+        1.0236045261260016,
+        1.0190679886025984,
+        1.0144360315102188
+      ]
+    },
+    "signal_offset_101": {
+      "future_logit_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "parameters": 58353,
+      "seconds_train_and_checks": 7.407766292000002,
+      "torch_numpy_logit_max_abs": 7.152557373046875e-07,
+      "weighted_training_objective": [
+        0.8096689019595165,
+        0.7851519185639043,
+        0.7826816193854507,
+        0.7815569886212202,
+        0.7809361657436292,
+        0.7795482441884136,
+        0.7797294354940302,
+        0.7791674523357559
+      ]
+    },
+    "signal_offset_202": {
+      "future_logit_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "parameters": 58353,
+      "seconds_train_and_checks": 7.432820124999999,
+      "torch_numpy_logit_max_abs": 9.5367431640625e-07,
+      "weighted_training_objective": [
+        0.8007649412739447,
+        0.7832818226871946,
+        0.7816156809074967,
+        0.7803990175957441,
+        0.7792486871363861,
+        0.7783826848851173,
+        0.7771446425128066,
+        0.7771508392032439
+      ]
+    },
+    "signal_offset_303": {
+      "future_logit_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "parameters": 58353,
+      "seconds_train_and_checks": 7.317608499999999,
+      "torch_numpy_logit_max_abs": 9.5367431640625e-07,
+      "weighted_training_objective": [
+        0.8063268429650142,
+        0.7842717777194469,
+        0.7828641668146492,
+        0.782169658611334,
+        0.7810859389308966,
+        0.7797540460188054,
+        0.7789203613791688,
+        0.7782154017791619
+      ]
+    },
+    "signal_offset_mask_101": {
+      "future_logit_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "parameters": 58353,
+      "seconds_train_and_checks": 7.4183445000000034,
+      "torch_numpy_logit_max_abs": 1.1920928955078125e-06,
+      "weighted_training_objective": [
+        0.8096720313135285,
+        0.7851592485626826,
+        0.7826903245836802,
+        0.7815644211684011,
+        0.7809658381959629,
+        0.7795910856188614,
+        0.7798188596879834,
+        0.7792034890637537
+      ]
+    },
+    "signal_offset_mask_202": {
+      "future_logit_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "parameters": 58353,
+      "seconds_train_and_checks": 7.792949958000001,
+      "torch_numpy_logit_max_abs": 9.5367431640625e-07,
+      "weighted_training_objective": [
+        0.8007699059706307,
+        0.7832909753343851,
+        0.7816412901764606,
+        0.7804557436631521,
+        0.7793290672528901,
+        0.7785183506777119,
+        0.7773406094336006,
+        0.7771106993012592
+      ]
+    },
+    "signal_offset_mask_303": {
+      "future_logit_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "parameters": 58353,
+      "seconds_train_and_checks": 7.754672874999997,
+      "torch_numpy_logit_max_abs": 9.5367431640625e-07,
+      "weighted_training_objective": [
+        0.8063316550253712,
+        0.7842823283960123,
+        0.7828795976472099,
+        0.7822046532262443,
+        0.7811327038605062,
+        0.7798406702812246,
+        0.7790307144580212,
+        0.7783731764260887
+      ]
+    }
+  },
+  "same_targets_and_weights_for_all_arms": true,
+  "training_seconds": 68.423933792
+}

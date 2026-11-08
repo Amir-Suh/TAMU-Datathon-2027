@@ -1,0 +1,95 @@
+{
+  "data": "/Users/andrewvong/Documents/Projects/tamudatathon27/main-participants-60-40/public/validation",
+  "episodes": 96,
+  "queries": 768,
+  "points_max": 60,
+  "bootstrap_draws": 10000,
+  "input_hashes": {
+    "queries.csv": "168b7f6365a4f51084437c0071636b102ca3fb4bf0347b912778c51714fc48f2",
+    "targets.csv": "93b6e978f6818d2456dcb677fddb6ba243e864cef56e33a4bf94bde5ba4b51f3",
+    "conditions.csv": "ebcca7597bbdfa532c5254b92903e66522a710502a6f70689c3de311f75c29b1",
+    "reference.csv": "bb396d9e4d20bf4004374f9ab781f41aaa8b730e61887c1969be534efeb1e6c6"
+  },
+  "models": {
+    "control": {
+      "path": "/Users/andrewvong/Documents/Projects/tamudatathon27/main-participants-60-40/m5_m6_repair/results/repaired-m5-m6/m3/validation_predictions.csv",
+      "sha256": "36cbb8ddb8f7cc5d1ee4273a2d7fc50b3d976530c1b0f56dc84f4282dab1bd5c",
+      "points": 55.268370448927854,
+      "R": 0.08561188818556766,
+      "delta_R": 0.0,
+      "delta_R_95": [
+        0.0,
+        0.0
+      ],
+      "condition_R": {
+        "stable": 0.07724358193654585,
+        "short_history": 0.1068936280578193,
+        "drift": 0.0798170735058101,
+        "shared_change": 0.07849326924209539
+      },
+      "p0_mse": 0.004710977573980388,
+      "conditional_payout_sse": 0.02553387751625018,
+      "win_mass_weighted_conditional_payout_sse": 0.01019842803180975
+    },
+    "payout_state": {
+      "path": "signal_experiments/02_payout_state/validation_predictions.csv",
+      "sha256": "e72f51b3470056f6fc54e5a316e09972b1fc340c0b639526350b1c86a51305ee",
+      "points": 55.27809890898994,
+      "R": 0.0854208300250016,
+      "delta_R": -0.0001910581605660544,
+      "delta_R_95": [
+        -0.0021935535801110425,
+        0.0019242501659574348
+      ],
+      "condition_R": {
+        "stable": 0.07488899129956911,
+        "short_history": 0.11049746368233383,
+        "drift": 0.0771431334339219,
+        "shared_change": 0.07915373168418158
+      },
+      "p0_mse": 0.004710977573980388,
+      "conditional_payout_sse": 0.023611251445415076,
+      "win_mass_weighted_conditional_payout_sse": 0.01026013511848166
+    },
+    "constant_mixture": {
+      "path": "signal_experiments/02_payout_state/constant_mixture.csv",
+      "sha256": "13dc7f9ede3cdfc51937bb095158badca0df1a82223b58305c475c843931ee49",
+      "points": 55.016326561714955,
+      "R": 0.09058535438011418,
+      "delta_R": 0.0049734661945465275,
+      "delta_R_95": [
+        0.0013060900199827138,
+        0.008573583977273124
+      ],
+      "condition_R": {
+        "stable": 0.08828084823932507,
+        "short_history": 0.10715829686864663,
+        "drift": 0.08684466001683222,
+        "shared_change": 0.08005761239565283
+      },
+      "p0_mse": 0.004710977573980388,
+      "conditional_payout_sse": 0.028292844868233153,
+      "win_mass_weighted_conditional_payout_sse": 0.011328106815619696
+    },
+    "weighted_secondary": {
+      "path": "signal_experiments/02_payout_state/weighted_secondary.csv",
+      "sha256": "3b19921bdad04b30bf76489c612a6766d535895e2f8dc1afced55fe2a258bfa8",
+      "points": 55.26274180112849,
+      "R": 0.08572246045842728,
+      "delta_R": 0.00011057227285962701,
+      "delta_R_95": [
+        -0.00240025378885957,
+        0.0027956768021996457
+      ],
+      "condition_R": {
+        "stable": 0.08058433844584155,
+        "short_history": 0.10794894828885168,
+        "drift": 0.0777573539600366,
+        "shared_change": 0.07659920113897932
+      },
+      "p0_mse": 0.004710977573980388,
+      "conditional_payout_sse": 0.024766934120405888,
+      "win_mass_weighted_conditional_payout_sse": 0.010345399542367305
+    }
+  }
+}

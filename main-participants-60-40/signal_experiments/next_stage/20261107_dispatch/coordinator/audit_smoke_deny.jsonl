@@ -1,0 +1,13 @@
+{"args": [], "event": "start", "script": "/Users/andrewvong/Documents/Projects/tamudatathon27/main-participants-60-40/signal_experiments/score.py", "stage": "fit-predict", "utc": "2026-11-07T23:42:51.334613+00:00"}
+{"allowed": true, "event": "open", "flags": 16777216, "mode": "r", "path": "signal_experiments/score.py"}
+{"allowed": true, "event": "open", "flags": 16777216, "mode": "r", "path": "slot_forecasting/__init__.py"}
+{"allowed": true, "event": "open", "flags": 16777216, "mode": "r", "path": "slot_forecasting/contest.py"}
+{"allowed": true, "event": "open", "flags": 16777216, "mode": "r", "path": "slot_forecasting/io.py"}
+{"allowed": true, "event": "open", "flags": 16777216, "mode": "r", "path": "slot_forecasting/schema.py"}
+{"allowed": true, "event": "open", "flags": 16777216, "mode": "r", "path": "slot_forecasting/scoring.py"}
+{"allowed": true, "event": "open", "flags": 16777216, "mode": "r", "path": "public/metadata.json"}
+{"allowed": true, "event": "open", "flags": 16777216, "mode": null, "path": "public/metadata.json"}
+{"allowed": true, "event": "open", "flags": 16777216, "mode": "r", "path": "public/validation/queries.csv"}
+{"allowed": true, "event": "open", "flags": 16777216, "mode": null, "path": "public/validation/queries.csv"}
+{"allowed": false, "event": "open", "flags": 16777216, "mode": "r", "path": "public/validation/targets.csv"}
+{"error": "PermissionError", "event": "end", "message": "Protected data read during fit-predict: /Users/andrewvong/Documents/Projects/tamudatathon27/main-participants-60-40/public/validation/targets.csv"}

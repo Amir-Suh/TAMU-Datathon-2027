@@ -1,0 +1,115 @@
+{
+  "data": "/Users/andrewvong/Documents/Projects/tamudatathon27/main-participants-60-40/public/validation",
+  "episodes": 96,
+  "queries": 768,
+  "points_max": 60,
+  "bootstrap_draws": 10000,
+  "input_hashes": {
+    "queries.csv": "168b7f6365a4f51084437c0071636b102ca3fb4bf0347b912778c51714fc48f2",
+    "targets.csv": "93b6e978f6818d2456dcb677fddb6ba243e864cef56e33a4bf94bde5ba4b51f3",
+    "conditions.csv": "ebcca7597bbdfa532c5254b92903e66522a710502a6f70689c3de311f75c29b1",
+    "reference.csv": "bb396d9e4d20bf4004374f9ab781f41aaa8b730e61887c1969be534efeb1e6c6"
+  },
+  "models": {
+    "control": {
+      "path": "signal_experiments/combined/m3_match_split_win_pair_l31_factor_gru_size.csv",
+      "sha256": "ac6fae2e924da0bb5f1b7638480572373a87a192d4891c1315ffc11f714aeea6",
+      "points": 56.34102223545075,
+      "R": 0.0649434039243781,
+      "delta_R": 0.0,
+      "delta_R_95": [
+        0.0,
+        0.0
+      ],
+      "condition_R": {
+        "stable": 0.05107419424809494,
+        "short_history": 0.09293615471880542,
+        "drift": 0.05531415455351391,
+        "shared_change": 0.060449112177098134
+      },
+      "p0_mse": 0.00446809666869068,
+      "conditional_payout_sse": 0.018921580024474416,
+      "win_mass_weighted_conditional_payout_sse": 0.006448433389233892
+    },
+    "E4Drop": {
+      "path": "signal_experiments/next_stage/20261107_dispatch/sparse_filter/attempt_01/validation_released_frozen_payout_drop.csv",
+      "sha256": "bc48bc94acd8741c4e957d10fa3bce35260547a7daf02a920c2db84d6ba6a0dd",
+      "points": 55.86415845834544,
+      "R": 0.07403390037170983,
+      "delta_R": 0.00909049644733173,
+      "delta_R_95": [
+        0.005339180154796182,
+        0.013593791008492145
+      ],
+      "condition_R": {
+        "stable": 0.05998647857311092,
+        "short_history": 0.10708921463232225,
+        "drift": 0.06025717491686397,
+        "shared_change": 0.06880273336454218
+      },
+      "p0_mse": 0.005790808261008536,
+      "conditional_payout_sse": 0.01892158002447442,
+      "win_mass_weighted_conditional_payout_sse": 0.006448433389233892
+    },
+    "E4Forward": {
+      "path": "signal_experiments/next_stage/20261107_dispatch/sparse_filter/attempt_01/validation_released_frozen_payout_forward.csv",
+      "sha256": "a4416be8fcee2d43b406deadd8c8f265c99b84ebd5086484a62fa85cd8614f78",
+      "points": 55.92732986126784,
+      "R": 0.07282075058535316,
+      "delta_R": 0.00787734666097506,
+      "delta_R_95": [
+        0.004457248756545084,
+        0.012029977816217487
+      ],
+      "condition_R": {
+        "stable": 0.059986478573110964,
+        "short_history": 0.10223661548689561,
+        "drift": 0.060257174916863936,
+        "shared_change": 0.06880273336454212
+      },
+      "p0_mse": 0.005621193540052769,
+      "conditional_payout_sse": 0.01892158002447442,
+      "win_mass_weighted_conditional_payout_sse": 0.006448433389233892
+    },
+    "E4Constant": {
+      "path": "signal_experiments/next_stage/20261107_dispatch/sparse_filter/attempt_01/validation_released_frozen_payout_constant.csv",
+      "sha256": "6cad4bf0e452aa097c0570ac074a00f6d230d6d8721d102991aa2fc4a0ebbcbe",
+      "points": 56.26789698450785,
+      "R": 0.06632739475796823,
+      "delta_R": 0.001383990833590129,
+      "delta_R_95": [
+        -0.002254444836318705,
+        0.004760007566567411
+      ],
+      "condition_R": {
+        "stable": 0.05525482419929944,
+        "short_history": 0.09128765958012229,
+        "drift": 0.05762895422297858,
+        "shared_change": 0.061138141029472584
+      },
+      "p0_mse": 0.004666186707174776,
+      "conditional_payout_sse": 0.018921580024474416,
+      "win_mass_weighted_conditional_payout_sse": 0.006448433389233892
+    },
+    "E4Gated": {
+      "path": "signal_experiments/next_stage/20261107_dispatch/sparse_filter/attempt_01/validation_released_frozen_payout_gated.csv",
+      "sha256": "c29fecb928b81af98de0a1573f795799478aa7596bfec944ccae1181dee41498",
+      "points": 55.870309413653516,
+      "R": 0.07391565627050697,
+      "delta_R": 0.008972252346128876,
+      "delta_R_95": [
+        0.0036720276550906727,
+        0.014649276137679272
+      ],
+      "condition_R": {
+        "stable": 0.07098357474815722,
+        "short_history": 0.09119797744299515,
+        "drift": 0.06656134926306474,
+        "shared_change": 0.06691972362781079
+      },
+      "p0_mse": 0.0057242642173343196,
+      "conditional_payout_sse": 0.018921580024474416,
+      "win_mass_weighted_conditional_payout_sse": 0.006448433389233892
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "fixture_cutoff": 13,
+  "missing_ticks": [
+    3,
+    7,
+    11
+  ],
+  "max_error_vs_enumeration": {
+    "swap=0,gap_hazard=True,single=False": 2.220446049250313e-16,
+    "swap=0.25,gap_hazard=True,single=False": 5.551115123125783e-17,
+    "swap=0.25,gap_hazard=False,single=False": 1.6653345369377348e-16,
+    "swap=0,gap_hazard=True,single=True": 2.7755575615628914e-16
+  }
+}

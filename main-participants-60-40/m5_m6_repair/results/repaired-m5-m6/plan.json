@@ -1,0 +1,63 @@
+{
+  "experiment": "Repair cutoff-relative features and all learned layers of M5/M6 episode exclusion.",
+  "outer_evaluation_folds": 2,
+  "numerical_threads": 2,
+  "validation_policy": "No validation answers loaded before forecast freeze; single fixed repair comparison.",
+  "main_comparator": "Unchanged M3; M4 diagnostic only.",
+  "outer_caveat": "Two outer folds fit on half of train. These diagnostics do not estimate full-train test score.",
+  "source_sha256": {
+    "models/__init__.py": "db9b9013a43f3ab8758802c8526418de19be3663eac95a6f0d53655c0af60bae",
+    "models/common/__init__.py": "e49796d13deb529d7807662b1c4e1bb9d3f7decedc6592849c5e055c33fe26c2",
+    "models/common/components.py": "d77a90f34655e68b2709c6157bc131992ec3a7b44f78c18c65b00b0d4ce65779",
+    "models/common/crossfit.py": "1de34f668fdd4222dafccd7336aa718967c7cc2156537f33a125b832378e611d",
+    "models/common/data.py": "a508a6d12b3b9e2473a27528188c8f6455cbd658ea901731e86dfa75feea9e0b",
+    "models/common/evaluate.py": "47a51b0c7d95402a1fb92a56bb16fe5cb481725ae0d926829240f8b81944265a",
+    "models/common/selection.py": "86c8384d3d536908c45acd48a74a47bef03ed1cc211f6030dd3903a3ed32bd62",
+    "models/m1_hierarchical_frequency/__init__.py": "ea7938303c031557751d1a6a5f4c2ca3c31b8b27813e5257e13f7efc2b78b924",
+    "models/m1_hierarchical_frequency/model.py": "176fc3d14726960a7109583d1b4b3b3a9c53a993dc21cebc0d15095b0a7908e6",
+    "models/m2_lag_pair/__init__.py": "f351ccb10034d64c830c5b57577bb33cc653c389db39b866288b449942331064",
+    "models/m2_lag_pair/model.py": "2133522b9e478b4d265b1cb5ca597396c2c590d690400d01b71bfd85351a7c07",
+    "models/m3_lag_pair_flip/__init__.py": "dc1c8ac4bbb1aadbb952b808db5f4c23f54cf61240767f0a9e480fc063955365",
+    "models/m3_lag_pair_flip/model.py": "547ab43d704fe7c6c3933f15bdadeeb3ae0c223b452bae6b3cd0ec163e3600a3",
+    "models/m4_lag_pair_flip_shared/__init__.py": "1a9dfa7b31eac75e421d052d6b58e5aa09c679b0ec54b8378524a6d24caa78f8",
+    "models/m4_lag_pair_flip_shared/model.py": "0f426c0b9a57ac7736b95d4b262fc9b08e9dbcbe3365f298455c8f14beebf0ce",
+    "models/m5_boosted_corrector/__init__.py": "6db1d8b6eb618379f57de5db417d2e2ed30eb7a7a15291fcdddf5b2eba32ead1",
+    "models/m5_boosted_corrector/model.py": "9341bc7e4cc1f72b56e0cef42143bc8ff598ae7ed960d9e3d0774d8c290df403",
+    "models/m6_ensemble/__init__.py": "0b0e7c747137ab9e73e126cde727718e96238628c715d1bdec213f6c016bbeb3",
+    "models/m6_ensemble/model.py": "b9b5f9f53b494777a8e18919c81120c82dce969d38e3e24c7ba99c4645afee2b",
+    "models/run.py": "1b6ba35089e58bb605b84920a864de07c60301a1008e098efeed098a169a1c2a",
+    "run_repaired_comparison.py": "9f6ef0a7d6faefc369c5e835db187f7cee852d74963772abc340b0ba34bc4951"
+  },
+  "scorer_sha256": {
+    "contest.py": "411c7586b26cbc579ac32489b5306a4e87942aac58738cdec0e7e8ce7d3cc442",
+    "scoring.py": "477c66c6c5449ca65f77ec4867a9b80934a52c892b045abe32e6471d2c8d4edd",
+    "schema.py": "2a8ab28d29865faf0ee533c17af6b425e12b96be381825f3b23f241479645b22"
+  },
+  "input_sha256": {
+    "metadata.json": "7979323052df471e6b8b2c985cb48faa89e287ac6b0fd7789f24bccd544ce7bf",
+    "train/queries.csv": "96cbf59fe0b340981f3f2958dde3305162215ae911d0559d6f34764e74460846",
+    "train/history.csv": "46a1e783a1b222dc2de33bc72259207e3d013135d1229af9669ffcd454116217",
+    "train/labels.csv": "f6b3a2ca73888b91bb9a38d0ca52f449062ce70534bef9776ad4f53fc713b46a",
+    "validation/queries.csv": "168b7f6365a4f51084437c0071636b102ca3fb4bf0347b912778c51714fc48f2",
+    "validation/history.csv": "4b7ef4789750b7459eb085be3449ea8bd9dfd31441a928ad391a1376a44f8fe4",
+    "test/queries.csv": "3d8065626e161fd3e7b988b735583a23d4c989eb64c8ae90f200b726c02e42b9",
+    "test/history.csv": "7f3695122e0f0bf18fe603a6515d190d9c8578a8c702f11881befb40c636cf9e"
+  },
+  "versions": {
+    "python": "3.9.6",
+    "numpy": "1.26.4",
+    "scipy": "1.13.1",
+    "scikit-learn": "1.6.1",
+    "joblib": "1.5.3"
+  },
+  "command": [
+    "run_repaired_comparison.py",
+    "prepare",
+    "--out",
+    "results/repaired-m5-m6",
+    "--previous",
+    "../adversarial_review/branches/amir/results/2026-11-07_m1_to_m6",
+    "--outer-folds",
+    "2"
+  ]
+}

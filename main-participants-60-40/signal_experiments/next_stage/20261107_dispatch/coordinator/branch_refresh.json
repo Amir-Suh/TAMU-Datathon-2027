@@ -1,0 +1,255 @@
+{
+  "report_updated_central": "2026-11-07T19:22:20.900371-06:00",
+  "remote": "https://github.com/Amir-Suh/TAMU-Datathon-2027.git",
+  "fetch_command": "git fetch --no-tags origin",
+  "branches": {
+    "main": {
+      "before_fetch": "c7da3c55ac14b65448aa9f293601467178d3593e",
+      "tip": "c7da3c55ac14b65448aa9f293601467178d3593e",
+      "new_commits": [],
+      "changed_paths": []
+    },
+    "amir_workspace": {
+      "before_fetch": "bb0357e772fa263c6f293cd0efd19d161b5ce334",
+      "tip": "bb0357e772fa263c6f293cd0efd19d161b5ce334",
+      "new_commits": [],
+      "changed_paths": []
+    },
+    "fredy/bakeoff-gbdt-seq": {
+      "before_fetch": "bbff7379e57984eb623588273ed1c958bb8b4f47",
+      "tip": "562f826bdcb6505fbe7428381a4dca20b7b4e5be",
+      "new_commits": [
+        "562f826bdcb6505fbe7428381a4dca20b7b4e5be feat(eval): held-out-tail and real short_history evaluation tools, synthetic check, size/short designs",
+        "a61ad72c9a7fa6a31f26512a1c39ecdd8252205a feat(transformer): causal conv + ALiBi transformer arm with numpy inference and ensemble export",
+        "674eef75a1f36caaa96c1d229241342da13a5224 feat(package): factored blend that routes win probability and size mix separately",
+        "83b41b1e197c442e66cdefd073f896a32253241b feat(package): ship a seq-GRU ensemble blended with a teammate's m3",
+        "dc0eb97fa9bcca50d8084a6b20de841f205470f2 feat(research): leak-free tail backtest and seq2 short-history study"
+      ],
+      "changed_paths": [
+        "A\tclaude_output/agy/backtest.md",
+        "A\tclaude_output/agy/eval_tools.md",
+        "A\tclaude_output/agy/inputs/tail_analysis.py",
+        "A\tclaude_output/agy/inputs/tail_preds.py",
+        "A\tclaude_output/agy/inputs/tail_weights.py",
+        "A\tclaude_output/agy/short_study.md",
+        "A\tclaude_output/agy/size_diag.md",
+        "A\tclaude_output/agy/size_probe.md",
+        "A\tclaude_output/agy/stress.md",
+        "A\tclaude_output/agy/synth_gen.md",
+        "A\tclaude_output/agy/tfm2_port.md",
+        "A\tclaude_output/agy/tfm_fast.md",
+        "A\tclaude_output/agy/transformer_arm.md",
+        "A\tclaude_output/codex/ADVERSARIAL_SIZE_SHORT.md",
+        "A\tclaude_output/specs/SIZE_SHORT_DESIGNS.md",
+        "M\truns/LOG.md",
+        "A\tsrc/tdx/arms/m3flip/__init__.py",
+        "A\tsrc/tdx/arms/m3flip/amir/NOTICE.md",
+        "A\tsrc/tdx/arms/m3flip/amir/__init__.py",
+        "A\tsrc/tdx/arms/m3flip/amir/common/__init__.py",
+        "A\tsrc/tdx/arms/m3flip/amir/common/components.py",
+        "A\tsrc/tdx/arms/m3flip/amir/common/data.py",
+        "A\tsrc/tdx/arms/m3flip/amir/common/selection.py",
+        "A\tsrc/tdx/arms/m3flip/amir/m3_lag_pair_flip/__init__.py",
+        "A\tsrc/tdx/arms/m3flip/amir/m3_lag_pair_flip/model.py",
+        "A\tsrc/tdx/arms/m3flip/arm.py",
+        "A\tsrc/tdx/arms/seq2/__init__.py",
+        "A\tsrc/tdx/arms/seq2/arm.py",
+        "A\tsrc/tdx/arms/seqens/__init__.py",
+        "A\tsrc/tdx/arms/seqens/arm.py",
+        "A\tsrc/tdx/arms/tfm/__init__.py",
+        "A\tsrc/tdx/arms/tfm/arm.py",
+        "A\tsrc/tdx/arms/tfm2/__init__.py",
+        "A\tsrc/tdx/arms/tfm2/arm.py",
+        "A\tsrc/tdx/arms/tfmens/__init__.py",
+        "A\tsrc/tdx/arms/tfmens/arm.py",
+        "A\tsrc/tdx/backtest.py",
+        "M\tsrc/tdx/package/blend.py",
+        "M\tsrc/tdx/package/build.py",
+        "M\tsrc/tdx/package/predict.py",
+        "A\tsrc/tdx/tools/make_ensemble.py",
+        "A\tsrc/tdx/tools/short_backtest.py",
+        "A\tsrc/tdx/tools/synth_gen.py",
+        "A\tsrc/tdx/tools/tail_eval.py",
+        "M\ttests/package/test_package.py",
+        "A\ttests/seq2/test_seq2.py",
+        "A\ttests/seqens/test_seqens.py",
+        "A\ttests/test_backtest.py",
+        "A\ttests/test_eval_tools.py",
+        "A\ttests/test_synth_gen.py",
+        "A\ttests/tfm/test_tfm.py",
+        "A\ttests/tfm2/test_tfm2.py",
+        "A\ttests/tfmens/test_tfmens.py"
+      ],
+      "first_fetched_tip": "83b41b1e197c442e66cdefd073f896a32253241b",
+      "followup_fetch_command": "git fetch --no-tags origin refs/heads/fredy/bakeoff-gbdt-seq:refs/remotes/origin/fredy/bakeoff-gbdt-seq"
+    }
+  },
+  "replay_scope": "Isolated Fredy tip source with three existing local factored GRU checkpoints. 50/50 probability-space average with freshly refitted vendored M3, chosen for comparison. The branch does not publish the final blend membership, weights, or forecast CSV.",
+  "replay_checks": {
+    "checkpoint_members": [
+      "signal_experiments/01_fredy_replay/checkpoints/gru128_factor_seed_1",
+      "signal_experiments/01_fredy_replay/checkpoints/gru128_factor_seed_2",
+      "signal_experiments/01_fredy_replay/checkpoints/gru128_factor_seed_3"
+    ],
+    "archived_ensemble_max_probability_delta": 2.220446049250313e-16,
+    "archived_m3_max_probability_delta": 3.4416913763379853e-15,
+    "validation_queries": 768,
+    "torch_imported": false,
+    "tail_backtest_pooled_recent": {
+      "unmasked": {
+        "logloss": 1.0214947733326376,
+        "n": 23040,
+        "first": 1.0253278206743446,
+        "mid": 1.0176147935984772,
+        "last": 1.021541705725091
+      },
+      "masked": {
+        "logloss": 1.0214501406442662,
+        "n": 23040,
+        "first": 1.0244043229915745,
+        "mid": 1.0178012368490161,
+        "last": 1.0221448620922085
+      }
+    },
+    "masked_pseudo_cutoff": {
+      "n_obs_min_max_all": [
+        12,
+        64
+      ],
+      "n_obs_min_max_original_short_history": [
+        12,
+        24
+      ],
+      "queries_with_exactly_64_observations": 576
+    }
+  },
+  "main_validation_score": {
+    "data": "/Users/andrewvong/Documents/Projects/tamudatathon27/main-participants-60-40/public/validation",
+    "episodes": 96,
+    "queries": 768,
+    "points_max": 60,
+    "bootstrap_draws": 10000,
+    "input_hashes": {
+      "queries.csv": "168b7f6365a4f51084437c0071636b102ca3fb4bf0347b912778c51714fc48f2",
+      "targets.csv": "93b6e978f6818d2456dcb677fddb6ba243e864cef56e33a4bf94bde5ba4b51f3",
+      "conditions.csv": "ebcca7597bbdfa532c5254b92903e66522a710502a6f70689c3de311f75c29b1",
+      "reference.csv": "bb396d9e4d20bf4004374f9ab781f41aaa8b730e61887c1969be534efeb1e6c6"
+    },
+    "models": {
+      "control": {
+        "path": "signal_experiments/next_stage/20261107_dispatch/coordinator/assembly/validation_W1a_P0.csv",
+        "sha256": "0121a2dcdd3633beca6766f706830995b29f8410dd2b29f8975a7109744e9901",
+        "points": 56.425330658929745,
+        "R": 0.06335220900481398,
+        "delta_R": 0.0,
+        "delta_R_95": [
+          0.0,
+          0.0
+        ],
+        "condition_R": {
+          "stable": 0.04824324225594426,
+          "short_history": 0.09126752275923436,
+          "drift": 0.0550515927969172,
+          "shared_change": 0.05884647820716006
+        },
+        "p0_mse": 0.0043601953218977705,
+        "conditional_payout_sse": 0.017620932547052316,
+        "win_mass_weighted_conditional_payout_sse": 0.006289979635654389
+      },
+      "equal_m3_gru": {
+        "path": "coordinator/fredy_equal_validation.csv",
+        "sha256": "4ed1abe30b866d43ffd3faf73ff1aef162601db4755dcba6ca15da878cbf9bd9",
+        "points": 56.071861030112316,
+        "R": 0.070055441316245,
+        "delta_R": 0.006703232311431023,
+        "delta_R_95": [
+          0.0027092709182799,
+          0.010667785472610795
+        ],
+        "condition_R": {
+          "stable": 0.057568342894399833,
+          "short_history": 0.09576710305954485,
+          "drift": 0.06645009734154918,
+          "shared_change": 0.06043622196948613
+        },
+        "p0_mse": 0.00454406141614107,
+        "conditional_payout_sse": 0.018807187654604637,
+        "win_mass_weighted_conditional_payout_sse": 0.007284857857035489
+      }
+    }
+  },
+  "followup_factored_replay": {
+    "source_commit": "562f826bdcb6505fbe7428381a4dca20b7b4e5be",
+    "checkpoint_scope": "Local archived three-seed factored GRU mean plus frozen M3. The reported 12-GRU ensemble membership and original forecasts are unavailable.",
+    "config": {
+      "kind": "factored",
+      "arms": [
+        "m3",
+        "factored_gru_three"
+      ],
+      "weights": [
+        0.7,
+        0.3
+      ],
+      "size_weights": [
+        0.0,
+        1.0
+      ]
+    },
+    "score": {
+      "data": "/Users/andrewvong/Documents/Projects/tamudatathon27/main-participants-60-40/public/validation",
+      "episodes": 96,
+      "queries": 768,
+      "points_max": 60,
+      "bootstrap_draws": 10000,
+      "input_hashes": {
+        "queries.csv": "168b7f6365a4f51084437c0071636b102ca3fb4bf0347b912778c51714fc48f2",
+        "targets.csv": "93b6e978f6818d2456dcb677fddb6ba243e864cef56e33a4bf94bde5ba4b51f3",
+        "conditions.csv": "ebcca7597bbdfa532c5254b92903e66522a710502a6f70689c3de311f75c29b1",
+        "reference.csv": "bb396d9e4d20bf4004374f9ab781f41aaa8b730e61887c1969be534efeb1e6c6"
+      },
+      "models": {
+        "control": {
+          "path": "signal_experiments/next_stage/20261107_dispatch/coordinator/assembly/validation_W1a_P0.csv",
+          "sha256": "0121a2dcdd3633beca6766f706830995b29f8410dd2b29f8975a7109744e9901",
+          "points": 56.425330658929745,
+          "R": 0.06335220900481398,
+          "delta_R": 0.0,
+          "delta_R_95": [
+            0.0,
+            0.0
+          ],
+          "condition_R": {
+            "stable": 0.04824324225594426,
+            "short_history": 0.09126752275923436,
+            "drift": 0.0550515927969172,
+            "shared_change": 0.05884647820716006
+          },
+          "p0_mse": 0.0043601953218977705,
+          "conditional_payout_sse": 0.017620932547052316,
+          "win_mass_weighted_conditional_payout_sse": 0.006289979635654389
+        },
+        "factored_m3_gru": {
+          "path": "coordinator/fredy_factored_validation.csv",
+          "sha256": "3fbe659d58d53845d979be15ee30ab57ce3588450bdf19ec7130ed9739f294b0",
+          "points": 56.48128476242891,
+          "R": 0.06229878184201162,
+          "delta_R": -0.0010534271628023575,
+          "delta_R_95": [
+            -0.003848322573110375,
+            0.001712491479072002
+          ],
+          "condition_R": {
+            "stable": 0.049884520246232286,
+            "short_history": 0.08962568148064422,
+            "drift": 0.05590785840580744,
+            "shared_change": 0.05377706723536253
+          },
+          "p0_mse": 0.004283744006211639,
+          "conditional_payout_sse": 0.01683183672100445,
+          "win_mass_weighted_conditional_payout_sse": 0.006144692947351094
+        }
+      }
+    }
+  }
+}

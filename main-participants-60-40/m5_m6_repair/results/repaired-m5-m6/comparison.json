@@ -1,0 +1,394 @@
+{
+  "scope": "Single fixed repair experiment on all 96 previously used validation episodes; not a new audit.",
+  "scores": {
+    "m3": {
+      "contest_version": "temporal-adaptation-v3-60-40",
+      "technical_points": 55.268370448927854,
+      "max_points": 60.0,
+      "mean_loss_ratio": 0.08561188818556766,
+      "by_condition": {
+        "stable": {
+          "error": 0.01515911497337078,
+          "reference_error": 0.19625080289290195,
+          "loss_ratio": 0.07724358193654585,
+          "episodes": 24,
+          "queries": 192
+        },
+        "short_history": {
+          "error": 0.01895667078045014,
+          "reference_error": 0.1773414479878668,
+          "loss_ratio": 0.1068936280578193,
+          "episodes": 24,
+          "queries": 192
+        },
+        "drift": {
+          "error": 0.015151988795933338,
+          "reference_error": 0.18983393064179913,
+          "loss_ratio": 0.0798170735058101,
+          "episodes": 24,
+          "queries": 192
+        },
+        "shared_change": {
+          "error": 0.016135284399588744,
+          "reference_error": 0.20556264957983816,
+          "loss_ratio": 0.07849326924209539,
+          "episodes": 24,
+          "queries": 192
+        }
+      }
+    },
+    "m4": {
+      "contest_version": "temporal-adaptation-v3-60-40",
+      "technical_points": 55.28299011428302,
+      "max_points": 60.0,
+      "mean_loss_ratio": 0.08532479657785887,
+      "by_condition": {
+        "stable": {
+          "error": 0.015172875955763615,
+          "reference_error": 0.19625080289290195,
+          "loss_ratio": 0.0773137013051802,
+          "episodes": 24,
+          "queries": 192
+        },
+        "short_history": {
+          "error": 0.018766326780775132,
+          "reference_error": 0.1773414479878668,
+          "loss_ratio": 0.10582030875297167,
+          "episodes": 24,
+          "queries": 192
+        },
+        "drift": {
+          "error": 0.01515216069798895,
+          "reference_error": 0.18983393064179913,
+          "loss_ratio": 0.07981797904495704,
+          "episodes": 24,
+          "queries": 192
+        },
+        "shared_change": {
+          "error": 0.016105257445297703,
+          "reference_error": 0.20556264957983816,
+          "loss_ratio": 0.07834719720832654,
+          "episodes": 24,
+          "queries": 192
+        }
+      }
+    },
+    "m5": {
+      "contest_version": "temporal-adaptation-v3-60-40",
+      "technical_points": 54.84176260658992,
+      "max_points": 60.0,
+      "mean_loss_ratio": 0.09405673975894889,
+      "by_condition": {
+        "stable": {
+          "error": 0.016450053249344846,
+          "reference_error": 0.19625080289290195,
+          "loss_ratio": 0.0838215844565078,
+          "episodes": 24,
+          "queries": 192
+        },
+        "short_history": {
+          "error": 0.02069390685042656,
+          "reference_error": 0.1773414479878668,
+          "loss_ratio": 0.11668962380324299,
+          "episodes": 24,
+          "queries": 192
+        },
+        "drift": {
+          "error": 0.016803050469462632,
+          "reference_error": 0.18983393064179913,
+          "loss_ratio": 0.08851447374373021,
+          "episodes": 24,
+          "queries": 192
+        },
+        "shared_change": {
+          "error": 0.017925325553508065,
+          "reference_error": 0.20556264957983816,
+          "loss_ratio": 0.08720127703231455,
+          "episodes": 24,
+          "queries": 192
+        }
+      }
+    },
+    "m6": {
+      "contest_version": "temporal-adaptation-v3-60-40",
+      "technical_points": 55.28204278308506,
+      "max_points": 60.0,
+      "mean_loss_ratio": 0.08534339505917309,
+      "by_condition": {
+        "stable": {
+          "error": 0.015140846059356354,
+          "reference_error": 0.19625080289290195,
+          "loss_ratio": 0.07715049230967488,
+          "episodes": 24,
+          "queries": 192
+        },
+        "short_history": {
+          "error": 0.018918979126457073,
+          "reference_error": 0.1773414479878668,
+          "loss_ratio": 0.10668109086236544,
+          "episodes": 24,
+          "queries": 192
+        },
+        "drift": {
+          "error": 0.015098222425245679,
+          "reference_error": 0.18983393064179913,
+          "loss_ratio": 0.07953384505183518,
+          "episodes": 24,
+          "queries": 192
+        },
+        "shared_change": {
+          "error": 0.016035562416581415,
+          "reference_error": 0.20556264957983816,
+          "loss_ratio": 0.07800815201281684,
+          "episodes": 24,
+          "queries": 192
+        }
+      }
+    },
+    "previous_m3": {
+      "contest_version": "temporal-adaptation-v3-60-40",
+      "technical_points": 55.26837044892785,
+      "max_points": 60.0,
+      "mean_loss_ratio": 0.08561188818556778,
+      "by_condition": {
+        "stable": {
+          "error": 0.01515911497337078,
+          "reference_error": 0.19625080289290195,
+          "loss_ratio": 0.07724358193654585,
+          "episodes": 24,
+          "queries": 192
+        },
+        "short_history": {
+          "error": 0.018956670780450283,
+          "reference_error": 0.1773414479878668,
+          "loss_ratio": 0.1068936280578201,
+          "episodes": 24,
+          "queries": 192
+        },
+        "drift": {
+          "error": 0.015151988795933267,
+          "reference_error": 0.18983393064179913,
+          "loss_ratio": 0.07981707350580973,
+          "episodes": 24,
+          "queries": 192
+        },
+        "shared_change": {
+          "error": 0.016135284399588754,
+          "reference_error": 0.20556264957983816,
+          "loss_ratio": 0.07849326924209545,
+          "episodes": 24,
+          "queries": 192
+        }
+      }
+    },
+    "previous_m5": {
+      "contest_version": "temporal-adaptation-v3-60-40",
+      "technical_points": 54.98796893171599,
+      "max_points": 60.0,
+      "mean_loss_ratio": 0.09114777587999184,
+      "by_condition": {
+        "stable": {
+          "error": 0.015444299993302442,
+          "reference_error": 0.19625080289290195,
+          "loss_ratio": 0.07869674806747522,
+          "episodes": 24,
+          "queries": 192
+        },
+        "short_history": {
+          "error": 0.019797858608689448,
+          "reference_error": 0.1773414479878668,
+          "loss_ratio": 0.11163695139132934,
+          "episodes": 24,
+          "queries": 192
+        },
+        "drift": {
+          "error": 0.016881592022383027,
+          "reference_error": 0.18983393064179913,
+          "loss_ratio": 0.08892821196563216,
+          "episodes": 24,
+          "queries": 192
+        },
+        "shared_change": {
+          "error": 0.01754049481366426,
+          "reference_error": 0.20556264957983816,
+          "loss_ratio": 0.08532919209553064,
+          "episodes": 24,
+          "queries": 192
+        }
+      }
+    },
+    "previous_m6": {
+      "contest_version": "temporal-adaptation-v3-60-40",
+      "technical_points": 55.29658220146892,
+      "max_points": 60.0,
+      "mean_loss_ratio": 0.08505802006703644,
+      "by_condition": {
+        "stable": {
+          "error": 0.015014494013559504,
+          "reference_error": 0.19625080289290195,
+          "loss_ratio": 0.0765066628631997,
+          "episodes": 24,
+          "queries": 192
+        },
+        "short_history": {
+          "error": 0.018752110873386848,
+          "reference_error": 0.1773414479878668,
+          "loss_ratio": 0.10574014752980823,
+          "episodes": 24,
+          "queries": 192
+        },
+        "drift": {
+          "error": 0.015160210181142731,
+          "reference_error": 0.18983393064179913,
+          "loss_ratio": 0.0798603818078697,
+          "episodes": 24,
+          "queries": 192
+        },
+        "shared_change": {
+          "error": 0.016059558989235927,
+          "reference_error": 0.20556264957983816,
+          "loss_ratio": 0.07812488806726817,
+          "episodes": 24,
+          "queries": 192
+        }
+      }
+    }
+  },
+  "paired_comparisons": {
+    "m4_minus_m3": {
+      "delta_R": -0.0002870916077088033,
+      "fixed_forecast_episode_bootstrap_95pct": [
+        -0.0005662737967370217,
+        -6.84044737918646e-05
+      ],
+      "condition_delta_R": {
+        "stable": 7.011936863435625e-05,
+        "short_history": -0.0010733193048476353,
+        "drift": 9.055391469241651e-07,
+        "shared_change": -0.0001460720337688585
+      },
+      "episodes_better": 41,
+      "episodes_worse": 33,
+      "caveat": "Fixed forecasts on already used public validation; not a fresh audit or selection-adjusted interval."
+    },
+    "m5_minus_m3": {
+      "delta_R": 0.008444851573381224,
+      "fixed_forecast_episode_bootstrap_95pct": [
+        0.003678774696022762,
+        0.013915538288140294
+      ],
+      "condition_delta_R": {
+        "stable": 0.006578002519961954,
+        "short_history": 0.009795995745423686,
+        "drift": 0.0086974002379201,
+        "shared_change": 0.008708007790219161
+      },
+      "episodes_better": 38,
+      "episodes_worse": 58,
+      "caveat": "Fixed forecasts on already used public validation; not a fresh audit or selection-adjusted interval."
+    },
+    "m6_minus_m3": {
+      "delta_R": -0.0002684931263945676,
+      "fixed_forecast_episode_bootstrap_95pct": [
+        -0.0007959207114122004,
+        0.0002920744296554128
+      ],
+      "condition_delta_R": {
+        "stable": -9.308962687094845e-05,
+        "short_history": -0.0002125371954538544,
+        "drift": -0.0002832284539749269,
+        "shared_change": -0.00048511722927854057
+      },
+      "episodes_better": 53,
+      "episodes_worse": 43,
+      "caveat": "Fixed forecasts on already used public validation; not a fresh audit or selection-adjusted interval."
+    },
+    "previous_m3_minus_m3": {
+      "delta_R": 1.1607096448418427e-16,
+      "fixed_forecast_episode_bootstrap_95pct": [
+        -1.3264071128098492e-16,
+        4.210475811230698e-16
+      ],
+      "condition_delta_R": {
+        "stable": 4.211375284357502e-18,
+        "short_history": 8.035015613933689e-16,
+        "drift": -3.8919197994934247e-16,
+        "shared_change": 4.576290120835317e-17
+      },
+      "episodes_better": 0,
+      "episodes_worse": 0,
+      "caveat": "Fixed forecasts on already used public validation; not a fresh audit or selection-adjusted interval."
+    },
+    "previous_m5_minus_m3": {
+      "delta_R": 0.005535887694424181,
+      "fixed_forecast_episode_bootstrap_95pct": [
+        0.0012560773398914388,
+        0.010019671443548706
+      ],
+      "condition_delta_R": {
+        "stable": 0.0014531661309293824,
+        "short_history": 0.00474332333351005,
+        "drift": 0.009111138459822045,
+        "shared_change": 0.006835922853435246
+      },
+      "episodes_better": 41,
+      "episodes_worse": 55,
+      "caveat": "Fixed forecasts on already used public validation; not a fresh audit or selection-adjusted interval."
+    },
+    "previous_m6_minus_m3": {
+      "delta_R": -0.0005538681185312173,
+      "fixed_forecast_episode_bootstrap_95pct": [
+        -0.0012836924932056995,
+        0.00016094820059681228
+      ],
+      "condition_delta_R": {
+        "stable": -0.0007369190733461523,
+        "short_history": -0.0011534805280110688,
+        "drift": 4.330830205957616e-05,
+        "shared_change": -0.0003683811748272241
+      },
+      "episodes_better": 57,
+      "episodes_worse": 39,
+      "caveat": "Fixed forecasts on already used public validation; not a fresh audit or selection-adjusted interval."
+    },
+    "m5_minus_previous_m5": {
+      "delta_R": 0.002908963878957044,
+      "fixed_forecast_episode_bootstrap_95pct": [
+        -0.001463506080290515,
+        0.007544275225990854
+      ],
+      "condition_delta_R": {
+        "stable": 0.005124836389032572,
+        "short_history": 0.005052672411913635,
+        "drift": -0.0004137382219019472,
+        "shared_change": 0.0018720849367839154
+      },
+      "episodes_better": 44,
+      "episodes_worse": 52,
+      "caveat": "Fixed forecasts on already used public validation; not a fresh audit or selection-adjusted interval."
+    },
+    "m6_minus_previous_m6": {
+      "delta_R": 0.0002853749921366496,
+      "fixed_forecast_episode_bootstrap_95pct": [
+        -0.00029799345636310803,
+        0.0008984128581803242
+      ],
+      "condition_delta_R": {
+        "stable": 0.0006438294464752038,
+        "short_history": 0.0009409433325572144,
+        "drift": -0.0003265367560345031,
+        "shared_change": -0.00011673605445131653
+      },
+      "episodes_better": 46,
+      "episodes_worse": 50,
+      "caveat": "Fixed forecasts on already used public validation; not a fresh audit or selection-adjusted interval."
+    }
+  },
+  "freeze_sha256": "a9eb3738ff1537254a6277687b28805a40790041f2807f51654d705299083e04",
+  "validation_answer_sha256": {
+    "targets.csv": "93b6e978f6818d2456dcb677fddb6ba243e864cef56e33a4bf94bde5ba4b51f3",
+    "reference.csv": "bb396d9e4d20bf4004374f9ab781f41aaa8b730e61887c1969be534efeb1e6c6",
+    "conditions.csv": "ebcca7597bbdfa532c5254b92903e66522a710502a6f70689c3de311f75c29b1"
+  },
+  "test_csvs": "All four forecasts validated for exact test query coverage and probability constraints in prepare."
+}

@@ -1,0 +1,17 @@
+{
+  "checkpoint": "amazon/chronos-t5-tiny",
+  "revision": "29d808298f1a62493e7b9a5e08529d0d930fa189",
+  "checkpoint_sha256": "eed458758bd8165d80f496a90bcd2cfed9f1bf7d7b08677acd64e0f7d72bdcf2",
+  "torch": "2.8.0",
+  "sample_count": 128,
+  "seed": 6711,
+  "sample_bin_boundaries": [
+    0.5,
+    1.5,
+    3.5,
+    12.5
+  ],
+  "batch": 16,
+  "elapsed_seconds": 31.910301083999997,
+  "inference": "Offline CPU; missing ticks passed as NaN; evaluation only."
+}

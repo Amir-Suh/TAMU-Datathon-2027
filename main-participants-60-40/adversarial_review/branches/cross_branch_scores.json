@@ -1,0 +1,1098 @@
+{
+  "caution": "All Amir models were already evaluated on all 96 validation episodes. Reusing old tuning/audit partition is descriptive, NOT a fresh independent audit. Bootstrap holds saved forecasts fixed and is not selection-adjusted.",
+  "data_files_identical": {
+    "metadata.json": {
+      "byte_identical": false,
+      "content_identical": true
+    },
+    "test/history.csv": {
+      "byte_identical": true,
+      "content_identical": true
+    },
+    "test/queries.csv": {
+      "byte_identical": true,
+      "content_identical": true
+    },
+    "test/sample_submission.csv": {
+      "byte_identical": true,
+      "content_identical": true
+    },
+    "train/labels.csv": {
+      "byte_identical": true,
+      "content_identical": true
+    },
+    "train/history.csv": {
+      "byte_identical": true,
+      "content_identical": true
+    },
+    "train/conditions.csv": {
+      "byte_identical": true,
+      "content_identical": true
+    },
+    "train/queries.csv": {
+      "byte_identical": true,
+      "content_identical": true
+    },
+    "train/sample_submission.csv": {
+      "byte_identical": true,
+      "content_identical": true
+    },
+    "validation/labels.csv": {
+      "byte_identical": true,
+      "content_identical": true
+    },
+    "validation/history.csv": {
+      "byte_identical": true,
+      "content_identical": true
+    },
+    "validation/conditions.csv": {
+      "byte_identical": true,
+      "content_identical": true
+    },
+    "validation/queries.csv": {
+      "byte_identical": true,
+      "content_identical": true
+    },
+    "validation/reference.csv": {
+      "byte_identical": true,
+      "content_identical": true
+    },
+    "validation/targets.csv": {
+      "byte_identical": true,
+      "content_identical": true
+    },
+    "validation/sample_submission.csv": {
+      "byte_identical": true,
+      "content_identical": true
+    }
+  },
+  "results": {
+    "2026-11-07_m1_m2/baseline_pooled": {
+      "source": "amir/results/2026-11-07_m1_m2/baseline_pooled/validation_predictions.csv",
+      "scores": {
+        "full_validation": {
+          "points": 30.0,
+          "R": 1.0,
+          "condition_R": {
+            "stable": 1.0,
+            "short_history": 1.0,
+            "drift": 1.0,
+            "shared_change": 1.0
+          },
+          "episodes": 96
+        },
+        "previous_tuning_half": {
+          "points": 30.0,
+          "R": 1.0,
+          "condition_R": {
+            "stable": 1.0,
+            "short_history": 1.0,
+            "drift": 1.0,
+            "shared_change": 1.0
+          },
+          "episodes": 48
+        },
+        "previous_audit_half": {
+          "points": 30.0,
+          "R": 1.0,
+          "condition_R": {
+            "stable": 1.0,
+            "short_history": 1.0,
+            "drift": 1.0,
+            "shared_change": 1.0
+          },
+          "episodes": 48
+        }
+      },
+      "p0_mse": 0.13013207416984343,
+      "class_mse": [
+        0.13013207416984346,
+        0.03417826438695444,
+        0.02058108638728943,
+        0.006770442977813013,
+        0.0005853398537011808
+      ]
+    },
+    "2026-11-07_m1_m2/baseline_pooled_recent": {
+      "source": "amir/results/2026-11-07_m1_m2/baseline_pooled_recent/validation_predictions.csv",
+      "scores": {
+        "full_validation": {
+          "points": 30.82585360572079,
+          "R": 0.9464181192654776,
+          "condition_R": {
+            "stable": 0.9582270753051098,
+            "short_history": 1.0005611446816898,
+            "drift": 0.9464054530526953,
+            "shared_change": 0.8804788040224154
+          },
+          "episodes": 96
+        },
+        "previous_tuning_half": {
+          "points": 31.059305284853483,
+          "R": 0.9317882177248781,
+          "condition_R": {
+            "stable": 0.9473358237984185,
+            "short_history": 0.9808689063401529,
+            "drift": 0.9161847473813733,
+            "shared_change": 0.8827633933795674
+          },
+          "episodes": 48
+        },
+        "previous_audit_half": {
+          "points": 30.564507777391846,
+          "R": 0.9630612224150129,
+          "condition_R": {
+            "stable": 0.9704530425858676,
+            "short_history": 1.0229825848964353,
+            "drift": 0.980749740745793,
+            "shared_change": 0.8780595214319556
+          },
+          "episodes": 48
+        }
+      },
+      "p0_mse": 0.12206800577269032,
+      "class_mse": [
+        0.12206800577269038,
+        0.03303603380085297,
+        0.01989776329124805,
+        0.006033189056253618,
+        0.0005018125959935203
+      ]
+    },
+    "2026-11-07_m1_m2/m1_hierarchical_frequency": {
+      "source": "amir/results/2026-11-07_m1_m2/m1_hierarchical_frequency/validation_predictions.csv",
+      "scores": {
+        "full_validation": {
+          "points": 31.09180700710742,
+          "R": 0.9297688290128753,
+          "condition_R": {
+            "stable": 0.9616874869561366,
+            "short_history": 0.9793408286480804,
+            "drift": 0.9332957539796394,
+            "shared_change": 0.8447512464676447
+          },
+          "episodes": 96
+        },
+        "previous_tuning_half": {
+          "points": 31.322742178684017,
+          "R": 0.9155410997454636,
+          "condition_R": {
+            "stable": 0.9533520828510159,
+            "short_history": 0.9534278275149636,
+            "drift": 0.8925985683112,
+            "shared_change": 0.8627859203046747
+          },
+          "episodes": 48
+        },
+        "previous_audit_half": {
+          "points": 30.82816435251928,
+          "R": 0.94627222412277,
+          "condition_R": {
+            "stable": 0.9710443894019662,
+            "short_history": 1.0088451844056119,
+            "drift": 0.9795460258329094,
+            "shared_change": 0.8256532968505926
+          },
+          "episodes": 48
+        }
+      },
+      "p0_mse": 0.12025604103551847,
+      "class_mse": [
+        0.12025604103551844,
+        0.032751417510878796,
+        0.01927193491987802,
+        0.005594721395353963,
+        0.0004334271289465708
+      ]
+    },
+    "2026-11-07_m1_m2/m2_lag_pair": {
+      "source": "amir/results/2026-11-07_m1_m2/m2_lag_pair/validation_predictions.csv",
+      "scores": {
+        "full_validation": {
+          "points": 52.59750904940965,
+          "R": 0.14073843199754021,
+          "condition_R": {
+            "stable": 0.08171195859547309,
+            "short_history": 0.11917046056532778,
+            "drift": 0.21127465635692003,
+            "shared_change": 0.15079665247244
+          },
+          "episodes": 96
+        },
+        "previous_tuning_half": {
+          "points": 52.663659475289,
+          "R": 0.13930555904785502,
+          "condition_R": {
+            "stable": 0.08596740473823196,
+            "short_history": 0.1165600338832911,
+            "drift": 0.2177450056214069,
+            "shared_change": 0.13694979194849005
+          },
+          "episodes": 48
+        },
+        "previous_audit_half": {
+          "points": 52.53412577702676,
+          "R": 0.1421147513648753,
+          "condition_R": {
+            "stable": 0.07693501030129077,
+            "short_history": 0.1221426735139597,
+            "drift": 0.20392143505788057,
+            "shared_change": 0.16545988658637015
+          },
+          "episodes": 48
+        }
+      },
+      "p0_mse": 0.01248668742142719,
+      "class_mse": [
+        0.012486687421427186,
+        0.007279461333912214,
+        0.00559855925478123,
+        0.0015828309466833217,
+        0.00012125039459196162
+      ]
+    },
+    "2026-11-07_m1_to_m6/baseline_pooled": {
+      "source": "amir/results/2026-11-07_m1_to_m6/baseline_pooled/validation_predictions.csv",
+      "scores": {
+        "full_validation": {
+          "points": 30.0,
+          "R": 1.0,
+          "condition_R": {
+            "stable": 1.0,
+            "short_history": 1.0,
+            "drift": 1.0,
+            "shared_change": 1.0
+          },
+          "episodes": 96
+        },
+        "previous_tuning_half": {
+          "points": 30.0,
+          "R": 1.0,
+          "condition_R": {
+            "stable": 1.0,
+            "short_history": 1.0,
+            "drift": 1.0,
+            "shared_change": 1.0
+          },
+          "episodes": 48
+        },
+        "previous_audit_half": {
+          "points": 30.0,
+          "R": 1.0,
+          "condition_R": {
+            "stable": 1.0,
+            "short_history": 1.0,
+            "drift": 1.0,
+            "shared_change": 1.0
+          },
+          "episodes": 48
+        }
+      },
+      "p0_mse": 0.13013207416984343,
+      "class_mse": [
+        0.13013207416984346,
+        0.03417826438695444,
+        0.02058108638728943,
+        0.006770442977813013,
+        0.0005853398537011808
+      ]
+    },
+    "2026-11-07_m1_to_m6/baseline_pooled_recent": {
+      "source": "amir/results/2026-11-07_m1_to_m6/baseline_pooled_recent/validation_predictions.csv",
+      "scores": {
+        "full_validation": {
+          "points": 30.82585360572079,
+          "R": 0.9464181192654776,
+          "condition_R": {
+            "stable": 0.9582270753051098,
+            "short_history": 1.0005611446816898,
+            "drift": 0.9464054530526953,
+            "shared_change": 0.8804788040224154
+          },
+          "episodes": 96
+        },
+        "previous_tuning_half": {
+          "points": 31.059305284853483,
+          "R": 0.9317882177248781,
+          "condition_R": {
+            "stable": 0.9473358237984185,
+            "short_history": 0.9808689063401529,
+            "drift": 0.9161847473813733,
+            "shared_change": 0.8827633933795674
+          },
+          "episodes": 48
+        },
+        "previous_audit_half": {
+          "points": 30.564507777391846,
+          "R": 0.9630612224150129,
+          "condition_R": {
+            "stable": 0.9704530425858676,
+            "short_history": 1.0229825848964353,
+            "drift": 0.980749740745793,
+            "shared_change": 0.8780595214319556
+          },
+          "episodes": 48
+        }
+      },
+      "p0_mse": 0.12206800577269032,
+      "class_mse": [
+        0.12206800577269038,
+        0.03303603380085297,
+        0.01989776329124805,
+        0.006033189056253618,
+        0.0005018125959935203
+      ]
+    },
+    "2026-11-07_m1_to_m6/m1_hierarchical_frequency": {
+      "source": "amir/results/2026-11-07_m1_to_m6/m1_hierarchical_frequency/validation_predictions.csv",
+      "scores": {
+        "full_validation": {
+          "points": 31.09180700710742,
+          "R": 0.9297688290128753,
+          "condition_R": {
+            "stable": 0.9616874869561366,
+            "short_history": 0.9793408286480804,
+            "drift": 0.9332957539796394,
+            "shared_change": 0.8447512464676447
+          },
+          "episodes": 96
+        },
+        "previous_tuning_half": {
+          "points": 31.322742178684017,
+          "R": 0.9155410997454636,
+          "condition_R": {
+            "stable": 0.9533520828510159,
+            "short_history": 0.9534278275149636,
+            "drift": 0.8925985683112,
+            "shared_change": 0.8627859203046747
+          },
+          "episodes": 48
+        },
+        "previous_audit_half": {
+          "points": 30.82816435251928,
+          "R": 0.94627222412277,
+          "condition_R": {
+            "stable": 0.9710443894019662,
+            "short_history": 1.0088451844056119,
+            "drift": 0.9795460258329094,
+            "shared_change": 0.8256532968505926
+          },
+          "episodes": 48
+        }
+      },
+      "p0_mse": 0.12025604103551847,
+      "class_mse": [
+        0.12025604103551844,
+        0.032751417510878796,
+        0.01927193491987802,
+        0.005594721395353963,
+        0.0004334271289465708
+      ]
+    },
+    "2026-11-07_m1_to_m6/m2_lag_pair": {
+      "source": "amir/results/2026-11-07_m1_to_m6/m2_lag_pair/validation_predictions.csv",
+      "scores": {
+        "full_validation": {
+          "points": 52.59750904940965,
+          "R": 0.14073843199754021,
+          "condition_R": {
+            "stable": 0.08171195859547309,
+            "short_history": 0.11917046056532778,
+            "drift": 0.21127465635692003,
+            "shared_change": 0.15079665247244
+          },
+          "episodes": 96
+        },
+        "previous_tuning_half": {
+          "points": 52.663659475289,
+          "R": 0.13930555904785502,
+          "condition_R": {
+            "stable": 0.08596740473823196,
+            "short_history": 0.1165600338832911,
+            "drift": 0.2177450056214069,
+            "shared_change": 0.13694979194849005
+          },
+          "episodes": 48
+        },
+        "previous_audit_half": {
+          "points": 52.53412577702676,
+          "R": 0.1421147513648753,
+          "condition_R": {
+            "stable": 0.07693501030129077,
+            "short_history": 0.1221426735139597,
+            "drift": 0.20392143505788057,
+            "shared_change": 0.16545988658637015
+          },
+          "episodes": 48
+        }
+      },
+      "p0_mse": 0.01248668742142719,
+      "class_mse": [
+        0.012486687421427186,
+        0.007279461333912214,
+        0.00559855925478123,
+        0.0015828309466833217,
+        0.00012125039459196162
+      ]
+    },
+    "2026-11-07_m1_to_m6/m3_lag_pair_flip": {
+      "source": "amir/results/2026-11-07_m1_to_m6/m3_lag_pair_flip/validation_predictions.csv",
+      "scores": {
+        "full_validation": {
+          "points": 55.26837044892785,
+          "R": 0.08561188818556778,
+          "condition_R": {
+            "stable": 0.07724358193654586,
+            "short_history": 0.1068936280578201,
+            "drift": 0.07981707350580972,
+            "shared_change": 0.07849326924209545
+          },
+          "episodes": 96
+        },
+        "previous_tuning_half": {
+          "points": 55.409835489943895,
+          "R": 0.08284024793557007,
+          "condition_R": {
+            "stable": 0.07991189371723767,
+            "short_history": 0.11010636579155499,
+            "drift": 0.07870199372345077,
+            "shared_change": 0.06264073851003686
+          },
+          "episodes": 48
+        },
+        "previous_audit_half": {
+          "points": 55.12364361753285,
+          "R": 0.088462156389752,
+          "condition_R": {
+            "stable": 0.07424827028613012,
+            "short_history": 0.10323562810000673,
+            "drift": 0.08108430469698716,
+            "shared_change": 0.09528042247588397
+          },
+          "episodes": 48
+        }
+      },
+      "p0_mse": 0.004710977573980409,
+      "class_mse": [
+        0.004710977573980406,
+        0.005396027832830196,
+        0.004900347314587225,
+        0.0012472677483913329,
+        9.614426754660417e-05
+      ]
+    },
+    "2026-11-07_m1_to_m6/m4_lag_pair_flip_shared": {
+      "source": "amir/results/2026-11-07_m1_to_m6/m4_lag_pair_flip_shared/validation_predictions.csv",
+      "scores": {
+        "full_validation": {
+          "points": 55.28299011428302,
+          "R": 0.08532479657785899,
+          "condition_R": {
+            "stable": 0.07731370130518016,
+            "short_history": 0.10582030875297228,
+            "drift": 0.07981797904495666,
+            "shared_change": 0.07834719720832684
+          },
+          "episodes": 96
+        },
+        "previous_tuning_half": {
+          "points": 55.422751502800516,
+          "R": 0.08258789708353262,
+          "condition_R": {
+            "stable": 0.07994694938040299,
+            "short_history": 0.10911703489521583,
+            "drift": 0.07870363296724675,
+            "shared_change": 0.06258397109126493
+          },
+          "episodes": 48
+        },
+        "previous_audit_half": {
+          "points": 55.140108183807826,
+          "R": 0.08813714692020318,
+          "condition_R": {
+            "stable": 0.07435775039448682,
+            "short_history": 0.10206668020040764,
+            "drift": 0.08108437641829333,
+            "shared_change": 0.09503978066762493
+          },
+          "episodes": 48
+        }
+      },
+      "p0_mse": 0.004672667770414485,
+      "class_mse": [
+        0.004672667770414487,
+        0.005389318234226368,
+        0.004897462716897567,
+        0.001243653653611326,
+        9.605284480663065e-05
+      ]
+    },
+    "2026-11-07_m1_to_m6/m5_boosted_corrector": {
+      "source": "amir/results/2026-11-07_m1_to_m6/m5_boosted_corrector/validation_predictions.csv",
+      "scores": {
+        "full_validation": {
+          "points": 54.98796893171599,
+          "R": 0.09114777587999184,
+          "condition_R": {
+            "stable": 0.07869674806747526,
+            "short_history": 0.11163695139132934,
+            "drift": 0.08892821196563214,
+            "shared_change": 0.08532919209553064
+          },
+          "episodes": 96
+        },
+        "previous_tuning_half": {
+          "points": 55.00592154470783,
+          "R": 0.09079165142671172,
+          "condition_R": {
+            "stable": 0.0835572784128146,
+            "short_history": 0.12075915178052213,
+            "drift": 0.09117948110968381,
+            "shared_change": 0.06767069440382636
+          },
+          "episodes": 48
+        },
+        "previous_audit_half": {
+          "points": 54.984208664659185,
+          "R": 0.09122239743289588,
+          "condition_R": {
+            "stable": 0.07324056289603344,
+            "short_history": 0.10125047997523898,
+            "drift": 0.08636975962508087,
+            "shared_change": 0.10402878723523022
+          },
+          "episodes": 48
+        }
+      },
+      "p0_mse": 0.005509799457949451,
+      "class_mse": [
+        0.005509799457949448,
+        0.005516582728188592,
+        0.005050670640251545,
+        0.0012378242161420272,
+        0.00010118431697818041
+      ]
+    },
+    "2026-11-07_m1_to_m6/m6_ensemble": {
+      "source": "amir/results/2026-11-07_m1_to_m6/m6_ensemble/validation_predictions.csv",
+      "scores": {
+        "full_validation": {
+          "points": 55.29658220146892,
+          "R": 0.08505802006703644,
+          "condition_R": {
+            "stable": 0.07650666286319971,
+            "short_history": 0.10574014752980825,
+            "drift": 0.0798603818078697,
+            "shared_change": 0.07812488806726817
+          },
+          "episodes": 96
+        },
+        "previous_tuning_half": {
+          "points": 55.41904305673441,
+          "R": 0.08266034003105956,
+          "condition_R": {
+            "stable": 0.0793533817525273,
+            "short_history": 0.10969306172575874,
+            "drift": 0.07930502171449048,
+            "shared_change": 0.06228989493146172
+          },
+          "episodes": 48
+        },
+        "previous_audit_half": {
+          "points": 55.17323240732813,
+          "R": 0.08748386458558796,
+          "condition_R": {
+            "stable": 0.07331108042925684,
+            "short_history": 0.10123938800306745,
+            "drift": 0.08049152017464781,
+            "shared_change": 0.09489346973537974
+          },
+          "episodes": 48
+        }
+      },
+      "p0_mse": 0.004633245008225412,
+      "class_mse": [
+        0.004633245008225419,
+        0.005390649115245748,
+        0.004899433740734504,
+        0.001228332296360053,
+        9.493335376553045e-05
+      ]
+    },
+    "previous_bayesian": {
+      "source": [
+        "runs/bayesian-lag-pairs/replay/standalone.csv",
+        "runs/bayesian-lag-pairs/audit-switch-96/bayesian.csv"
+      ],
+      "scores": {
+        "full_validation": {
+          "points": 53.037227571353,
+          "R": 0.13128085210109672,
+          "condition_R": {
+            "stable": 0.10199738495766625,
+            "short_history": 0.20252805230750479,
+            "drift": 0.11709499383342374,
+            "shared_change": 0.10350297730579208
+          },
+          "episodes": 96
+        },
+        "previous_tuning_half": {
+          "points": 53.3827584912762,
+          "R": 0.12395840334487743,
+          "condition_R": {
+            "stable": 0.10946269687469384,
+            "short_history": 0.18196785209777658,
+            "drift": 0.11976734998471414,
+            "shared_change": 0.08463571442232509
+          },
+          "episodes": 48
+        },
+        "previous_audit_half": {
+          "points": 52.66512348539097,
+          "R": 0.13927388809111363,
+          "condition_R": {
+            "stable": 0.09361720393052154,
+            "short_history": 0.2259377476306234,
+            "drift": 0.11405799762703028,
+            "shared_change": 0.12348260317627935
+          },
+          "episodes": 48
+        }
+      },
+      "p0_mse": 0.010377962490011654,
+      "class_mse": [
+        0.010377962490011662,
+        0.006905363700511628,
+        0.00576648758241165,
+        0.0015922633640349149,
+        0.00021758184741771372
+      ]
+    },
+    "previous_boosted_logistic": {
+      "source": [
+        "runs/06-combine-forecasts/replay/fixed__boosted_3072_logistic_head.csv",
+        "runs/bayesian-lag-pairs/audit-switch-96/previous_lead.csv"
+      ],
+      "scores": {
+        "full_validation": {
+          "points": 49.766798397273064,
+          "R": 0.20562306461907454,
+          "condition_R": {
+            "stable": 0.11694671375406468,
+            "short_history": 0.24642603912467284,
+            "drift": 0.22861591210042134,
+            "shared_change": 0.2305035934971393
+          },
+          "episodes": 96
+        },
+        "previous_tuning_half": {
+          "points": 50.27395719034002,
+          "R": 0.19346085634032423,
+          "condition_R": {
+            "stable": 0.1526773005885332,
+            "short_history": 0.21913084278762576,
+            "drift": 0.19121325703955708,
+            "shared_change": 0.21082202494558094
+          },
+          "episodes": 48
+        },
+        "previous_audit_half": {
+          "points": 49.21250587208315,
+          "R": 0.2192022929284787,
+          "condition_R": {
+            "stable": 0.07683736678947353,
+            "short_history": 0.2775041523491074,
+            "drift": 0.2711221182713454,
+            "shared_change": 0.25134553430398854
+          },
+          "episodes": 48
+        }
+      },
+      "p0_mse": 0.021111152449922694,
+      "class_mse": [
+        0.02111115244992269,
+        0.009036897445056362,
+        0.006871573884606484,
+        0.0021021450358974492,
+        0.00023683710662567695
+      ]
+    }
+  },
+  "comparisons": {
+    "2026-11-07_m1_to_m6/m3_lag_pair_flip MINUS previous_bayesian": {
+      "full_validation": {
+        "delta_R": -0.04566896391552893,
+        "fixed_forecast_episode_bootstrap_95pct": [
+          -0.0610224716535823,
+          -0.03134336996074745
+        ],
+        "condition_delta_R": {
+          "stable": -0.02475380302112037,
+          "short_history": -0.09563442424968467,
+          "drift": -0.03727792032761402,
+          "shared_change": -0.025009708063696654
+        },
+        "episodes_better": 79,
+        "episodes_worse": 17,
+        "leave_one_condition_out_delta_R": {
+          "stable": -0.05264068421366511,
+          "short_history": -0.029013810470810347,
+          "drift": -0.048465978444833906,
+          "shared_change": -0.05255538253280636
+        }
+      },
+      "previous_tuning_half": {
+        "delta_R": -0.04111815540930735,
+        "fixed_forecast_episode_bootstrap_95pct": [
+          -0.06306100753068365,
+          -0.02081424738791864
+        ],
+        "condition_delta_R": {
+          "stable": -0.029550803157456174,
+          "short_history": -0.07186148630622162,
+          "drift": -0.041065356261263355,
+          "shared_change": -0.02199497591228825
+        },
+        "episodes_better": 41,
+        "episodes_worse": 7,
+        "leave_one_condition_out_delta_R": {
+          "stable": -0.04497393949325774,
+          "short_history": -0.030870378443669258,
+          "drift": -0.04113575512532201,
+          "shared_change": -0.047492548574980385
+        }
+      },
+      "previous_audit_half": {
+        "delta_R": -0.05081173170136164,
+        "fixed_forecast_episode_bootstrap_95pct": [
+          -0.07186165628960178,
+          -0.032229616884692745
+        ],
+        "condition_delta_R": {
+          "stable": -0.019368933644391417,
+          "short_history": -0.12270211953061669,
+          "drift": -0.03297369293004311,
+          "shared_change": -0.028202180700395346
+        },
+        "episodes_better": 38,
+        "episodes_worse": 10,
+        "leave_one_condition_out_delta_R": {
+          "stable": -0.061292664387018386,
+          "short_history": -0.02684826909160996,
+          "drift": -0.05675774462513448,
+          "shared_change": -0.05834824870168374
+        }
+      }
+    },
+    "2026-11-07_m1_to_m6/m6_ensemble MINUS 2026-11-07_m1_to_m6/m3_lag_pair_flip": {
+      "full_validation": {
+        "delta_R": -0.0005538681185313321,
+        "fixed_forecast_episode_bootstrap_95pct": [
+          -0.0012836924932057476,
+          0.00016094820059663672
+        ],
+        "condition_delta_R": {
+          "stable": -0.0007369190733461567,
+          "short_history": -0.0011534805280118733,
+          "drift": 4.330830205996783e-05,
+          "shared_change": -0.00036838117482726636
+        },
+        "episodes_better": 57,
+        "episodes_worse": 39,
+        "leave_one_condition_out_delta_R": {
+          "stable": -0.0004928511335930572,
+          "short_history": -0.00035399731537115177,
+          "drift": -0.0007529269253950988,
+          "shared_change": -0.0006156970997660207
+        }
+      },
+      "previous_tuning_half": {
+        "delta_R": -0.00017990790451050858,
+        "fixed_forecast_episode_bootstrap_95pct": [
+          -0.0011105346658905086,
+          0.0007153463515278959
+        ],
+        "condition_delta_R": {
+          "stable": -0.000558511964710362,
+          "short_history": -0.0004133040657962314,
+          "drift": 0.0006030279910397151,
+          "shared_change": -0.0003508435785751561
+        },
+        "episodes_better": 30,
+        "episodes_worse": 18,
+        "leave_one_condition_out_delta_R": {
+          "stable": -5.370655111055744e-05,
+          "short_history": -0.0001021091840819343,
+          "drift": -0.0004408865363605831,
+          "shared_change": -0.0001229293464889594
+        }
+      },
+      "previous_audit_half": {
+        "delta_R": -0.0009782918041640368,
+        "fixed_forecast_episode_bootstrap_95pct": [
+          -0.002133343705257214,
+          0.0001658211459024547
+        ],
+        "condition_delta_R": {
+          "stable": -0.0009371898568732705,
+          "short_history": -0.001996240096939295,
+          "drift": -0.0005927845223393529,
+          "shared_change": -0.0003869527405042287
+        },
+        "episodes_better": 27,
+        "episodes_worse": 21,
+        "leave_one_condition_out_delta_R": {
+          "stable": -0.0009919924532609588,
+          "short_history": -0.000638975706572284,
+          "drift": -0.0011067942314389313,
+          "shared_change": -0.0011754048253839729
+        }
+      }
+    },
+    "2026-11-07_m1_to_m6/m4_lag_pair_flip_shared MINUS 2026-11-07_m1_to_m6/m3_lag_pair_flip": {
+      "full_validation": {
+        "delta_R": -0.000287091607708797,
+        "fixed_forecast_episode_bootstrap_95pct": [
+          -0.0005662737967368031,
+          -6.840447379172003e-05
+        ],
+        "condition_delta_R": {
+          "stable": 7.011936863429617e-05,
+          "short_history": -0.001073319304847812,
+          "drift": 9.055391469251206e-07,
+          "shared_change": -0.00014607203376859726
+        },
+        "episodes_better": 41,
+        "episodes_worse": 33,
+        "leave_one_condition_out_delta_R": {
+          "stable": -0.0004061619331564947,
+          "short_history": -2.5015708662458658e-05,
+          "drift": -0.0003830906566607043,
+          "shared_change": -0.00033409813235553025
+        }
+      },
+      "previous_tuning_half": {
+        "delta_R": -0.0002523508520374516,
+        "fixed_forecast_episode_bootstrap_95pct": [
+          -0.0006366388825378409,
+          -7.558636691541005e-06
+        ],
+        "condition_delta_R": {
+          "stable": 3.505566316531278e-05,
+          "short_history": -0.000989330896339161,
+          "drift": 1.6392437959777857e-06,
+          "shared_change": -5.676741877193601e-05
+        },
+        "episodes_better": 21,
+        "episodes_worse": 16,
+        "leave_one_condition_out_delta_R": {
+          "stable": -0.00034815302377170636,
+          "short_history": -6.690837270215149e-06,
+          "drift": -0.0003370142173152614,
+          "shared_change": -0.00031754532979262346
+        }
+      },
+      "previous_audit_half": {
+        "delta_R": -0.00032500946954881456,
+        "fixed_forecast_episode_bootstrap_95pct": [
+          -0.0007758491908692369,
+          7.929421243328764e-06
+        ],
+        "condition_delta_R": {
+          "stable": 0.00010948010835668386,
+          "short_history": -0.0011689478995990856,
+          "drift": 7.172130617428485e-08,
+          "shared_change": -0.00024064180825903055
+        },
+        "episodes_better": 20,
+        "episodes_worse": 17,
+        "leave_one_condition_out_delta_R": {
+          "stable": -0.00046983932885064734,
+          "short_history": -4.369665953205746e-05,
+          "drift": -0.0004333698665004774,
+          "shared_change": -0.0003531320233120759
+        }
+      }
+    },
+    "2026-11-07_m1_to_m6/m5_boosted_corrector MINUS 2026-11-07_m1_to_m6/m3_lag_pair_flip": {
+      "full_validation": {
+        "delta_R": 0.005535887694424066,
+        "fixed_forecast_episode_bootstrap_95pct": [
+          0.0012560773398913854,
+          0.010019671443548633
+        ],
+        "condition_delta_R": {
+          "stable": 0.0014531661309293798,
+          "short_history": 0.004743323333509247,
+          "drift": 0.009111138459822433,
+          "shared_change": 0.006835922853435203
+        },
+        "episodes_better": 41,
+        "episodes_worse": 55,
+        "leave_one_condition_out_delta_R": {
+          "stable": 0.006896794882255627,
+          "short_history": 0.005800075814729005,
+          "drift": 0.004344137439291277,
+          "shared_change": 0.005102542641420353
+        }
+      },
+      "previous_tuning_half": {
+        "delta_R": 0.007951403491141647,
+        "fixed_forecast_episode_bootstrap_95pct": [
+          0.0019366860527965156,
+          0.013979482656327426
+        ],
+        "condition_delta_R": {
+          "stable": 0.003645384695576924,
+          "short_history": 0.010652785988967137,
+          "drift": 0.012477487386233024,
+          "shared_change": 0.005029955893789506
+        },
+        "episodes_better": 20,
+        "episodes_worse": 28,
+        "leave_one_condition_out_delta_R": {
+          "stable": 0.009386743089663223,
+          "short_history": 0.007050942658533152,
+          "drift": 0.006442708859444522,
+          "shared_change": 0.008925219356925695
+        }
+      },
+      "previous_audit_half": {
+        "delta_R": 0.0027602410431438826,
+        "fixed_forecast_episode_bootstrap_95pct": [
+          -0.003649910192798441,
+          0.009514785342926246
+        ],
+        "condition_delta_R": {
+          "stable": -0.0010077073900966959,
+          "short_history": -0.001985148124767748,
+          "drift": 0.005285454928093724,
+          "shared_change": 0.00874836475934625
+        },
+        "episodes_better": 21,
+        "episodes_worse": 27,
+        "leave_one_condition_out_delta_R": {
+          "stable": 0.004016223854224075,
+          "short_history": 0.004342037432447759,
+          "drift": 0.0019185030814939357,
+          "shared_change": 0.0007641998044097599
+        }
+      }
+    },
+    "2026-11-07_m1_to_m6/m2_lag_pair MINUS previous_bayesian": {
+      "full_validation": {
+        "delta_R": 0.009457579896443516,
+        "fixed_forecast_episode_bootstrap_95pct": [
+          -0.004644057899074545,
+          0.022000219542486762
+        ],
+        "condition_delta_R": {
+          "stable": -0.020285426362193146,
+          "short_history": -0.08335759174217701,
+          "drift": 0.09417966252349626,
+          "shared_change": 0.04729367516664796
+        },
+        "episodes_better": 46,
+        "episodes_worse": 50,
+        "leave_one_condition_out_delta_R": {
+          "stable": 0.019371915315989068,
+          "short_history": 0.04039597044265036,
+          "drift": -0.018783114312574064,
+          "shared_change": -0.003154451860291299
+        }
+      },
+      "previous_tuning_half": {
+        "delta_R": 0.015347155702977578,
+        "fixed_forecast_episode_bootstrap_95pct": [
+          -0.0020875949360417718,
+          0.03227935446033044
+        ],
+        "condition_delta_R": {
+          "stable": -0.0234952921364619,
+          "short_history": -0.06540781821448553,
+          "drift": 0.09797765563669279,
+          "shared_change": 0.05231407752616495
+        },
+        "episodes_better": 24,
+        "episodes_worse": 24,
+        "leave_one_condition_out_delta_R": {
+          "stable": 0.028294638316124072,
+          "short_history": 0.04226548034213195,
+          "drift": -0.012196344274927494,
+          "shared_change": 0.003024848428581787
+        }
+      },
+      "previous_audit_half": {
+        "delta_R": 0.0028408632737616686,
+        "fixed_forecast_episode_bootstrap_95pct": [
+          -0.019648709875060625,
+          0.021975465409230847
+        ],
+        "condition_delta_R": {
+          "stable": -0.016682193629230763,
+          "short_history": -0.10379507411666371,
+          "drift": 0.08986343743085033,
+          "shared_change": 0.04197728341009081
+        },
+        "episodes_better": 22,
+        "episodes_worse": 26,
+        "leave_one_condition_out_delta_R": {
+          "stable": 0.00934854890809248,
+          "short_history": 0.038386175737236794,
+          "drift": -0.026166661445267886,
+          "shared_change": -0.010204610105014713
+        }
+      }
+    }
+  },
+  "saved_test_format_checks": {
+    "amir/results/2026-11-07_m1_to_m6/baseline_pooled/submission.csv": {
+      "valid_rows": 1536,
+      "sha256": "1427f9040ad061e1eeb22f8636e2d46c50353584c10bceff029c23a5d277199a"
+    },
+    "amir/results/2026-11-07_m1_to_m6/baseline_pooled_recent/submission.csv": {
+      "valid_rows": 1536,
+      "sha256": "4b02f1447032972c7e4cb7f59aefe9d99304cdc1590ee7b72ac057554ea80754"
+    },
+    "amir/results/2026-11-07_m1_to_m6/m1_hierarchical_frequency/submission.csv": {
+      "valid_rows": 1536,
+      "sha256": "84e9f19c9a5c85c6cadab76475c2b610f427f1a4a59691699160ce773d063402"
+    },
+    "amir/results/2026-11-07_m1_to_m6/m4_lag_pair_flip_shared/submission.csv": {
+      "valid_rows": 1536,
+      "sha256": "196a0a9c5deb04fca726d71d055db45520bf40bd4de7a0ade8f2657b0c86efe0"
+    },
+    "amir/results/2026-11-07_m1_to_m6/m2_lag_pair/submission.csv": {
+      "valid_rows": 1536,
+      "sha256": "bae9307f45337af12c11ef43efdba5fdd271ae711e3f19d8409801423f24b9b8"
+    },
+    "amir/results/2026-11-07_m1_to_m6/m3_lag_pair_flip/submission.csv": {
+      "valid_rows": 1536,
+      "sha256": "5786749c99ee6921e5822901fbb157d9a2621da99662443e3d0eeed1e22b2e64"
+    },
+    "amir/results/2026-11-07_m1_to_m6/m5_boosted_corrector/submission.csv": {
+      "valid_rows": 1536,
+      "sha256": "200eff18f597e473790863877105b0ecaf7e1d3af8f65089a1e204c0328577e5"
+    },
+    "amir/results/2026-11-07_m1_to_m6/m6_ensemble/submission.csv": {
+      "valid_rows": 1536,
+      "sha256": "6484052a454861c13289bf54b8611094b7cefb7cf51bb022b8e8bf5d60b87637"
+    },
+    "amir/results/2026-11-07_m1_m2/baseline_pooled/submission.csv": {
+      "valid_rows": 1536,
+      "sha256": "1427f9040ad061e1eeb22f8636e2d46c50353584c10bceff029c23a5d277199a"
+    },
+    "amir/results/2026-11-07_m1_m2/baseline_pooled_recent/submission.csv": {
+      "valid_rows": 1536,
+      "sha256": "4b02f1447032972c7e4cb7f59aefe9d99304cdc1590ee7b72ac057554ea80754"
+    },
+    "amir/results/2026-11-07_m1_m2/m1_hierarchical_frequency/submission.csv": {
+      "valid_rows": 1536,
+      "sha256": "84e9f19c9a5c85c6cadab76475c2b610f427f1a4a59691699160ce773d063402"
+    },
+    "amir/results/2026-11-07_m1_m2/m2_lag_pair/submission.csv": {
+      "valid_rows": 1536,
+      "sha256": "bae9307f45337af12c11ef43efdba5fdd271ae711e3f19d8409801423f24b9b8"
+    }
+  }
+}

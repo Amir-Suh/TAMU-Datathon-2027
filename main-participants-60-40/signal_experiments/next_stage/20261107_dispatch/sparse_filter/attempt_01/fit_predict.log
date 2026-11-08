@@ -1,0 +1,8 @@
+Fold 0: 24 held episodes in 26.71s
+Fold 1: 24 held episodes in 29.67s
+Fold 2: 24 held episodes in 32.15s
+Fold 3: 24 held episodes in 31.08s
+validation/released: 768 queries in 6.82s
+validation/24plus16: 768 queries in 13.31s
+validation/24plus8: 768 queries in 13.41s
+test/released: 1536 queries in 14.09s

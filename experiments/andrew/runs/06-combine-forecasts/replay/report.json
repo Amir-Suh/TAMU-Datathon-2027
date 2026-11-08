@@ -1,0 +1,1670 @@
+{
+  "checks": {
+    "convex_endpoints_and_zero_win_fallback": true,
+    "dense_grid_scalar": true,
+    "head_swaps_preserve_p_zero": true,
+    "held_out_targets_do_not_affect_fold_forecasts": true,
+    "official_score_order_invariant": true,
+    "official_weight_objective": true,
+    "repeat_normalized_max_difference": {
+      "fixed__adaptive_3072.csv": 0.0,
+      "fixed__adaptive_3072_logistic_head.csv": 0.0,
+      "fixed__adaptive_48.csv": 0.0,
+      "fixed__boosted_3072.csv": 0.0,
+      "fixed__boosted_3072_logistic_head.csv": 0.0,
+      "fixed__current_motifs_fixed_25.csv": 0.0,
+      "fixed__current_motifs_fixed_50.csv": 0.0,
+      "fixed__current_motifs_fixed_50_logistic_head.csv": 0.0,
+      "fixed__current_motifs_fixed_75.csv": 0.0,
+      "fixed__legacy_half_positive_mix.csv": 0.0,
+      "fixed__legacy_logistic_head_swap.csv": 0.0,
+      "fixed__legacy_whole_90_10.csv": 0.0,
+      "fixed__self_logistic.csv": 0.0,
+      "fixed__signed_motifs.csv": 0.0,
+      "fixed__signed_motifs_logistic_head.csv": 0.0,
+      "in_sample__boosted_motifs_win_scalar.csv": 0.0,
+      "in_sample__current_motifs_win_scalar.csv": 0.0,
+      "in_sample__legacy_positive_scalar.csv": 0.0,
+      "out_of_fold__boosted_motifs_win_scalar.csv": 0.0,
+      "out_of_fold__boosted_motifs_win_scalar_logistic_head.csv": 0.0,
+      "out_of_fold__current_motifs_win_scalar.csv": 0.0,
+      "out_of_fold__current_motifs_win_scalar_logistic_head.csv": 0.0,
+      "out_of_fold__legacy_positive_scalar.csv": 0.0
+    },
+    "row_order_invariant": true,
+    "zero_denominator_and_clipping": true
+  },
+  "components": {
+    "adaptive_3072": {
+      "path": "/Users/andrewvong/Documents/Projects/tamudatathon27/main-participants-60-40/runs/adaptive-weight-rate/main/tuning_predictions.csv",
+      "sha256": "6bfeafc730ebcdb6f4bf82e21c4fd9ae6c386b53ecd4797ce0d5abb7efb43ef2"
+    },
+    "adaptive_48": {
+      "path": "/Users/andrewvong/Documents/Projects/tamudatathon27/main-participants-60-40/model-comparison/adaptive_lag.csv",
+      "sha256": "fd6313060bb5044afbcbb28611ec4df3654f76ad7d7085dffdfb9f2b895a75bd"
+    },
+    "boosted_3072": {
+      "path": "/Users/andrewvong/Documents/Projects/tamudatathon27/main-participants-60-40/runs/04-boosted-correction/main-rate3072-first/tuning_predictions.csv",
+      "sha256": "8df0c6ca785f728451397fe4824f4ba334bf608387be50d5e87fb3104036d28c"
+    },
+    "self_logistic": {
+      "path": "/Users/andrewvong/Documents/Projects/tamudatathon27/main-participants-60-40/model-comparison/two_stage_self.csv",
+      "sha256": "d7739addc3555b084364eb0ae25caa6a724f3cc19c13524bbfab5fb8632a29f4"
+    },
+    "signed_motifs": {
+      "path": "/Users/andrewvong/Documents/Projects/tamudatathon27/main-participants-60-40/runs/01-signed-motifs/initial/tuning_predictions.csv",
+      "sha256": "27a91dc744c771386e30984dd829e349b0fb1c8a08de72526805dd480c19fb0f"
+    }
+  },
+  "fold_seed": 314159,
+  "folds": [
+    {
+      "fit": [
+        "main-validation-e00000",
+        "main-validation-e00002",
+        "main-validation-e00004",
+        "main-validation-e00006",
+        "main-validation-e00007",
+        "main-validation-e00008",
+        "main-validation-e00011",
+        "main-validation-e00013",
+        "main-validation-e00015",
+        "main-validation-e00018",
+        "main-validation-e00021",
+        "main-validation-e00023",
+        "main-validation-e00025",
+        "main-validation-e00029",
+        "main-validation-e00031",
+        "main-validation-e00033",
+        "main-validation-e00038",
+        "main-validation-e00042",
+        "main-validation-e00044",
+        "main-validation-e00045",
+        "main-validation-e00047",
+        "main-validation-e00048",
+        "main-validation-e00050",
+        "main-validation-e00051",
+        "main-validation-e00058",
+        "main-validation-e00061",
+        "main-validation-e00062",
+        "main-validation-e00063",
+        "main-validation-e00064",
+        "main-validation-e00068",
+        "main-validation-e00069",
+        "main-validation-e00077",
+        "main-validation-e00080",
+        "main-validation-e00081",
+        "main-validation-e00087",
+        "main-validation-e00094"
+      ],
+      "held_out": [
+        "main-validation-e00001",
+        "main-validation-e00014",
+        "main-validation-e00053",
+        "main-validation-e00054",
+        "main-validation-e00055",
+        "main-validation-e00056",
+        "main-validation-e00059",
+        "main-validation-e00065",
+        "main-validation-e00066",
+        "main-validation-e00073",
+        "main-validation-e00074",
+        "main-validation-e00078"
+      ]
+    },
+    {
+      "fit": [
+        "main-validation-e00000",
+        "main-validation-e00001",
+        "main-validation-e00002",
+        "main-validation-e00004",
+        "main-validation-e00006",
+        "main-validation-e00007",
+        "main-validation-e00011",
+        "main-validation-e00013",
+        "main-validation-e00014",
+        "main-validation-e00018",
+        "main-validation-e00023",
+        "main-validation-e00033",
+        "main-validation-e00042",
+        "main-validation-e00044",
+        "main-validation-e00045",
+        "main-validation-e00048",
+        "main-validation-e00051",
+        "main-validation-e00053",
+        "main-validation-e00054",
+        "main-validation-e00055",
+        "main-validation-e00056",
+        "main-validation-e00059",
+        "main-validation-e00062",
+        "main-validation-e00063",
+        "main-validation-e00064",
+        "main-validation-e00065",
+        "main-validation-e00066",
+        "main-validation-e00069",
+        "main-validation-e00073",
+        "main-validation-e00074",
+        "main-validation-e00077",
+        "main-validation-e00078",
+        "main-validation-e00080",
+        "main-validation-e00081",
+        "main-validation-e00087",
+        "main-validation-e00094"
+      ],
+      "held_out": [
+        "main-validation-e00008",
+        "main-validation-e00015",
+        "main-validation-e00021",
+        "main-validation-e00025",
+        "main-validation-e00029",
+        "main-validation-e00031",
+        "main-validation-e00038",
+        "main-validation-e00047",
+        "main-validation-e00050",
+        "main-validation-e00058",
+        "main-validation-e00061",
+        "main-validation-e00068"
+      ]
+    },
+    {
+      "fit": [
+        "main-validation-e00001",
+        "main-validation-e00006",
+        "main-validation-e00007",
+        "main-validation-e00008",
+        "main-validation-e00011",
+        "main-validation-e00014",
+        "main-validation-e00015",
+        "main-validation-e00018",
+        "main-validation-e00021",
+        "main-validation-e00023",
+        "main-validation-e00025",
+        "main-validation-e00029",
+        "main-validation-e00031",
+        "main-validation-e00038",
+        "main-validation-e00047",
+        "main-validation-e00050",
+        "main-validation-e00051",
+        "main-validation-e00053",
+        "main-validation-e00054",
+        "main-validation-e00055",
+        "main-validation-e00056",
+        "main-validation-e00058",
+        "main-validation-e00059",
+        "main-validation-e00061",
+        "main-validation-e00062",
+        "main-validation-e00063",
+        "main-validation-e00064",
+        "main-validation-e00065",
+        "main-validation-e00066",
+        "main-validation-e00068",
+        "main-validation-e00069",
+        "main-validation-e00073",
+        "main-validation-e00074",
+        "main-validation-e00077",
+        "main-validation-e00078",
+        "main-validation-e00081"
+      ],
+      "held_out": [
+        "main-validation-e00000",
+        "main-validation-e00002",
+        "main-validation-e00004",
+        "main-validation-e00013",
+        "main-validation-e00033",
+        "main-validation-e00042",
+        "main-validation-e00044",
+        "main-validation-e00045",
+        "main-validation-e00048",
+        "main-validation-e00080",
+        "main-validation-e00087",
+        "main-validation-e00094"
+      ]
+    },
+    {
+      "fit": [
+        "main-validation-e00000",
+        "main-validation-e00001",
+        "main-validation-e00002",
+        "main-validation-e00004",
+        "main-validation-e00008",
+        "main-validation-e00013",
+        "main-validation-e00014",
+        "main-validation-e00015",
+        "main-validation-e00021",
+        "main-validation-e00025",
+        "main-validation-e00029",
+        "main-validation-e00031",
+        "main-validation-e00033",
+        "main-validation-e00038",
+        "main-validation-e00042",
+        "main-validation-e00044",
+        "main-validation-e00045",
+        "main-validation-e00047",
+        "main-validation-e00048",
+        "main-validation-e00050",
+        "main-validation-e00053",
+        "main-validation-e00054",
+        "main-validation-e00055",
+        "main-validation-e00056",
+        "main-validation-e00058",
+        "main-validation-e00059",
+        "main-validation-e00061",
+        "main-validation-e00065",
+        "main-validation-e00066",
+        "main-validation-e00068",
+        "main-validation-e00073",
+        "main-validation-e00074",
+        "main-validation-e00078",
+        "main-validation-e00080",
+        "main-validation-e00087",
+        "main-validation-e00094"
+      ],
+      "held_out": [
+        "main-validation-e00006",
+        "main-validation-e00007",
+        "main-validation-e00011",
+        "main-validation-e00018",
+        "main-validation-e00023",
+        "main-validation-e00051",
+        "main-validation-e00062",
+        "main-validation-e00063",
+        "main-validation-e00064",
+        "main-validation-e00069",
+        "main-validation-e00077",
+        "main-validation-e00081"
+      ]
+    }
+  ],
+  "positive_fallback_training_prior": [
+    0.46284169778823686,
+    0.35196364318480244,
+    0.15443972647124027,
+    0.030754932555720402
+  ],
+  "prediction_sha256": {
+    "fixed__adaptive_3072.csv": "799ad8f219c2f7bb2f87a5b7cbe44581b9fcc8f4b0bb7b9a2f3e05810ff31170",
+    "fixed__adaptive_3072_logistic_head.csv": "bf4e4d1774bc8dbc08e23679681fa274555a030b5c9522716aae5e581aacba5f",
+    "fixed__adaptive_48.csv": "4b4b7905451f6b26c77ca04cc8e5c7be1d5dfaec2a43e2ff625514607ab75c4d",
+    "fixed__boosted_3072.csv": "f1dac2fd37c5a5567afa78889cb202137723fbba5b692e717b78faafd80568ee",
+    "fixed__boosted_3072_logistic_head.csv": "0530eb2bbd4e3738c7df88c3412e5501a65da7e21f23355e0db9585c4d1d6fd5",
+    "fixed__current_motifs_fixed_25.csv": "1535c37ea1e77c60e6b53a0da6217c19dfa67a22f733d91176a15ae00c944d07",
+    "fixed__current_motifs_fixed_50.csv": "0f5ffd48b01b1efa8175d3e46a291e30bbabb37669a340ba8cb2c7b4bde7dc65",
+    "fixed__current_motifs_fixed_50_logistic_head.csv": "318423014649eb17244b3cee2a2082d140be9e0abce47b3d1d3acf40479a4247",
+    "fixed__current_motifs_fixed_75.csv": "466d93a0d33b5bbabb4ad794d04eb799a20dba5b419ffeebb0387259d908470a",
+    "fixed__legacy_half_positive_mix.csv": "403c4c3bc7ec07a308feeacd042f6fb845a1401ad0d9d2329d1f96c9f2fc17fa",
+    "fixed__legacy_logistic_head_swap.csv": "c7c5d17fe40e78c1952f1e885cff02acd92ba8b78fc7c95d1eb0cc690cbc3e00",
+    "fixed__legacy_whole_90_10.csv": "5b4b06a1fb17a32a757a261f85f70998f1aed29065f6bf0b67996cd2cbfebb4b",
+    "fixed__self_logistic.csv": "0e0a91d8b4da171701ac1b857b634cfeee6a2bd5cbcd38606012521aa4eac693",
+    "fixed__signed_motifs.csv": "e74708506bc73b32291db2d3ea53e898e89bce2e6e077f7447c52be544261c02",
+    "fixed__signed_motifs_logistic_head.csv": "ba8853c1e04ebfa65cc3bc4b4fe6691794215d2d99cd7b524a83ff6f248c5871",
+    "in_sample__boosted_motifs_win_scalar.csv": "dbcd27caf4323051770b3403717ab5d4fe316cabd2babb621f7a7438d65424ef",
+    "in_sample__current_motifs_win_scalar.csv": "562720e0d8d96d7117a21be3612b3c0e4808f678f6c1da7c5b3c21e76449d88c",
+    "in_sample__legacy_positive_scalar.csv": "cc9924b39a0475150c30894d817b11d44c3e1a773fc766f14f702e480ae10c4c",
+    "out_of_fold__boosted_motifs_win_scalar.csv": "2e1509357cbd7a3654bb6257d1277d9502593abd0ca6bccfcce14f3e9be638c7",
+    "out_of_fold__boosted_motifs_win_scalar_logistic_head.csv": "c5d42cc97f69458ae98a4b4a75fa0492d893e7b207092c878efe28f3cc9a856e",
+    "out_of_fold__current_motifs_win_scalar.csv": "9ecf335d86ca54108207d3e58b2eec61d0072ed5a59b9c568f326b01bccde290",
+    "out_of_fold__current_motifs_win_scalar_logistic_head.csv": "510ea7282c1b900e02113c7edc445b2524e6d53ebff63bf095d9716af2cc1db5",
+    "out_of_fold__legacy_positive_scalar.csv": "eea9cca52dadc3ed6778a6a62f3c8bc928ffc7e317d9305bd64b6f3583c13fd2"
+  },
+  "round": "main",
+  "scalar_weights": {
+    "boosted_motifs_win_scalar": {
+      "full_tuning_in_sample": 0.02277441732311799,
+      "out_of_fold": [
+        0.0,
+        0.05186912022369135,
+        0.04360912223726564,
+        0.011456337598420423
+      ]
+    },
+    "current_motifs_win_scalar": {
+      "full_tuning_in_sample": 0.20010218353505901,
+      "out_of_fold": [
+        0.16496538259978427,
+        0.23564611719522152,
+        0.20049658586918437,
+        0.19971155580407415
+      ]
+    },
+    "legacy_positive_scalar": {
+      "full_tuning_in_sample": 0.7374553608247535,
+      "out_of_fold": [
+        0.6747553836499798,
+        0.6708889318089796,
+        0.7837378532136998,
+        0.8271074945194481
+      ]
+    }
+  },
+  "scope": {
+    "fixed": "Exploratory tuning comparisons on the released tuning split.",
+    "in_sample": "Scalars fitted and scored on all tuning episodes; excluded from out-of-fold scores.",
+    "out_of_fold": "Scalars fitted on other tuning folds; intervals are descriptive and do not refit weights."
+  },
+  "scores": {
+    "fixed": {
+      "adaptive_3072": {
+        "by_condition": {
+          "drift": {
+            "episodes": 12,
+            "error": 0.08511639801624911,
+            "loss_ratio": 0.42145576432270965,
+            "queries": 96,
+            "reference_error": 0.20195808248828526
+          },
+          "shared_change": {
+            "episodes": 12,
+            "error": 0.08630619382530919,
+            "loss_ratio": 0.4081658371390588,
+            "queries": 96,
+            "reference_error": 0.21144884253481844
+          },
+          "short_history": {
+            "episodes": 12,
+            "error": 0.07019863796253273,
+            "loss_ratio": 0.3717475477375373,
+            "queries": 96,
+            "reference_error": 0.18883416552378887
+          },
+          "stable": {
+            "episodes": 12,
+            "error": 0.05004127109673745,
+            "loss_ratio": 0.241067824652502,
+            "queries": 96,
+            "reference_error": 0.2075817092922777
+          }
+        },
+        "contest_version": "temporal-adaptation-v3-60-40",
+        "max_points": 60.0,
+        "mean_loss_ratio": 0.3606092434629519,
+        "paired_delta_r_vs_adaptive_48": {
+          "delta_r": -0.44528612771671017,
+          "lower": -0.4779315954091459,
+          "repeats": 2000,
+          "seed": 314159,
+          "upper": -0.41495178487125683
+        },
+        "predictions": "fixed__adaptive_3072.csv",
+        "raw_mean_squared_error_by_payout": {
+          "p_0": 0.04338470798504974,
+          "p_1": 0.015585310806555031,
+          "p_2": 0.010404307354681029,
+          "p_20": 0.0005002385518289018,
+          "p_5": 0.0030410605270923697
+        },
+        "technical_points": 44.09789238774471
+      },
+      "adaptive_3072_logistic_head": {
+        "by_condition": {
+          "drift": {
+            "episodes": 12,
+            "error": 0.0821201550837392,
+            "loss_ratio": 0.40661979987110763,
+            "queries": 96,
+            "reference_error": 0.20195808248828526
+          },
+          "shared_change": {
+            "episodes": 12,
+            "error": 0.08516947576119493,
+            "loss_ratio": 0.4027899833368462,
+            "queries": 96,
+            "reference_error": 0.21144884253481844
+          },
+          "short_history": {
+            "episodes": 12,
+            "error": 0.07032747742547603,
+            "loss_ratio": 0.3724298366791911,
+            "queries": 96,
+            "reference_error": 0.18883416552378887
+          },
+          "stable": {
+            "episodes": 12,
+            "error": 0.04678874121126517,
+            "loss_ratio": 0.22539915183657158,
+            "queries": 96,
+            "reference_error": 0.2075817092922777
+          }
+        },
+        "contest_version": "temporal-adaptation-v3-60-40",
+        "matched_control": "adaptive_3072",
+        "max_points": 60.0,
+        "mean_loss_ratio": 0.3518096929309291,
+        "paired_delta_r_vs_adaptive_48": {
+          "delta_r": -0.454085678248733,
+          "lower": -0.4867947323769545,
+          "repeats": 2000,
+          "seed": 314159,
+          "upper": -0.42357965140597464
+        },
+        "paired_delta_r_vs_matched_control": {
+          "delta_r": -0.00879955053202281,
+          "lower": -0.014468989712210154,
+          "repeats": 2000,
+          "seed": 314159,
+          "upper": -0.0034025875227929243
+        },
+        "predictions": "fixed__adaptive_3072_logistic_head.csv",
+        "raw_mean_squared_error_by_payout": {
+          "p_0": 0.04338470798504974,
+          "p_1": 0.015158565542452354,
+          "p_2": 0.009687967109644405,
+          "p_20": 0.00024190238388664578,
+          "p_5": 0.0026283193493856706
+        },
+        "technical_points": 44.38494583502421
+      },
+      "adaptive_48": {
+        "by_condition": {
+          "drift": {
+            "episodes": 12,
+            "error": 0.17161008149919618,
+            "loss_ratio": 0.8497311886943201,
+            "queries": 96,
+            "reference_error": 0.20195808248828526
+          },
+          "shared_change": {
+            "episodes": 12,
+            "error": 0.16953550881435384,
+            "loss_ratio": 0.8017802641148868,
+            "queries": 96,
+            "reference_error": 0.21144884253481844
+          },
+          "short_history": {
+            "episodes": 12,
+            "error": 0.16720244852240237,
+            "loss_ratio": 0.8854459576137381,
+            "queries": 96,
+            "reference_error": 0.18883416552378887
+          },
+          "stable": {
+            "episodes": 12,
+            "error": 0.14253059898353004,
+            "loss_ratio": 0.6866240742957036,
+            "queries": 96,
+            "reference_error": 0.2075817092922777
+          }
+        },
+        "contest_version": "temporal-adaptation-v3-60-40",
+        "max_points": 60.0,
+        "mean_loss_ratio": 0.8058953711796621,
+        "paired_delta_r_vs_adaptive_48": {
+          "delta_r": 0.0,
+          "lower": 0.0,
+          "repeats": 2000,
+          "seed": 314159,
+          "upper": 0.0
+        },
+        "predictions": "fixed__adaptive_48.csv",
+        "raw_mean_squared_error_by_payout": {
+          "p_0": 0.10792828354389598,
+          "p_1": 0.02937727502911233,
+          "p_2": 0.019375091186394553,
+          "p_20": 0.0005484917060096899,
+          "p_5": 0.005490517989458012
+        },
+        "technical_points": 33.22451619154785
+      },
+      "boosted_3072": {
+        "by_condition": {
+          "drift": {
+            "episodes": 12,
+            "error": 0.04176102980568134,
+            "loss_ratio": 0.2067806808776951,
+            "queries": 96,
+            "reference_error": 0.20195808248828526
+          },
+          "shared_change": {
+            "episodes": 12,
+            "error": 0.04638472419718193,
+            "loss_ratio": 0.2193661769018383,
+            "queries": 96,
+            "reference_error": 0.21144884253481844
+          },
+          "short_history": {
+            "episodes": 12,
+            "error": 0.04215275808389731,
+            "loss_ratio": 0.22322633177621137,
+            "queries": 96,
+            "reference_error": 0.18883416552378887
+          },
+          "stable": {
+            "episodes": 12,
+            "error": 0.03639778898463209,
+            "loss_ratio": 0.17534198513310986,
+            "queries": 96,
+            "reference_error": 0.2075817092922777
+          }
+        },
+        "contest_version": "temporal-adaptation-v3-60-40",
+        "max_points": 60.0,
+        "mean_loss_ratio": 0.20617879367221364,
+        "paired_delta_r_vs_adaptive_48": {
+          "delta_r": -0.5997165775074484,
+          "lower": -0.6491090239653489,
+          "repeats": 2000,
+          "seed": 314159,
+          "upper": -0.5506123976644567
+        },
+        "predictions": "fixed__boosted_3072.csv",
+        "raw_mean_squared_error_by_payout": {
+          "p_0": 0.020613291822641416,
+          "p_1": 0.00982587029883663,
+          "p_2": 0.008058857525503149,
+          "p_20": 0.0005895155292987235,
+          "p_5": 0.0025865400915682456
+        },
+        "technical_points": 49.743869080412104
+      },
+      "boosted_3072_logistic_head": {
+        "by_condition": {
+          "drift": {
+            "episodes": 12,
+            "error": 0.03861706273804857,
+            "loss_ratio": 0.1912132570395571,
+            "queries": 96,
+            "reference_error": 0.20195808248828526
+          },
+          "shared_change": {
+            "episodes": 12,
+            "error": 0.04457807315558971,
+            "loss_ratio": 0.21082202494558094,
+            "queries": 96,
+            "reference_error": 0.21144884253481844
+          },
+          "short_history": {
+            "episodes": 12,
+            "error": 0.04137938983832589,
+            "loss_ratio": 0.21913084278762582,
+            "queries": 96,
+            "reference_error": 0.18883416552378887
+          },
+          "stable": {
+            "episodes": 12,
+            "error": 0.0316930150262986,
+            "loss_ratio": 0.1526773005885332,
+            "queries": 96,
+            "reference_error": 0.2075817092922777
+          }
+        },
+        "contest_version": "temporal-adaptation-v3-60-40",
+        "matched_control": "boosted_3072",
+        "max_points": 60.0,
+        "mean_loss_ratio": 0.19346085634032428,
+        "paired_delta_r_vs_adaptive_48": {
+          "delta_r": -0.612434514839338,
+          "lower": -0.6623743468722412,
+          "repeats": 2000,
+          "seed": 314159,
+          "upper": -0.565458802170817
+        },
+        "paired_delta_r_vs_matched_control": {
+          "delta_r": -0.012717937331889393,
+          "lower": -0.019673761043367027,
+          "repeats": 2000,
+          "seed": 314159,
+          "upper": -0.0065530355824488205
+        },
+        "predictions": "fixed__boosted_3072_logistic_head.csv",
+        "raw_mean_squared_error_by_payout": {
+          "p_0": 0.02061329182264142,
+          "p_1": 0.00942075326006246,
+          "p_2": 0.006868471889382092,
+          "p_20": 0.00021387890126434714,
+          "p_5": 0.0019504893162153715
+        },
+        "technical_points": 50.27395719034001
+      },
+      "current_motifs_fixed_25": {
+        "by_condition": {
+          "drift": {
+            "episodes": 12,
+            "error": 0.09879714233162434,
+            "loss_ratio": 0.4891962783284752,
+            "queries": 96,
+            "reference_error": 0.20195808248828526
+          },
+          "shared_change": {
+            "episodes": 12,
+            "error": 0.09319221006910734,
+            "loss_ratio": 0.4407317105732643,
+            "queries": 96,
+            "reference_error": 0.21144884253481844
+          },
+          "short_history": {
+            "episodes": 12,
+            "error": 0.05678942177498111,
+            "loss_ratio": 0.30073700708480594,
+            "queries": 96,
+            "reference_error": 0.18883416552378887
+          },
+          "stable": {
+            "episodes": 12,
+            "error": 0.04047348243990442,
+            "loss_ratio": 0.19497614976720917,
+            "queries": 96,
+            "reference_error": 0.2075817092922777
+          }
+        },
+        "contest_version": "temporal-adaptation-v3-60-40",
+        "matched_control": "adaptive_3072",
+        "max_points": 60.0,
+        "mean_loss_ratio": 0.35641028643843864,
+        "paired_delta_r_vs_adaptive_48": {
+          "delta_r": -0.4494850847412234,
+          "lower": -0.4788622986183519,
+          "repeats": 2000,
+          "seed": 314159,
+          "upper": -0.4209268579403333
+        },
+        "paired_delta_r_vs_matched_control": {
+          "delta_r": -0.0041989570245133025,
+          "lower": -0.014292971393299844,
+          "repeats": 2000,
+          "seed": 314159,
+          "upper": 0.005277671693851574
+        },
+        "predictions": "fixed__current_motifs_fixed_25.csv",
+        "raw_mean_squared_error_by_payout": {
+          "p_0": 0.04289881492498848,
+          "p_1": 0.01537170834474595,
+          "p_2": 0.010517166078316613,
+          "p_20": 0.0005001019872339309,
+          "p_5": 0.003025272818619345
+        },
+        "technical_points": 44.234403557601695
+      },
+      "current_motifs_fixed_50": {
+        "by_condition": {
+          "drift": {
+            "episodes": 12,
+            "error": 0.11540924279994408,
+            "loss_ratio": 0.5714514684334978,
+            "queries": 96,
+            "reference_error": 0.20195808248828526
+          },
+          "shared_change": {
+            "episodes": 12,
+            "error": 0.10265862718630513,
+            "loss_ratio": 0.4855010127066585,
+            "queries": 96,
+            "reference_error": 0.21144884253481844
+          },
+          "short_history": {
+            "episodes": 12,
+            "error": 0.0465397823290857,
+            "loss_ratio": 0.24645848488271965,
+            "queries": 96,
+            "reference_error": 0.18883416552378887
+          },
+          "stable": {
+            "episodes": 12,
+            "error": 0.03349211955529512,
+            "loss_ratio": 0.1613442709836144,
+            "queries": 96,
+            "reference_error": 0.2075817092922777
+          }
+        },
+        "contest_version": "temporal-adaptation-v3-60-40",
+        "matched_control": "adaptive_3072",
+        "max_points": 60.0,
+        "mean_loss_ratio": 0.3661888092516226,
+        "paired_delta_r_vs_adaptive_48": {
+          "delta_r": -0.4397065619280396,
+          "lower": -0.4690895253850916,
+          "repeats": 2000,
+          "seed": 314159,
+          "upper": -0.41152821609806084
+        },
+        "paired_delta_r_vs_matched_control": {
+          "delta_r": 0.0055795657886706235,
+          "lower": -0.013172608290316594,
+          "repeats": 2000,
+          "seed": 314159,
+          "upper": 0.02385058582759267
+        },
+        "predictions": "fixed__current_motifs_fixed_50.csv",
+        "raw_mean_squared_error_by_payout": {
+          "p_0": 0.04438978593997651,
+          "p_1": 0.015610750597669342,
+          "p_2": 0.010912242277033421,
+          "p_20": 0.0005076841354063791,
+          "p_5": 0.0031044800175718114
+        },
+        "technical_points": 43.917794959005036
+      },
+      "current_motifs_fixed_50_logistic_head": {
+        "by_condition": {
+          "drift": {
+            "episodes": 12,
+            "error": 0.11214966058607262,
+            "loss_ratio": 0.5553115735914058,
+            "queries": 96,
+            "reference_error": 0.20195808248828526
+          },
+          "shared_change": {
+            "episodes": 12,
+            "error": 0.10156641130166584,
+            "loss_ratio": 0.4803356220072063,
+            "queries": 96,
+            "reference_error": 0.21144884253481844
+          },
+          "short_history": {
+            "episodes": 12,
+            "error": 0.04614238410637059,
+            "loss_ratio": 0.24435400224520112,
+            "queries": 96,
+            "reference_error": 0.18883416552378887
+          },
+          "stable": {
+            "episodes": 12,
+            "error": 0.029913076285966993,
+            "loss_ratio": 0.14410265908278555,
+            "queries": 96,
+            "reference_error": 0.2075817092922777
+          }
+        },
+        "contest_version": "temporal-adaptation-v3-60-40",
+        "matched_control": "adaptive_3072",
+        "max_points": 60.0,
+        "mean_loss_ratio": 0.35602596423164967,
+        "paired_delta_r_vs_adaptive_48": {
+          "delta_r": -0.44986940694801236,
+          "lower": -0.47831686653840616,
+          "repeats": 2000,
+          "seed": 314159,
+          "upper": -0.42157700656081515
+        },
+        "paired_delta_r_vs_matched_control": {
+          "delta_r": -0.004583279231302244,
+          "lower": -0.023276482299438055,
+          "repeats": 2000,
+          "seed": 314159,
+          "upper": 0.014386783858547235
+        },
+        "predictions": "fixed__current_motifs_fixed_50_logistic_head.csv",
+        "raw_mean_squared_error_by_payout": {
+          "p_0": 0.0443897859399765,
+          "p_1": 0.014982078116285316,
+          "p_2": 0.010167515238116197,
+          "p_20": 0.0002532030641796264,
+          "p_5": 0.002650300711461317
+        },
+        "technical_points": 44.24694038509591
+      },
+      "current_motifs_fixed_75": {
+        "by_condition": {
+          "drift": {
+            "episodes": 12,
+            "error": 0.13495269942120833,
+            "loss_ratio": 0.6682213346377774,
+            "queries": 96,
+            "reference_error": 0.20195808248828526
+          },
+          "shared_change": {
+            "episodes": 12,
+            "error": 0.11470544517690251,
+            "loss_ratio": 0.5424737435392413,
+            "queries": 96,
+            "reference_error": 0.21144884253481844
+          },
+          "short_history": {
+            "episodes": 12,
+            "error": 0.039449719624846495,
+            "loss_ratio": 0.20891198113127846,
+            "queries": 96,
+            "reference_error": 0.18883416552378887
+          },
+          "stable": {
+            "episodes": 12,
+            "error": 0.029097182442909555,
+            "loss_ratio": 0.14017218830171763,
+            "queries": 96,
+            "reference_error": 0.2075817092922777
+          }
+        },
+        "contest_version": "temporal-adaptation-v3-60-40",
+        "matched_control": "adaptive_3072",
+        "max_points": 60.0,
+        "mean_loss_ratio": 0.3899448119025037,
+        "paired_delta_r_vs_adaptive_48": {
+          "delta_r": -0.41595055927715835,
+          "lower": -0.44803978742355394,
+          "repeats": 2000,
+          "seed": 314159,
+          "upper": -0.38610407814447656
+        },
+        "paired_delta_r_vs_matched_control": {
+          "delta_r": 0.02933556843955177,
+          "lower": 0.003662118084515075,
+          "repeats": 2000,
+          "seed": 314159,
+          "upper": 0.054691841362864216
+        },
+        "predictions": "fixed__current_motifs_fixed_75.csv",
+        "raw_mean_squared_error_by_payout": {
+          "p_0": 0.04785762103001393,
+          "p_1": 0.01630243756532526,
+          "p_2": 0.011589535950831495,
+          "p_20": 0.0005229849963462438,
+          "p_5": 0.0032786821239497756
+        },
+        "technical_points": 43.16718152131111
+      },
+      "legacy_half_positive_mix": {
+        "by_condition": {
+          "drift": {
+            "episodes": 12,
+            "error": 0.1688949691236227,
+            "loss_ratio": 0.8362872485354459,
+            "queries": 96,
+            "reference_error": 0.20195808248828526
+          },
+          "shared_change": {
+            "episodes": 12,
+            "error": 0.16819899451213835,
+            "loss_ratio": 0.7954595186986738,
+            "queries": 96,
+            "reference_error": 0.21144884253481844
+          },
+          "short_history": {
+            "episodes": 12,
+            "error": 0.1663840287708578,
+            "loss_ratio": 0.8811118915337233,
+            "queries": 96,
+            "reference_error": 0.18883416552378887
+          },
+          "stable": {
+            "episodes": 12,
+            "error": 0.14062851613018226,
+            "loss_ratio": 0.6774610181679134,
+            "queries": 96,
+            "reference_error": 0.2075817092922777
+          }
+        },
+        "contest_version": "temporal-adaptation-v3-60-40",
+        "max_points": 60.0,
+        "mean_loss_ratio": 0.7975799192339391,
+        "paired_delta_r_vs_adaptive_48": {
+          "delta_r": -0.008315451945722998,
+          "lower": -0.011335538526327685,
+          "repeats": 2000,
+          "seed": 314159,
+          "upper": -0.005550120300505411
+        },
+        "predictions": "fixed__legacy_half_positive_mix.csv",
+        "raw_mean_squared_error_by_payout": {
+          "p_0": 0.10792828354389598,
+          "p_1": 0.028826993900347698,
+          "p_2": 0.01864284187857092,
+          "p_20": 0.0004395363508843304,
+          "p_5": 0.005188971460501312
+        },
+        "technical_points": 33.378209979987844
+      },
+      "legacy_logistic_head_swap": {
+        "by_condition": {
+          "drift": {
+            "episodes": 12,
+            "error": 0.1681597729908287,
+            "loss_ratio": 0.8326469083037712,
+            "queries": 96,
+            "reference_error": 0.20195808248828526
+          },
+          "shared_change": {
+            "episodes": 12,
+            "error": 0.16837929666179963,
+            "loss_ratio": 0.7963122173821939,
+            "queries": 96,
+            "reference_error": 0.21144884253481844
+          },
+          "short_history": {
+            "episodes": 12,
+            "error": 0.1671693594795993,
+            "loss_ratio": 0.8852707295626527,
+            "queries": 96,
+            "reference_error": 0.18883416552378887
+          },
+          "stable": {
+            "episodes": 12,
+            "error": 0.14052156888527897,
+            "loss_ratio": 0.6769458126362319,
+            "queries": 96,
+            "reference_error": 0.2075817092922777
+          }
+        },
+        "contest_version": "temporal-adaptation-v3-60-40",
+        "max_points": 60.0,
+        "mean_loss_ratio": 0.7977939169712125,
+        "paired_delta_r_vs_adaptive_48": {
+          "delta_r": -0.008101454208449776,
+          "lower": -0.013742506250608494,
+          "repeats": 2000,
+          "seed": 314159,
+          "upper": -0.0029073135953439464
+        },
+        "predictions": "fixed__legacy_logistic_head_swap.csv",
+        "raw_mean_squared_error_by_payout": {
+          "p_0": 0.10792828354389598,
+          "p_1": 0.02885476124882347,
+          "p_2": 0.018570009539801147,
+          "p_20": 0.0004496498092508502,
+          "p_5": 0.005254795362605181
+        },
+        "technical_points": 33.3742368541793
+      },
+      "legacy_whole_90_10": {
+        "by_condition": {
+          "drift": {
+            "episodes": 12,
+            "error": 0.17234829638120122,
+            "loss_ratio": 0.8533864763307922,
+            "queries": 96,
+            "reference_error": 0.20195808248828526
+          },
+          "shared_change": {
+            "episodes": 12,
+            "error": 0.1696213967916145,
+            "loss_ratio": 0.8021864520903378,
+            "queries": 96,
+            "reference_error": 0.21144884253481844
+          },
+          "short_history": {
+            "episodes": 12,
+            "error": 0.16709960024269155,
+            "loss_ratio": 0.8849013089299285,
+            "queries": 96,
+            "reference_error": 0.18883416552378887
+          },
+          "stable": {
+            "episodes": 12,
+            "error": 0.14519623539323515,
+            "loss_ratio": 0.6994654581478419,
+            "queries": 96,
+            "reference_error": 0.2075817092922777
+          }
+        },
+        "contest_version": "temporal-adaptation-v3-60-40",
+        "max_points": 60.0,
+        "mean_loss_ratio": 0.8099849238747251,
+        "paired_delta_r_vs_adaptive_48": {
+          "delta_r": 0.00408955269506301,
+          "lower": -0.00037722635880127904,
+          "repeats": 2000,
+          "seed": 314159,
+          "upper": 0.00890587956713732
+        },
+        "predictions": "fixed__legacy_whole_90_10.csv",
+        "raw_mean_squared_error_by_payout": {
+          "p_0": 0.10887877874422715,
+          "p_1": 0.029469681106860237,
+          "p_2": 0.019277798291646702,
+          "p_20": 0.0005179129196435386,
+          "p_5": 0.005422211139808006
+        },
+        "technical_points": 33.149447384100306
+      },
+      "self_logistic": {
+        "by_condition": {
+          "drift": {
+            "episodes": 12,
+            "error": 0.1898790870240813,
+            "loss_ratio": 0.9401905815534537,
+            "queries": 96,
+            "reference_error": 0.20195808248828526
+          },
+          "shared_change": {
+            "episodes": 12,
+            "error": 0.17947010625860896,
+            "loss_ratio": 0.8487637203739071,
+            "queries": 96,
+            "reference_error": 0.21144884253481844
+          },
+          "short_history": {
+            "episodes": 12,
+            "error": 0.1748651273688705,
+            "loss_ratio": 0.9260248371041808,
+            "queries": 96,
+            "reference_error": 0.18883416552378887
+          },
+          "stable": {
+            "episodes": 12,
+            "error": 0.19049397428219036,
+            "loss_ratio": 0.9176818850353159,
+            "queries": 96,
+            "reference_error": 0.2075817092922777
+          }
+        },
+        "contest_version": "temporal-adaptation-v3-60-40",
+        "max_points": 60.0,
+        "mean_loss_ratio": 0.9081652560167144,
+        "paired_delta_r_vs_adaptive_48": {
+          "delta_r": 0.10226988483705231,
+          "lower": 0.05416360093036512,
+          "repeats": 2000,
+          "seed": 314159,
+          "upper": 0.15537433995445027
+        },
+        "predictions": "fixed__self_logistic.csv",
+        "raw_mean_squared_error_by_payout": {
+          "p_0": 0.12392955664254605,
+          "p_1": 0.03313554894575427,
+          "p_2": 0.02059341902087532,
+          "p_20": 0.0004698903540918979,
+          "p_5": 0.00554865877017022
+        },
+        "technical_points": 31.443817463299645
+      },
+      "signed_motifs": {
+        "by_condition": {
+          "drift": {
+            "episodes": 12,
+            "error": 0.15742751219541706,
+            "loss_ratio": 0.7795058769413141,
+            "queries": 96,
+            "reference_error": 0.20195808248828526
+          },
+          "shared_change": {
+            "episodes": 12,
+            "error": 0.12933266404089952,
+            "loss_ratio": 0.6116499030710126,
+            "queries": 96,
+            "reference_error": 0.21144884253481844
+          },
+          "short_history": {
+            "episodes": 12,
+            "error": 0.03551923366226352,
+            "loss_ratio": 0.1880974958304825,
+            "queries": 96,
+            "reference_error": 0.18883416552378887
+          },
+          "stable": {
+            "episodes": 12,
+            "error": 0.027288671102747724,
+            "loss_ratio": 0.13145990172151886,
+            "queries": 96,
+            "reference_error": 0.2075817092922777
+          }
+        },
+        "contest_version": "temporal-adaptation-v3-60-40",
+        "max_points": 60.0,
+        "mean_loss_ratio": 0.427678294391082,
+        "paired_delta_r_vs_adaptive_48": {
+          "delta_r": -0.3782170767885801,
+          "lower": -0.41347507545902323,
+          "repeats": 2000,
+          "seed": 314159,
+          "upper": -0.3441749526784496
+        },
+        "predictions": "fixed__signed_motifs.csv",
+        "raw_mean_squared_error_by_payout": {
+          "p_0": 0.05330232019510064,
+          "p_1": 0.0174467692477137,
+          "p_2": 0.012549047099710803,
+          "p_20": 0.0005460045700535272,
+          "p_5": 0.003547879137753243
+        },
+        "technical_points": 42.02627457160477
+      },
+      "signed_motifs_logistic_head": {
+        "by_condition": {
+          "drift": {
+            "episodes": 12,
+            "error": 0.15368123162760164,
+            "loss_ratio": 0.760956084223646,
+            "queries": 96,
+            "reference_error": 0.20195808248828526
+          },
+          "shared_change": {
+            "episodes": 12,
+            "error": 0.12810559393362292,
+            "loss_ratio": 0.6058467494922716,
+            "queries": 96,
+            "reference_error": 0.21144884253481844
+          },
+          "short_history": {
+            "episodes": 12,
+            "error": 0.03440667561900739,
+            "loss_ratio": 0.182205775758693,
+            "queries": 96,
+            "reference_error": 0.18883416552378887
+          },
+          "stable": {
+            "episodes": 12,
+            "error": 0.023064512252376008,
+            "loss_ratio": 0.11111052284428817,
+            "queries": 96,
+            "reference_error": 0.2075817092922777
+          }
+        },
+        "contest_version": "temporal-adaptation-v3-60-40",
+        "matched_control": "signed_motifs",
+        "max_points": 60.0,
+        "mean_loss_ratio": 0.4150297830797247,
+        "paired_delta_r_vs_adaptive_48": {
+          "delta_r": -0.39086558809993743,
+          "lower": -0.4244434935806099,
+          "repeats": 2000,
+          "seed": 314159,
+          "upper": -0.3583769492583757
+        },
+        "paired_delta_r_vs_matched_control": {
+          "delta_r": -0.01264851131135739,
+          "lower": -0.01931506812488132,
+          "repeats": 2000,
+          "seed": 314159,
+          "upper": -0.006788681273851741
+        },
+        "predictions": "fixed__signed_motifs_logistic_head.csv",
+        "raw_mean_squared_error_by_payout": {
+          "p_0": 0.053302320195100644,
+          "p_1": 0.016536589656700292,
+          "p_2": 0.011708550605788655,
+          "p_20": 0.00029293722750265984,
+          "p_5": 0.0029741056730596873
+        },
+        "technical_points": 42.401934374422645
+      }
+    },
+    "in_sample": {
+      "boosted_motifs_win_scalar": {
+        "by_condition": {
+          "drift": {
+            "episodes": 12,
+            "error": 0.04231732349514209,
+            "loss_ratio": 0.2095351816265969,
+            "queries": 96,
+            "reference_error": 0.20195808248828526
+          },
+          "shared_change": {
+            "episodes": 12,
+            "error": 0.046609298809668125,
+            "loss_ratio": 0.22042825229460955,
+            "queries": 96,
+            "reference_error": 0.21144884253481844
+          },
+          "short_history": {
+            "episodes": 12,
+            "error": 0.04178864108167096,
+            "loss_ratio": 0.22129809489589705,
+            "queries": 96,
+            "reference_error": 0.18883416552378887
+          },
+          "stable": {
+            "episodes": 12,
+            "error": 0.035905858926942466,
+            "loss_ratio": 0.17297217105186544,
+            "queries": 96,
+            "reference_error": 0.2075817092922777
+          }
+        },
+        "contest_version": "temporal-adaptation-v3-60-40",
+        "max_points": 60.0,
+        "mean_loss_ratio": 0.20605842496724225,
+        "predictions": "in_sample__boosted_motifs_win_scalar.csv",
+        "raw_mean_squared_error_by_payout": {
+          "p_0": 0.020614461949177033,
+          "p_1": 0.00982471847288127,
+          "p_2": 0.008056334554853786,
+          "p_20": 0.0005860723199580383,
+          "p_5": 0.0025736932814857927
+        },
+        "technical_points": 49.748833686585
+      },
+      "current_motifs_win_scalar": {
+        "by_condition": {
+          "drift": {
+            "episodes": 12,
+            "error": 0.0958324364520418,
+            "loss_ratio": 0.47451647030566674,
+            "queries": 96,
+            "reference_error": 0.20195808248828526
+          },
+          "shared_change": {
+            "episodes": 12,
+            "error": 0.09161170592533006,
+            "loss_ratio": 0.43325706978152284,
+            "queries": 96,
+            "reference_error": 0.21144884253481844
+          },
+          "short_history": {
+            "episodes": 12,
+            "error": 0.059213405760699306,
+            "loss_ratio": 0.31357358238882754,
+            "queries": 96,
+            "reference_error": 0.18883416552378887
+          },
+          "stable": {
+            "episodes": 12,
+            "error": 0.042176532791825594,
+            "loss_ratio": 0.20318039067902893,
+            "queries": 96,
+            "reference_error": 0.2075817092922777
+          }
+        },
+        "contest_version": "temporal-adaptation-v3-60-40",
+        "max_points": 60.0,
+        "mean_loss_ratio": 0.3561318782887615,
+        "predictions": "in_sample__current_motifs_win_scalar.csv",
+        "raw_mean_squared_error_by_payout": {
+          "p_0": 0.04283788837859709,
+          "p_1": 0.015378185494525317,
+          "p_2": 0.010472097693945604,
+          "p_20": 0.0004995126944281053,
+          "p_5": 0.0030208359709781017
+        },
+        "technical_points": 44.243484693915725
+      },
+      "legacy_positive_scalar": {
+        "by_condition": {
+          "drift": {
+            "episodes": 12,
+            "error": 0.168298950218104,
+            "loss_ratio": 0.8333360474833501,
+            "queries": 96,
+            "reference_error": 0.20195808248828526
+          },
+          "shared_change": {
+            "episodes": 12,
+            "error": 0.1680954972763223,
+            "loss_ratio": 0.7949700516740482,
+            "queries": 96,
+            "reference_error": 0.21144884253481844
+          },
+          "short_history": {
+            "episodes": 12,
+            "error": 0.16655702669485914,
+            "loss_ratio": 0.88202802831184,
+            "queries": 96,
+            "reference_error": 0.18883416552378887
+          },
+          "stable": {
+            "episodes": 12,
+            "error": 0.14035389877957172,
+            "loss_ratio": 0.6761380820019727,
+            "queries": 96,
+            "reference_error": 0.2075817092922777
+          }
+        },
+        "contest_version": "temporal-adaptation-v3-60-40",
+        "max_points": 60.0,
+        "mean_loss_ratio": 0.7966180523678028,
+        "predictions": "in_sample__legacy_positive_scalar.csv",
+        "raw_mean_squared_error_by_payout": {
+          "p_0": 0.10792828354389598,
+          "p_1": 0.02876810678482876,
+          "p_2": 0.018526033441096924,
+          "p_20": 0.0004294932142444859,
+          "p_5": 0.005174426258148123
+        },
+        "technical_points": 33.396079885162386
+      }
+    },
+    "out_of_fold": {
+      "boosted_motifs_win_scalar": {
+        "by_condition": {
+          "drift": {
+            "episodes": 12,
+            "error": 0.04268035832991057,
+            "loss_ratio": 0.21133275679811567,
+            "queries": 96,
+            "reference_error": 0.20195808248828526
+          },
+          "shared_change": {
+            "episodes": 12,
+            "error": 0.04664440504530268,
+            "loss_ratio": 0.22059427938283432,
+            "queries": 96,
+            "reference_error": 0.21144884253481844
+          },
+          "short_history": {
+            "episodes": 12,
+            "error": 0.04176994085928241,
+            "loss_ratio": 0.22119906502841155,
+            "queries": 96,
+            "reference_error": 0.18883416552378887
+          },
+          "stable": {
+            "episodes": 12,
+            "error": 0.03630581802300315,
+            "loss_ratio": 0.17489892605077306,
+            "queries": 96,
+            "reference_error": 0.2075817092922777
+          }
+        },
+        "contest_version": "temporal-adaptation-v3-60-40",
+        "matched_control": "boosted_3072",
+        "max_points": 60.0,
+        "mean_loss_ratio": 0.20700625681503365,
+        "paired_delta_r_vs_adaptive_48": {
+          "delta_r": -0.5988891143646284,
+          "lower": -0.648154009251484,
+          "repeats": 2000,
+          "seed": 314159,
+          "upper": -0.5502743904550822
+        },
+        "paired_delta_r_vs_matched_control": {
+          "delta_r": 0.0008274631428199933,
+          "lower": -0.0006748283392039025,
+          "repeats": 2000,
+          "seed": 314159,
+          "upper": 0.0023857961504455223
+        },
+        "predictions": "out_of_fold__boosted_motifs_win_scalar.csv",
+        "raw_mean_squared_error_by_payout": {
+          "p_0": 0.02074599364869333,
+          "p_1": 0.009864833084771001,
+          "p_2": 0.008070720735647371,
+          "p_20": 0.0005864800896484752,
+          "p_5": 0.002582103005614537
+        },
+        "technical_points": 49.70976717082141
+      },
+      "boosted_motifs_win_scalar_logistic_head": {
+        "by_condition": {
+          "drift": {
+            "episodes": 12,
+            "error": 0.03950372250249866,
+            "loss_ratio": 0.19560357285918528,
+            "queries": 96,
+            "reference_error": 0.20195808248828526
+          },
+          "shared_change": {
+            "episodes": 12,
+            "error": 0.04489574391012493,
+            "loss_ratio": 0.21232437771671475,
+            "queries": 96,
+            "reference_error": 0.21144884253481844
+          },
+          "short_history": {
+            "episodes": 12,
+            "error": 0.0409898583835438,
+            "loss_ratio": 0.21706801981434867,
+            "queries": 96,
+            "reference_error": 0.18883416552378887
+          },
+          "stable": {
+            "episodes": 12,
+            "error": 0.031619705735338934,
+            "loss_ratio": 0.1523241418675187,
+            "queries": 96,
+            "reference_error": 0.2075817092922777
+          }
+        },
+        "contest_version": "temporal-adaptation-v3-60-40",
+        "matched_control": "boosted_3072",
+        "max_points": 60.0,
+        "mean_loss_ratio": 0.19433002806444186,
+        "paired_delta_r_vs_adaptive_48": {
+          "delta_r": -0.6115653431152203,
+          "lower": -0.6608067242574749,
+          "repeats": 2000,
+          "seed": 314159,
+          "upper": -0.5649795903988919
+        },
+        "paired_delta_r_vs_matched_control": {
+          "delta_r": -0.01184876560777182,
+          "lower": -0.019349917776497475,
+          "repeats": 2000,
+          "seed": 314159,
+          "upper": -0.005332462550415594
+        },
+        "predictions": "out_of_fold__boosted_motifs_win_scalar_logistic_head.csv",
+        "raw_mean_squared_error_by_payout": {
+          "p_0": 0.020745993648693332,
+          "p_1": 0.009446414831652455,
+          "p_2": 0.006894026707778225,
+          "p_20": 0.00021329109865874264,
+          "p_5": 0.001952531346093836
+        },
+        "technical_points": 50.23737040023799
+      },
+      "current_motifs_win_scalar": {
+        "by_condition": {
+          "drift": {
+            "episodes": 12,
+            "error": 0.09594618299203327,
+            "loss_ratio": 0.47507968886364677,
+            "queries": 96,
+            "reference_error": 0.20195808248828526
+          },
+          "shared_change": {
+            "episodes": 12,
+            "error": 0.09173668071369907,
+            "loss_ratio": 0.43384811008645346,
+            "queries": 96,
+            "reference_error": 0.21144884253481844
+          },
+          "short_history": {
+            "episodes": 12,
+            "error": 0.059049279770641915,
+            "loss_ratio": 0.3127044282842081,
+            "queries": 96,
+            "reference_error": 0.18883416552378887
+          },
+          "stable": {
+            "episodes": 12,
+            "error": 0.042599279102343214,
+            "loss_ratio": 0.20521692035189326,
+            "queries": 96,
+            "reference_error": 0.2075817092922777
+          }
+        },
+        "contest_version": "temporal-adaptation-v3-60-40",
+        "matched_control": "adaptive_3072",
+        "max_points": 60.0,
+        "mean_loss_ratio": 0.3567122868965504,
+        "paired_delta_r_vs_adaptive_48": {
+          "delta_r": -0.4491830842831117,
+          "lower": -0.47940406749666664,
+          "repeats": 2000,
+          "seed": 314159,
+          "upper": -0.4201759180647772
+        },
+        "paired_delta_r_vs_matched_control": {
+          "delta_r": -0.0038969565664015507,
+          "lower": -0.01179807818374005,
+          "repeats": 2000,
+          "seed": 314159,
+          "upper": 0.003987876657867519
+        },
+        "predictions": "out_of_fold__current_motifs_win_scalar.csv",
+        "raw_mean_squared_error_by_payout": {
+          "p_0": 0.042915738528437636,
+          "p_1": 0.015421118643071448,
+          "p_2": 0.010479049873936734,
+          "p_20": 0.0004995213739976555,
+          "p_5": 0.003017427225235847
+        },
+        "technical_points": 44.224557099905596
+      },
+      "current_motifs_win_scalar_logistic_head": {
+        "by_condition": {
+          "drift": {
+            "episodes": 12,
+            "error": 0.09284595841713476,
+            "loss_ratio": 0.4597288569647633,
+            "queries": 96,
+            "reference_error": 0.20195808248828526
+          },
+          "shared_change": {
+            "episodes": 12,
+            "error": 0.09063953059236345,
+            "loss_ratio": 0.42865938401832676,
+            "queries": 96,
+            "reference_error": 0.21144884253481844
+          },
+          "short_history": {
+            "episodes": 12,
+            "error": 0.05897244012556064,
+            "loss_ratio": 0.31229751227476593,
+            "queries": 96,
+            "reference_error": 0.18883416552378887
+          },
+          "stable": {
+            "episodes": 12,
+            "error": 0.03924309219139993,
+            "loss_ratio": 0.18904889224197086,
+            "queries": 96,
+            "reference_error": 0.2075817092922777
+          }
+        },
+        "contest_version": "temporal-adaptation-v3-60-40",
+        "matched_control": "adaptive_3072",
+        "max_points": 60.0,
+        "mean_loss_ratio": 0.3474336613749567,
+        "paired_delta_r_vs_adaptive_48": {
+          "delta_r": -0.45846170980470535,
+          "lower": -0.489252286218122,
+          "repeats": 2000,
+          "seed": 314159,
+          "upper": -0.42998836862675693
+        },
+        "paired_delta_r_vs_matched_control": {
+          "delta_r": -0.013175582087995219,
+          "lower": -0.022896049592468062,
+          "repeats": 2000,
+          "seed": 314159,
+          "upper": -0.003561979074133041
+        },
+        "predictions": "out_of_fold__current_motifs_win_scalar_logistic_head.csv",
+        "raw_mean_squared_error_by_payout": {
+          "p_0": 0.04291573852843764,
+          "p_1": 0.0149076040662176,
+          "p_2": 0.009756092730596608,
+          "p_20": 0.00024268742724427064,
+          "p_5": 0.0026031325791185576
+        },
+        "technical_points": 44.529093876706646
+      },
+      "legacy_positive_scalar": {
+        "by_condition": {
+          "drift": {
+            "episodes": 12,
+            "error": 0.16842903868659106,
+            "loss_ratio": 0.8339801834688192,
+            "queries": 96,
+            "reference_error": 0.20195808248828526
+          },
+          "shared_change": {
+            "episodes": 12,
+            "error": 0.16820613670913784,
+            "loss_ratio": 0.7954932961216848,
+            "queries": 96,
+            "reference_error": 0.21144884253481844
+          },
+          "short_history": {
+            "episodes": 12,
+            "error": 0.166597190618962,
+            "loss_ratio": 0.8822407224712442,
+            "queries": 96,
+            "reference_error": 0.18883416552378887
+          },
+          "stable": {
+            "episodes": 12,
+            "error": 0.14052359764445224,
+            "loss_ratio": 0.6769555859403451,
+            "queries": 96,
+            "reference_error": 0.2075817092922777
+          }
+        },
+        "contest_version": "temporal-adaptation-v3-60-40",
+        "max_points": 60.0,
+        "mean_loss_ratio": 0.7971674470005233,
+        "paired_delta_r_vs_adaptive_48": {
+          "delta_r": -0.008727924179138771,
+          "lower": -0.013028430315090232,
+          "repeats": 2000,
+          "seed": 314159,
+          "upper": -0.004801373249068697
+        },
+        "predictions": "out_of_fold__legacy_positive_scalar.csv",
+        "raw_mean_squared_error_by_payout": {
+          "p_0": 0.10792828354389598,
+          "p_1": 0.028834454027984537,
+          "p_2": 0.01851837717201151,
+          "p_20": 0.0004216920271184459,
+          "p_5": 0.005236184143775258
+        },
+        "technical_points": 33.38587069342934
+      }
+    }
+  },
+  "season_id": "5fffdc4d0c700bbf61c3f911",
+  "settings": {
+    "fixed_signed_motif_win_weights": [
+      0.25,
+      0.5,
+      0.75
+    ],
+    "legacy_logistic_payout_weights": [
+      0,
+      0.5,
+      1
+    ],
+    "legacy_whole_logistic_weight": 0.1,
+    "threads": 2
+  },
+  "split": "tuning",
+  "strongest_by_category": {
+    "fixed": "boosted_3072_logistic_head",
+    "in_sample": "boosted_motifs_win_scalar",
+    "out_of_fold": "boosted_motifs_win_scalar_logistic_head"
+  },
+  "total_seconds": 1.732290292,
+  "tuning_episodes": [
+    "main-validation-e00000",
+    "main-validation-e00001",
+    "main-validation-e00002",
+    "main-validation-e00004",
+    "main-validation-e00006",
+    "main-validation-e00007",
+    "main-validation-e00008",
+    "main-validation-e00011",
+    "main-validation-e00013",
+    "main-validation-e00014",
+    "main-validation-e00015",
+    "main-validation-e00018",
+    "main-validation-e00021",
+    "main-validation-e00023",
+    "main-validation-e00025",
+    "main-validation-e00029",
+    "main-validation-e00031",
+    "main-validation-e00033",
+    "main-validation-e00038",
+    "main-validation-e00042",
+    "main-validation-e00044",
+    "main-validation-e00045",
+    "main-validation-e00047",
+    "main-validation-e00048",
+    "main-validation-e00050",
+    "main-validation-e00051",
+    "main-validation-e00053",
+    "main-validation-e00054",
+    "main-validation-e00055",
+    "main-validation-e00056",
+    "main-validation-e00058",
+    "main-validation-e00059",
+    "main-validation-e00061",
+    "main-validation-e00062",
+    "main-validation-e00063",
+    "main-validation-e00064",
+    "main-validation-e00065",
+    "main-validation-e00066",
+    "main-validation-e00068",
+    "main-validation-e00069",
+    "main-validation-e00073",
+    "main-validation-e00074",
+    "main-validation-e00077",
+    "main-validation-e00078",
+    "main-validation-e00080",
+    "main-validation-e00081",
+    "main-validation-e00087",
+    "main-validation-e00094"
+  ],
+  "tuning_queries": 384,
+  "versions": {
+    "numpy": "1.26.4",
+    "python": "3.9.6",
+    "scikit-learn": "1.6.1"
+  }
+}

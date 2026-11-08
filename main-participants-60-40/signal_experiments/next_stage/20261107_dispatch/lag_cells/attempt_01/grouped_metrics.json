@@ -1,0 +1,162 @@
+{
+  "E3Frozen": {
+    "actual_cutoff": {
+      "binary_brier": 0.07630648319739923,
+      "binary_logloss": 0.2652655047715979,
+      "episodes": 96,
+      "rows": 768
+    },
+    "all": {
+      "binary_brier": 0.09019740988725687,
+      "binary_logloss": 0.3057357427784852,
+      "episodes": 96,
+      "rows": 6144
+    },
+    "earlier_cutoffs": {
+      "binary_brier": 0.09218182798580794,
+      "binary_logloss": 0.3115172053508977,
+      "episodes": 96,
+      "rows": 5376
+    },
+    "high_pair_mass": {
+      "binary_brier": 0.09073919657437689,
+      "binary_logloss": 0.30866994927307173,
+      "episodes": 96,
+      "rows": 5655
+    },
+    "top_pair_4_7": {
+      "binary_brier": 0.09121354694162283,
+      "binary_logloss": 0.3049204637878529,
+      "episodes": 88,
+      "rows": 1871
+    }
+  },
+  "E3Full": {
+    "actual_cutoff": {
+      "binary_brier": 0.07638212396306295,
+      "binary_logloss": 0.26548580933782845,
+      "episodes": 96,
+      "rows": 768
+    },
+    "all": {
+      "binary_brier": 0.0902659663076888,
+      "binary_logloss": 0.30591633908165505,
+      "episodes": 96,
+      "rows": 6144
+    },
+    "earlier_cutoffs": {
+      "binary_brier": 0.09224937235692106,
+      "binary_logloss": 0.3116921290450589,
+      "episodes": 96,
+      "rows": 5376
+    },
+    "high_pair_mass": {
+      "binary_brier": 0.0907676022620769,
+      "binary_logloss": 0.30876494673916816,
+      "episodes": 96,
+      "rows": 5655
+    },
+    "top_pair_4_7": {
+      "binary_brier": 0.09131907105655693,
+      "binary_logloss": 0.30515346355575973,
+      "episodes": 88,
+      "rows": 1871
+    }
+  },
+  "E3Full_XOR_B": {
+    "actual_cutoff": {
+      "binary_brier": 0.07628309310847438,
+      "binary_logloss": 0.26518869639499904,
+      "episodes": 96,
+      "rows": 768
+    },
+    "all": {
+      "binary_brier": 0.08973291655137496,
+      "binary_logloss": 0.3039194108564485,
+      "episodes": 96,
+      "rows": 6144
+    },
+    "earlier_cutoffs": {
+      "binary_brier": 0.09165431990036077,
+      "binary_logloss": 0.309452370065227,
+      "episodes": 96,
+      "rows": 5376
+    },
+    "high_pair_mass": {
+      "binary_brier": 0.09020143333524329,
+      "binary_logloss": 0.30669768198375497,
+      "episodes": 96,
+      "rows": 5655
+    },
+    "top_pair_4_7": {
+      "binary_brier": 0.09014684064617462,
+      "binary_logloss": 0.3009993424289676,
+      "episodes": 88,
+      "rows": 1871
+    }
+  },
+  "E3Shared": {
+    "actual_cutoff": {
+      "binary_brier": 0.07666053899434415,
+      "binary_logloss": 0.26634433537248925,
+      "episodes": 96,
+      "rows": 768
+    },
+    "all": {
+      "binary_brier": 0.09029988687718099,
+      "binary_logloss": 0.30596675759645425,
+      "episodes": 96,
+      "rows": 6144
+    },
+    "earlier_cutoffs": {
+      "binary_brier": 0.09224836514615768,
+      "binary_logloss": 0.3116271036284493,
+      "episodes": 96,
+      "rows": 5376
+    },
+    "high_pair_mass": {
+      "binary_brier": 0.09081836646860038,
+      "binary_logloss": 0.3088776031114056,
+      "episodes": 96,
+      "rows": 5655
+    },
+    "top_pair_4_7": {
+      "binary_brier": 0.09156877094732216,
+      "binary_logloss": 0.3058168165268979,
+      "episodes": 88,
+      "rows": 1871
+    }
+  },
+  "M3": {
+    "actual_cutoff": {
+      "binary_brier": 0.07663982346302176,
+      "binary_logloss": 0.26725273603346117,
+      "episodes": 96,
+      "rows": 768
+    },
+    "all": {
+      "binary_brier": 0.09016649000173417,
+      "binary_logloss": 0.305291086131565,
+      "episodes": 96,
+      "rows": 6144
+    },
+    "earlier_cutoffs": {
+      "binary_brier": 0.09209887093583595,
+      "binary_logloss": 0.3107251361455799,
+      "episodes": 96,
+      "rows": 5376
+    },
+    "high_pair_mass": {
+      "binary_brier": 0.0907624364997861,
+      "binary_logloss": 0.30830652437913947,
+      "episodes": 96,
+      "rows": 5655
+    },
+    "top_pair_4_7": {
+      "binary_brier": 0.09108299765488798,
+      "binary_logloss": 0.3037244987646185,
+      "episodes": 88,
+      "rows": 1871
+    }
+  }
+}

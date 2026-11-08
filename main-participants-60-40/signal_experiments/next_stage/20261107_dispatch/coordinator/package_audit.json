@@ -1,0 +1,11 @@
+{
+  "exact_ids": 1536,
+  "max_normalized_probability_delta": 1.3763296058399987e-14,
+  "reads": [
+    "/data/test/history.csv",
+    "/data/test/queries.csv"
+  ],
+  "zip_members": 37,
+  "zip_sha256": "e4610accbfb69604d7497b01afb2e59682df10ca9ec32459dd733fe59cf78451",
+  "csv_sha256": "c7c34efd491648b5a7cf97bfa04df090427fc528dde31a28800211575a856b8b"
+}

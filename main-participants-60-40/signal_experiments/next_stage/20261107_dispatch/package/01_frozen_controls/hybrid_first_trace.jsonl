@@ -1,0 +1,2 @@
+{"args": ["--model", "hybrid", "--data", "/private/tmp/house-edge-package.OS2Dy0/data", "--out", "/private/tmp/house-edge-package.OS2Dy0/output/hybrid.csv"], "event": "start", "script": "/private/tmp/house-edge-package.OS2Dy0/hybrid/predict.py", "stage": "fit-predict", "utc": "2026-11-07T23:45:25.686450+00:00"}
+{"event": "end", "exit": 0}

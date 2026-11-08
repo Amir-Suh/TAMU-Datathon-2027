@@ -1,0 +1,89 @@
+{
+  "bootstrap_scope": "Whole episodes sampled within condition, with OOF forecasts fixed.",
+  "conditional_mix_max_change": {
+    "intercept": 3.3306690738754696e-16,
+    "intercept_signal": 2.220446049250313e-16,
+    "raw": 0.0
+  },
+  "contrasts": {
+    "intercept_signal_vs_intercept": {
+      "observed_win_brier": {
+        "delta": 0.0007830537408760951,
+        "paired_ci95": [
+          -0.0007134616807771892,
+          0.0023463066654536716
+        ]
+      },
+      "observed_win_logloss": {
+        "delta": 3.5696800514892355e-05,
+        "paired_ci95": [
+          -0.005062873681057946,
+          0.0051281689724652
+        ]
+      }
+    },
+    "intercept_signal_vs_raw": {
+      "observed_win_brier": {
+        "delta": 0.0011249786104469588,
+        "paired_ci95": [
+          -0.000676539652488223,
+          0.002954926080926124
+        ]
+      },
+      "observed_win_logloss": {
+        "delta": 0.0018952646242907888,
+        "paired_ci95": [
+          -0.0038812553399797216,
+          0.007783145344121175
+        ]
+      }
+    },
+    "intercept_vs_raw": {
+      "observed_win_brier": {
+        "delta": 0.00034192486957086357,
+        "paired_ci95": [
+          -0.000511122762298376,
+          0.001230446564274428
+        ]
+      },
+      "observed_win_logloss": {
+        "delta": 0.001859567823775896,
+        "paired_ci95": [
+          -0.00049878098296039,
+          0.0044732341338910835
+        ]
+      }
+    }
+  },
+  "fit_scope": "Four-fold validation cutoff cross-fitting by whole episode, development only.",
+  "input_sha256": {
+    "/Users/andrewvong/Documents/Projects/tamudatathon27/main-participants-60-40/public/validation/conditions.csv": "ebcca7597bbdfa532c5254b92903e66522a710502a6f70689c3de311f75c29b1",
+    "/Users/andrewvong/Documents/Projects/tamudatathon27/main-participants-60-40/public/validation/labels.csv": "3881ed7e2451573f023d09d85b737cdc99a00b4b224eb020f371c02b9f9a91e2",
+    "/Users/andrewvong/Documents/Projects/tamudatathon27/main-participants-60-40/public/validation/queries.csv": "168b7f6365a4f51084437c0071636b102ca3fb4bf0347b912778c51714fc48f2",
+    "/Users/andrewvong/Documents/Projects/tamudatathon27/main-participants-60-40/public/validation/targets.csv": "93b6e978f6818d2456dcb677fddb6ba243e864cef56e33a4bf94bde5ba4b51f3",
+    "signal_experiments/01_fredy_replay/forecasts/gru128_nomsg_seed_2.csv": "a457d18b694ccd0c2b85fc3092004941aa0062790ef4aa0d6bcb2d4c08d489ef",
+    "signal_experiments/folds.csv": "df85f54a091a88b1961ed69d29d4884718bf7c2ce809d7793ee80bb529f5bac2"
+  },
+  "metrics": {
+    "intercept": {
+      "observed_win_brier": 0.10443329210957482,
+      "observed_win_logloss": 0.3482837890380892
+    },
+    "intercept_signal": {
+      "observed_win_brier": 0.10521634585045092,
+      "observed_win_logloss": 0.348319485838604
+    },
+    "raw": {
+      "observed_win_brier": 0.10409136724000397,
+      "observed_win_logloss": 0.3464242212143132
+    }
+  },
+  "model": "Fredy GRU-128 no-message seed 2, 100 epochs, fused MPS replay",
+  "prior_sd": {
+    "intercept": 1.0,
+    "signal_slope": 0.5
+  },
+  "target_probabilities_used_in_fit": false,
+  "validation_episodes": 96,
+  "validation_queries": 768
+}

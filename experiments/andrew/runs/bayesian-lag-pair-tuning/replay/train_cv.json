@@ -1,0 +1,2396 @@
+{
+  "final_training_selection": {
+    "folds": [
+      [
+        "main-train-e00001",
+        "main-train-e00007",
+        "main-train-e00013",
+        "main-train-e00014",
+        "main-train-e00016",
+        "main-train-e00022",
+        "main-train-e00024",
+        "main-train-e00027",
+        "main-train-e00030",
+        "main-train-e00036",
+        "main-train-e00038",
+        "main-train-e00042",
+        "main-train-e00047",
+        "main-train-e00048",
+        "main-train-e00052",
+        "main-train-e00065",
+        "main-train-e00067",
+        "main-train-e00073",
+        "main-train-e00075",
+        "main-train-e00083",
+        "main-train-e00084",
+        "main-train-e00089",
+        "main-train-e00090",
+        "main-train-e00091"
+      ],
+      [
+        "main-train-e00005",
+        "main-train-e00015",
+        "main-train-e00020",
+        "main-train-e00025",
+        "main-train-e00028",
+        "main-train-e00029",
+        "main-train-e00035",
+        "main-train-e00039",
+        "main-train-e00040",
+        "main-train-e00041",
+        "main-train-e00051",
+        "main-train-e00053",
+        "main-train-e00055",
+        "main-train-e00056",
+        "main-train-e00060",
+        "main-train-e00066",
+        "main-train-e00068",
+        "main-train-e00069",
+        "main-train-e00072",
+        "main-train-e00077",
+        "main-train-e00082",
+        "main-train-e00093",
+        "main-train-e00094",
+        "main-train-e00095"
+      ],
+      [
+        "main-train-e00006",
+        "main-train-e00008",
+        "main-train-e00009",
+        "main-train-e00010",
+        "main-train-e00018",
+        "main-train-e00019",
+        "main-train-e00034",
+        "main-train-e00043",
+        "main-train-e00044",
+        "main-train-e00050",
+        "main-train-e00058",
+        "main-train-e00059",
+        "main-train-e00061",
+        "main-train-e00062",
+        "main-train-e00063",
+        "main-train-e00074",
+        "main-train-e00076",
+        "main-train-e00078",
+        "main-train-e00079",
+        "main-train-e00081",
+        "main-train-e00085",
+        "main-train-e00086",
+        "main-train-e00088",
+        "main-train-e00092"
+      ],
+      [
+        "main-train-e00000",
+        "main-train-e00002",
+        "main-train-e00003",
+        "main-train-e00004",
+        "main-train-e00011",
+        "main-train-e00012",
+        "main-train-e00017",
+        "main-train-e00021",
+        "main-train-e00023",
+        "main-train-e00026",
+        "main-train-e00031",
+        "main-train-e00032",
+        "main-train-e00033",
+        "main-train-e00037",
+        "main-train-e00045",
+        "main-train-e00046",
+        "main-train-e00049",
+        "main-train-e00054",
+        "main-train-e00057",
+        "main-train-e00064",
+        "main-train-e00070",
+        "main-train-e00071",
+        "main-train-e00080",
+        "main-train-e00087"
+      ]
+    ],
+    "pair_prior": {
+      "candidates": {
+        "0.0": {
+          "brier": 0.08281190809508894,
+          "folds": [
+            {
+              "brier": 0.07483713138736754,
+              "log_loss": 0.2729377108090067
+            },
+            {
+              "brier": 0.08046638538816286,
+              "log_loss": 0.2867403563106715
+            },
+            {
+              "brier": 0.07499278105621728,
+              "log_loss": 0.27454256442184094
+            },
+            {
+              "brier": 0.1009513345486081,
+              "log_loss": 0.342094901901755
+            }
+          ],
+          "log_loss": 0.29407888336081855,
+          "settings": {
+            "expanded": false,
+            "hazard": 0.010416666666666666,
+            "rho": 0.0
+          }
+        },
+        "0.5": {
+          "brier": 0.08156167913787028,
+          "folds": [
+            {
+              "brier": 0.0731322547065014,
+              "log_loss": 0.26848456766749
+            },
+            {
+              "brier": 0.0810574646064759,
+              "log_loss": 0.28769609743963087
+            },
+            {
+              "brier": 0.07156876045694582,
+              "log_loss": 0.26584601196818064
+            },
+            {
+              "brier": 0.10048823678155801,
+              "log_loss": 0.3408447103034509
+            }
+          ],
+          "log_loss": 0.2907178468446881,
+          "settings": {
+            "expanded": false,
+            "hazard": 0.010416666666666666,
+            "rho": 0.5
+          }
+        },
+        "0.8": {
+          "brier": 0.08137062407471023,
+          "folds": [
+            {
+              "brier": 0.07279073708185867,
+              "log_loss": 0.26756261306639373
+            },
+            {
+              "brier": 0.08109089169612445,
+              "log_loss": 0.2877182009532228
+            },
+            {
+              "brier": 0.07066795681625863,
+              "log_loss": 0.2636579603195797
+            },
+            {
+              "brier": 0.10093291070459919,
+              "log_loss": 0.34161631270319776
+            }
+          ],
+          "log_loss": 0.2901387717605985,
+          "settings": {
+            "expanded": false,
+            "hazard": 0.010416666666666666,
+            "rho": 0.8
+          }
+        }
+      },
+      "selected": "0.8"
+    },
+    "positive_head": {
+      "candidates": {
+        "logistic": {
+          "brier": 0.370222471223383,
+          "conditional_positive_log_loss": 1.0263021401550323,
+          "folds": [
+            {
+              "brier": 0.35301901644591993,
+              "conditional_positive_log_loss": 1.0481715183252385,
+              "log_loss": 0.7022139900716784
+            },
+            {
+              "brier": 0.4011983163834758,
+              "conditional_positive_log_loss": 1.0199283965875605,
+              "log_loss": 0.7850636885032566
+            },
+            {
+              "brier": 0.356300347943805,
+              "conditional_positive_log_loss": 1.0526830674515197,
+              "log_loss": 0.7418638529731579
+            },
+            {
+              "brier": 0.37037220412033095,
+              "conditional_positive_log_loss": 0.9844255782558107,
+              "log_loss": 0.7329860400303807
+            }
+          ],
+          "log_loss": 0.7405318928946184
+        },
+        "matched": {
+          "brier": 0.3692808577214994,
+          "conditional_positive_log_loss": 1.0353663451503998,
+          "folds": [
+            {
+              "brier": 0.35047217268578396,
+              "conditional_positive_log_loss": 1.054232401779468,
+              "log_loss": 0.7020725082110815
+            },
+            {
+              "brier": 0.4000016231600278,
+              "conditional_positive_log_loss": 1.03926840079978,
+              "log_loss": 0.7910737588044485
+            },
+            {
+              "brier": 0.3551633569730863,
+              "conditional_positive_log_loss": 1.0532994589649405,
+              "log_loss": 0.7453328794266803
+            },
+            {
+              "brier": 0.3714862780670994,
+              "conditional_positive_log_loss": 0.9946651190574108,
+              "log_loss": 0.7356587357117661
+            }
+          ],
+          "log_loss": 0.7435344705384942
+        },
+        "recent": {
+          "brier": 0.3693189181040184,
+          "conditional_positive_log_loss": 1.0393625656952317,
+          "folds": [
+            {
+              "brier": 0.34990125846831616,
+              "conditional_positive_log_loss": 1.0581108072512786,
+              "log_loss": 0.7015638634675222
+            },
+            {
+              "brier": 0.39818262624583767,
+              "conditional_positive_log_loss": 1.038428474593941,
+              "log_loss": 0.7906107297330238
+            },
+            {
+              "brier": 0.35710619915581004,
+              "conditional_positive_log_loss": 1.0606082765412084,
+              "log_loss": 0.7477494604985676
+            },
+            {
+              "brier": 0.3720855885461097,
+              "conditional_positive_log_loss": 1.0003027043944983,
+              "log_loss": 0.7379681773060188
+            }
+          ],
+          "log_loss": 0.7444730577512831
+        },
+        "recent_equal_mass": {
+          "brier": 0.36916414530471503,
+          "conditional_positive_log_loss": 1.0361126383754105,
+          "folds": [
+            {
+              "brier": 0.3497497882206771,
+              "conditional_positive_log_loss": 1.0540912520152126,
+              "log_loss": 0.7002126154090581
+            },
+            {
+              "brier": 0.3983234799144359,
+              "conditional_positive_log_loss": 1.0362998884091625,
+              "log_loss": 0.7898430964916084
+            },
+            {
+              "brier": 0.35670340425722685,
+              "conditional_positive_log_loss": 1.0581291393294714,
+              "log_loss": 0.7463975648992207
+            },
+            {
+              "brier": 0.37187990882652033,
+              "conditional_positive_log_loss": 0.9959302737477955,
+              "log_loss": 0.7364769001031585
+            }
+          ],
+          "log_loss": 0.7432325442257616
+        }
+      },
+      "selected": "logistic"
+    },
+    "win": {
+      "candidates": {
+        "control": {
+          "brier": 0.08137062407471023,
+          "folds": [
+            {
+              "brier": 0.07279073708185867,
+              "log_loss": 0.26756261306639373
+            },
+            {
+              "brier": 0.08109089169612445,
+              "log_loss": 0.2877182009532228
+            },
+            {
+              "brier": 0.07066795681625863,
+              "log_loss": 0.2636579603195797
+            },
+            {
+              "brier": 0.10093291070459919,
+              "log_loss": 0.34161631270319776
+            }
+          ],
+          "log_loss": 0.2901387717605985,
+          "settings": {
+            "expanded": false,
+            "hazard": 0.010416666666666666,
+            "rho": 0.8
+          }
+        },
+        "expanded": {
+          "brier": 0.08059433957537875,
+          "folds": [
+            {
+              "brier": 0.07222695345904732,
+              "log_loss": 0.26378595223049084
+            },
+            {
+              "brier": 0.07998169953751555,
+              "log_loss": 0.28173425381860856
+            },
+            {
+              "brier": 0.06957839672895318,
+              "log_loss": 0.25846248416076856
+            },
+            {
+              "brier": 0.10059030857599893,
+              "log_loss": 0.3392993581954286
+            }
+          ],
+          "log_loss": 0.28582051210132414,
+          "settings": {
+            "expanded": true,
+            "hazard": 0.010416666666666666,
+            "rho": 0.8
+          }
+        },
+        "reset_144": {
+          "brier": 0.08063049963523068,
+          "folds": [
+            {
+              "brier": 0.07177592893546368,
+              "log_loss": 0.2638994166949849
+            },
+            {
+              "brier": 0.08049673671007013,
+              "log_loss": 0.2856310744822656
+            },
+            {
+              "brier": 0.06971196316626534,
+              "log_loss": 0.26052286385134366
+            },
+            {
+              "brier": 0.1005373697291236,
+              "log_loss": 0.34037026180283125
+            }
+          ],
+          "log_loss": 0.2876059042078563,
+          "settings": {
+            "expanded": false,
+            "hazard": 0.006944444444444444,
+            "rho": 0.8
+          }
+        },
+        "reset_64": {
+          "brier": 0.08246341099256942,
+          "folds": [
+            {
+              "brier": 0.07432881430812885,
+              "log_loss": 0.27289187215544697
+            },
+            {
+              "brier": 0.08199114912775922,
+              "log_loss": 0.29088140680279845
+            },
+            {
+              "brier": 0.07202541274519272,
+              "log_loss": 0.2680640529374529
+            },
+            {
+              "brier": 0.10150826778919686,
+              "log_loss": 0.34348755901003614
+            }
+          ],
+          "log_loss": 0.29383122272643364,
+          "settings": {
+            "expanded": false,
+            "hazard": 0.015625,
+            "rho": 0.8
+          }
+        }
+      },
+      "selected": "control"
+    }
+  },
+  "outer": [
+    {
+      "configuration": {
+        "positive_head": "logistic",
+        "win": {
+          "expanded": false,
+          "hazard": 0.010416666666666666,
+          "rho": 0.8
+        }
+      },
+      "held_out_episodes": [
+        "main-train-e00001",
+        "main-train-e00007",
+        "main-train-e00013",
+        "main-train-e00014",
+        "main-train-e00016",
+        "main-train-e00022",
+        "main-train-e00024",
+        "main-train-e00027",
+        "main-train-e00030",
+        "main-train-e00036",
+        "main-train-e00038",
+        "main-train-e00042",
+        "main-train-e00047",
+        "main-train-e00048",
+        "main-train-e00052",
+        "main-train-e00065",
+        "main-train-e00067",
+        "main-train-e00073",
+        "main-train-e00075",
+        "main-train-e00083",
+        "main-train-e00084",
+        "main-train-e00089",
+        "main-train-e00090",
+        "main-train-e00091"
+      ],
+      "learned_pair_prior": [
+        0.008667250311048364,
+        0.27922004106126114,
+        0.008334286260336289,
+        0.008148079912313652,
+        0.007565492127239517,
+        0.008469690910922749,
+        0.007504933936276454,
+        0.00761165411069735,
+        0.008021715015369937,
+        0.2710603819704795,
+        0.007891680306091373,
+        0.007534082553674328,
+        0.0074985350153075215,
+        0.00814153126056551,
+        0.007552546630868312,
+        0.007501212143607543,
+        0.007579231214086779,
+        0.007604647054652305,
+        0.008255034631104432,
+        0.0074825753762014875,
+        0.25461887183872794,
+        0.00810775869310531,
+        0.007727267547373112,
+        0.00768388093703419,
+        0.0074085279816869624,
+        0.008015210841586915,
+        0.007380306804399992,
+        0.007413573553980957
+      ],
+      "metrics": {
+        "control": {
+          "cutoffs": {
+            "joint": {
+              "brier": 0.355824642347939,
+              "conditional_positive_log_loss": 1.0481715183252385,
+              "log_loss": 0.7075890878142914
+            },
+            "win": {
+              "brier": 0.07483713138736754,
+              "log_loss": 0.2729377108090067
+            }
+          },
+          "historical": {
+            "joint": {
+              "brier": 0.40027092109831286,
+              "conditional_positive_log_loss": 1.0375566748770664,
+              "log_loss": 0.7977854109428519
+            },
+            "win": {
+              "brier": 0.10660323058051062,
+              "log_loss": 0.3553699429894878
+            }
+          }
+        },
+        "selected": {
+          "cutoffs": {
+            "joint": {
+              "brier": 0.35301901644591993,
+              "conditional_positive_log_loss": 1.0481715183252385,
+              "log_loss": 0.7022139900716784
+            },
+            "win": {
+              "brier": 0.07279073708185867,
+              "log_loss": 0.26756261306639373
+            }
+          },
+          "historical": {
+            "joint": {
+              "brier": 0.393226201494866,
+              "conditional_positive_log_loss": 1.0375566748770664,
+              "log_loss": 0.7856598397379054
+            },
+            "win": {
+              "brier": 0.1014140824681497,
+              "log_loss": 0.34324437178454154
+            }
+          }
+        },
+        "win_only": {
+          "cutoffs": {
+            "joint": {
+              "brier": 0.35301901644591993,
+              "conditional_positive_log_loss": 1.0481715183252385,
+              "log_loss": 0.7022139900716784
+            },
+            "win": {
+              "brier": 0.07279073708185867,
+              "log_loss": 0.26756261306639373
+            }
+          },
+          "historical": {
+            "joint": {
+              "brier": 0.393226201494866,
+              "conditional_positive_log_loss": 1.0375566748770664,
+              "log_loss": 0.7856598397379054
+            },
+            "win": {
+              "brier": 0.1014140824681497,
+              "log_loss": 0.34324437178454154
+            }
+          }
+        }
+      },
+      "population_prior": [
+        0.5795109544880789,
+        0.19342683790923892,
+        0.14871732306003033,
+        0.06510752713400185,
+        0.013237357408650034
+      ],
+      "selection": {
+        "folds": [
+          [
+            "main-train-e00005",
+            "main-train-e00009",
+            "main-train-e00011",
+            "main-train-e00015",
+            "main-train-e00018",
+            "main-train-e00019",
+            "main-train-e00025",
+            "main-train-e00034",
+            "main-train-e00043",
+            "main-train-e00045",
+            "main-train-e00046",
+            "main-train-e00049",
+            "main-train-e00054",
+            "main-train-e00061",
+            "main-train-e00062",
+            "main-train-e00070",
+            "main-train-e00071",
+            "main-train-e00072",
+            "main-train-e00076",
+            "main-train-e00078",
+            "main-train-e00082",
+            "main-train-e00085",
+            "main-train-e00087",
+            "main-train-e00088"
+          ],
+          [
+            "main-train-e00000",
+            "main-train-e00003",
+            "main-train-e00004",
+            "main-train-e00017",
+            "main-train-e00023",
+            "main-train-e00029",
+            "main-train-e00033",
+            "main-train-e00035",
+            "main-train-e00039",
+            "main-train-e00041",
+            "main-train-e00044",
+            "main-train-e00051",
+            "main-train-e00053",
+            "main-train-e00059",
+            "main-train-e00063",
+            "main-train-e00064",
+            "main-train-e00068",
+            "main-train-e00074",
+            "main-train-e00077",
+            "main-train-e00079",
+            "main-train-e00080",
+            "main-train-e00086",
+            "main-train-e00094",
+            "main-train-e00095"
+          ],
+          [
+            "main-train-e00002",
+            "main-train-e00006",
+            "main-train-e00008",
+            "main-train-e00010",
+            "main-train-e00012",
+            "main-train-e00020",
+            "main-train-e00021",
+            "main-train-e00026",
+            "main-train-e00028",
+            "main-train-e00031",
+            "main-train-e00032",
+            "main-train-e00037",
+            "main-train-e00040",
+            "main-train-e00050",
+            "main-train-e00055",
+            "main-train-e00056",
+            "main-train-e00057",
+            "main-train-e00058",
+            "main-train-e00060",
+            "main-train-e00066",
+            "main-train-e00069",
+            "main-train-e00081",
+            "main-train-e00092",
+            "main-train-e00093"
+          ]
+        ],
+        "pair_prior": {
+          "candidates": {
+            "0.0": {
+              "brier": 0.08541599753062451,
+              "folds": [
+                {
+                  "brier": 0.08352572608388088,
+                  "log_loss": 0.3002225544427269
+                },
+                {
+                  "brier": 0.075785467952464,
+                  "log_loss": 0.27323433022322857
+                },
+                {
+                  "brier": 0.09693679855552861,
+                  "log_loss": 0.3297840080930922
+                }
+              ],
+              "log_loss": 0.30108029758634924,
+              "settings": {
+                "expanded": false,
+                "hazard": 0.010416666666666666,
+                "rho": 0.0
+              }
+            },
+            "0.5": {
+              "brier": 0.0842999153904299,
+              "folds": [
+                {
+                  "brier": 0.08153597852479816,
+                  "log_loss": 0.29494713346355467
+                },
+                {
+                  "brier": 0.07545731997129779,
+                  "log_loss": 0.2720443817157445
+                },
+                {
+                  "brier": 0.09590644767519374,
+                  "log_loss": 0.32708584499916965
+                }
+              ],
+              "log_loss": 0.2980257867261563,
+              "settings": {
+                "expanded": false,
+                "hazard": 0.010416666666666666,
+                "rho": 0.5
+              }
+            },
+            "0.8": {
+              "brier": 0.0841432396645393,
+              "folds": [
+                {
+                  "brier": 0.08101339671930306,
+                  "log_loss": 0.2936117287131601
+                },
+                {
+                  "brier": 0.07543711403091002,
+                  "log_loss": 0.2718969132008278
+                },
+                {
+                  "brier": 0.09597920824340479,
+                  "log_loss": 0.32704374102781836
+                }
+              ],
+              "log_loss": 0.29751746098060206,
+              "settings": {
+                "expanded": false,
+                "hazard": 0.010416666666666666,
+                "rho": 0.8
+              }
+            }
+          },
+          "selected": "0.8"
+        },
+        "positive_head": {
+          "candidates": {
+            "logistic": {
+              "brier": 0.3765966161309635,
+              "conditional_positive_log_loss": 1.0146757876155923,
+              "folds": [
+                {
+                  "brier": 0.369176137880493,
+                  "conditional_positive_log_loss": 1.0322429763118175,
+                  "log_loss": 0.7387445732790132
+                },
+                {
+                  "brier": 0.3984587736556839,
+                  "conditional_positive_log_loss": 1.057658076887968,
+                  "log_loss": 0.790298939748587
+                },
+                {
+                  "brier": 0.36215493685671357,
+                  "conditional_positive_log_loss": 0.9541263096469916,
+                  "log_loss": 0.7287836214381714
+                }
+              ],
+              "log_loss": 0.7526090448219239
+            },
+            "matched": {
+              "brier": 0.37574821620344895,
+              "conditional_positive_log_loss": 1.0225346919017464,
+              "folds": [
+                {
+                  "brier": 0.3627870788230709,
+                  "conditional_positive_log_loss": 1.0239336385111848,
+                  "log_loss": 0.7321788110737569
+                },
+                {
+                  "brier": 0.40430767177544497,
+                  "conditional_positive_log_loss": 1.0915729084159784,
+                  "log_loss": 0.8071939810307941
+                },
+                {
+                  "brier": 0.3601498980118311,
+                  "conditional_positive_log_loss": 0.9520975287780763,
+                  "log_loss": 0.7291297463919287
+                }
+              ],
+              "log_loss": 0.7561675128321599
+            },
+            "recent": {
+              "brier": 0.3758869867444647,
+              "conditional_positive_log_loss": 1.0259336959359573,
+              "folds": [
+                {
+                  "brier": 0.36459234892985126,
+                  "conditional_positive_log_loss": 1.0342808993310817,
+                  "log_loss": 0.7363173477691808
+                },
+                {
+                  "brier": 0.40364266460971887,
+                  "conditional_positive_log_loss": 1.0875241416004324,
+                  "log_loss": 0.8050398552574626
+                },
+                {
+                  "brier": 0.3594259466938239,
+                  "conditional_positive_log_loss": 0.9559960468763576,
+                  "log_loss": 0.7303397360639631
+                }
+              ],
+              "log_loss": 0.7572323130302022
+            },
+            "recent_equal_mass": {
+              "brier": 0.37581735678867817,
+              "conditional_positive_log_loss": 1.023308236359458,
+              "folds": [
+                {
+                  "brier": 0.36494159221040673,
+                  "conditional_positive_log_loss": 1.0330900148224296,
+                  "log_loss": 0.7361049606682858
+                },
+                {
+                  "brier": 0.4031777831209922,
+                  "conditional_positive_log_loss": 1.0847944248836991,
+                  "log_loss": 0.8037317672255088
+                },
+                {
+                  "brier": 0.35933269503463555,
+                  "conditional_positive_log_loss": 0.9520402693722447,
+                  "log_loss": 0.7286542872283119
+                }
+              ],
+              "log_loss": 0.7561636717073688
+            }
+          },
+          "selected": "logistic"
+        },
+        "win": {
+          "candidates": {
+            "control": {
+              "brier": 0.0841432396645393,
+              "folds": [
+                {
+                  "brier": 0.08101339671930306,
+                  "log_loss": 0.2936117287131601
+                },
+                {
+                  "brier": 0.07543711403091002,
+                  "log_loss": 0.2718969132008278
+                },
+                {
+                  "brier": 0.09597920824340479,
+                  "log_loss": 0.32704374102781836
+                }
+              ],
+              "log_loss": 0.29751746098060206,
+              "settings": {
+                "expanded": false,
+                "hazard": 0.010416666666666666,
+                "rho": 0.8
+              }
+            },
+            "expanded": {
+              "brier": 0.08328469392718091,
+              "folds": [
+                {
+                  "brier": 0.0801632054736821,
+                  "log_loss": 0.2901778408953603
+                },
+                {
+                  "brier": 0.07429832692637071,
+                  "log_loss": 0.2652741771526473
+                },
+                {
+                  "brier": 0.09539254938148996,
+                  "log_loss": 0.32351009118661017
+                }
+              ],
+              "log_loss": 0.29298736974487255,
+              "settings": {
+                "expanded": true,
+                "hazard": 0.010416666666666666,
+                "rho": 0.8
+              }
+            },
+            "reset_144": {
+              "brier": 0.08349880225755618,
+              "folds": [
+                {
+                  "brier": 0.07995498490611767,
+                  "log_loss": 0.29062508231351225
+                },
+                {
+                  "brier": 0.07509643081349797,
+                  "log_loss": 0.27019281951713486
+                },
+                {
+                  "brier": 0.09544499105305289,
+                  "log_loss": 0.32528111659762815
+                }
+              ],
+              "log_loss": 0.29536633947609175,
+              "settings": {
+                "expanded": false,
+                "hazard": 0.006944444444444444,
+                "rho": 0.8
+              }
+            },
+            "reset_64": {
+              "brier": 0.08508649889583396,
+              "folds": [
+                {
+                  "brier": 0.08242279176894411,
+                  "log_loss": 0.29763578369712107
+                },
+                {
+                  "brier": 0.07601541087716977,
+                  "log_loss": 0.2745688951842094
+                },
+                {
+                  "brier": 0.096821294041388,
+                  "log_loss": 0.32978926727293484
+                }
+              ],
+              "log_loss": 0.30066464871808846,
+              "settings": {
+                "expanded": false,
+                "hazard": 0.015625,
+                "rho": 0.8
+              }
+            }
+          },
+          "selected": "control"
+        }
+      }
+    },
+    {
+      "configuration": {
+        "positive_head": "matched",
+        "win": {
+          "expanded": false,
+          "hazard": 0.010416666666666666,
+          "rho": 0.8
+        }
+      },
+      "held_out_episodes": [
+        "main-train-e00005",
+        "main-train-e00015",
+        "main-train-e00020",
+        "main-train-e00025",
+        "main-train-e00028",
+        "main-train-e00029",
+        "main-train-e00035",
+        "main-train-e00039",
+        "main-train-e00040",
+        "main-train-e00041",
+        "main-train-e00051",
+        "main-train-e00053",
+        "main-train-e00055",
+        "main-train-e00056",
+        "main-train-e00060",
+        "main-train-e00066",
+        "main-train-e00068",
+        "main-train-e00069",
+        "main-train-e00072",
+        "main-train-e00077",
+        "main-train-e00082",
+        "main-train-e00093",
+        "main-train-e00094",
+        "main-train-e00095"
+      ],
+      "learned_pair_prior": [
+        0.00805227249537006,
+        0.27341368649489856,
+        0.008502223997895339,
+        0.007719059235173894,
+        0.0075914736163448715,
+        0.008590743285473759,
+        0.007584006696196996,
+        0.007630232362617917,
+        0.007764652111847976,
+        0.27112347175381796,
+        0.007909021657607953,
+        0.0074778161115408685,
+        0.007450484111574272,
+        0.008149863031892704,
+        0.007615979270316712,
+        0.00752642089850934,
+        0.0075590183580401035,
+        0.007529957042567771,
+        0.008185686720133038,
+        0.0075557231964041936,
+        0.261245953953203,
+        0.008165290949661605,
+        0.007540180814743283,
+        0.007647597347265962,
+        0.00746135643824638,
+        0.008098266996383338,
+        0.00746340277241111,
+        0.007446158279860994
+      ],
+      "metrics": {
+        "control": {
+          "cutoffs": {
+            "joint": {
+              "brier": 0.4000441580886947,
+              "conditional_positive_log_loss": 1.0199283965875605,
+              "log_loss": 0.7840858438607051
+            },
+            "win": {
+              "brier": 0.08046638538816286,
+              "log_loss": 0.2867403563106715
+            }
+          },
+          "historical": {
+            "joint": {
+              "brier": 0.4152229074530398,
+              "conditional_positive_log_loss": 1.0474177770091393,
+              "log_loss": 0.8237422116520928
+            },
+            "win": {
+              "brier": 0.10639620751728023,
+              "log_loss": 0.3564875593613326
+            }
+          }
+        },
+        "selected": {
+          "cutoffs": {
+            "joint": {
+              "brier": 0.4000016231600278,
+              "conditional_positive_log_loss": 1.03926840079978,
+              "log_loss": 0.7910737588044485
+            },
+            "win": {
+              "brier": 0.08109089169612445,
+              "log_loss": 0.2877182009532228
+            }
+          },
+          "historical": {
+            "joint": {
+              "brier": 0.4083462879720414,
+              "conditional_positive_log_loss": 1.049142960520674,
+              "log_loss": 0.812329782302616
+            },
+            "win": {
+              "brier": 0.1012690081317193,
+              "log_loss": 0.34412893893918745
+            }
+          }
+        },
+        "win_only": {
+          "cutoffs": {
+            "joint": {
+              "brier": 0.4011983163834758,
+              "conditional_positive_log_loss": 1.0199283965875605,
+              "log_loss": 0.7850636885032566
+            },
+            "win": {
+              "brier": 0.08109089169612445,
+              "log_loss": 0.2877182009532228
+            }
+          },
+          "historical": {
+            "joint": {
+              "brier": 0.4081727218781644,
+              "conditional_positive_log_loss": 1.0474177770091393,
+              "log_loss": 0.8113835912299477
+            },
+            "win": {
+              "brier": 0.1012690081317193,
+              "log_loss": 0.34412893893918745
+            }
+          }
+        }
+      },
+      "population_prior": [
+        0.5898304606219738,
+        0.18814965391004013,
+        0.14490605457445757,
+        0.0642066281756283,
+        0.012907202717900215
+      ],
+      "selection": {
+        "folds": [
+          [
+            "main-train-e00003",
+            "main-train-e00007",
+            "main-train-e00009",
+            "main-train-e00010",
+            "main-train-e00013",
+            "main-train-e00021",
+            "main-train-e00022",
+            "main-train-e00024",
+            "main-train-e00032",
+            "main-train-e00036",
+            "main-train-e00043",
+            "main-train-e00045",
+            "main-train-e00046",
+            "main-train-e00059",
+            "main-train-e00064",
+            "main-train-e00067",
+            "main-train-e00071",
+            "main-train-e00076",
+            "main-train-e00078",
+            "main-train-e00080",
+            "main-train-e00081",
+            "main-train-e00084",
+            "main-train-e00085",
+            "main-train-e00087"
+          ],
+          [
+            "main-train-e00000",
+            "main-train-e00002",
+            "main-train-e00006",
+            "main-train-e00016",
+            "main-train-e00017",
+            "main-train-e00019",
+            "main-train-e00026",
+            "main-train-e00031",
+            "main-train-e00037",
+            "main-train-e00038",
+            "main-train-e00044",
+            "main-train-e00050",
+            "main-train-e00052",
+            "main-train-e00054",
+            "main-train-e00058",
+            "main-train-e00062",
+            "main-train-e00063",
+            "main-train-e00073",
+            "main-train-e00074",
+            "main-train-e00079",
+            "main-train-e00086",
+            "main-train-e00088",
+            "main-train-e00090",
+            "main-train-e00092"
+          ],
+          [
+            "main-train-e00001",
+            "main-train-e00004",
+            "main-train-e00008",
+            "main-train-e00011",
+            "main-train-e00012",
+            "main-train-e00014",
+            "main-train-e00018",
+            "main-train-e00023",
+            "main-train-e00027",
+            "main-train-e00030",
+            "main-train-e00033",
+            "main-train-e00034",
+            "main-train-e00042",
+            "main-train-e00047",
+            "main-train-e00048",
+            "main-train-e00049",
+            "main-train-e00057",
+            "main-train-e00061",
+            "main-train-e00065",
+            "main-train-e00070",
+            "main-train-e00075",
+            "main-train-e00083",
+            "main-train-e00089",
+            "main-train-e00091"
+          ]
+        ],
+        "pair_prior": {
+          "candidates": {
+            "0.0": {
+              "brier": 0.0834452097913431,
+              "folds": [
+                {
+                  "brier": 0.08675123958236804,
+                  "log_loss": 0.3010859469388664
+                },
+                {
+                  "brier": 0.07554978935427617,
+                  "log_loss": 0.2744648356150718
+                },
+                {
+                  "brier": 0.08803460043738505,
+                  "log_loss": 0.31288247793500495
+                }
+              ],
+              "log_loss": 0.29614442016298104,
+              "settings": {
+                "expanded": false,
+                "hazard": 0.010416666666666666,
+                "rho": 0.0
+              }
+            },
+            "0.5": {
+              "brier": 0.08157210567351271,
+              "folds": [
+                {
+                  "brier": 0.084145317300839,
+                  "log_loss": 0.2949006054237872
+                },
+                {
+                  "brier": 0.07327864364062413,
+                  "log_loss": 0.2687269366496235
+                },
+                {
+                  "brier": 0.087292356079075,
+                  "log_loss": 0.3103022404843167
+                }
+              ],
+              "log_loss": 0.2913099275192425,
+              "settings": {
+                "expanded": false,
+                "hazard": 0.010416666666666666,
+                "rho": 0.5
+              }
+            },
+            "0.8": {
+              "brier": 0.081298351680708,
+              "folds": [
+                {
+                  "brier": 0.08361977552330753,
+                  "log_loss": 0.29360800236778883
+                },
+                {
+                  "brier": 0.07294899580839524,
+                  "log_loss": 0.2677755001953342
+                },
+                {
+                  "brier": 0.08732628371042121,
+                  "log_loss": 0.31014773780965255
+                }
+              ],
+              "log_loss": 0.2905104134575918,
+              "settings": {
+                "expanded": false,
+                "hazard": 0.010416666666666666,
+                "rho": 0.8
+              }
+            }
+          },
+          "selected": "0.8"
+        },
+        "positive_head": {
+          "candidates": {
+            "logistic": {
+              "brier": 0.36179945344963893,
+              "conditional_positive_log_loss": 1.0388389055977085,
+              "folds": [
+                {
+                  "brier": 0.3539750719083728,
+                  "conditional_positive_log_loss": 1.0593720346504563,
+                  "log_loss": 0.6935866910948283
+                },
+                {
+                  "brier": 0.3522058980086444,
+                  "conditional_positive_log_loss": 0.9647008232506161,
+                  "log_loss": 0.7235870492019781
+                },
+                {
+                  "brier": 0.37921739043189967,
+                  "conditional_positive_log_loss": 1.0924438588920535,
+                  "log_loss": 0.7685982410281046
+                }
+              ],
+              "log_loss": 0.728590660441637
+            },
+            "matched": {
+              "brier": 0.359879146907554,
+              "conditional_positive_log_loss": 1.0389613780154265,
+              "folds": [
+                {
+                  "brier": 0.3532067711319711,
+                  "conditional_positive_log_loss": 1.0511229586247157,
+                  "log_loss": 0.6950734923928247
+                },
+                {
+                  "brier": 0.35159931520560095,
+                  "conditional_positive_log_loss": 0.9639926225430093,
+                  "log_loss": 0.7239089107706927
+                },
+                {
+                  "brier": 0.3748313543850901,
+                  "conditional_positive_log_loss": 1.1017685528785546,
+                  "log_loss": 0.7668134821430773
+                }
+              ],
+              "log_loss": 0.7285986284355316
+            },
+            "recent": {
+              "brier": 0.36042427015573236,
+              "conditional_positive_log_loss": 1.0435657268594556,
+              "folds": [
+                {
+                  "brier": 0.35328355014975604,
+                  "conditional_positive_log_loss": 1.0534895376855369,
+                  "log_loss": 0.69467232507344
+                },
+                {
+                  "brier": 0.35167528165991785,
+                  "conditional_positive_log_loss": 0.962482876271717,
+                  "log_loss": 0.7230785217639989
+                },
+                {
+                  "brier": 0.37631397865752314,
+                  "conditional_positive_log_loss": 1.1147247666211129,
+                  "log_loss": 0.7716975644178238
+                }
+              ],
+              "log_loss": 0.7298161370850876
+            },
+            "recent_equal_mass": {
+              "brier": 0.36029732848640134,
+              "conditional_positive_log_loss": 1.0415047886576863,
+              "folds": [
+                {
+                  "brier": 0.353385842254967,
+                  "conditional_positive_log_loss": 1.0562273132553617,
+                  "log_loss": 0.6951196633229578
+                },
+                {
+                  "brier": 0.3515780819604193,
+                  "conditional_positive_log_loss": 0.9621340675566793,
+                  "log_loss": 0.7228275297506669
+                },
+                {
+                  "brier": 0.3759280612438178,
+                  "conditional_positive_log_loss": 1.1061529851610181,
+                  "log_loss": 0.7685631754570865
+                }
+              ],
+              "log_loss": 0.728836789510237
+            }
+          },
+          "selected": "matched"
+        },
+        "win": {
+          "candidates": {
+            "control": {
+              "brier": 0.081298351680708,
+              "folds": [
+                {
+                  "brier": 0.08361977552330753,
+                  "log_loss": 0.29360800236778883
+                },
+                {
+                  "brier": 0.07294899580839524,
+                  "log_loss": 0.2677755001953342
+                },
+                {
+                  "brier": 0.08732628371042121,
+                  "log_loss": 0.31014773780965255
+                }
+              ],
+              "log_loss": 0.2905104134575918,
+              "settings": {
+                "expanded": false,
+                "hazard": 0.010416666666666666,
+                "rho": 0.8
+              }
+            },
+            "expanded": {
+              "brier": 0.08064342117351617,
+              "folds": [
+                {
+                  "brier": 0.08304537039626807,
+                  "log_loss": 0.28976533815679745
+                },
+                {
+                  "brier": 0.07223707760585853,
+                  "log_loss": 0.2643514562423957
+                },
+                {
+                  "brier": 0.08664781551842192,
+                  "log_loss": 0.3062083173959305
+                }
+              ],
+              "log_loss": 0.2867750372650412,
+              "settings": {
+                "expanded": true,
+                "hazard": 0.010416666666666666,
+                "rho": 0.8
+              }
+            },
+            "reset_144": {
+              "brier": 0.08049767247747412,
+              "folds": [
+                {
+                  "brier": 0.0829234766886703,
+                  "log_loss": 0.291188039377056
+                },
+                {
+                  "brier": 0.07178658046830283,
+                  "log_loss": 0.2640025058264079
+                },
+                {
+                  "brier": 0.0867829602754492,
+                  "log_loss": 0.3081971628262456
+                }
+              ],
+              "log_loss": 0.2877959026765698,
+              "settings": {
+                "expanded": false,
+                "hazard": 0.006944444444444444,
+                "rho": 0.8
+              }
+            },
+            "reset_64": {
+              "brier": 0.08246890789295674,
+              "folds": [
+                {
+                  "brier": 0.0846790860969703,
+                  "log_loss": 0.29722260253752447
+                },
+                {
+                  "brier": 0.07457103493390245,
+                  "log_loss": 0.2730659534151046
+                },
+                {
+                  "brier": 0.08815660264799752,
+                  "log_loss": 0.3129645754334743
+                }
+              ],
+              "log_loss": 0.29441771046203447,
+              "settings": {
+                "expanded": false,
+                "hazard": 0.015625,
+                "rho": 0.8
+              }
+            }
+          },
+          "selected": "control"
+        }
+      }
+    },
+    {
+      "configuration": {
+        "positive_head": "logistic",
+        "win": {
+          "expanded": false,
+          "hazard": 0.010416666666666666,
+          "rho": 0.0
+        }
+      },
+      "held_out_episodes": [
+        "main-train-e00006",
+        "main-train-e00008",
+        "main-train-e00009",
+        "main-train-e00010",
+        "main-train-e00018",
+        "main-train-e00019",
+        "main-train-e00034",
+        "main-train-e00043",
+        "main-train-e00044",
+        "main-train-e00050",
+        "main-train-e00058",
+        "main-train-e00059",
+        "main-train-e00061",
+        "main-train-e00062",
+        "main-train-e00063",
+        "main-train-e00074",
+        "main-train-e00076",
+        "main-train-e00078",
+        "main-train-e00079",
+        "main-train-e00081",
+        "main-train-e00085",
+        "main-train-e00086",
+        "main-train-e00088",
+        "main-train-e00092"
+      ],
+      "learned_pair_prior": [
+        0.03571428571428571,
+        0.03571428571428571,
+        0.03571428571428571,
+        0.03571428571428571,
+        0.03571428571428571,
+        0.03571428571428571,
+        0.03571428571428571,
+        0.03571428571428571,
+        0.03571428571428571,
+        0.03571428571428571,
+        0.03571428571428571,
+        0.03571428571428571,
+        0.03571428571428571,
+        0.03571428571428571,
+        0.03571428571428571,
+        0.03571428571428571,
+        0.03571428571428571,
+        0.03571428571428571,
+        0.03571428571428571,
+        0.03571428571428571,
+        0.03571428571428571,
+        0.03571428571428571,
+        0.03571428571428571,
+        0.03571428571428571,
+        0.03571428571428571,
+        0.03571428571428571,
+        0.03571428571428571,
+        0.03571428571428571
+      ],
+      "metrics": {
+        "control": {
+          "cutoffs": {
+            "joint": {
+              "brier": 0.3621519120966948,
+              "conditional_positive_log_loss": 1.0526830674515197,
+              "log_loss": 0.7527484570754192
+            },
+            "win": {
+              "brier": 0.07499278105621728,
+              "log_loss": 0.27454256442184094
+            }
+          },
+          "historical": {
+            "joint": {
+              "brier": 0.39738495531548157,
+              "conditional_positive_log_loss": 1.0583585370681285,
+              "log_loss": 0.7931830659575416
+            },
+            "win": {
+              "brier": 0.10651143944109516,
+              "log_loss": 0.3515769968636935
+            }
+          }
+        },
+        "selected": {
+          "cutoffs": {
+            "joint": {
+              "brier": 0.3621519120966948,
+              "conditional_positive_log_loss": 1.0526830674515197,
+              "log_loss": 0.7527484570754192
+            },
+            "win": {
+              "brier": 0.07499278105621728,
+              "log_loss": 0.27454256442184094
+            }
+          },
+          "historical": {
+            "joint": {
+              "brier": 0.39738495531548157,
+              "conditional_positive_log_loss": 1.0583585370681285,
+              "log_loss": 0.7931830659575416
+            },
+            "win": {
+              "brier": 0.10651143944109516,
+              "log_loss": 0.3515769968636935
+            }
+          }
+        },
+        "win_only": {
+          "cutoffs": {
+            "joint": {
+              "brier": 0.3621519120966948,
+              "conditional_positive_log_loss": 1.0526830674515197,
+              "log_loss": 0.7527484570754192
+            },
+            "win": {
+              "brier": 0.07499278105621728,
+              "log_loss": 0.27454256442184094
+            }
+          },
+          "historical": {
+            "joint": {
+              "brier": 0.39738495531548157,
+              "conditional_positive_log_loss": 1.0583585370681285,
+              "log_loss": 0.7931830659575416
+            },
+            "win": {
+              "brier": 0.10651143944109516,
+              "log_loss": 0.3515769968636935
+            }
+          }
+        }
+      },
+      "population_prior": [
+        0.5787723285543437,
+        0.19708210046836958,
+        0.1474339732319406,
+        0.06423286019906897,
+        0.012478737546277105
+      ],
+      "selection": {
+        "folds": [
+          [
+            "main-train-e00003",
+            "main-train-e00005",
+            "main-train-e00013",
+            "main-train-e00023",
+            "main-train-e00024",
+            "main-train-e00029",
+            "main-train-e00030",
+            "main-train-e00031",
+            "main-train-e00032",
+            "main-train-e00033",
+            "main-train-e00036",
+            "main-train-e00037",
+            "main-train-e00052",
+            "main-train-e00060",
+            "main-train-e00064",
+            "main-train-e00067",
+            "main-train-e00070",
+            "main-train-e00071",
+            "main-train-e00073",
+            "main-train-e00075",
+            "main-train-e00077",
+            "main-train-e00080",
+            "main-train-e00087",
+            "main-train-e00090"
+          ],
+          [
+            "main-train-e00000",
+            "main-train-e00002",
+            "main-train-e00015",
+            "main-train-e00017",
+            "main-train-e00021",
+            "main-train-e00022",
+            "main-train-e00027",
+            "main-train-e00028",
+            "main-train-e00039",
+            "main-train-e00040",
+            "main-train-e00048",
+            "main-train-e00049",
+            "main-train-e00053",
+            "main-train-e00054",
+            "main-train-e00055",
+            "main-train-e00057",
+            "main-train-e00065",
+            "main-train-e00066",
+            "main-train-e00068",
+            "main-train-e00082",
+            "main-train-e00084",
+            "main-train-e00089",
+            "main-train-e00091",
+            "main-train-e00095"
+          ],
+          [
+            "main-train-e00001",
+            "main-train-e00004",
+            "main-train-e00007",
+            "main-train-e00011",
+            "main-train-e00012",
+            "main-train-e00014",
+            "main-train-e00016",
+            "main-train-e00020",
+            "main-train-e00025",
+            "main-train-e00026",
+            "main-train-e00035",
+            "main-train-e00038",
+            "main-train-e00041",
+            "main-train-e00042",
+            "main-train-e00045",
+            "main-train-e00046",
+            "main-train-e00047",
+            "main-train-e00051",
+            "main-train-e00056",
+            "main-train-e00069",
+            "main-train-e00072",
+            "main-train-e00083",
+            "main-train-e00093",
+            "main-train-e00094"
+          ]
+        ],
+        "pair_prior": {
+          "candidates": {
+            "0.0": {
+              "brier": 0.08544675092392644,
+              "folds": [
+                {
+                  "brier": 0.08627540706928383,
+                  "log_loss": 0.3010359973920503
+                },
+                {
+                  "brier": 0.09253298701802797,
+                  "log_loss": 0.3262427372612031
+                },
+                {
+                  "brier": 0.07753185868446753,
+                  "log_loss": 0.27483244920313077
+                }
+              ],
+              "log_loss": 0.3007037279521281,
+              "settings": {
+                "expanded": false,
+                "hazard": 0.010416666666666666,
+                "rho": 0.0
+              }
+            },
+            "0.5": {
+              "brier": 0.08490566892152834,
+              "folds": [
+                {
+                  "brier": 0.08528710848298182,
+                  "log_loss": 0.29814262125997143
+                },
+                {
+                  "brier": 0.09174051020254766,
+                  "log_loss": 0.32449680242474405
+                },
+                {
+                  "brier": 0.07768938807905555,
+                  "log_loss": 0.2745891809982343
+                }
+              ],
+              "log_loss": 0.29907620156098325,
+              "settings": {
+                "expanded": false,
+                "hazard": 0.010416666666666666,
+                "rho": 0.5
+              }
+            },
+            "0.8": {
+              "brier": 0.08494980133629434,
+              "folds": [
+                {
+                  "brier": 0.08526300557264326,
+                  "log_loss": 0.2978257190858328
+                },
+                {
+                  "brier": 0.09154810147654562,
+                  "log_loss": 0.324079672911521
+                },
+                {
+                  "brier": 0.07803829695969419,
+                  "log_loss": 0.2751792957972721
+                }
+              ],
+              "log_loss": 0.29902822926487527,
+              "settings": {
+                "expanded": false,
+                "hazard": 0.010416666666666666,
+                "rho": 0.8
+              }
+            }
+          },
+          "selected": "0.0"
+        },
+        "positive_head": {
+          "candidates": {
+            "logistic": {
+              "brier": 0.3731831645007653,
+              "conditional_positive_log_loss": 1.005507408322482,
+              "folds": [
+                {
+                  "brier": 0.39651028449504083,
+                  "conditional_positive_log_loss": 1.0879251699703067,
+                  "log_loss": 0.777103280728456
+                },
+                {
+                  "brier": 0.3829194682677152,
+                  "conditional_positive_log_loss": 0.9709170261264474,
+                  "log_loss": 0.7484387927342327
+                },
+                {
+                  "brier": 0.3401197407395398,
+                  "conditional_positive_log_loss": 0.9576800288706911,
+                  "log_loss": 0.686021428947624
+                }
+              ],
+              "log_loss": 0.7371878341367709
+            },
+            "matched": {
+              "brier": 0.37307461537905756,
+              "conditional_positive_log_loss": 1.0194343524351324,
+              "folds": [
+                {
+                  "brier": 0.4002079052142011,
+                  "conditional_positive_log_loss": 1.1098169621387226,
+                  "log_loss": 0.7866477382365149
+                },
+                {
+                  "brier": 0.383599778881226,
+                  "conditional_positive_log_loss": 0.9875856447148227,
+                  "log_loss": 0.751466899565368
+                },
+                {
+                  "brier": 0.3354161620417457,
+                  "conditional_positive_log_loss": 0.9609004504518515,
+                  "log_loss": 0.685855398142489
+                }
+              ],
+              "log_loss": 0.7413233453147906
+            },
+            "recent": {
+              "brier": 0.3725780388131212,
+              "conditional_positive_log_loss": 1.0225954956683994,
+              "folds": [
+                {
+                  "brier": 0.39988482837148503,
+                  "conditional_positive_log_loss": 1.113738655191465,
+                  "log_loss": 0.7867812184786329
+                },
+                {
+                  "brier": 0.38383977093070837,
+                  "conditional_positive_log_loss": 0.9922227390458019,
+                  "log_loss": 0.7526729024827575
+                },
+                {
+                  "brier": 0.33400951713717014,
+                  "conditional_positive_log_loss": 0.9618250927679309,
+                  "log_loss": 0.686180560330847
+                }
+              ],
+              "log_loss": 0.7418782270974125
+            },
+            "recent_equal_mass": {
+              "brier": 0.37235903520823954,
+              "conditional_positive_log_loss": 1.0190934115790395,
+              "folds": [
+                {
+                  "brier": 0.3990258513728186,
+                  "conditional_positive_log_loss": 1.1081990907972283,
+                  "log_loss": 0.7843695369596851
+                },
+                {
+                  "brier": 0.3837719559532416,
+                  "conditional_positive_log_loss": 0.9903701434716861,
+                  "log_loss": 0.7525934417412244
+                },
+                {
+                  "brier": 0.3342792982986584,
+                  "conditional_positive_log_loss": 0.9587110004682039,
+                  "log_loss": 0.6849812844295293
+                }
+              ],
+              "log_loss": 0.7406480877101463
+            }
+          },
+          "selected": "logistic"
+        },
+        "win": {
+          "candidates": {
+            "control": {
+              "brier": 0.08544675092392644,
+              "folds": [
+                {
+                  "brier": 0.08627540706928383,
+                  "log_loss": 0.3010359973920503
+                },
+                {
+                  "brier": 0.09253298701802797,
+                  "log_loss": 0.3262427372612031
+                },
+                {
+                  "brier": 0.07753185868446753,
+                  "log_loss": 0.27483244920313077
+                }
+              ],
+              "log_loss": 0.3007037279521281,
+              "settings": {
+                "expanded": false,
+                "hazard": 0.010416666666666666,
+                "rho": 0.0
+              }
+            },
+            "expanded": {
+              "brier": 0.08471058089389362,
+              "folds": [
+                {
+                  "brier": 0.08529177729343274,
+                  "log_loss": 0.2953169632584494
+                },
+                {
+                  "brier": 0.09232487245353899,
+                  "log_loss": 0.32483573978221364
+                },
+                {
+                  "brier": 0.07651509293470916,
+                  "log_loss": 0.2691404838420484
+                }
+              ],
+              "log_loss": 0.29643106229423716,
+              "settings": {
+                "expanded": true,
+                "hazard": 0.010416666666666666,
+                "rho": 0.0
+              }
+            },
+            "reset_144": {
+              "brier": 0.08478742242305873,
+              "folds": [
+                {
+                  "brier": 0.08499577642537755,
+                  "log_loss": 0.29722343273048635
+                },
+                {
+                  "brier": 0.09200447336252653,
+                  "log_loss": 0.324609387797409
+                },
+                {
+                  "brier": 0.07736201748127208,
+                  "log_loss": 0.2733807164877731
+                }
+              ],
+              "log_loss": 0.29840451233855614,
+              "settings": {
+                "expanded": false,
+                "hazard": 0.006944444444444444,
+                "rho": 0.0
+              }
+            },
+            "reset_64": {
+              "brier": 0.08644930157027914,
+              "folds": [
+                {
+                  "brier": 0.08799306193773686,
+                  "log_loss": 0.306257756168
+                },
+                {
+                  "brier": 0.09338380596472377,
+                  "log_loss": 0.32875242876984306
+                },
+                {
+                  "brier": 0.07797103680837682,
+                  "log_loss": 0.2773874077652207
+                }
+              ],
+              "log_loss": 0.3041325309010212,
+              "settings": {
+                "expanded": false,
+                "hazard": 0.015625,
+                "rho": 0.0
+              }
+            }
+          },
+          "selected": "control"
+        }
+      }
+    },
+    {
+      "configuration": {
+        "positive_head": "recent",
+        "win": {
+          "expanded": false,
+          "hazard": 0.010416666666666666,
+          "rho": 0.8
+        }
+      },
+      "held_out_episodes": [
+        "main-train-e00000",
+        "main-train-e00002",
+        "main-train-e00003",
+        "main-train-e00004",
+        "main-train-e00011",
+        "main-train-e00012",
+        "main-train-e00017",
+        "main-train-e00021",
+        "main-train-e00023",
+        "main-train-e00026",
+        "main-train-e00031",
+        "main-train-e00032",
+        "main-train-e00033",
+        "main-train-e00037",
+        "main-train-e00045",
+        "main-train-e00046",
+        "main-train-e00049",
+        "main-train-e00054",
+        "main-train-e00057",
+        "main-train-e00064",
+        "main-train-e00070",
+        "main-train-e00071",
+        "main-train-e00080",
+        "main-train-e00087"
+      ],
+      "learned_pair_prior": [
+        0.008759049042150541,
+        0.3112620573071662,
+        0.008038731083377507,
+        0.007956511950892609,
+        0.007475823831721951,
+        0.007595508337039657,
+        0.007567765272336466,
+        0.0076197877784399196,
+        0.007980252848834572,
+        0.25573815911202,
+        0.007867701922214969,
+        0.0075403373182684206,
+        0.0075229740682563415,
+        0.00782752150183373,
+        0.007603998831282239,
+        0.007460492186160937,
+        0.007506568726149921,
+        0.007582430697265412,
+        0.008158240480104089,
+        0.007493833075616606,
+        0.24026668105575613,
+        0.007449694415866105,
+        0.007736789245985746,
+        0.007691650903129357,
+        0.007418702785714541,
+        0.00800371515303821,
+        0.007454939134344816,
+        0.007420081935032904
+      ],
+      "metrics": {
+        "control": {
+          "cutoffs": {
+            "joint": {
+              "brier": 0.37050855728131976,
+              "conditional_positive_log_loss": 0.9844255782558107,
+              "log_loss": 0.733464629228938
+            },
+            "win": {
+              "brier": 0.1009513345486081,
+              "log_loss": 0.342094901901755
+            }
+          },
+          "historical": {
+            "joint": {
+              "brier": 0.4017745276881967,
+              "conditional_positive_log_loss": 1.0639586502982492,
+              "log_loss": 0.8014606350181653
+            },
+            "win": {
+              "brier": 0.10789209257991979,
+              "log_loss": 0.35768340230061696
+            }
+          }
+        },
+        "selected": {
+          "cutoffs": {
+            "joint": {
+              "brier": 0.3720855885461097,
+              "conditional_positive_log_loss": 1.0003027043944983,
+              "log_loss": 0.7379681773060188
+            },
+            "win": {
+              "brier": 0.10093291070459919,
+              "log_loss": 0.34161631270319776
+            }
+          },
+          "historical": {
+            "joint": {
+              "brier": 0.39475972112757046,
+              "conditional_positive_log_loss": 1.066200849044698,
+              "log_loss": 0.7899178400809185
+            },
+            "win": {
+              "brier": 0.10269401472225731,
+              "log_loss": 0.3452908861699588
+            }
+          }
+        },
+        "win_only": {
+          "cutoffs": {
+            "joint": {
+              "brier": 0.37037220412033095,
+              "conditional_positive_log_loss": 0.9844255782558107,
+              "log_loss": 0.7329860400303807
+            },
+            "win": {
+              "brier": 0.10093291070459919,
+              "log_loss": 0.34161631270319776
+            }
+          },
+          "historical": {
+            "joint": {
+              "brier": 0.39465099047186025,
+              "conditional_positive_log_loss": 1.063958650298249,
+              "log_loss": 0.7890681188875073
+            },
+            "win": {
+              "brier": 0.10269401472225731,
+              "log_loss": 0.3452908861699588
+            }
+          }
+        }
+      },
+      "population_prior": [
+        0.5849110824803989,
+        0.19292683043646935,
+        0.14563506698149806,
+        0.0638874653358175,
+        0.012639554765816206
+      ],
+      "selection": {
+        "folds": [
+          [
+            "main-train-e00006",
+            "main-train-e00008",
+            "main-train-e00014",
+            "main-train-e00016",
+            "main-train-e00024",
+            "main-train-e00025",
+            "main-train-e00027",
+            "main-train-e00030",
+            "main-train-e00043",
+            "main-train-e00047",
+            "main-train-e00053",
+            "main-train-e00056",
+            "main-train-e00063",
+            "main-train-e00073",
+            "main-train-e00074",
+            "main-train-e00075",
+            "main-train-e00077",
+            "main-train-e00079",
+            "main-train-e00081",
+            "main-train-e00083",
+            "main-train-e00086",
+            "main-train-e00088",
+            "main-train-e00089",
+            "main-train-e00091"
+          ],
+          [
+            "main-train-e00001",
+            "main-train-e00007",
+            "main-train-e00013",
+            "main-train-e00020",
+            "main-train-e00022",
+            "main-train-e00028",
+            "main-train-e00038",
+            "main-train-e00039",
+            "main-train-e00048",
+            "main-train-e00050",
+            "main-train-e00052",
+            "main-train-e00055",
+            "main-train-e00058",
+            "main-train-e00059",
+            "main-train-e00062",
+            "main-train-e00066",
+            "main-train-e00068",
+            "main-train-e00076",
+            "main-train-e00078",
+            "main-train-e00084",
+            "main-train-e00085",
+            "main-train-e00090",
+            "main-train-e00093",
+            "main-train-e00094"
+          ],
+          [
+            "main-train-e00005",
+            "main-train-e00009",
+            "main-train-e00010",
+            "main-train-e00015",
+            "main-train-e00018",
+            "main-train-e00019",
+            "main-train-e00029",
+            "main-train-e00034",
+            "main-train-e00035",
+            "main-train-e00036",
+            "main-train-e00040",
+            "main-train-e00041",
+            "main-train-e00042",
+            "main-train-e00044",
+            "main-train-e00051",
+            "main-train-e00060",
+            "main-train-e00061",
+            "main-train-e00065",
+            "main-train-e00067",
+            "main-train-e00069",
+            "main-train-e00072",
+            "main-train-e00082",
+            "main-train-e00092",
+            "main-train-e00095"
+          ]
+        ],
+        "pair_prior": {
+          "candidates": {
+            "0.0": {
+              "brier": 0.07679438472871507,
+              "folds": [
+                {
+                  "brier": 0.08012087812488357,
+                  "log_loss": 0.28722291555457147
+                },
+                {
+                  "brier": 0.079427017782352,
+                  "log_loss": 0.2801606507786275
+                },
+                {
+                  "brier": 0.07083525827890962,
+                  "log_loss": 0.26705495888358716
+                }
+              ],
+              "log_loss": 0.278146175072262,
+              "settings": {
+                "expanded": false,
+                "hazard": 0.010416666666666666,
+                "rho": 0.0
+              }
+            },
+            "0.5": {
+              "brier": 0.0753119691777198,
+              "folds": [
+                {
+                  "brier": 0.07791179947645112,
+                  "log_loss": 0.2815920857702873
+                },
+                {
+                  "brier": 0.07907644318881894,
+                  "log_loss": 0.27879802028353723
+                },
+                {
+                  "brier": 0.06894766486788934,
+                  "log_loss": 0.26202371267320596
+                }
+              ],
+              "log_loss": 0.27413793957567684,
+              "settings": {
+                "expanded": false,
+                "hazard": 0.010416666666666666,
+                "rho": 0.5
+              }
+            },
+            "0.8": {
+              "brier": 0.07492022251083078,
+              "folds": [
+                {
+                  "brier": 0.07731155654237264,
+                  "log_loss": 0.280142870307087
+                },
+                {
+                  "brier": 0.07898524754226115,
+                  "log_loss": 0.27845468197883316
+                },
+                {
+                  "brier": 0.06846386344785856,
+                  "log_loss": 0.2607929394242632
+                }
+              ],
+              "log_loss": 0.27313016390339445,
+              "settings": {
+                "expanded": false,
+                "hazard": 0.010416666666666666,
+                "rho": 0.8
+              }
+            }
+          },
+          "selected": "0.8"
+        },
+        "positive_head": {
+          "candidates": {
+            "logistic": {
+              "brier": 0.36885468076495065,
+              "conditional_positive_log_loss": 1.032348496442484,
+              "folds": [
+                {
+                  "brier": 0.34627233753762826,
+                  "conditional_positive_log_loss": 0.9941176188376576,
+                  "log_loss": 0.7049050295254736
+                },
+                {
+                  "brier": 0.34235278193662433,
+                  "conditional_positive_log_loss": 0.9795532578650327,
+                  "log_loss": 0.6772586856112315
+                },
+                {
+                  "brier": 0.4179389228205994,
+                  "conditional_positive_log_loss": 1.1233746126247621,
+                  "log_loss": 0.8379536044170909
+                }
+              ],
+              "log_loss": 0.740039106517932
+            },
+            "matched": {
+              "brier": 0.3678121346789047,
+              "conditional_positive_log_loss": 1.0426829057692533,
+              "folds": [
+                {
+                  "brier": 0.34873715680524414,
+                  "conditional_positive_log_loss": 1.0112887260355468,
+                  "log_loss": 0.7134330782476654
+                },
+                {
+                  "brier": 0.3392943475400003,
+                  "conditional_positive_log_loss": 0.9782197962083924,
+                  "log_loss": 0.675825325916481
+                },
+                {
+                  "brier": 0.4154048996914697,
+                  "conditional_positive_log_loss": 1.13854019506382,
+                  "log_loss": 0.8426495034040974
+                }
+              ],
+              "log_loss": 0.743969302522748
+            },
+            "recent": {
+              "brier": 0.3678078610647116,
+              "conditional_positive_log_loss": 1.04692922689889,
+              "folds": [
+                {
+                  "brier": 0.3494256171623657,
+                  "conditional_positive_log_loss": 1.0186850272057273,
+                  "log_loss": 0.7142694426644259
+                },
+                {
+                  "brier": 0.3381144594967163,
+                  "conditional_positive_log_loss": 0.9766240828239842,
+                  "log_loss": 0.6741582499920443
+                },
+                {
+                  "brier": 0.41588350653505274,
+                  "conditional_positive_log_loss": 1.145478570666958,
+                  "log_loss": 0.8461201538426039
+                }
+              ],
+              "log_loss": 0.744849282166358
+            },
+            "recent_equal_mass": {
+              "brier": 0.3675203276296909,
+              "conditional_positive_log_loss": 1.0432607583063396,
+              "folds": [
+                {
+                  "brier": 0.3481837777789755,
+                  "conditional_positive_log_loss": 1.0095950158300886,
+                  "log_loss": 0.7109251424995849
+                },
+                {
+                  "brier": 0.33880113558760283,
+                  "conditional_positive_log_loss": 0.9788131158482436,
+                  "log_loss": 0.6750469914188194
+                },
+                {
+                  "brier": 0.4155760695224943,
+                  "conditional_positive_log_loss": 1.1413741432406868,
+                  "log_loss": 0.8441743732148764
+                }
+              ],
+              "log_loss": 0.7433821690444269
+            }
+          },
+          "selected": "recent"
+        },
+        "win": {
+          "candidates": {
+            "control": {
+              "brier": 0.07492022251083078,
+              "folds": [
+                {
+                  "brier": 0.07731155654237264,
+                  "log_loss": 0.280142870307087
+                },
+                {
+                  "brier": 0.07898524754226115,
+                  "log_loss": 0.27845468197883316
+                },
+                {
+                  "brier": 0.06846386344785856,
+                  "log_loss": 0.2607929394242632
+                }
+              ],
+              "log_loss": 0.27313016390339445,
+              "settings": {
+                "expanded": false,
+                "hazard": 0.010416666666666666,
+                "rho": 0.8
+              }
+            },
+            "expanded": {
+              "brier": 0.07399405823422428,
+              "folds": [
+                {
+                  "brier": 0.07672520943846296,
+                  "log_loss": 0.2768592077880769
+                },
+                {
+                  "brier": 0.0772218173283689,
+                  "log_loss": 0.26995891233202024
+                },
+                {
+                  "brier": 0.06803514793584096,
+                  "log_loss": 0.2576020749099562
+                }
+              ],
+              "log_loss": 0.26814006501001775,
+              "settings": {
+                "expanded": true,
+                "hazard": 0.010416666666666666,
+                "rho": 0.8
+              }
+            },
+            "reset_144": {
+              "brier": 0.07406464393772404,
+              "folds": [
+                {
+                  "brier": 0.0766228594870795,
+                  "log_loss": 0.2774503544182816
+                },
+                {
+                  "brier": 0.07821292986797779,
+                  "log_loss": 0.27582819022968275
+                },
+                {
+                  "brier": 0.06735814245811482,
+                  "log_loss": 0.25723127401601525
+                }
+              ],
+              "log_loss": 0.27016993955465984,
+              "settings": {
+                "expanded": false,
+                "hazard": 0.006944444444444444,
+                "rho": 0.8
+              }
+            },
+            "reset_64": {
+              "brier": 0.07618709988087025,
+              "folds": [
+                {
+                  "brier": 0.07846967238046082,
+                  "log_loss": 0.28429492839559417
+                },
+                {
+                  "brier": 0.07996890157961929,
+                  "log_loss": 0.28196762021805477
+                },
+                {
+                  "brier": 0.07012272568253061,
+                  "log_loss": 0.26601866574101196
+                }
+              ],
+              "log_loss": 0.27742707145155365,
+              "settings": {
+                "expanded": false,
+                "hazard": 0.015625,
+                "rho": 0.8
+              }
+            }
+          },
+          "selected": "control"
+        }
+      }
+    }
+  ]
+}

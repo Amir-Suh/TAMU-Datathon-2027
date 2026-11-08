@@ -1,0 +1,132 @@
+{
+  "candidate_score": {
+    "by_condition": {
+      "drift": {
+        "episodes": 24,
+        "error": 0.015090656032410617,
+        "loss_ratio": 0.0794939870938322,
+        "queries": 192,
+        "reference_error": 0.18983393064179913
+      },
+      "shared_change": {
+        "episodes": 24,
+        "error": 0.016087028265462894,
+        "loss_ratio": 0.07825851777229052,
+        "queries": 192,
+        "reference_error": 0.20556264957983816
+      },
+      "short_history": {
+        "episodes": 24,
+        "error": 0.018736550997622056,
+        "loss_ratio": 0.10565240788438784,
+        "queries": 192,
+        "reference_error": 0.1773414479878668
+      },
+      "stable": {
+        "episodes": 24,
+        "error": 0.014243420063586752,
+        "loss_ratio": 0.07257763970198723,
+        "queries": 192,
+        "reference_error": 0.19625080289290195
+      }
+    },
+    "contest_version": "temporal-adaptation-v3-60-40",
+    "max_points": 60.0,
+    "mean_loss_ratio": 0.08399563811312445,
+    "round": "main",
+    "season_id": "5fffdc4d0c700bbf61c3f911",
+    "technical_points": 55.35077623046531
+  },
+  "checks": {
+    "all_missing_lag_history_unchanged": true,
+    "conditional_payout_max_abs_delta": 2.220446049250313e-16,
+    "empty_child_counts_return_exact_parent": true,
+    "frozen_m3_replay_max_abs_delta": 2.220446049250313e-16,
+    "observed_payout_at_cutoff_rejected": true,
+    "parent_weighted_center_max_abs_delta": 2.220446049250313e-16,
+    "strict_cutoff_brute_force_child_count_checks": 80,
+    "zero_match_posterior_has_zero_win_delta": true
+  },
+  "current_top_posterior_pair_context": {
+    "00": {
+      "five_class_sse_delta": -0.000309636370646625,
+      "mean_abs_win_delta": 0.006283601637767254,
+      "mean_match_posterior_mass": 0.9964503282125814,
+      "mean_signed_win_delta": 0.00297626895166292,
+      "p0_mse_delta": -0.00025471589617190906,
+      "queries": 288
+    },
+    "11": {
+      "five_class_sse_delta": -0.0008413887406813025,
+      "mean_abs_win_delta": 0.012622097010523638,
+      "mean_match_posterior_mass": 0.9993607031603332,
+      "mean_signed_win_delta": -0.005192026365941875,
+      "p0_mse_delta": -0.0006351685918822399,
+      "queries": 178
+    },
+    "differ": {
+      "five_class_sse_delta": -5.795322601039643e-07,
+      "mean_abs_win_delta": 1.1630126685230747e-06,
+      "mean_match_posterior_mass": 0.0031953185505758305,
+      "mean_signed_win_delta": -7.360408352867801e-07,
+      "p0_mse_delta": -3.7863513227815464e-07,
+      "queries": 302
+    },
+    "match": {
+      "five_class_sse_delta": -0.0005127520828057936,
+      "mean_abs_win_delta": 0.008704743647103384,
+      "mean_match_posterior_mass": 0.9975620164973449,
+      "mean_signed_win_delta": -0.00014380951729341777,
+      "p0_mse_delta": -0.0004000390288681299,
+      "queries": 466
+    },
+    "unknown": {
+      "queries": 0
+    }
+  },
+  "frozen_m3_score": {
+    "by_condition": {
+      "drift": {
+        "episodes": 24,
+        "error": 0.015151988795933338,
+        "loss_ratio": 0.0798170735058101,
+        "queries": 192,
+        "reference_error": 0.18983393064179913
+      },
+      "shared_change": {
+        "episodes": 24,
+        "error": 0.016135284399588744,
+        "loss_ratio": 0.07849326924209539,
+        "queries": 192,
+        "reference_error": 0.20556264957983816
+      },
+      "short_history": {
+        "episodes": 24,
+        "error": 0.01895667078045014,
+        "loss_ratio": 0.1068936280578193,
+        "queries": 192,
+        "reference_error": 0.1773414479878668
+      },
+      "stable": {
+        "episodes": 24,
+        "error": 0.01515911497337078,
+        "loss_ratio": 0.07724358193654585,
+        "queries": 192,
+        "reference_error": 0.19625080289290195
+      }
+    },
+    "contest_version": "temporal-adaptation-v3-60-40",
+    "max_points": 60.0,
+    "mean_loss_ratio": 0.08561188818556766,
+    "round": "main",
+    "season_id": "5fffdc4d0c700bbf61c3f911",
+    "technical_points": 55.268370448927854
+  },
+  "test_forecast_checks": {
+    "conditional_payout_max_abs_delta": 2.220446049250313e-16,
+    "frozen_m3_replay_max_abs_delta": 3.3306690738754696e-16,
+    "parent_weighted_center_max_abs_delta": 2.220446049250313e-16,
+    "queries": 1536,
+    "zero_match_posterior_has_zero_win_delta": true
+  }
+}
