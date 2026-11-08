@@ -231,7 +231,7 @@ def make_parser():
 
     # predict subcommand
     p_pred = sub.add_parser('predict')
-    p_pred.add_argument('--model', required=True, choices=['pooled_recent', 'm3', 'gbdt', 'gru_fac', 'gru_plain', 'tfm'])
+    p_pred.add_argument('--model', required=True, choices=['pooled_recent', 'm3', 'gbdt', 'gru_fac', 'gru_plain', 'tfm', 'shortctx', 'moegate'])
     p_pred.add_argument('--seed', type=int, default=7)
     p_pred.add_argument('--out', required=True)
     p_pred.add_argument('--data')
@@ -244,7 +244,7 @@ def make_parser():
     p_rep.add_argument('--baseline', default='pooled_recent')
 
     # Top-level args for direct execution: python -m tdx.tools.short_backtest --model ...
-    p.add_argument('--model', choices=['pooled_recent', 'm3', 'gbdt', 'gru_fac', 'gru_plain', 'tfm'])
+    p.add_argument('--model', choices=['pooled_recent', 'm3', 'gbdt', 'gru_fac', 'gru_plain', 'tfm', 'shortctx', 'moegate'])
     p.add_argument('--seed', type=int, default=7)
     p.add_argument('--out')
     p.add_argument('--data')

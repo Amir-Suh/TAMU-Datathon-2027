@@ -182,6 +182,9 @@ def compute_reliability_size(p, outs, n_bins=10):
     return rows
 
 
+NEW_ARMS = ('shortctx', 'moegate')
+
+
 def build_model(name, seed=0):
     """Factory to build an arm and its fit_spec for tail_eval and short_backtest."""
     if name == 'pooled_recent':
@@ -212,8 +215,15 @@ def build_model(name, seed=0):
         params.update(d=128, L=3, epochs=100, seed=seed)
         arm = build_arm(module, params)
         spec = dev_spec(True)
+    elif name in NEW_ARMS:
+        # research arms under development: model name == arm name, variant 'pilot' (must define VARIANTS['pilot'])
+        module = arm_module(name)
+        params = dict(module.VARIANTS['pilot'])
+        params['seed'] = seed
+        arm = build_arm(module, params)
+        spec = dev_spec(bool(params.get('transductive', True)))
     else:
-        raise ValueError(f"Unknown model name '{name}'. Must be one of: pooled_recent, m3, gbdt, gru_fac, gru_plain, tfm")
+        raise ValueError(f"Unknown model name '{name}'. Must be one of: pooled_recent, m3, gbdt, gru_fac, gru_plain, tfm, {', '.join(NEW_ARMS)}")
     return arm, spec
 
 
@@ -445,7 +455,7 @@ def make_parser():
 
     # predict subcommand
     p_pred = sub.add_parser('predict')
-    p_pred.add_argument('--model', required=True, choices=['pooled_recent', 'm3', 'gbdt', 'gru_fac', 'gru_plain', 'tfm'])
+    p_pred.add_argument('--model', required=True, choices=['pooled_recent', 'm3', 'gbdt', 'gru_fac', 'gru_plain', 'tfm', 'shortctx', 'moegate'])
     p_pred.add_argument('--seed', type=int, default=7)
     p_pred.add_argument('--hold', type=int, default=30)
     p_pred.add_argument('--out', required=True)

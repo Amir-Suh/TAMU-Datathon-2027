@@ -1,0 +1,27 @@
+# Antigravity job: Design 6 `moegate` — soft mixture of experts inside one sequence model (90-minute budget)
+
+You have no conversation context. Repo: /home/ganfwe/Downloads/TAMU-Datathon-2027. PY=/home/ganfwe/.venvs/tdx/bin/python (always use it; run from the repo root; `PYTHONPATH=src`). GPU shared with another job: at most 2 trainings at a time. The design is in `claude_output/specs/SIZE_SHORT_DESIGNS.md` ("Design 6"): read it first, then `src/tdx/arms/seq/arm.py` (the GRU trunk and factored head to extend: `forward_np`, parity check, `save`/`load`), `src/tdx/arms/seqens/arm.py` (torch-free loader pattern), `src/tdx/arms/gbdt/features.py` (columns named `pair13_*`, `pair25_*`, `pair47_*`), `src/tdx/tools/tail_eval.py`, `src/tdx/tools/short_backtest.py`.
+
+## Time budget
+Run `date`, write it to /tmp/agy_moegate/start.txt (mkdir -p). Code + tests within 35 minutes, first training launched by minute 40, final report at minute 90 with whatever finished.
+
+## Rules
+- Create ONLY: `src/tdx/arms/moegate/{__init__,arm.py}`, `tests/moegate/test_moegate.py`, files under `/tmp/agy_moegate/` and `runs/moegate/`. Do NOT edit any other file (the tools already accept the model name `moegate`, which resolves to `tdx.arms.moegate.VARIANTS['pilot']`). No git, no network, no pip, no rm.
+- Never use `signal` or condition labels as inputs. No leakage: only outcomes at ticks < cutoff (histories of train, validation and test), as `seq` does.
+
+## What to build
+1. Trunk: the `seq` GRU (h=128, no cross-machine message) producing a state h_t per machine per tick. Do NOT change `seq`; copy what you need into `moegate/arm.py`.
+2. K=3 experts: each a 2-layer MLP (128 -> 64 -> 5 logits) on h_t, output the factored win/size log-probabilities exactly as `seq` does with `factor=True` (win logit + 4 size logits). Expert probabilities p_k = exp(log-probs).
+3. Gate: g_t = softmax(W [h_t, short_flag, r_t]) over the K experts, where short_flag = 1 if the row's observed-tick count is 64 else 0 (computed from the given history row, never from `n_obs` or conditions), and r_t = the 6 causal pair-rule statistics per machine at tick t: for each lag pair (1,3), (2,5), (4,7) the running hit rate over all past scored ticks and over the last 40 (the same quantities as `pair13_acc_all`, `pair13_acc_rec`, ... in `gbdt/features.py`, which are computed causally over the whole history; reuse that function on the history to get them, scale to [0,1], missing = 0.5). Output p_t = sum_k g_{t,k} p_{t,k} (mixture of PROBABILITY vectors).
+4. Training: next-tick cross-entropy on every observed tick of train, validation and test histories (ticks < cutoff), like `seq` (100 epochs, same optimiser settings), plus (a) load-balancing penalty: lambda_bal * sum_k (mean_gate_k - 1/K)^2 with lambda_bal = 1.0, (b) expert dropout: with probability 0.1 per batch element drop one random expert (zero its gate and renormalise), (c) gate entropy bonus -0.01 * H(g) for the first 20% of epochs only.
+5. Inference: numpy float64 for the whole model (trunk recurrence, experts, gate, pair statistics computed with numpy), torch only imported inside `fit`; parity < 1e-6 after every fit; exact `save`/`load` (model.npz + meta.json); a torch-free loader module is NOT required now.
+6. `__init__.py`: `VARIANTS = {'pilot': {...}}` (K=3, h=128, epochs 100, `transductive=True`, `factor=True`) and `build(**params)`. Also expose `usage(split)` returning the mean gate weights per expert for each episode (used for the specialisation report).
+
+## Tests (tests/moegate/test_moegate.py)
+(a) with K=1 the output equals a `seq` factored model with the same weights (use a tiny model, 1 epoch, same seed: predictions within 1e-5); (b) gate rows sum to 1 and expert usage is non-degenerate on a tiny fit (no expert below 1%); (c) predictions ignore ticks at or after the cutoff; (d) parity + round trip; (e) `'torch' not in sys.modules` after load + predict in a subprocess.
+
+## Scoring (after tests pass)
+`$PY -m tdx.tools.tail_eval predict --model moegate --seed S --hold H --out /tmp/agy_moegate/tail` for S = 1, 2, 3 and H = 30, 60, 90 (CPU-bound numpy prediction is slow: run at most 3 at a time); existing tail files for pooled_recent, m3 and gru_fac may be found under /tmp/agy_evaltools or /tmp/claude-1000/aug (the tool's own naming); regenerate any missing ones (gru_fac seeds 1-3, holds 30/60/90). Then `tail_eval report --dir <dir> --models pooled_recent,m3,gru_fac,moegate --holds 30,60,90 --baseline pooled_recent`. Also `short_backtest predict --model moegate --seed 1 --out /tmp/agy_moegate/short` and its report against gru_fac and m3. Finally, using validation (the `dev` run): `$PY -m tdx.run --arm moegate --variant pilot --mode dev --set seed=1 --out runs/moegate/pilot_seed1`, then print the per-expert mean gate usage for short_history episodes vs the other three conditions (use `usage(split)` and the validation conditions from `with_answers(rnd).splits['validation'].condition`).
+
+## Final report (print only this)
+Files created; test result lines; parity max diff; the tail_eval and short_backtest comparison tables (win part, size part, total, Brier, paired bootstrap vs pooled_recent and vs gru_fac); the gate-usage table by condition; validation points; any failure with its last 5 log lines; elapsed minutes. State in one sentence whether the experts specialised (usage differs between short_history and the others) or not.
