@@ -32,3 +32,6 @@ Verify the exact files with the `SHA256SUMS` in the candidate folder.
 
 ## Uploaded main-round entry (Team Timecasters, Round 1)
 `candidate4_B_uploaded`: the entry uploaded to the main Form on 2026-11-08 (README inside the zip names the team and round). Recipe: m3 + 12 size-x2 GRUs + 8 transformers, blend weights fixed from the main-round grouped cross-validation (out-of-fold 57.283 vs 57.106 for the 3b recipe; the CV differences are small, about 0.1 point). Fresh-folder reproduction passed (246 / 233 s) on the earlier-built zip; the uploaded zip differs only in the README line.
+
+## Uploaded adaptation entry (Team Timecasters, Round 2)
+`adaptation_timecasters`: the round-two entry. Same recipe as candidate 4 (B) refit on the adaptation kit: m3 (refit at predict time) + 12 size-x2 GRUs + 8 transformers, trained on the new round's histories (train labels only), with the frozen main-round blend weights. Validation (96 episodes, 40-point scale): 38.19; a 4-fold grouped CV re-tuning of the blend gave +0.04 (interval includes 0), so the weights were kept. Reproduction: run 1 = run 2 = uploaded CSV exactly (226 s, 1.2 GB).

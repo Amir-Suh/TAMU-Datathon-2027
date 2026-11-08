@@ -145,8 +145,8 @@ def build_entry(*, arms=None, blend=None, round_name='main', data=None,
             'Validate the separate CSV with the released kit checker and run the project fresh-folder repro_check.sh.\n'
             'Fallback use is printed to stderr and /tmp/predict_fallback.json; never upload a fallback run.\n')
         archive = work / 'entry.zip'
-        subprocess.run([sys.executable, str(ROOT / 'kit' / 'build_entry.py'), '--source', str(source), '--out', str(archive)], check=True)
-        subprocess.run([sys.executable, str(ROOT / 'kit' / 'check_submission.py'), str(expected), '--data', str(data)], check=True)
+        subprocess.run([sys.executable, str(Path(os.environ.get('TDX_KIT', ROOT / 'kit')) / 'build_entry.py'), '--source', str(source), '--out', str(archive)], check=True)
+        subprocess.run([sys.executable, str(Path(os.environ.get('TDX_KIT', ROOT / 'kit')) / 'check_submission.py'), str(expected), '--data', str(data)], check=True)
         if out.exists():
             shutil.rmtree(out)
         shutil.move(str(source), out)
