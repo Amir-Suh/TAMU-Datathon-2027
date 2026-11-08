@@ -56,8 +56,17 @@ def execute(rnd, arm_name, variant, mode='dev', overrides=None, out=None, device
     module = arm_module(arm_name)
     params = dict(module.VARIANTS[variant])
     params.update(overrides or {})
+    # Diagnostic override: --set tick_splits=train,test fits on exactly these splits' histories (dev mode only; labels from train).
+    ticks = params.pop('tick_splits', None)
     arm = build_arm(module, params, device, smoke)
     spec = final_spec() if mode == 'final' else dev_spec(bool(params.get('transductive', False)))
+    if ticks is not None:
+        if mode != 'dev':
+            raise ValueError('tick_splits override is for dev mode only')
+        names = tuple(str(ticks).split(','))
+        if not set(names) <= {'train', 'validation', 'test'} or 'train' not in names:
+            raise ValueError('tick_splits must be a comma list of train/validation/test containing train')
+        spec = dev_spec(False).__class__(names, ('train',), ())
     arm.fit(fit_round(rnd, spec), spec)
     out = Path(out or ROOT / 'runs' / arm_name / variant)
     out.mkdir(parents=True, exist_ok=True)
