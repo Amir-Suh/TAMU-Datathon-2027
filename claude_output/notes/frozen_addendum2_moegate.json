@@ -1,0 +1,68 @@
+{
+  "frozen_at": "2026-11-08 00:55 CT, addendum 2 written before any moegate ensemble was trained or scored",
+  "members": {
+    "m3": "src/tdx/arms/m3flip (signal-timing fix from andrew-exp a7d6e80), refit on train, dev mode",
+    "gru_ce_41_52": "12 GRUs, plain cross-entropy, seeds 41-52 (runs/ce_ens, seqloss variant ce)",
+    "gru_s2_41_52": "12 GRUs, size x2 loss, seeds 41-52 (weights/seqens_size2_ens)",
+    "gru_ce_11_22": "12 GRUs, plain cross-entropy, seeds 11-22 (weights/seqens_ens12_dev) - the GRUs inside the submitted 3b",
+    "gru_ce_24": "all 24 plain-CE GRUs (seeds 11-22 and 41-52), probability average",
+    "tfm_8": "8 conv+ALiBi transformers, seeds 21-28 (weights/tfmens_ens8_dev)",
+    "moe_k3_8": "8 soft mixture-of-experts models, K=3, arm moegate4 variant k3_ref (no condition loss), dev mode, seeds 41-48, probability average (weights/val_preds/moe_k3_8.npy)",
+    "moe_k4_8": "8 soft mixture-of-experts models, K=4, arm moegate4 variant k4_nocond (no condition loss), dev mode, seeds 41-48, probability average (weights/val_preds/moe_k4_8.npy)"
+  },
+  "candidates": {
+    "F_submitted_recipe": [
+      "m3",
+      "gru_ce_11_22",
+      "tfm_8"
+    ],
+    "A_ce12_matched": [
+      "m3",
+      "gru_ce_41_52",
+      "tfm_8"
+    ],
+    "K_control_extra_gru": [
+      "m3",
+      "gru_ce_41_52",
+      "gru_ce_11_22",
+      "tfm_8"
+    ],
+    "I_plus_moe_k3": [
+      "m3",
+      "gru_ce_41_52",
+      "tfm_8",
+      "moe_k3_8"
+    ],
+    "J_plus_moe_k4": [
+      "m3",
+      "gru_ce_41_52",
+      "tfm_8",
+      "moe_k4_8"
+    ]
+  },
+  "blend": "factored: P(win)=sum_k a_k*P_k(win); size mix=sum_k b_k*mix_k; a and b are separate simplex vectors over the candidate's members; weights global (not per condition)",
+  "weight_fit": "minimise squared error against the validation TRUE probabilities on the training folds only (SLSQP, equal-condition not applied), evaluated on the reserved fold",
+  "cross_validation": "4 folds grouped by episode, stratified by condition (6 episodes per condition per fold), repeated with 5 different shuffles (seeds 0-4)",
+  "primary_metric": "out-of-fold contest points: concatenate the 4 reserved folds into one 96-episode prediction set, score with tdx.score.score, average over the 5 repeats",
+  "decision_rule": "A candidate replaces F only if (mean out-of-fold points gain over F) >= 0.2 AND the paired episode-bootstrap 95% interval (2000 resamples, stratified by condition) of that gain excludes 0. Otherwise keep F. Only A vs B (same seeds) isolates the size x2 loss; any other difference also contains seed-set noise (a 12-member ensemble moves about +-0.3 with the seed set).",
+  "forbidden": [
+    "adding candidates after seeing scores",
+    "changing the fold seeds",
+    "using any score on the 96 validation episodes to choose members or seeds"
+  ],
+  "matched_pairs": [
+    [
+      "I_plus_moe_k3",
+      "K_control_extra_gru"
+    ],
+    [
+      "J_plus_moe_k4",
+      "K_control_extra_gru"
+    ],
+    [
+      "J_plus_moe_k4",
+      "I_plus_moe_k3"
+    ]
+  ],
+  "note": "Addendum 2: moegate counts as useful only if it beats K_control_extra_gru (one more GRU ensemble, same number of members) with an interval excluding 0 and a gain >= 0.2; K=4 vs K=3 is the J-I pair. Seeds are fixed: 41-48 for both (a subset of the frozen GRU seeds 41-52). No candidate may be added after seeing scores. Same folds, metric and rule as frozen_candidates.json."
+}
