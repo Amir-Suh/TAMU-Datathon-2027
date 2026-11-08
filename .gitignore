@@ -1,0 +1,16 @@
+data/
+runs/*/
+!runs/.gitkeep
+.venv/
+__pycache__/
+*.pyc
+*.zip
+entry/
+outputs/
+.ipynb_checkpoints/
+kit/public
+.cache/
+
+# tracked submission candidates (explicit exception to the *.zip rule)
+!submissions/
+!submissions/**/*.zip
