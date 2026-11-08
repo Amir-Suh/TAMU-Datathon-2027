@@ -12,3 +12,7 @@ __pycache__/
 .pytest_cache/
 /main-participants-60-40/signal_experiments/next_stage/*/*/*/smoke*/
 /main-participants-60-40/signal_experiments/next_stage/*/*/*/known_law/predictions.npz
+
+# Tracked submission candidates
+!submissions/
+!submissions/**/*.zip

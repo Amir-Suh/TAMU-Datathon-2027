@@ -6,7 +6,7 @@ Fast-paced datathon repo. Plans live in `claude_output/` (start with `claude_out
 Predict next-spin probabilities `[p_0, p_1, p_2, p_5, p_20]` for each query (one machine at its `cutoff` tick). Score = squared error against the simulator's TRUE probabilities, averaged per episode, then per condition (stable, short_history, drift, shared_change), divided by the frozen pooled baseline's error, `R = mean ratio`, points = `60/(1+R)` (main) or `40/(1+R)` (adaptation). Pooled baseline = 30.000 points on main validation. Lower error is better, nothing else counts.
 
 ## Deadlines (Central)
-- Main submission closes Sat 2026-11-07 21:00. Round two (adaptation) kit opens 21:00, closes Sun 2026-11-08 11:00.
+- UPDATED by organizers on 2026-11-07 ~20:40 (user-reported): main submission now closes **Sun 2026-11-08 10:30**. Round two (adaptation) kit opens **Sun 10:30** and closes **Sun 12:00** (90 minutes, fit + package + submit). Older notes below that say Sat 21:00 / Sun 11:00 are superseded.
 - The latest Form response counts even if invalid: always run `kit/check_submission.py` and a fresh-folder reproduction before uploading.
 
 ## Facts that decide designs (all measured on the kit, see `claude_output/01_ADVERSARIAL_REVIEW.md`)
