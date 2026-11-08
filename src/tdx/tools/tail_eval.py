@@ -183,6 +183,8 @@ def compute_reliability_size(p, outs, n_bins=10):
 
 
 NEW_ARMS = ('shortctx', 'moegate')
+SEQLOSS_NAMES = {'slbase': 'ce', 'slbrier': 'brier', 'slcebrier': 'ce_brier2', 'slsize2': 'size2', 'slsize4': 'size4',
+                 'slrec': 'rec64', 'sllen': 'lenw', 'slval': 'valw'}
 
 
 def build_model(name, seed=0):
@@ -213,6 +215,13 @@ def build_model(name, seed=0):
         module = arm_module('tfm2')
         params = dict(module.VARIANTS['conv9_alibi'])
         params.update(d=128, L=3, epochs=100, seed=seed)
+        arm = build_arm(module, params)
+        spec = dev_spec(True)
+    elif name in SEQLOSS_NAMES:
+        # loss study: model name -> tdx.arms.seqloss VARIANTS key (names are not prefixes of each other)
+        module = arm_module('seqloss')
+        params = dict(module.VARIANTS[SEQLOSS_NAMES[name]])
+        params['seed'] = seed
         arm = build_arm(module, params)
         spec = dev_spec(True)
     elif name in NEW_ARMS:
@@ -455,7 +464,7 @@ def make_parser():
 
     # predict subcommand
     p_pred = sub.add_parser('predict')
-    p_pred.add_argument('--model', required=True, choices=['pooled_recent', 'm3', 'gbdt', 'gru_fac', 'gru_plain', 'tfm', 'shortctx', 'moegate'])
+    p_pred.add_argument('--model', required=True, choices=['pooled_recent', 'm3', 'gbdt', 'gru_fac', 'gru_plain', 'tfm', 'shortctx', 'moegate', 'slbase', 'slbrier', 'slcebrier', 'slsize2', 'slsize4', 'slrec', 'sllen', 'slval'])
     p_pred.add_argument('--seed', type=int, default=7)
     p_pred.add_argument('--hold', type=int, default=30)
     p_pred.add_argument('--out', required=True)
