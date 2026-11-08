@@ -29,3 +29,6 @@ signals. The 24 episodes in fold 3 contribute no outcomes to the blend fit.
 The clean-refit CSV has 1,536 forecasts and reproduces byte for byte from a
 fresh extraction on Python 3.13 on macOS, using one CPU inference thread.
 Verify the exact files with the `SHA256SUMS` in the candidate folder.
+
+## Uploaded main-round entry (Team Timecasters, Round 1)
+`candidate4_B_uploaded`: the entry uploaded to the main Form on 2026-11-08 (README inside the zip names the team and round). Recipe: m3 + 12 size-x2 GRUs + 8 transformers, blend weights fixed from the main-round grouped cross-validation (out-of-fold 57.283 vs 57.106 for the 3b recipe; the CV differences are small, about 0.1 point). Fresh-folder reproduction passed (246 / 233 s) on the earlier-built zip; the uploaded zip differs only in the README line.

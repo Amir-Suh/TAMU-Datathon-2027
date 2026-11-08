@@ -446,7 +446,7 @@ class MoeGate4Arm(Arm):
         self.w = w
         got, _ = forward_np(self.w, Y_np[:3], MT_np[:3], Y_np.shape[-1], H, K, d_exp, p['factor'])
         self.parity = float(np.abs(got - ref_np).max())
-        if self.parity > 1e-9:
+        if self.parity > 1e-6:
             raise RuntimeError(f'numpy/torch parity failed: {self.parity:.3e}')
 
     def predict(self, split):

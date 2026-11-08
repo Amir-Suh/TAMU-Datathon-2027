@@ -11,3 +11,8 @@
 | `codex-guard --status \| head -4` | Codex usage window and whether the guard sees a run | R |
 | `ps -eo args \| awk '$1 ~ /python$/'` | What python jobs are running | R |
 | `nvidia-smi --query-gpu=utilization.gpu,power.draw --format=csv,noheader` | GPU load and power | R |
+| `bash claude_output/sh/overnight_status.sh` | Status of the overnight queue: chain log, rehearsal stage stamps, MoE results, epoch-150 files, python jobs | R |
+| `bash claude_output/sh/overnight_chain.sh` | Full-size round2 rehearsal on main -> moegate4 leak tests -> frozen MoE test (started 03:45 on 2026-11-08) | $ GPU |
+| `bash claude_output/sh/queue_epoch150.sh` | Waits for the chain, then size x2 GRU 150-epoch tail curves (seeds 41-43) into runs/epoch_tail150 | $ GPU |
+| `ROUND=main OUT=runs/r2_rehearsal bash claude_output/sh/round2.sh <main public dir>` | Round-two pipeline on the main data (candidate 4 recipe); SKIP_REPRO=1 skips the 10-min repro; BLEND_SELECT=1 picks best preset on the new validation | $ GPU |
+

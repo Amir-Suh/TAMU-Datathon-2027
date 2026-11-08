@@ -3,8 +3,9 @@
 usage: python -m tdx.tools.round2_blend --round adaptation --data <public> --gru <seqens export dir> --tfm <tfmens export dir> --out blend.json
 
 Presets are the structures validated on main (m3 / GRU ensemble / transformer ensemble, factored win-vs-size blend).
-Only the preset NAME is selected on the new validation (a handful of choices, no fitted weights), and every score is
-printed. If the new validation has no true probabilities, the main-round 3b preset is used.
+Default: the FROZEN candidate-4 (B) weights from the main-round cross-validation (preset candB_main); every preset is still
+scored on the new validation and printed as a diagnostic. With --select the best preset by new-validation points is used
+instead (selection on 96 episodes, optimistic). If the new validation has no true probabilities, candB_main is used.
 """
 import argparse
 import json
@@ -26,6 +27,8 @@ PRESETS = {
     'equal_3': ([1 / 3, 1 / 3, 1 / 3], [1 / 3, 1 / 3, 1 / 3]),
     'cand2_like': ([.7, .3, 0], [0, 1, 0]),
     'cand3b': ([.77, .23, 0], [.08, .60, .32]),
+    # candidate 4 (B): fold-averaged weights of the frozen 4-fold x5 CV on main (runs/entry_cand4_B/blend.json), over (m3, size2 GRUs, transformers)
+    'candB_main': ([0.5565144069948885, 0.23549875382172186, 0.20798683918338962], [1.713394446426447e-05, 0.5647747750721468, 0.43520809098338903]),
     'neural_win_m3_small': ([.3, .35, .35], [0, .5, .5]),
 }
 
@@ -51,7 +54,8 @@ def main(argv=None):
     ap.add_argument('--gru-id', default='seqens/r2gru')
     ap.add_argument('--tfm-id', default='tfmens/r2tfm')
     ap.add_argument('--out', required=True)
-    ap.add_argument('--default', default='cand3b')
+    ap.add_argument('--default', default='candB_main')
+    ap.add_argument('--select', action='store_true', help='pick the best preset on the new validation instead of --default')
     a = ap.parse_args(argv)
 
     from tdx.arms.m3flip import build as build_m3
@@ -73,7 +77,8 @@ def main(argv=None):
         for name, (w, s) in PRESETS.items():
             r = score(truth, blend(preds, w, s))
             scores[name] = (r['points'], {k: round(v, 4) for k, v in r['by_condition'].items()})
-        choice = max(scores, key=lambda n: scores[n][0])
+        if a.select:
+            choice = max(scores, key=lambda n: scores[n][0])
         print('%-22s %8s  per-condition loss ratios' % ('preset', 'points'))
         for n, (pts, byc) in sorted(scores.items(), key=lambda kv: -kv[1][0]):
             print('%-22s %8.3f  %s%s' % (n, pts, byc, '   <-- chosen' if n == choice else ''))

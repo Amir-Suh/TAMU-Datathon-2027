@@ -39,3 +39,11 @@ GRU plain CE, seeds 41-43, validation points (measured, `runs/disent`, `runs/tra
 - (default I picked, needs user confirmation) Build candidate 4 = recipe D (m3 + 12 CE GRUs + 12 size x2 GRUs + 8 transformers) with the fold-averaged weights of the frozen cross-validation, as a hedged "best available" entry. The frozen replacement rule was NOT met by any candidate (D gain +0.171 vs F, below 0.2); choosing D is a judgment call, not a rule outcome. Not submitted.
 - (user, earlier) Transformer size x2 blend test (G/H) skipped: matched-seed single-model result negative.
 - (user) Rules above (frozen candidates, 4-fold grouped CV x5, matched seeds, intervals) apply from now on.
+
+## Decision log, 2026-11-08 ~04:00 CT (second session)
+- (user) Candidate 4 is B (12 size x2 GRUs + m3 + 8 transformers), NOT D (24 GRUs). Built and verified in runs/entry_cand4_B. Upload decision is still the user's.
+- (user) Run the full-size round2 rehearsal, then the MoE retest K=3 and K=4 with the frozen addendum-2 design unchanged (plain CE, no size2 term; a size2 or dual-loss MoE only after a positive result). Queue the size x2 150-epoch tail diagnostic (low priority).
+- (default I picked, needs confirmation) Fixed candidate-4 blend weights in round 2 (preset candB_main) instead of picking the best preset on the new validation.
+- (PROPOSED, user said fine) Round-two gate between the no-retrain fallback (main-trained candidate 4 run on the new data) and the retrained-from-scratch entry: paired episode bootstrap on the new validation (2000 resamples, stratified by condition); switch only if the gain is >= 0.2 points AND the 95% interval excludes 0; otherwise take the simpler/faster one.
+- Epoch-150 diagnostic reading rule (reused from addendum 3): epoch count changes only if the best checkpoint above 100 beats epoch 100 by >= 0.003 tail log-loss in all three seeds, then a matched-seed CV re-evaluation.
+- The rehearsal's main-validation scores are NOT evidence (main validation steered recipe and blend choices); it measures time, memory and plumbing, plus a determinism check against cached predictions.

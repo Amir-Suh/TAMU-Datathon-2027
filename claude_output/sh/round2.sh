@@ -1,17 +1,19 @@
 #!/usr/bin/env bash
-# One command for round two (adaptation): train GRU + transformer seeds on the NEW data, pick a blend preset on the new
-# validation, build the entry, check it and reproduce it offline. Budget: the whole round is 90 minutes.
+# One command for round two (adaptation): train GRU + transformer seeds on the NEW data, blend with the FROZEN candidate-4 (B)
+# weights from the main-round cross-validation (no selection on the new validation unless BLEND_SELECT=1), build the entry,
+# check it and reproduce it offline. Budget: the whole round is 90 minutes.
+# Recipe = candidate 4 (B): m3 + 12 size-x2 GRUs (arm seqloss, variant size2, seeds 41..52) + 8 transformers (tfm2 d128l3, seeds 21..28).
 #
 #   bash claude_output/sh/round2.sh <new public dir>                 # real run (GPU)
 #   ROUND=main N_GRU=2 N_TFM=2 EP_GRU=3 EP_TFM=3 bash claude_output/sh/round2.sh <main public dir>   # plumbing rehearsal
 #
-# Knobs (env): ROUND (adaptation), N_GRU (8), N_TFM (6), EP_GRU (100), EP_TFM (100), PAR (5 parallel trainings),
-#              OUT (runs/r2_<time>), SKIP_REPRO (0), TDX_PY.
+# Knobs (env): ROUND (adaptation), N_GRU (12), N_TFM (8), EP_GRU (100), EP_TFM (100), PAR (5 parallel trainings),
+#              OUT (runs/r2_<time>), SKIP_REPRO (0), BLEND_SELECT (0; 1 = pick the best preset on the new validation), TDX_PY.
 set -euo pipefail
 REPO="$(cd "$(dirname "$0")/../.." && pwd)"
 DATA="$(readlink -f "${1:?new public dir (the folder that holds metadata.json, train/, validation/, test/)}")"
 PY="${TDX_PY:-$HOME/.venvs/tdx/bin/python}"
-ROUND="${ROUND:-adaptation}"; N_GRU="${N_GRU:-8}"; N_TFM="${N_TFM:-6}"; PAR="${PAR:-5}"
+ROUND="${ROUND:-adaptation}"; N_GRU="${N_GRU:-12}"; N_TFM="${N_TFM:-8}"; BLEND_SELECT="${BLEND_SELECT:-0}"; PAR="${PAR:-5}"
 EP_GRU="${EP_GRU:-100}"; EP_TFM="${EP_TFM:-100}"; SKIP_REPRO="${SKIP_REPRO:-0}"
 OUT="${OUT:-$REPO/runs/r2_$(date +%H%M)}"
 export PYTHONDONTWRITEBYTECODE=1 PYTHONPATH="$REPO/src"
@@ -25,10 +27,10 @@ stamp "round=$ROUND data=$DATA out=$OUT  GRU x$N_GRU ($EP_GRU ep), transformer x
 # 1) trainings (dev mode: histories only, no validation targets), all in one parallel pool
 JOBS="$OUT/jobs.txt"; : > "$JOBS"
 for s in $(seq 1 "$N_GRU"); do
-  echo "$PY -m tdx.run --arm seq --variant gru128_factor --mode dev --round $ROUND --data $DATA --set seed=$s --set epochs=$EP_GRU --out $OUT/seq_$s > $OUT/seq_$s.log 2>&1" >> "$JOBS"
+  echo "$PY -m tdx.run --arm seqloss --variant size2 --mode dev --round $ROUND --data $DATA --set seed=$((40+s)) --set epochs=$EP_GRU --out $OUT/seq_$s > $OUT/seq_$s.log 2>&1" >> "$JOBS"
 done
 for s in $(seq 1 "$N_TFM"); do
-  echo "$PY -m tdx.run --arm tfm2 --variant d128l3 --mode dev --round $ROUND --data $DATA --set seed=$((30+s)) --set epochs=$EP_TFM --out $OUT/tfm_$s > $OUT/tfm_$s.log 2>&1" >> "$JOBS"
+  echo "$PY -m tdx.run --arm tfm2 --variant d128l3 --mode dev --round $ROUND --data $DATA --set seed=$((20+s)) --set epochs=$EP_TFM --out $OUT/tfm_$s > $OUT/tfm_$s.log 2>&1" >> "$JOBS"
 done
 # tfm2 first: it is the slower model
 tac "$JOBS" > "$JOBS.rev"; mv "$JOBS.rev" "$JOBS"
@@ -44,8 +46,8 @@ TFM_M=(); for s in $(seq 1 "$N_TFM"); do [ -d "$OUT/tfm_$s/model" ] && TFM_M+=("
 "$PY" -m tdx.tools.make_ensemble --arm tfmens --variant r2tfm --runs "$OUT/ens" --members "${TFM_M[@]}"
 stamp "ensembles assembled (${#GRU_M[@]} GRU, ${#TFM_M[@]} transformer)"
 
-# 3) blend preset chosen on the NEW validation
-"$PY" -m tdx.tools.round2_blend --round "$ROUND" --data "$DATA" --gru "$OUT/ens/seqens/r2gru/model" --tfm "$OUT/ens/tfmens/r2tfm/model" --out "$OUT/blend.json"
+# 3) blend: frozen candidate-4 (B) main-CV weights by default; every preset is still scored on the new validation as a diagnostic
+"$PY" -m tdx.tools.round2_blend --round "$ROUND" --data "$DATA" --gru "$OUT/ens/seqens/r2gru/model" --tfm "$OUT/ens/tfmens/r2tfm/model" --out "$OUT/blend.json" $([ "$BLEND_SELECT" = "1" ] && echo --select)
 stamp "blend chosen"
 
 # 4) build the entry (also runs predict.py once) and check the CSV

@@ -1,0 +1,28 @@
+Out-of-fold validation points, 4-fold grouped CV x 5 repeats (weights never fit on the scored episodes)
+candidate               mean pts   sd rep   members
+F_submitted_recipe        57.106    0.018   m3+gru_ce_11_22+tfm_8
+A_ce12_matched            57.204    0.013   m3+gru_ce_41_52+tfm_8
+K_control_extra_gru       57.204    0.013   m3+gru_ce_41_52+gru_ce_11_22+tfm_8
+I_plus_moe_k3             57.210    0.016   m3+gru_ce_41_52+tfm_8+moe_k3_8
+J_plus_moe_k4             57.185    0.018   m3+gru_ce_41_52+tfm_8+moe_k4_8
+
+Paired episode bootstrap of the gain over F_submitted_recipe (stratified by condition, 2000 resamples):
+  A_ce12_matched         gain +0.098  95% interval [+0.048, +0.156]  ->  keep F
+  K_control_extra_gru    gain +0.098  95% interval [+0.046, +0.157]  ->  keep F
+  I_plus_moe_k3          gain +0.104  95% interval [+0.036, +0.179]  ->  keep F
+  J_plus_moe_k4          gain +0.079  95% interval [+0.020, +0.141]  ->  keep F
+
+Matched-seed test (I_plus_moe_k3 - K_control_extra_gru): gain +0.006, 95% interval [-0.044, +0.049]
+
+Matched-seed test (J_plus_moe_k4 - K_control_extra_gru): gain -0.019, 95% interval [-0.046, +0.006]
+
+Matched-seed test (J_plus_moe_k4 - I_plus_moe_k3): gain -0.025, 95% interval [-0.052, +0.004]
+
+Mean fold weights (win | size) over the members in order:
+  F_submitted_recipe     win [0.61 0.1  0.29] | size [0.02 0.35 0.63]
+  A_ce12_matched         win [0.55 0.25 0.2 ] | size [0.   0.43 0.57]
+  K_control_extra_gru    win [0.55 0.25 0.   0.2 ] | size [0.   0.43 0.   0.57]
+  I_plus_moe_k3          win [0.54 0.2  0.19 0.06] | size [0.01 0.15 0.48 0.37]
+  J_plus_moe_k4          win [0.54 0.2  0.19 0.07] | size [0.   0.31 0.53 0.17]
+
+Reference, NOT cross-validated: clean-refit weights (Andrew) on recipe F members: 56.754

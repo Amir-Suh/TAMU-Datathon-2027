@@ -130,7 +130,7 @@ def build_entry(*, arms=None, blend=None, round_name='main', data=None,
         sha = hashlib.sha256(expected.read_bytes()).hexdigest()
         (source / 'README.md').write_text(
             '# House Edge entry\n\n'
-            f'Round: {round_name}; season: {metadata["season_id"]}. Team: supply in submission form.\n'
+            f'Team: {os.environ.get("TDX_TEAM", "Timecasters")}. Round: {"1 (main)" if round_name == "main" else "2 (adaptation)"}; season: {metadata["season_id"]}.\n'
             f'Python 3.13; CPU only; one inference thread; seeds in config.json.\n'
             f'Dependencies: {", ".join(pins)}.\n\n'
             'Run from this folder: `python predict.py --data /data --out /output/submission.csv`.\n'
