@@ -132,3 +132,58 @@ def test_build_model_factory():
         arm, spec = build_model(name, seed=1)
         assert arm is not None
         assert spec is not None
+
+
+def test_short_backtest_isolates_fit_and_scores_causal_validation(monkeypatch, tmp_path):
+    from tdx.data import Round, Split
+    from tdx.fit import dev_spec
+    from tdx.tools import short_backtest
+
+    def make_split(name, win):
+        y = np.full((1, 8, 80), -1, dtype=np.int8)
+        y[..., 8:72] = win
+        return Split(name, [name], y, np.zeros((1, 8), dtype=np.int8),
+                     np.ones((1, 8), dtype=np.int8), np.array([72]),
+                     np.full((1, 8), 64), np.array([[f"{name}-{i}" for i in range(8)]]),
+                     label=np.full((1, 8), win), condition=np.array(["short_history"]))
+
+    rnd = Round("main", tmp_path, {name: make_split(name, win) for name, win in
+                                  (("train", 1), ("validation", 2), ("test", 3))}, 60)
+
+    class FitProbe:
+        def fit(self, fit, spec):
+            assert set(fit.splits) == {"train"}
+            assert spec == dev_spec(False)
+            assert fit.splits["train"].cutoff.tolist() == [72]
+            np.testing.assert_array_equal(fit.splits["train"].label, np.ones((1, 8)))
+
+        def predict(self, split):
+            assert split.ids == ["validation"]
+            assert split.label is None and split.condition is None
+            assert np.all(split.signal == 0)
+            assert np.all(split.y[..., int(split.cutoff[0]):] == -1)
+            return np.full((1, 8, 5), 0.2)
+
+    monkeypatch.setattr(short_backtest, "load_round", lambda *args, **kwargs: rnd)
+    monkeypatch.setattr(short_backtest, "build_model", lambda *args: (FitProbe(), dev_spec(True)))
+    file = short_backtest.run_short_predict("tfm", 7, tmp_path)
+    with np.load(file) as artifact:
+        np.testing.assert_array_equal(artifact["cutoffs"].ravel(), np.arange(64, 72))
+        np.testing.assert_array_equal(artifact["outs"], np.full((8, 1, 8), 2))
+        np.testing.assert_array_equal(artifact["query_ids"], rnd.splits["validation"].query_ids)
+
+
+def test_short_report_rejects_misaligned_forecasts_and_ignores_legacy(tmp_path):
+    from tdx.tools.short_backtest import find_short_files, run_short_report
+
+    def save(name, cutoff):
+        np.savez(tmp_path / name, preds=np.full((1, 1, 8, 5), .2),
+                 query_ids=np.array([[f"val-{i}" for i in range(8)]]),
+                 cutoffs=np.array([[cutoff]]), outs=np.zeros((1, 1, 8), dtype=int))
+
+    save("short_tfm_7.npz", 20)
+    save("short_heldout_tfm_7.npz", 40)
+    save("short_heldout_baseline_7.npz", 41)
+    assert [file.name for file in find_short_files(tmp_path, "tfm")] == ["short_heldout_tfm_7.npz"]
+    with pytest.raises(ValueError, match="episode or outcome mismatch"):
+        run_short_report(tmp_path, ["tfm", "baseline"], "baseline")
