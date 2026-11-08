@@ -10,3 +10,7 @@ outputs/
 .ipynb_checkpoints/
 kit/public
 .cache/
+
+# tracked submission candidates (explicit exception to the *.zip rule)
+!submissions/
+!submissions/**/*.zip
