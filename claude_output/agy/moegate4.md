@@ -1,0 +1,29 @@
+# Antigravity job: moegate with K=4 experts and an auxiliary condition loss (90-minute budget, GPU gated)
+
+You have no conversation context. Repo: /home/ganfwe/Downloads/TAMU-Datathon-2027. PY=/home/ganfwe/.venvs/tdx/bin/python (always use it; run from the repo root; `PYTHONPATH=src`). Read first: `src/tdx/arms/moegate/{__init__,arm.py}` (the K=3 mixture-of-experts arm you or a sibling job built: GRU trunk, K factored win/size experts, gate on trunk state + short flag + pair-rule statistics), `claude_output/specs/SIZE_SHORT_DESIGNS.md` (Design 6), `src/tdx/tools/tail_eval.py`, `src/tdx/tools/short_backtest.py`, `src/tdx/backtest.py`, `src/tdx/fit.py`, `src/tdx/run.py`.
+
+## Background and question
+In the K=3 pilot the gate usage was almost uniform in every condition (about 0.33 per expert in stable, drift, shared_change; short_history 0.37/0.35/0.29), so the "mixture" acted as an internal ensemble (it still lowered held-out-tail Brier by about 0.4% versus the GRU). Question: if we give the gate a supervised hint (K=4, one expert per condition: stable, short_history, drift, shared_change, plus an auxiliary condition loss using the 24 labelled train episodes per condition) do the experts specialise, and does the specialised model beat K=3 and the GRU on the leak-free tail and on the real short_history backtest?
+
+## Time budget and gate
+Run `date`, write it to /tmp/agy_moegate4/start.txt (mkdir -p). **Do not start any training or scoring job (anything using the GPU or longer than 30 s) before 21:55 Central** (check `date`; another long job is using the GPU until then): write code and tests, run only tiny smoke fits before that. Final report at 90 minutes after start, with whatever finished.
+
+## Rules
+- Create ONLY: `src/tdx/arms/moegate4/{__init__,arm.py}`, `tests/moegate4/test_moegate4.py`, and files under `/tmp/agy_moegate4/` and `runs/moegate4/`. You may import and copy from `src/tdx/arms/moegate/arm.py` but do NOT edit any existing file (the scoring tools resolve only fixed model names, so write your own thin wrapper scripts under /tmp/agy_moegate4/ that call `tdx.tools.tail_eval` / `short_backtest` internals — read how `build_model`, `run_predict`, `run_report` work — with your arm in place of the fixed names). No git, no network, no pip, no rm.
+- No leakage: condition labels may be used ONLY for train-split episodes in the auxiliary loss, only at fit time (`fit_round` passes `split.condition` for the train split in dev mode). Never use validation or test conditions as inputs or targets, never feed any condition or signal value to the gate, and keep everything else as in `moegate` (only histories before the cutoff).
+- Note `tdx.backtest.truncate` sets `condition=None` on the truncated rounds; in your wrapper restore the train split's `condition` (an episode's condition does not change when its cutoff is moved earlier) before fitting, so the auxiliary loss is active in the tail and short backtests too.
+
+## What to build (variants, all in one arm `MoeGate4Arm`)
+1. K as a parameter (4 here), experts and gate as in `moegate`.
+2. Auxiliary condition loss (weight `lam_cond`): for each TRAIN-split episode in a batch with a condition label, take the episode's mean gate distribution over its 8 machines and over the last 64 observed ticks before the cutoff, and add `lam_cond * CE(mean_gate, onehot(condition))` with label smoothing 0.1. Expert index k is tied to condition order [stable, short_history, drift, shared_change]. Load-balancing penalty stays on but computed over all batch rows including unlabelled ones; expert dropout stays.
+3. Variants in `VARIANTS`: `k3_ref` (K=3, lam_cond=0; reproduces `moegate` pilot), `k4_nocond` (K=4, lam_cond=0), `k4_cond03` (K=4, lam_cond=0.3), `k4_cond10` (K=4, lam_cond=1.0). And `pilot` = whichever you prefer as the default to score with the tools (use `k4_cond03`).
+4. numpy float64 inference with torch parity < 1e-6 after every fit; exact save/load; torch imported only inside fit; leak test `python -m tdx.tools.leak_test --arm moegate4 --variant k4_cond03` must pass.
+
+## Tests (tests/moegate4/test_moegate4.py)
+(a) `k3_ref` equals the `moegate` arm for the same seed and tiny settings (within 1e-5); (b) gate rows sum to 1 and no expert has < 1% usage on a tiny fit; (c) predictions ignore ticks at or after the cutoff; (d) parity + save/load round trip; (e) with `lam_cond>0` and no condition labels (condition None) the fit still runs; (f) `'torch' not in sys.modules` after load + predict in a subprocess.
+
+## Scoring (after 21:55; at most 2 GPU jobs at a time)
+For each variant in {k3_ref, k4_nocond, k4_cond03, k4_cond10}: tail predictions for seeds 1, 2 at holds 30, 60, 90 and short_backtest predictions for seed 1, using your wrapper; plus the already-known incumbents recomputed with the standard tools for the same windows: pooled_recent, m3, gru_fac seeds 1-3 (the standard `tail_eval predict` / `short_backtest predict` commands; write outputs under /tmp/agy_moegate4/). Then reports: `tail_eval report` and `short_backtest report` (models pooled_recent, m3, gru_fac and each moegate4 variant, baseline gru_fac). Also run `tdx.run --mode dev` for the best variant (seed 1) for validation points and print the expert usage by validation condition (rows = conditions, columns = experts; the usage function in `moegate/__init__.py`), once for each variant fitted on the tail-free full data (seed 1).
+
+## Final report (print only this)
+Files created; test result lines; parity max diff; the tail and short_backtest comparison tables (win part, size part, total, Brier, paired bootstrap vs gru_fac); the expert-usage-by-condition table per variant; validation points; in one sentence: did the experts line up with conditions (diagonal usage clearly above off-diagonal), and did K=4 with the auxiliary loss beat k3_ref and gru_fac with an interval excluding zero? Failures with last 5 log lines; elapsed minutes.
