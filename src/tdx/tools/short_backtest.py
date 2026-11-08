@@ -1,4 +1,4 @@
-"""Real short_history backtest harness across pooled short episodes."""
+"""Short-history backtest with episode-disjoint training and validation."""
 
 import os
 os.environ['PYTHONDONTWRITEBYTECODE'] = '1'
@@ -12,188 +12,120 @@ import re
 import sys
 import numpy as np
 
-from tdx.data import load_round, Split
+from tdx.data import load_round
+from tdx.fit import dev_spec
 from tdx.paths import data_root
 from tdx.run import fit_round
 from tdx.tools.tail_eval import (
     build_model,
-    compute_parts,
     compute_metrics,
     paired_bootstrap,
 )
 
 
+WINDOW = 8
+ARTIFACT_PREFIX = 'short_heldout_'
+
+
 def prepare_short_backtest_round(rnd):
-    """Hide the last 8 observed ticks of every machine in short episodes (ticks cutoff-8..cutoff-1)
-    by setting them to -1 and reducing cutoff by 8; other episodes keep their full histories.
-    Honest train labels for train short episodes: the realized outcome at the new cutoff; unobserved -> -1.
-    """
-    trunc_splits = {}
-    for s_name, s in rnd.splits.items():
-        is_short = ((s.y >= 0).sum(axis=-1) == 64).all(axis=-1)
-        new_cutoff = s.cutoff.copy()
-        new_cutoff[is_short] -= 8
-
-        new_y = s.y.copy()
-        for e in np.where(is_short)[0]:
-            new_y[e, :, new_cutoff[e]:] = -1
-
-        new_n_obs = (new_y >= 0).sum(axis=-1).astype(s.n_obs.dtype)
-
-        if s_name == 'train':
-            new_label = s.label.copy()
-            for e in np.where(is_short)[0]:
-                c = new_cutoff[e]
-                # Realized outcome at the new cutoff
-                new_label[e, :] = np.where(s.y[e, :, c] >= 0, s.y[e, :, c], -1)
-            trunc_splits[s_name] = replace(
-                s,
-                cutoff=new_cutoff,
-                y=new_y,
-                n_obs=new_n_obs,
-                label=new_label,
-            )
-        else:
-            trunc_splits[s_name] = replace(
-                s,
-                cutoff=new_cutoff,
-                y=new_y,
-                n_obs=new_n_obs,
-                label=None,
-                condition=None,
-                target=None,
-                reference=None,
-            )
-
-    return replace(rnd, splits=trunc_splits)
+    """Give the fitter only original training episodes and labels."""
+    train, validation = (rnd.splits[name] for name in ('train', 'validation'))
+    if set(train.ids) & set(validation.ids):
+        raise ValueError('Training and validation episode IDs overlap.')
+    return fit_round(replace(rnd, splits={'train': train}), dev_spec(False))
 
 
 def collect_short_episodes(rnd):
-    """Collect all short episodes across train, validation, and test splits (total 96 episodes)."""
-    pooled_ids = []
-    pooled_y = []
-    pooled_mtype = []
-    pooled_signal = []
-    pooled_cutoff = []
-    pooled_query_ids = []
+    """Select released short-history episodes from validation only."""
+    split = rnd.splits['validation']
+    legal = np.arange(split.y.shape[-1]) < split.cutoff[:, None, None]
+    short = (((split.y >= 0) & legal).sum(axis=-1) == 64).all(axis=-1)
+    if not short.any():
+        raise ValueError('No short-history episodes in validation.')
+    return replace(split, ids=[episode for episode, keep in zip(split.ids, short) if keep],
+                   y=split.y[short], mtype=split.mtype[short], signal=split.signal[short],
+                   cutoff=split.cutoff[short], n_obs=split.n_obs[short],
+                   query_ids=split.query_ids[short], label=None, condition=None,
+                   target=None, reference=None)
 
-    for s_name in ('train', 'validation', 'test'):
-        s = rnd.splits[s_name]
-        is_short = ((s.y >= 0).sum(axis=-1) == 64).all(axis=-1)
-        for e in np.where(is_short)[0]:
-            pooled_ids.append(f"{s_name}_{s.ids[e]}")
-            pooled_y.append(s.y[e])
-            pooled_mtype.append(s.mtype[e])
-            pooled_signal.append(s.signal[e])
-            pooled_cutoff.append(s.cutoff[e])
-            pooled_query_ids.append(s.query_ids[e])
 
-    return {
-        'ids': pooled_ids,
-        'y': np.stack(pooled_y, axis=0),  # [96, 8, 256]
-        'mtype': np.stack(pooled_mtype, axis=0),  # [96, 8]
-        'signal': np.stack(pooled_signal, axis=0),  # [96, 8]
-        'cutoff': np.array(pooled_cutoff, dtype=np.int64),  # [96]
-        'query_ids': np.stack(pooled_query_ids, axis=0),  # [96, 8]
-    }
+def short_windows(split):
+    """Yield causal prefixes and sampled outcomes from validation history."""
+    ticks = np.arange(split.y.shape[-1])
+    for offset in range(WINDOW):
+        cutoff = split.cutoff - WINDOW + offset
+        y = np.where(ticks < cutoff[:, None, None], split.y, -1)
+        prefix = replace(split, name='short_eval', y=y, cutoff=cutoff,
+                         signal=np.zeros_like(split.signal), n_obs=(y >= 0).sum(axis=-1),
+                         label=None, condition=None, target=None, reference=None)
+        outcomes = np.take_along_axis(split.y, cutoff[:, None, None], axis=-1)[..., 0]
+        yield prefix, outcomes
+
+
+def write_short_predictions(path, predict, split):
+    """Save forecasts keyed by held-out queries and pseudo-cutoffs."""
+    preds, outs, cutoffs = [], [], []
+    for prefix, outcomes in short_windows(split):
+        pred = np.asarray(predict(prefix))
+        if (pred.shape != (*outcomes.shape, 5) or not np.isfinite(pred).all()
+                or np.any(pred < 0) or np.any(abs(pred.sum(axis=-1) - 1) >= 1e-6)):
+            raise ValueError('Invalid short-history probability forecasts.')
+        preds.append(pred)
+        outs.append(outcomes)
+        cutoffs.append(prefix.cutoff)
+    np.savez_compressed(path, preds=np.asarray(preds), outs=np.asarray(outs),
+                        cutoffs=np.asarray(cutoffs), query_ids=np.asarray(split.query_ids, dtype=str))
 
 
 def run_short_predict(model_name, seed, out_dir, data=None, round_name='main'):
-    """Fit model on short-truncated round and predict over 8 ticks (j=0..7) on pooled short episodes."""
+    """Fit on train and score eight sequential validation prefixes per machine."""
     out_dir = Path(out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
-    out_path = out_dir / f"short_{model_name}_{seed}.npz"
+    out_path = out_dir / f"{ARTIFACT_PREFIX}{model_name}_{seed}.npz"
 
     rnd = load_round(data_root(data, round_name), round_name, answers=False)
-    short_pool = collect_short_episodes(rnd)
-    rt = prepare_short_backtest_round(rnd)
+    short = collect_short_episodes(rnd)
+    arm, _ = build_model(model_name, seed)
+    arm.fit(prepare_short_backtest_round(rnd), dev_spec(False))
+    write_short_predictions(out_path, arm.predict, short)
 
-    arm, spec = build_model(model_name, seed)
-
-    fitted_rt = fit_round(rt, spec)
-    # Supply dummy labels for any label_splits missing labels if arm expects it
-    f_splits = dict(fitted_rt.splits)
-    for s_name in spec.label_splits:
-        s = f_splits[s_name]
-        if s.label is None:
-            f_splits[s_name] = replace(s, label=np.full(s.query_ids.shape, -1, dtype=np.int8))
-    fitted_rt = replace(fitted_rt, splits=f_splits)
-    arm.fit(fitted_rt, spec)
-
-    # For j in 0..7 predict with pseudo cutoff (new cutoff + j)
-    # new cutoff is original cutoff - 8
-    orig_cutoffs = short_pool['cutoff']
-    orig_y = short_pool['y']
-    E_short = len(short_pool['ids'])
-
-    preds, outs = [], []
-    for j in range(8):
-        pseudo_cutoff = orig_cutoffs - 8 + j
-        y_j = orig_y.copy()
-        for e in range(E_short):
-            y_j[e, :, pseudo_cutoff[e]:] = -1
-        n_obs_j = (y_j >= 0).sum(axis=-1).astype(np.int64)
-
-        pseudo_split = Split(
-            name='short_eval',
-            ids=short_pool['ids'],
-            y=y_j,
-            mtype=short_pool['mtype'],
-            signal=short_pool['signal'],
-            cutoff=pseudo_cutoff,
-            n_obs=n_obs_j,
-            query_ids=short_pool['query_ids'],
-        )
-
-        pred_j = arm.predict(pseudo_split)
-        out_j = np.zeros((E_short, 8), dtype=np.int8)
-        for e in range(E_short):
-            out_j[e, :] = orig_y[e, :, pseudo_cutoff[e]]
-
-        preds.append(pred_j)
-        outs.append(out_j)
-
-    preds_arr = np.array(preds)  # [8, 96, 8, 5]
-    outs_arr = np.array(outs)    # [8, 96, 8]
-    np.savez(out_path, preds=preds_arr, outs=outs_arr)
-
-    met = compute_metrics(preds_arr, outs_arr)
+    with np.load(out_path) as saved:
+        met = compute_metrics(saved['preds'], saved['outs'])
     print(f"short_backtest {model_name} (seed {seed}) saved to {out_path}")
     print(f"  n={met['n_outcomes']} wins={met['n_wins']} win_part={met['win_part']:.4f} size_part={met['size_part']:.4f} total={met['total_loss']:.4f} brier={met['brier']:.5f}")
     return out_path
 
 
 def find_short_files(directory, model):
-    """Find matching npz files for a model in directory."""
-    d = Path(directory)
-    found = []
-    for p in d.glob('*.npz'):
-        stem = p.stem
-        # e.g. short_gru_fac_1 or short_pooled_recent_0 or short_pooled_recent
-        if stem.startswith(f"short_{model}"):
-            found.append(p)
-    return sorted(list(set(found)))
+    pattern = re.compile(rf"{ARTIFACT_PREFIX}{re.escape(model)}_-?\d+\.npz")
+    return sorted(path for path in Path(directory).glob('*.npz') if pattern.fullmatch(path.name))
 
 
 def run_short_report(in_dir, models, baseline='pooled_recent'):
     """Subcommand report implementation for short_backtest."""
+    if not models:
+        raise ValueError('At least one model is required.')
     preds_by_model = {}
-    outs = None
+    split_key = None
 
-    for m in models:
-        files = find_short_files(in_dir, m)
+    for model in models:
+        files = find_short_files(in_dir, model)
         if not files:
-            raise FileNotFoundError(f"No npz files found for model '{m}' in '{in_dir}'")
+            raise FileNotFoundError(f"No held-out short backtest files for {model!r} in {in_dir!r}")
         seed_preds = []
-        for f in files:
-            z = np.load(f)
-            seed_preds.append(z['preds'])
-            if outs is None:
-                outs = z['outs']
-        preds_by_model[m] = np.mean(seed_preds, axis=0)
+        for file in files:
+            with np.load(file) as saved:
+                key = tuple(saved[name] for name in ('query_ids', 'cutoffs', 'outs'))
+                if split_key is None:
+                    split_key = key
+                if any(not np.array_equal(a, b) for a, b in zip(key, split_key)):
+                    raise ValueError(f"Held-out episode or outcome mismatch in {file}")
+                seed_preds.append(saved['preds'])
+        preds_by_model[model] = np.mean(seed_preds, axis=0)
+    outs = split_key[2]
 
     W, E, M, _ = list(preds_by_model.values())[0].shape
-    print(f"## Short History Backtest Report")
+    print(f"## Held-Out Short History Backtest Report")
     print(f"Ticks per episode: {W} | Short Episodes: {E} | Machines: {M} | Total outcomes: {(outs >= 0).sum()}")
     print()
 
